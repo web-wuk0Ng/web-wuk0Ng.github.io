@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="博客更新公告3, wuk0Ng">
+    <meta name="keywords" content="渗透测试1, wuk0Ng">
     <meta name="description" content="wuk0Ng的个人博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>博客更新公告3 | wuk0Ng</title>
+    <title>渗透测试1 | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -320,12 +320,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">博客更新公告3</h1>
+                    <h1 class="description center-align post-title">渗透测试1</h1>
                 </div>
             </div>
         </div>
@@ -441,12 +441,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9B%B4%E6%96%B0/">
-                                <span class="chip bg-color">更新</span>
+                            <a href="/tags/%E6%B8%97%E9%80%8F/">
+                                <span class="chip bg-color">渗透</span>
                             </a>
                         
-                            <a href="/tags/%E5%8D%87%E7%BA%A7/">
-                                <span class="chip bg-color">升级</span>
+                            <a href="/tags/%E5%AE%89%E5%85%A8/">
+                                <span class="chip bg-color">安全</span>
                             </a>
                         
                     </div>
@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-05-21
+                    2025-05-24
                 </div>
                 
 
@@ -491,7 +491,21 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>把音乐的一个东西关了，博客访问速度大幅提升，之前手机或者电脑进去都会非常慢，现在基本秒进了</p>
+                <p>感觉五月份，从五一放假回来到5&#x2F;24日<br>从20号开始，状态都很差。20号满课。21号下午是有空的，但是中午睡了两三小时，四点多醒来到机房就匆忙地做了一下京东他家ctf的web签到。周四课更加满了。周五状态很差很差<br>或许是看别人比我学的快，又或是期末来了，再或是还有攻防赛，得赶鸭子上架般地学习awd。还有内心总是追求完美，欠了很多东西还没有去做。<br>不断调整，常常反思一下自己的问题<br>下面的这个学习基本等于没有学吧！</p>
+<p>巴拉巴拉，如需要在法律允许的范围内搜集<br>域名信息收集，敏感信息和目录收集，子域名信息收集<br>旁站和C段：同一个网段下的不同机器。比如我现在的ip是192.168.1，我的虚拟机可能为192.168.4<br>端口信息收集：<br>指纹识别：识别人家的操作系统等等<br>绕过目标域名CDN进行信息收集：获得真实ip<br>waf信息搜集：。。。</p>
+<h1 id="域名信息搜集"><a href="#域名信息搜集" class="headerlink" title="域名信息搜集"></a>域名信息搜集</h1><p>1.识别目标网络范围<br>2.获取公开的WHOIS信息<br>比如说： <a target="_blank" rel="noopener" href="https://www.aizhan.com/">查找相关信息的网站</a><br>里面专门有WHOIS查询<br>还有等等的用法<br>SEO查询等等，比如增加网站流量呀等获利方面的信息<br>再看看能不能找到个人邮箱呀等等</p>
+<h1 id="敏感信息和目录搜集"><a href="#敏感信息和目录搜集" class="headerlink" title="敏感信息和目录搜集"></a>敏感信息和目录搜集</h1><p>敏感信息包括目标暴露的任何可能对攻击者。。。有用的信息<br>这里我们使用dirsearch<br>这里ctf做题，也已经知道了它的很多用法了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dirsearch -e php,html,js -u www.baidu.com</span><br></pre></td></tr></table></figure>
+<p>原来dirsearch是还有其他的用法的<br>我们扫描完成之后，输入ls<br>是可以进去目录的<br>比如我的网站ls后出现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Desktop    GitHack   Public  Templates       demo.py   session.py</span><br><span class="line">Documents  Music     Pwngdb  Videos          patchelf</span><br><span class="line">Downloads  Pictures  Ropper  cnext-exploits  reports</span><br></pre></td></tr></table></figure>
+<p>出现了这些，然后我们cd 一个东西<br>就进入这个目录了<br>还可以继续ls等等<br>我们对于目标网站，扫完之后ls<br>然后<code>cd reports</code><br>再ls就发现我们这里有我们的<code>_wuk0Ng.top</code><br>我们再cd进去<code>cd _wuk0Ng.top</code><br>进入之后就有一个文件<br>然后我们输入more加空格再加这个文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">more _25-05-23_17-16-44.txt</span><br><span class="line"># Dirsearch started Fri May 23 17:18:28 2025 as: /usr/lib/python3/dist-packages/</span><br><span class="line">dirsearch/dirsearch.py -e php,heml,js -u wuk0Ng.top</span><br><span class="line"></span><br><span class="line">301   162B   https://wuk0Ng.top/js    -&gt; REDIRECTS TO: https://wuk0ng.top/js/</span><br><span class="line">404     5KB  https://wuk0Ng.top/.well-known/acme-challenge/dtfy</span><br><span class="line">301   162B   https://wuk0Ng.top/about    -&gt; REDIRECTS TO: https://wuk0ng.top/abo</span><br><span class="line">ut/</span><br><span class="line">301   162B   https://wuk0Ng.top/archives    -&gt; REDIRECTS TO: https://wuk0ng.top/</span><br><span class="line">archives/</span><br><span class="line">301   162B   https://wuk0Ng.top/assets    -&gt; REDIRECTS TO: https://wuk0ng.top/as</span><br><span class="line">sets/</span><br><span class="line">301   162B   https://wuk0Ng.top/categories    -&gt; REDIRECTS TO: https://wuk0ng.to</span><br><span class="line">p/categories/</span><br><span class="line">301   162B   https://wuk0Ng.top/contact    -&gt; REDIRECTS TO: https://wuk0ng.top/c</span><br><span class="line">ontact/</span><br><span class="line">301   162B   https://wuk0Ng.top/css    -&gt; REDIRECTS TO: https://wuk0ng.top/css/</span><br><span class="line">301   162B   https://wuk0Ng.top/libs    -&gt; REDIRECTS TO: https://wuk0ng.top/libs</span><br><span class="line">/</span><br><span class="line">503    54KB  https://wuk0Ng.top/netadmin</span><br><span class="line">301   162B   https://wuk0Ng.top/page    -&gt; REDIRECTS TO: https://wuk0ng.top/page</span><br><span class="line">/</span><br><span class="line">301   162B   https://wuk0Ng.top/tags    -&gt; REDIRECTS TO: https://wuk0ng.top/tags</span><br><span class="line">/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后这里就把我的网站的各类信息等都弄出来了</p>
+<p>搜索引擎可以作为渗透测试中强大信息搜集工具，通过公开数据挖掘，获取目标的敏感信息、暴露的文件、目录及其他潜在的漏洞点<br>这里可以进行信息搜集<br>指定域名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">site:wuk0Ng.top</span><br></pre></td></tr></table></figure>
+<p>url中存在关键字的网页</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">inurl:admin site:wuk0Ng.top</span><br><span class="line">inurl:login site:wuk0Ng.top</span><br><span class="line">inurl:robots.txt site:wuk0Ng.top</span><br></pre></td></tr></table></figure>
+<p>或者我们打开我们的kail里面的firefox，里面有exploit_DB和google HackingDB<br>然后里面就可以用里面的工具帮助我们找漏洞这些了</p>
 
                 
             </div>
@@ -518,7 +532,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://web-wuk0ng.github.io/2025/05/21/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B03/">https://web-wuk0ng.github.io/2025/05/21/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B03/</a>
+                    <a href="https://web-wuk0ng.github.io/2025/05/24/%E5%88%9D%E5%AD%A6%E6%B8%97%E9%80%8F/">https://web-wuk0ng.github.io/2025/05/24/%E5%88%9D%E5%AD%A6%E6%B8%97%E9%80%8F/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -556,12 +570,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9B%B4%E6%96%B0/">
-                                    <span class="chip bg-color">更新</span>
+                                <a href="/tags/%E6%B8%97%E9%80%8F/">
+                                    <span class="chip bg-color">渗透</span>
                                 </a>
                             
-                                <a href="/tags/%E5%8D%87%E7%BA%A7/">
-                                    <span class="chip bg-color">升级</span>
+                                <a href="/tags/%E5%AE%89%E5%85%A8/">
+                                    <span class="chip bg-color">安全</span>
                                 </a>
                             
                         </div>
@@ -736,7 +750,7 @@
     repo: 'blog---comments',
     owner: 'web-wuk0Ng',
     admin: ["web-wuk0Ng"],
-    id: '2025-05-21T22-00-00',
+    id: '2025-05-24T14-00-00',
     distractionFreeMode: false
   });
 
@@ -762,9 +776,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2025/05/24/%E5%88%9D%E5%AD%A6%E6%B8%97%E9%80%8F/">
                     <div class="card-image">
@@ -782,9 +797,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-05-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -797,6 +812,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -819,13 +835,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2025/05/19/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B02/">
+                <a href="/2025/05/21/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B03/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="博客更新公告2">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="博客更新公告3">
                         
-                        <span class="card-title">博客更新公告2</span>
+                        <span class="card-title">博客更新公告3</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -836,7 +852,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-21
                             </span>
                         <span class="publish-author">
                             
