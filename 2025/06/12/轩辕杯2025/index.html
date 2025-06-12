@@ -491,7 +491,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>当时，周六早九点开赛，晚上九点结束，但我七点就去机房开会了。做出了四道题目。<br>第一天放了六道题目，没时间做了，只做出四道，有一道不会，还有一道就是没有时间来做了。<br>第二天又放了一道题目<br>好像平台的靶机马上要下线了，刚好说期末重要的基本考完了，赶紧来复现一下</p>
+                <p>第一天放了六道题目，没时间做了，只做出四道，有一道不会，还有一道就是没有时间来做了。<br>第二天又放了一道题目<br>好像平台的靶机马上要下线了，刚好说期末重要的基本考完了，赶紧来复现一下</p>
 <h1 id="ezjs"><a href="#ezjs" class="headerlink" title="ezjs"></a>ezjs</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">game._addSuccessFn(function (scoreNow) &#123;</span><br><span class="line">    current_score.innerHTML = scoreNow</span><br><span class="line"></span><br><span class="line">    if (scoreNow === 100000000000) &#123;</span><br><span class="line">        fetch(&#x27;getflag.php&#x27;, &#123;</span><br><span class="line">            method: &#x27;POST&#x27;,</span><br><span class="line">            headers: &#123;</span><br><span class="line">                &#x27;Content-Type&#x27;: &#x27;application/x-www-form-urlencoded&#x27;,</span><br><span class="line">            &#125;,</span><br><span class="line">            body: &#x27;score=&#x27; + scoreNow</span><br><span class="line">        &#125;)</span><br><span class="line">        .then(response =&gt; response.text())</span><br><span class="line">        .then(data =&gt; &#123;</span><br><span class="line">            alert(&quot;恭喜你！flag是：&quot; + data);</span><br><span class="line">        &#125;)</span><br><span class="line">        .catch(error =&gt; &#123;</span><br><span class="line">            console.error(&#x27;错误:&#x27;, error);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>一进去查看网页源代码，控制台输入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">fetch(&#x27;getflag.php&#x27;, &#123;</span><br><span class="line">    method: &#x27;POST&#x27;,</span><br><span class="line">    headers: &#123;</span><br><span class="line">        &#x27;Content-Type&#x27;: &#x27;application/x-www-form-urlencoded&#x27;,</span><br><span class="line">    &#125;,</span><br><span class="line">    body: &#x27;score=100000000000&#x27;</span><br><span class="line">&#125;)</span><br><span class="line">.then(response =&gt; response.text())</span><br><span class="line">.then(data =&gt; &#123;</span><br><span class="line">    alert(&quot;恭喜你！flag是：&quot; + data);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -837,18 +837,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/06/12/%E8%BD%A9%E8%BE%95%E6%9D%AF2025/">
+                <a href="/2025/06/12/d%5E3ctf2025/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="轩辕杯2025">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="d^3ctf2025，京麒ctf2025，鸿蒙ctf2025">
                         
-                        <span class="card-title">轩辕杯2025</span>
+                        <span class="card-title">d^3ctf2025，京麒ctf2025，鸿蒙ctf2025</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -858,9 +857,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-06-12
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-06-12
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -873,7 +872,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
