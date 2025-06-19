@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="短期的一个粗暴规划, wuk0Ng">
+    <meta name="keywords" content="短标签, wuk0Ng">
     <meta name="description" content="wuk0Ng的个人博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>短期的一个粗暴规划 | wuk0Ng</title>
+    <title>短标签 | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -320,12 +320,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">短期的一个粗暴规划</h1>
+                    <h1 class="description center-align post-title">短标签</h1>
                 </div>
             </div>
         </div>
@@ -445,8 +445,8 @@
                                 <span class="chip bg-color">CTF</span>
                             </a>
                         
-                            <a href="/tags/%E6%AF%94%E8%B5%9B/">
-                                <span class="chip bg-color">比赛</span>
+                            <a href="/tags/%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">安全学习</span>
                             </a>
                         
                     </div>
@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-06-15
+                    2025-06-19
                 </div>
                 
 
@@ -491,7 +491,29 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>基本考完17号的物理，可能我的自主时间就会多了很多。希望自己能够好好珍惜这个宝贵的时期！多学一点东西<br>自己的基础还是很薄弱的，感觉有很多地方还是需要再慢慢精进<br>语言的话，py还要再学深很多，不然自己真的很多的脚本还是写不出的；前端三件套，html,css,js都要再深入地学习一下。还有就是暑期开始学java。后面再写一个项目什么的<br>ssrf没有学深入，这个稍微学的再深入一点<br>条件竞争也遇见好几次了。还有jwt的很多知识也是欠缺的。反序列化还要再学phar和文件上传，pickle反序列化。nodejs之前遇见过一次，但是自己没有学的深入了。<br>xss也要学，会比较难，结合后面的java后又比较难<br>提权和杀向逃逸这些自己都还是要再进一步地学习的<br>把这些记得住的知识点全部写在一起，后面每天给自己安排要学多少的任务</p>
+                <h1 id="短标签"><a href="#短标签" class="headerlink" title="短标签"></a>短标签</h1><p>用法常规是在说，我的这个上传的文件的内容会被检验，有php这个东西的就不行的这种情况</p>
+<h2 id="正常写法"><a href="#正常写法" class="headerlink" title="正常写法"></a>正常写法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">echo 1;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="短标签写法"><a href="#短标签写法" class="headerlink" title="短标签写法"></a>短标签写法</h2><p>需要 php.ini 配置文件中的指令 short_open_tag 打开后才可用，或者在 PHP 编译时加入了 –enable-short-tags 选项。自 PHP5.4 起，短格式的 echo 标记 &lt;?&#x3D; 总会被识别并且合法，而不管 short_open_tag 的设置是什么</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?</span><br><span class="line">echo 1;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>5.4起</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;?=</span><br><span class="line">&#x27;hello&#x27;;</span><br></pre></td></tr></table></figure>
+<p>和</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;?</span><br><span class="line">echo &#x27;hello&#x27;;</span><br></pre></td></tr></table></figure>
+<p>作用是一样的</p>
+<h2 id="7-0以下可用，无需调整参数"><a href="#7-0以下可用，无需调整参数" class="headerlink" title="7.0以下可用，无需调整参数"></a>7.0以下可用，无需调整参数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?=</span><br><span class="line">phpinfo();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="不推荐写法"><a href="#不推荐写法" class="headerlink" title="不推荐写法"></a>不推荐写法</h2><p>为了 asp 程序员学习 php 所添加的语法糖写法。需要通过 php.ini 配置文件中的指令 asp_tags 打开后才可用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% </span><br><span class="line">echo 1;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="php7后不解析，长标签写法"><a href="#php7后不解析，长标签写法" class="headerlink" title="php7后不解析，长标签写法"></a>php7后不解析，长标签写法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script language=&quot;php&quot;&gt; echo 1; &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="LitCTF-2025-easy-file"><a href="#LitCTF-2025-easy-file" class="headerlink" title="[LitCTF 2025]easy_file"></a>[LitCTF 2025]easy_file</h1><p>首先进来目录扫描一下，发现有&#x2F;admin.php（重定向到index.php)和&#x2F;login.php还有&#x2F;uploads<br>当时比赛的时候，我已经和爆破出来了账号密码了<br>这里账号admin就行了（当然也有可能是admin123这些）<br>账号和密码会被base64处理，用脚本把我们的字典处理一下（或者直接用bp里面的功能就能实现）<br>爆破账号密码就选集束炸弹，单个就选狙击手<br>这里很简单就可以爆破出来账号是admin，密码是password<br>之前就卡在了这一步，进入了后面发现，还有一个文件上传的题目在等着我<br>我当时比赛的时候试了很多的情况都没有成功<br>后面怎么打？<br>首先是没有登陆进去之前，有一个</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//file查看头像</span><br></pre></td></tr></table></figure>
+<p>的这个提示<br>我们这里就可以考虑文件包含的这个方面的内容了<br>首先，我们思路一定是说，要么直接上传一个php文件，通过改后缀这些等等<br>还有就是，上传图片，然后让服务器把图片内容当成php来解析<br>我的火狐的浏览器有一些问题，每次需要到microsoft里面，才能正确看到版本信息这些，php版本是7.3版本的</p>
+<p>对于这个题目，我们结合题目告诉你的<br>这个是我们的木马</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?=@eval($_POST[&#x27;a&#x27;]);?&gt;</span><br></pre></td></tr></table></figure>
+<p>放进txt文件里就可以了<br>思路就是利用 file 读取上传的 xjmuma.txt 文件，然后文件就被解析咯</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://node6.anna.nssctf.cn:25621/admin.php?file=uploads/muma.txt</span><br></pre></td></tr></table></figure>
+<p>访问这个就可以了<br>post传入我们的参数<br>最后拿到flag</p>
 
                 
             </div>
@@ -518,7 +540,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://web-wuk0ng.github.io/2025/06/15/%E7%9F%AD%E6%9C%9F%E7%B2%97%E6%9A%B4%E8%A7%84%E5%88%92/">https://web-wuk0ng.github.io/2025/06/15/%E7%9F%AD%E6%9C%9F%E7%B2%97%E6%9A%B4%E8%A7%84%E5%88%92/</a>
+                    <a href="https://web-wuk0ng.github.io/2025/06/19/%E7%9F%AD%E6%A0%87%E7%AD%BE/">https://web-wuk0ng.github.io/2025/06/19/%E7%9F%AD%E6%A0%87%E7%AD%BE/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -560,8 +582,8 @@
                                     <span class="chip bg-color">CTF</span>
                                 </a>
                             
-                                <a href="/tags/%E6%AF%94%E8%B5%9B/">
-                                    <span class="chip bg-color">比赛</span>
+                                <a href="/tags/%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">安全学习</span>
                                 </a>
                             
                         </div>
@@ -736,7 +758,7 @@
     repo: 'blog---comments',
     owner: 'web-wuk0Ng',
     admin: ["web-wuk0Ng"],
-    id: '2025-06-15T18-00-00',
+    id: '2025-06-19T15-00-00',
     distractionFreeMode: false
   });
 
@@ -762,9 +784,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2025/06/19/%E7%9F%AD%E6%A0%87%E7%AD%BE/">
                     <div class="card-image">
@@ -782,9 +805,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-06-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-06-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -797,6 +820,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -819,13 +843,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2025/06/15/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E8%BF%9B%E9%98%B6/">
+                <a href="/2025/06/15/%E7%9F%AD%E6%9C%9F%E7%B2%97%E6%9A%B4%E8%A7%84%E5%88%92/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="反序列化初步">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="短期的一个粗暴规划">
                         
-                        <span class="card-title">反序列化初步</span>
+                        <span class="card-title">短期的一个粗暴规划</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
