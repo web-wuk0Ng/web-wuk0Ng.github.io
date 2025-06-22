@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="CVE-2025-29927, wuk0Ng">
+    <meta name="keywords" content="博客更新4, wuk0Ng">
     <meta name="description" content="wuk0Ng的个人博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>CVE-2025-29927 | wuk0Ng</title>
+    <title>博客更新4 | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -320,12 +320,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">CVE-2025-29927</h1>
+                    <h1 class="description center-align post-title">博客更新4</h1>
                 </div>
             </div>
         </div>
@@ -441,12 +441,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
+                            <a href="/tags/%E6%9B%B4%E6%96%B0/">
+                                <span class="chip bg-color">更新</span>
                             </a>
                         
-                            <a href="/tags/%E6%AF%94%E8%B5%9B/">
-                                <span class="chip bg-color">比赛</span>
+                            <a href="/tags/%E5%9B%BE%E7%89%87/">
+                                <span class="chip bg-color">图片</span>
                             </a>
                         
                     </div>
@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-06-19
+                    2025-06-21
                 </div>
                 
 
@@ -491,11 +491,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="LitCTF-2025-nest-js"><a href="#LitCTF-2025-nest-js" class="headerlink" title="[LitCTF 2025]nest_js"></a>[LitCTF 2025]nest_js</h1><p>对于很多的cve，由于水平有限，目前先不考虑修复等等问题，只是满足做题需要<br>题目提示你&#x2F;dashboard<br>首先我们先分析架构，得到是next.js相关的<br>查找相关的发现，有这个cve<br>假设应用在 &#x2F;middleware.ts 中实施了以下逻辑，用于验证用户是否登录，若未登录则阻止访问 &#x2F;admin 路由</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">export function middleware(req: NextRequest) &#123;</span><br><span class="line">  const token = req.cookies.get(&#x27;session&#x27;);</span><br><span class="line">  if (!token &amp;&amp; req.nextUrl.pathname.startsWith(&#x27;/admin&#x27;)) &#123;</span><br><span class="line">    return NextResponse.redirect(&#x27;/login&#x27;);</span><br><span class="line">  &#125;</span><br><span class="line">  return NextResponse.next();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>使用如下请求头</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET /dashboard HTTP/1.1</span><br><span class="line">Host: node1.anna.nssctf.cn:28441</span><br><span class="line">x-middleware-subrequest: middleware:middleware:middleware:middleware:middleware</span><br></pre></td></tr></table></figure>
-<p>可能让 Next.js 判定该请求是内部中间件调用，从而直接跳过此验证，成功访问 &#x2F;dashboard<br>这道题目就是可以直接拿到flag的<br>还可以就是直接爆破得到账号密码<br>账号admin,密码password</p>
+                <p>新增图片功能<br>如果下图能够看见的话，那就是更新成功了</p>
+<p><img src="https://github.com/web-wuk0Ng/my-images/blob/main/015d1f5ae9e25aa801207fa1aa019b.png"></p>
 
                 
             </div>
@@ -522,7 +519,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://web-wuk0ng.github.io/2025/06/19/CVE-2025-29927/">https://web-wuk0ng.github.io/2025/06/19/CVE-2025-29927/</a>
+                    <a href="https://web-wuk0ng.github.io/2025/06/21/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B04/">https://web-wuk0ng.github.io/2025/06/21/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B04/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -560,12 +557,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
+                                <a href="/tags/%E6%9B%B4%E6%96%B0/">
+                                    <span class="chip bg-color">更新</span>
                                 </a>
                             
-                                <a href="/tags/%E6%AF%94%E8%B5%9B/">
-                                    <span class="chip bg-color">比赛</span>
+                                <a href="/tags/%E5%9B%BE%E7%89%87/">
+                                    <span class="chip bg-color">图片</span>
                                 </a>
                             
                         </div>
@@ -740,7 +737,7 @@
     repo: 'blog---comments',
     owner: 'web-wuk0Ng',
     admin: ["web-wuk0Ng"],
-    id: '2025-06-19T21-00-00',
+    id: '2025-06-21T21-00-00',
     distractionFreeMode: false
   });
 
@@ -766,9 +763,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2025/06/21/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B04/">
                     <div class="card-image">
@@ -786,9 +784,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-06-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-06-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -801,6 +799,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -823,13 +822,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2025/06/19/ssti%E5%AE%9E%E6%88%98%E5%A4%9A%E6%96%B9%E6%B3%95%E8%A7%A3%E9%A2%981/">
+                <a href="/2025/06/19/CVE-2025-29927/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="ssti实战多方法解题1">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="CVE-2025-29927">
                         
-                        <span class="card-title">ssti实战多方法解题1</span>
+                        <span class="card-title">CVE-2025-29927</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -861,8 +860,8 @@
                         <span class="chip bg-color">CTF</span>
                     </a>
                     
-                    <a href="/tags/%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">安全学习</span>
+                    <a href="/tags/%E6%AF%94%E8%B5%9B/">
+                        <span class="chip bg-color">比赛</span>
                     </a>
                     
                 </div>

@@ -587,7 +587,7 @@
 
 <p>对应的文件<br>&lt;FilesMatch “muma.jpg”&gt; &#x2F;&#x2F;上传的文件名<br>SetHandler application&#x2F;x-httpd-php<br></FilesMatch></p>
 <p>也可以<br>post请求访问phpinfo()页面   post传参   shell&#x3D;phpinfo();<br>要打开图片，然后post传参。有可能拿到flag<br>难点：我卡了很久，发现一开始我传入.htccess后缀的也不行，必须要绕过才可以。抓包改content-type为image&#x2F;jpeg<br>然后再上传，后在蚁剑右键打开虚拟终端，输入env拿到flag</p>
-<pre><code>这里我们直接找到flag就可以了
+<pre><code class="/">这里我们直接找到flag就可以了
 # [FSCTF 2023]源码！启动!
 1分
 信息收集源码泄漏其他
