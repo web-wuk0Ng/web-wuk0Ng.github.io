@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="博客更新4, wuk0Ng">
+    <meta name="keywords" content="公网弹shell, wuk0Ng">
     <meta name="description" content="wuk0Ng的个人博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>博客更新4 | wuk0Ng</title>
+    <title>公网弹shell | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -320,12 +320,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">博客更新4</h1>
+                    <h1 class="description center-align post-title">公网弹shell</h1>
                 </div>
             </div>
         </div>
@@ -441,12 +441,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9B%B4%E6%96%B0/">
-                                <span class="chip bg-color">更新</span>
+                            <a href="/tags/shell/">
+                                <span class="chip bg-color">shell</span>
                             </a>
                         
-                            <a href="/tags/%E5%9B%BE%E7%89%87/">
-                                <span class="chip bg-color">图片</span>
+                            <a href="/tags/ctf/">
+                                <span class="chip bg-color">ctf</span>
                             </a>
                         
                     </div>
@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-06-21
+                    2025-06-22
                 </div>
                 
 
@@ -491,10 +491,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>新增图片功能<br>如果下图能够看见的话，那就是更新成功了<br>第一种思路是用阿里云的oss，但是我的域名是没有备案的ICP备案的。先不管麻不麻烦，首先是要说，你要把我的这个套餐的按量计费改为包月，需要花更多的钱<br>第二种思路就是创建一个github的仓库，然后用来放我们的图片，然后就可以说直接插入我们图片的连接了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/web-wuk0Ng/my-images/blob/main/015d1f5ae9e25aa801207fa1aa019b.png</span><br></pre></td></tr></table></figure>
-<p>把blob改为raw就可以了</p>
-<p><img src="https://github.com/web-wuk0Ng/my-images/raw/main/015d1f5ae9e25aa801207fa1aa019b.png"></p>
+                <p>一开始我是在自己本地搭建了一个类似于靶机的东西，然后我也去弹shell,那个时候成功了<br>但是，我后面打了校赛才发现。比如有一个cve（当时比赛时是php的）（后面打了个Apache的cve也遇见了），或是权限不够，或是要通用过命令把shell弹出去，这个时候，弹给kail就不行的，kail是内网<br>必须要弹到公网上面去<br>应该是说，又很多的解决方法<br>这里我用了一个简单的，目前来说够用<br>第一个是，用frps，这个是要下载，然后用我们的阿里云ESC，来当这个服务器端<br>还有就是你的kail，配置frpc的内容，来当客户端<br>然后我们去弹shell给阿里云公网的ESC的时候，通过配置，就直接给了你kail了<br>做到了一个内网穿透<br>但是我配了很久一直都没有成功<br>我用的就是第二个，你直接就给阿里云弹shell就行了<br>但是阿里云的ESC是没有终端，就像是cmd的那个东西的<br>我们输入命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@xxx.xx.xxx.xx(你的ESC公网地址)</span><br></pre></td></tr></table></figure>
+<p>然后输入我们的密码（没记住可以召回的，个人是每个密码都放进一个加密文件里，不存在找不到）<br>这里就开始直接监听我们的端口就可以了，什么都不需要了</p>
 
                 
             </div>
@@ -521,7 +520,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://web-wuk0ng.github.io/2025/06/21/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B04/">https://web-wuk0ng.github.io/2025/06/21/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B04/</a>
+                    <a href="https://web-wuk0ng.github.io/2025/06/22/vps/">https://web-wuk0ng.github.io/2025/06/22/vps/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -559,12 +558,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9B%B4%E6%96%B0/">
-                                    <span class="chip bg-color">更新</span>
+                                <a href="/tags/shell/">
+                                    <span class="chip bg-color">shell</span>
                                 </a>
                             
-                                <a href="/tags/%E5%9B%BE%E7%89%87/">
-                                    <span class="chip bg-color">图片</span>
+                                <a href="/tags/ctf/">
+                                    <span class="chip bg-color">ctf</span>
                                 </a>
                             
                         </div>
@@ -739,7 +738,7 @@
     repo: 'blog---comments',
     owner: 'web-wuk0Ng',
     admin: ["web-wuk0Ng"],
-    id: '2025-06-21T21-00-00',
+    id: '2025-06-22T19-00-00',
     distractionFreeMode: false
   });
 
@@ -765,9 +764,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2025/06/22/vps/">
                     <div class="card-image">
@@ -785,9 +785,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-06-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-06-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -800,6 +800,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -822,13 +823,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2025/06/19/CVE-2025-29927/">
+                <a href="/2025/06/21/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B04/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="CVE-2025-29927">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="博客更新4">
                         
-                        <span class="card-title">CVE-2025-29927</span>
+                        <span class="card-title">博客更新4</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -839,7 +840,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-06-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-06-21
                             </span>
                         <span class="publish-author">
                             
@@ -856,12 +857,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
+                    <a href="/tags/%E6%9B%B4%E6%96%B0/">
+                        <span class="chip bg-color">更新</span>
                     </a>
                     
-                    <a href="/tags/%E6%AF%94%E8%B5%9B/">
-                        <span class="chip bg-color">比赛</span>
+                    <a href="/tags/%E5%9B%BE%E7%89%87/">
+                        <span class="chip bg-color">图片</span>
                     </a>
                     
                 </div>
