@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="nodejs初步, wuk0Ng">
+    <meta name="keywords" content="大一暑期初, wuk0Ng">
     <meta name="description" content="wuk0Ng的个人博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>nodejs初步 | wuk0Ng</title>
+    <title>大一暑期初 | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -320,12 +320,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">nodejs初步</h1>
+                    <h1 class="description center-align post-title">大一暑期初</h1>
                 </div>
             </div>
         </div>
@@ -441,12 +441,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
+                            <a href="/tags/%E5%8F%8D%E6%80%9D/">
+                                <span class="chip bg-color">反思</span>
                             </a>
                         
-                            <a href="/tags/nodejs/">
-                                <span class="chip bg-color">nodejs</span>
+                            <a href="/tags/%E8%A7%84%E5%88%92/">
+                                <span class="chip bg-color">规划</span>
                             </a>
                         
                     </div>
@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-06-23
+                    2025-06-28
                 </div>
                 
 
@@ -491,52 +491,16 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="NodeJS从零开始到原型链污染"><a href="#NodeJS从零开始到原型链污染" class="headerlink" title="NodeJS从零开始到原型链污染"></a>NodeJS从零开始到原型链污染</h1><p>nodejs基础<br>Node.js 是一个基于 Chrome V8 引擎的 Javascript 运行环境<br>它是由C++开发的，它只是一个JavaScript语言解释器。<br>REPL环境运行JavaScript的代码<br>在浏览器的控制台或者node的运行环境都属于REPL运行环境，均可以运行JS代码。<br>在NodeJS中分为三个模块，分别是：核心模块、自定义模块、第三方模块。<br>这里提一点，JS代码在编程时，如果需要使用某个模块的功能，那么就需要提前将其导入，与Python类似，只不过在Python中使用import关键字，而JS中使用require关键字。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var fs = require(&#x27;fs&#x27;);//导入fs模块</span><br><span class="line">fs.readFile(&#x27;./haha.txt&#x27;,&#x27;utf8&#x27;,function(err,data)&#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">    console.log(&#x27;---分界线----&#x27;);</span><br><span class="line">    console.log(data);</span><br><span class="line">&#125;);</span><br><span class="line">console.log(&quot;wuhu&quot;);</span><br></pre></td></tr></table></figure>
-<p>同步和异步<br>同步可以理解为先吃饭再玩游戏，异步可以理解为边吃饭边打游戏</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var fs = require(&#x27;fs&#x27;);//导入fs模块</span><br><span class="line">a = fs.readFileSync(&#x27;./haha.txt&#x27;);</span><br><span class="line">console.log(a.toString());</span><br><span class="line">console.log(&quot;wuhu&quot;);</span><br></pre></td></tr></table></figure>
-<p>全局变量:<br>1.__dirname：当前模块的目录名。<br>2.__filename：当前模块的文件名。这是当前的模块文件的绝对路径（符号链接会被解析）。<br>3.exports变量是默认赋值给module.exports，它可以被赋予新值，它会暂时不会绑定到module.exports。<br>4.module：在每个模块中， module 的自由变量是对表示当前模块的对象的引用。为方便起见，还可以通过全局模块的 exports 访问 module.exports。module 实际上不是全局的，而是每个模块本地的<br>5.require模块就不多说了，用于引入模块、 JSON、或本地文件。可以从 node_modules 引入模块</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 引入 JSON 文件：</span><br><span class="line">const jsonData = require(‘./path/filename.json’);</span><br><span class="line"></span><br><span class="line">// 引入 node_modules 模块或 Node.js 内置模块：</span><br><span class="line">const crypto = require(‘crypto’);</span><br></pre></td></tr></table></figure>
-<p>自己设置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">global.something = 123;</span><br><span class="line">我们可以再输入</span><br><span class="line">something回显回显的就是</span><br><span class="line">123</span><br></pre></td></tr></table></figure>
-<p>经常使用的全局变量是__dirname、__filename</p>
-<p>http服务</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//引入http核心模块</span><br><span class="line">var http = require(&#x27;http&#x27;);</span><br><span class="line">//创建一个服务</span><br><span class="line">var server = http.createServer();</span><br><span class="line">//绑定连接</span><br><span class="line">server.on(&#x27;request&#x27;,function(res,rs)&#123;</span><br><span class="line">    console.log(res.method);//打印请求的方法</span><br><span class="line">    rs.write(&#x27;hello,world!&#x27;);//返回数据</span><br><span class="line">    rs.end();//断开连接</span><br><span class="line">&#125;)</span><br><span class="line">//启动监听</span><br><span class="line">server.listen(4444,function()&#123;</span><br><span class="line">    console.log(&#x27;请访问127.0.0.1:4444&#x27;);</span><br></pre></td></tr></table></figure>
-<p>child_process(创建子进程)<br>child_process提供了几种创建子进程的方式<br>异步方式：spawn、exec、execFile、fork<br>同步方式：spawnSync、execSync、execFileSync<br>经过上面的同步和异步思想的理解，创建子进程的同步异步方式应该不难理解。<br>在异步创建进程时，spawn是基础，其他的fork、exec、execFile都是基于spawn来生成的。<br>同步创建进程可以使用child_process.spawnSync()、child_process.execSync() 和 child_process.execFileSync() ，同步的方法会阻塞 Node.js 事件循环、暂停任何其他代码的执行，直到子进程退出<br>JavaScript原型链<br>原型和原型链</p>
-<p>首先要知道，JavaScript没有父类和子类这个概念，也没有类和实例的区分，而JavaScript中的继承关系则是靠一种很奇怪的“原型链”模式来实现继承。<br>在次之前，要先搞清楚对象和函数有什么区别和联系<br>JavaScript中的对象</p>
-<p>在JavaScript中几乎所有的事物都是对象：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">    &quot;name&quot;: &quot;m0re&quot;,</span><br><span class="line">    &quot;blog&quot;: &quot;https://wuk0Ng.top&quot;</span><br><span class="line">&#125;</span><br><span class="line">a.name;</span><br><span class="line">a.blog;</span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure>
-<p>访问对象的属性，可以有两种方式</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.name;</span><br><span class="line">a[&quot;name&quot;];</span><br></pre></td></tr></table></figure>
-<p>原型的定义和继承<br>原型的定义:任何对象都有一个原型对象，这个原型对象由对象的内置属性proto指向它的构造函数的prototype指向的对象，即任何对象都是由一个构造函数创建的</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function a(name,age)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.age = age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>a函数内容是a类的构造函数，其中this.name、this.age就是a类的属性<br>在JavaScript中，声明了一个函数a，然后浏览器就自动在内存中创建一个对象b，a函数默认有一个属性prototype指向了这个对象b，b就是函数a的原型对象，简称原型。同时，对象b默认有属性constructor指向函数a</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">比如一个代码</span><br><span class="line">&gt; function a()&#123;&#125;;</span><br><span class="line">&gt; a.prototype</span><br><span class="line">&#123;&#125;</span><br><span class="line">&gt; a.prototype.constructor</span><br><span class="line">[Function: a]</span><br></pre></td></tr></table></figure>
-<p>创建一个对象a,对象a会默认有一个属性proto指向构造函数A的原型对象b</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; function A()&#123;&#125;;</span><br><span class="line">&gt; let a = new A();</span><br><span class="line">&gt; A.prototype = a.__proto__</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
-<p>这里A.prototype就指向函数的原型B。则a.__proto__是实例化的对象a的一个属性<br>在javascript中，一切都是对象，他也只有对象这一种结构。而对象和对象间又存在继承关系</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = &#123;</span><br><span class="line">    <span class="attr">a</span>:<span class="number">1</span> ,</span><br><span class="line">    <span class="attr">b</span>: <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">a</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> c = <span class="title class_">Object</span>.<span class="title function_">create</span>(test);<span class="comment">//c继承test</span></span><br><span class="line"></span><br><span class="line">c.<span class="property">a</span>=<span class="number">888</span>;<span class="comment">//继承test的变量</span></span><br><span class="line">c.<span class="title function_">b</span>();<span class="comment">//继承test的函数</span></span><br></pre></td></tr></table></figure>
-<p>每个实例对象(object)都有一个私有属性(proto)指向它的构造函数的原型对象(prototype)，每个实例对象还有一个属性(constructor)指向原型的构造函数。该原型对象也有一个自己的原型对象(proto)，层层向上直到一个对象的原型对象为null。根据定义，null 没有原型，并作为这个原型链中的最后一个环节<br>经过不断调用，最终的原型对象会调用到null，这将作为该原型链的最后一个环节，与之对应的，作为终点的 null 自然也是没有原型对象的</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">function</span> <span class="title function_">A</span>(<span class="params"></span>)&#123;&#125;;</span><br><span class="line">&gt; <span class="keyword">let</span> a = <span class="keyword">new</span> <span class="title function_">A</span>();</span><br><span class="line">&gt; A.<span class="property"><span class="keyword">prototype</span></span> = a.<span class="property">__proto__</span></span><br><span class="line"><span class="literal">true</span></span><br><span class="line">&gt; A.<span class="property">__proto__</span></span><br><span class="line">&#123;&#125;</span><br><span class="line">&gt; A.<span class="property">__proto__</span>.<span class="property">__proto__</span></span><br><span class="line">[<span class="title class_">Object</span>: <span class="literal">null</span> prototype] &#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>原型链定义及如何污染</p>
-<p>原型链的核心就是依赖对象proto的指向，当访问的属性在该对象不存在时，就会向上从该对象构造函数的prototype的进行查找，直至查找到Object的原型null为止</p>
-<p><img src="https://github.com/web-wuk0Ng/my-images/raw/main/58d6e11ff3871aceb32089c0a2fc7586.png"></p>
-<p>由于对象之间存在继承关系，所以当我们要使用或者输出一个变量就会通过原型链向上搜索，当上层没有就会再向上上层搜索，直到指向 null，若此时还未找到就会返回 undefined<br>原型链污染就是修改其构造函数中的属性值，使其他通过该构造函数实例化出的对象也具有这个属性的值。<br>由于对象是无序的，当使用第二种方式访问对象时，只能使用指明下标的方式去访问。<br>因此我们可以通过 a [“proto“] 的方式去访问其原型对象</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; a=[];</span><br><span class="line">[]</span><br><span class="line">&gt; b=[];</span><br><span class="line">&gt; b[<span class="string">&quot;__proto__&quot;</span>]</span><br><span class="line"><span class="title class_">Object</span>(<span class="number">0</span>) []</span><br><span class="line">&gt; b[<span class="string">&quot;__proto__&quot;</span>][<span class="string">&quot;name&quot;</span>]=<span class="string">&quot;m0re&quot;</span>;</span><br><span class="line"><span class="string">&#x27;m0re&#x27;</span></span><br><span class="line">&gt; a</span><br><span class="line">[]</span><br><span class="line">&gt; a.<span class="property">name</span></span><br><span class="line"><span class="string">&#x27;m0re&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>调用对象属性时, 会查找属性，如果本身没有，则会去proto中查找，也就是构造函数的显式原型中查找，如果构造函数中也没有该属性，因为构造函数也是对象，也有proto，那么会去proto的显式原型中查找，一直到null</p>
-<p>原型链污染</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>其实我感觉原理和ssti还有php反序列化是有很多相同的部分的<br>原理真的好像不算很难<br>接下来就来打ctf实战了</p>
-<h1 id="LitCTF-2025-多重宇宙日记"><a href="#LitCTF-2025-多重宇宙日记" class="headerlink" title="[LitCTF 2025]多重宇宙日记"></a>[LitCTF 2025]多重宇宙日记</h1><p>221分<br>原型链污染NodeJS<br>ez原型链，你能成为管理员拿到flag吗？<br>一进去是</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">欢迎来到多重宇宙日记!</span><br><span class="line"></span><br><span class="line">在这里，你可以记录下你在各个宇宙中的冒险笔记。</span><br><span class="line"></span><br><span class="line">据说，管理员拥有一把能够解锁宇宙终极秘密的钥匙，它就藏在管理员的专属控制面板里。然而，这个控制面板似乎只有真正的管理员才能进入。</span><br><span class="line"></span><br><span class="line">你的任务是，找到方法进入管理员面板，并拿到那把名为Flag的钥匙。</span><br><span class="line"></span><br><span class="line">Flag格式：flag&#123;...&#125;</span><br><span class="line"></span><br><span class="line">登录 或 注册 开始你的旅程</span><br></pre></td></tr></table></figure>
-<p>这样的<br>随便注册一个账号进入</p>
-<p><img src="https://github.com/web-wuk0Ng/my-images/raw/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-06-23%20145153.png"></p>
-<p>再来查看网页源代码</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">// 更新表单的JS提交</span><br><span class="line"> document.getElementById(&#x27;profileUpdateForm&#x27;).addEventListener(&#x27;submit&#x27;, async function(event) &#123;</span><br><span class="line">     event.preventDefault();</span><br><span class="line">     const statusEl = document.getElementById(&#x27;updateStatus&#x27;);</span><br><span class="line">     const currentSettingsEl = document.getElementById(&#x27;currentSettings&#x27;);</span><br><span class="line">     statusEl.textContent = &#x27;正在更新...&#x27;;</span><br><span class="line"></span><br><span class="line">     const formData = new FormData(event.target);</span><br><span class="line">     const settingsPayload = &#123;&#125;;</span><br><span class="line">     // 构建 settings 对象，只包含有值的字段</span><br><span class="line">     if (formData.get(&#x27;theme&#x27;)) settingsPayload.theme = formData.get(&#x27;theme&#x27;);</span><br><span class="line">     if (formData.get(&#x27;language&#x27;)) settingsPayload.language = formData.get(&#x27;language&#x27;);</span><br><span class="line">     // ...可以添加其他字段</span><br><span class="line"></span><br><span class="line">     try &#123;</span><br><span class="line">         const response = await fetch(&#x27;/api/profile/update&#x27;, &#123;</span><br><span class="line">             method: &#x27;POST&#x27;,</span><br><span class="line">             headers: &#123;</span><br><span class="line">                 &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,</span><br><span class="line">             &#125;,</span><br><span class="line">             body: JSON.stringify(&#123; settings: settingsPayload &#125;) // 包装在 &quot;settings&quot;键下</span><br><span class="line">         &#125;);</span><br><span class="line">         const result = await response.json();</span><br><span class="line">         if (response.ok) &#123;</span><br><span class="line">             statusEl.textContent = &#x27;成功: &#x27; + result.message;</span><br><span class="line">             currentSettingsEl.textContent = JSON.stringify(result.settings, null, 2);</span><br><span class="line">             // 刷新页面以更新导航栏（如果isAdmin状态改变）</span><br><span class="line">             setTimeout(() =&gt; window.location.reload(), 1000);</span><br><span class="line">         &#125; else &#123;</span><br><span class="line">             statusEl.textContent = &#x27;错误: &#x27; + result.message;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125; catch (error) &#123;</span><br><span class="line">         statusEl.textContent = &#x27;请求失败: &#x27; + error.toString();</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;);</span><br><span class="line"></span><br><span class="line"> // 发送原始JSON的函数</span><br><span class="line"> async function sendRawJson() &#123;</span><br><span class="line">     const rawJson = document.getElementById(&#x27;rawJsonSettings&#x27;).value;</span><br><span class="line">     const statusEl = document.getElementById(&#x27;rawJsonStatus&#x27;);</span><br><span class="line">     const currentSettingsEl = document.getElementById(&#x27;currentSettings&#x27;);</span><br><span class="line">     statusEl.textContent = &#x27;正在发送...&#x27;;</span><br><span class="line">     try &#123;</span><br><span class="line">         const parsedJson = JSON.parse(rawJson); // 确保是合法的JSON</span><br><span class="line">         const response = await fetch(&#x27;/api/profile/update&#x27;, &#123;</span><br><span class="line">             method: &#x27;POST&#x27;,</span><br><span class="line">             headers: &#123;</span><br><span class="line">                 &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,</span><br><span class="line">             &#125;,</span><br><span class="line">             body: JSON.stringify(parsedJson) // 直接发送用户输入的JSON</span><br><span class="line">         &#125;);</span><br><span class="line">         const result = await response.json();</span><br><span class="line">         if (response.ok) &#123;</span><br><span class="line">             statusEl.textContent = &#x27;成功: &#x27; + result.message;</span><br><span class="line">             currentSettingsEl.textContent = JSON.stringify(result.settings, null, 2);</span><br><span class="line">              // 刷新页面以更新导航栏（如果isAdmin状态改变）</span><br><span class="line">             setTimeout(() =&gt; window.location.reload(), 1000);</span><br><span class="line">         &#125; else &#123;</span><br><span class="line">             statusEl.textContent = &#x27;错误: &#x27; + result.message;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125; catch (error) &#123;</span><br><span class="line">          statusEl.textContent = &#x27;请求失败或JSON无效: &#x27; + error.toString();</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>非预期</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;settings&quot;: &#123;</span><br><span class="line">        &quot;isAdmin&quot;: true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>成为管理员后就可以拿到flag了<br>预期解法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;settings&quot;: &#123;</span><br><span class="line">        &quot;theme&quot;: &quot;ctf&quot;,</span><br><span class="line">        &quot;language&quot;: &quot;ctf&quot;,</span><br><span class="line">        &quot;__proto__&quot;: &#123;</span><br><span class="line">            &quot;isAdmin&quot;: true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>不太看的懂这个js代码，所以不能很好地解决这道题目</p>
+                <p>短学期昨天也结束了<br>有很多想说的，也看到很多，最后还是希望后面的日子多收一下心思<br>自己还有一条很苦的路没有走<br>暑期可以干什么，实习，做ip、挣钱，回家好好玩60天<br>很多想说的，写在这篇文章的，写好好好埋头干了</p>
+<h1 id="实习"><a href="#实习" class="headerlink" title="实习"></a>实习</h1><p>有看到好友</p>
+<p><img src="https://github.com/web-wuk0Ng/my-images/blob/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2025-06-28_141441_990.jpg?raw=true"></p>
+<p><img src="https://github.com/web-wuk0Ng/my-images/blob/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2025-06-28_141447_878.jpg?raw=true"></p>
+<p>miniso可能也算大厂了，之前学长也说，安恒这种都是给我们承包比赛的，已经是很大的了。<br>可能，在我心中，宇宙厂鹅厂这些更符合自己心目中的大厂<br>很想给她的朋友圈评论，这也是大厂吗？<br>还有看到都马上要暑期来了，在朋友圈问，怎么找实习呀！<br>我想说的是，不应该早该去投简历了嘛，按照互联网的节奏<br>这种指手画脚，眼高手低的样子，自己<br>不是自己心胸狭隘这些，可能更多的是一种愤懑<br>我也想去一家更好的公司，我也想CTF的水平更加高一些，我还想很多很多<br>是这种，内心的野心和现实的一泼泼冷水。是啊！似乎内心有着无数的野心，但总是感觉没有一个机会施展自己的抱负</p>
+<p>但是暑期来了，再做不好那就可能真的是还有很多大问题需要改<br>做的好，哪怕一两个方面，希望自己内心，从高中就堆积的这种愤懑，能够消散了<br>总要成熟一点，平静地面对很多事情<br>现在自己很容易生气，虽然总归是恨自己不成器，但不会也不能一直这样的</p>
+<h1 id="做ip、挣钱"><a href="#做ip、挣钱" class="headerlink" title="做ip、挣钱"></a>做ip、挣钱</h1><p>去年，本来是要做的，但是非常多的方面没有做好<br>认识非常多的人做ip已经怎么怎么牛了<br>算了，已经懒的再弄图片来举例了<br>最牛逼的，我认识的，已经打算在这个大一暑期买辆跑车了（靠自己）<br>再次一点的，基本也不需要向家里要钱，自己干饭自由了<br>这个暑期，如果前面学习学的还算可以，那就来做个好ip<br>不可以的话，暑期中期也做，只是。。。</p>
+<h1 id="好好玩"><a href="#好好玩" class="headerlink" title="好好玩"></a>好好玩</h1><p>玩几把，大学了<br>高中就一直希望找到一件事情，好好用心地去做<br>这个暑期，我还是寄托了很多东西在上面的<br>虽然有高中那种，假期带很多作业打算回家逆袭，但是实际上书都没有打开<br>但是，情况还是不一样</p>
+<p>玉楼金阙慵归去，且插梅花醉洛阳</p>
+<p>暑期中后期的时候，去河南洛阳玩一下</p>
 
                 
             </div>
@@ -563,7 +527,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://web-wuk0ng.github.io/2025/06/23/nodejs%E5%8E%9F%E5%9E%8B%E9%93%BE%E6%B1%A1%E6%9F%93%E5%88%9D%E6%AD%A5/">https://web-wuk0ng.github.io/2025/06/23/nodejs%E5%8E%9F%E5%9E%8B%E9%93%BE%E6%B1%A1%E6%9F%93%E5%88%9D%E6%AD%A5/</a>
+                    <a href="https://web-wuk0ng.github.io/2025/06/28/%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9A%91%E6%9C%9F/">https://web-wuk0ng.github.io/2025/06/28/%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9A%91%E6%9C%9F/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -601,12 +565,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
+                                <a href="/tags/%E5%8F%8D%E6%80%9D/">
+                                    <span class="chip bg-color">反思</span>
                                 </a>
                             
-                                <a href="/tags/nodejs/">
-                                    <span class="chip bg-color">nodejs</span>
+                                <a href="/tags/%E8%A7%84%E5%88%92/">
+                                    <span class="chip bg-color">规划</span>
                                 </a>
                             
                         </div>
@@ -781,7 +745,7 @@
     repo: 'blog---comments',
     owner: 'web-wuk0Ng',
     admin: ["web-wuk0Ng"],
-    id: '2025-06-23T15-00-00',
+    id: '2025-06-28T14-00-00',
     distractionFreeMode: false
   });
 
@@ -807,9 +771,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2025/06/28/%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9A%91%E6%9C%9F/">
                     <div class="card-image">
@@ -827,9 +792,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-06-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-06-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -842,6 +807,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -864,13 +830,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2025/06/22/ssrf(%E5%88%9D%E6%AD%A5)/">
+                <a href="/2025/06/23/nodejs%E5%8E%9F%E5%9E%8B%E9%93%BE%E6%B1%A1%E6%9F%93%E5%88%9D%E6%AD%A5/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="ssrf初步">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="nodejs初步">
                         
-                        <span class="card-title">ssrf初步</span>
+                        <span class="card-title">nodejs初步</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -881,7 +847,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-06-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-06-23
                             </span>
                         <span class="publish-author">
                             
@@ -902,8 +868,8 @@
                         <span class="chip bg-color">CTF</span>
                     </a>
                     
-                    <a href="/tags/ssrf/">
-                        <span class="chip bg-color">ssrf</span>
+                    <a href="/tags/nodejs/">
+                        <span class="chip bg-color">nodejs</span>
                     </a>
                     
                 </div>
