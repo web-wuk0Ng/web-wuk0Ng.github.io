@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="bp并发操作, wuk0Ng">
+    <meta name="keywords" content="SQL宽字节注入, wuk0Ng">
     <meta name="description" content="wuk0Ng的个人博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>bp并发操作 | wuk0Ng</title>
+    <title>SQL宽字节注入 | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -320,12 +320,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">bp并发操作</h1>
+                    <h1 class="description center-align post-title">SQL宽字节注入</h1>
                 </div>
             </div>
         </div>
@@ -441,12 +441,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/SRC/">
-                                <span class="chip bg-color">SRC</span>
+                            <a href="/tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
-                            <a href="/tags/bp/">
-                                <span class="chip bg-color">bp</span>
+                            <a href="/tags/%E8%AE%B0%E5%BD%95/">
+                                <span class="chip bg-color">记录</span>
                             </a>
                         
                     </div>
@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2026-04-25
+                    2026-05-23
                 </div>
                 
 
@@ -491,24 +491,16 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>首先这个并发操作有很多实现模式，然后bp新的版本还有自带的并发功能，但是那个不是很方便<br>然后还有就是这里讲的是最基础的，没有涉及到多个参数的，还有横向的并发<br><img src="https://github.com/web-wuk0Ng/my-images/blob/main/ScreenShot_2026-04-25_131507_612.png?raw=true"></p>
-<p>主要就是用了这个插件tutbo intruder</p>
-<p>bp的官方商店是有的</p>
-<p>然后我们可以安装</p>
-<p>然后抓到网页就可以鼠标右键然后进行选择了</p>
-<p>然后发送到了对应模块之后就可以选择脚本了</p>
-<p><img src="https://github.com/web-wuk0Ng/my-images/blob/main/ScreenShot_2026-04-25_153229_694.png?raw=true"></p>
-<p>安装后，只需要在数据中，找一个位置添加并发插件必须的参数%s，就可以把数据包发送到并发插件进行并发。</p>
-<p><img src="https://github.com/web-wuk0Ng/my-images/blob/main/ScreenShot_2026-04-25_153622_677.png?raw=true"></p>
-<p>一般是选择race.py，但是新的版本中并没有这个对应的脚本</p>
-<p>我们可以自己添加</p>
-<p>race.py</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">def queueRequests(target, wordlists):</span><br><span class="line">    engine = RequestEngine(endpoint=target.endpoint,</span><br><span class="line">                           concurrentConnections=30,</span><br><span class="line">                           requestsPerConnection=100,</span><br><span class="line">                           pipeline=False</span><br><span class="line">                           )</span><br><span class="line"> </span><br><span class="line">    # the &#x27;gate&#x27; argument blocks the final byte of each request until openGate is invoked</span><br><span class="line">    for i in range(30):</span><br><span class="line">        engine.queue(target.req, target.baseInput, gate=&#x27;race1&#x27;)</span><br><span class="line"> </span><br><span class="line">    # wait until every &#x27;race1&#x27; tagged request is ready</span><br><span class="line">    # then send the final byte of each request</span><br><span class="line">    # (this method is non-blocking, just like queue)</span><br><span class="line">    engine.openGate(&#x27;race1&#x27;)</span><br><span class="line"> </span><br><span class="line">    engine.complete(timeout=60)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">def handleResponse(req, interesting):</span><br><span class="line">    table.add(req)</span><br></pre></td></tr></table></figure>
-
-<p>可以直接复制这段代码过去，也可以进行添加操作</p>
-<p>添加操作：</p>
-<p>首先创建一个文件，里面有race.py。然后选择文件夹就可以了</p>
-<p>这样就算是成功了</p>
+                <h1 id="URL编码"><a href="#URL编码" class="headerlink" title="URL编码"></a>URL编码</h1><p>①将需要进行编码的字符替换：为其对应的编码形式，使用 “%” 其后跟随两位的十六进制数来替换非 ASCII 字符。<br>②对于URL中的保留字符，也需要进行编码。<br>③URL 不能包含空格，通常使用加号（+）或 %20 替代空格。<br>④其他字符出现在 URL 之中都必须转义，规则是根据操作系统的默认编码，将每个字节转为百分号（%）加上两个大写的十六进制字</p>
+<h1 id="UTF-8编码"><a href="#UTF-8编码" class="headerlink" title="UTF-8编码"></a>UTF-8编码</h1><p>UTF-8是针对Unicode的一种可变长度字符编码。它可以用来表示Unicode标准中的任何字符，而且其编码中的第一个字节仍与ASCII相容，使得原来处理ASCII字符的软件无需或只进行少部分修改后，便可继续使用。<br>基本特征<br>UCS字符U+0000到U+007F（ASCII）被编码为字节0x00到0x7F（ASCII兼容）。这意味着只包含7位ASCII字符的文件在ASCII和UTF-8两种编码方式下是一样的。<br>所有大于0x007F的UCS字符被编码为一个有多个字节的串，每个字节都有标记位集。</p>
+<p>因此，ASCII字节（0x00-0x7F）不可能作为任何其他字符的一部分。表示非ASCII字符的多字节串的第一个字节总是在0xC0到0XFD的范围里，并指出这个字符包含多少个字节。多字节串的其余字节都在0x80到0xBF范围里。这使得重新同步非常容易，并使编码无国界，且很少受丢失字节的影响。<br>UTF8分成单字节、双字节、三字节、四字节模式。<br>UTF-8编码字符理论上可以最多到4个字节长，然而16位BMP字符最多只用到3字节长， UCS-4字节串的排列顺序是预定的，字节0xFE和0xFF在UTF-8编码中从未用到。<br>编码字节数<br>UTF-8使用1<del>4字节为每个字符编码：<br>·一个US-ASCIl字符只需1字节编码（Unicode范围由U+0000</del>U+007F）。<br>·带有变音符号的拉丁文、希腊文、西里尔字母、亚美尼亚语、希伯来文、阿拉伯文、叙利亚文等字母则需要2字节编码（Unicode范围由U+0080~U+07FF）。<br>·其他语言的字符（包括中日韩文字、东南亚文字、中东文字等）包含了大部分常用字，使用3字节编码。<br>·其他极少使用的语言字符使用4字节编码。<br>字符集<br>UTF-8编码规则：如果只有一个字节则取值为0x00-0x7F。其余字节按长度进行以下拓展：<br>UTF-8由4种编码方式实现，即UTF8-1&#x2F;UTF8-2&#x2F;UTF8-3&#x2F;UTF8-4<br>其中：<br>UTF8, 16进制编码表<br>UTF8-1<br>0x00-0x7F<br>UTF8-2<br>0xC2-0xDF 0x80-0xBF<br>UTF8-3<br>0xE0 0xA0-0xBF 0x80-0xBF<br>0xE1-0xEC 0x80-0xBF 0x80-0xBF<br>0xED 0x80-0x9F 0x80-0xBF<br>0xEE-0xEF 0x80-0xBF 0x80-0xBF<br>UTF8-4<br>0xF0 0x90-0xBF 0x80-0xBF 0x80-0xBF<br>0xF1-0xF3 0x80-0xBF 0x80-0xBF 0x80-0xBF<br>0xF4 0x80-0x8F 0x80-0xBF 0x80-0xBF<br>每种编码可能有多个编码范围，每个编码范围间，以空格作为每个字节的分隔符。UTF8-3的第一个编码，其第一个字节取值必须为0xE0，第二个字节范围为0xA0-0xBF，第三个字节为0x80-0xBF</p>
+<h1 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h1><p>‌Unicode编码‌是一种字符编码规范，旨在为世界上每一种文字系统的每一个字符分配一个唯一的整数编号，从而避免任何冲突。Unicode编码规则的核心在于其分配机制和编码格式。‌</p>
+<p>Unicode编码规则的核心概念<br>①码点（Code Point）‌：每个字符都被分配一个唯一的码点，格式为U+[XX]XXXX，范围从U+0000到U+10FFFF，足以容纳超过100万个字符。<br>‌②字符平面：Unicode采用分组的方式存储字符，每个组称为一个平面，每个平面能容纳65536个字符。<br>Unicode编码的分配机制<br>Unicode通过两个主要的编码格式来存储字符：</p>
+<p>‌UTF-16‌：这是Unicode的缺省编码格式，每个字符占用16位（两个字节）。对于一些扩展字符，UTF-16使用一对代用字符进行编码，高位代用字符在U+D800到U+DBFF之间，低位代用字符在U+DC00到U+DFFF之间。<br>‌UTF-8‌：这是一种变长的编码格式，适用于面向字节基于ASCII的应用程序和文件系统。UTF-8可以将Unicode字符转换为变长的ASCII安全的字节字符串，非补充字符最多占用3个字节，补充字符最多占用4个字节。</p>
+<h1 id="宽字节注入原理"><a href="#宽字节注入原理" class="headerlink" title="宽字节注入原理"></a>宽字节注入原理</h1><p>宽字节注入是一种SQL注入攻击方式。在数据库使用GBK等宽字节编码（且必须是GBK编码时才可以用宽字节注入，其他不行）时，一个汉字占两个字节。</p>
+<p>在PHP中，当开启 magic_quotes_gpc （该函数会对特殊字符转义）后，输入的单引号 ‘ 前自动加上转义符’ &#39; ,从而让单引号‘失效。<br>攻击者利用宽字节编码特性，通过输入特定字节序列，让转义符号 \ 与后面字节组成一个汉字，从而使单引号 ‘ 能发挥SQL注入作用，达到恶意攻击目的。<br>eg:</p>
+<p>一个登录验证的SQL语句为select * from users where username&#x3D;’𝑢𝑠𝑒𝑟𝑛𝑎𝑚𝑒′𝑎𝑛𝑑𝑝𝑎𝑠𝑠𝑤𝑜𝑟𝑑&#x3D;′<br>password’ 。</p>
+<p>正常情况下，若用户的输入包含单引号会被转义。<br>但攻击者在用户名输入框输入 %df’ or 1&#x3D;1# （这里 %df 在GBK编码下与转义字符 \ 组成一个汉字），SQL语句就会变成 select * from users where username&#x3D;’汉字’ or 1&#x3D;1# and password&#x3D;’$password’ ，这样就绕过了原本基于用户名的验证，使攻击者可能成功登录系统。</p>
 
                 
             </div>
@@ -535,7 +527,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://web-wuk0ng.github.io/2026/04/25/bp%E7%94%A8%E6%9D%A5%E5%B9%B6%E5%8F%91/">https://web-wuk0ng.github.io/2026/04/25/bp%E7%94%A8%E6%9D%A5%E5%B9%B6%E5%8F%91/</a>
+                    <a href="https://web-wuk0ng.github.io/2026/05/23/SQL%E6%B3%A8%E5%85%A5%E5%AE%BD%E5%AD%97%E8%8A%82%E6%B3%A8%E5%85%A5/">https://web-wuk0ng.github.io/2026/05/23/SQL%E6%B3%A8%E5%85%A5%E5%AE%BD%E5%AD%97%E8%8A%82%E6%B3%A8%E5%85%A5/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -573,12 +565,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/SRC/">
-                                    <span class="chip bg-color">SRC</span>
+                                <a href="/tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
-                                <a href="/tags/bp/">
-                                    <span class="chip bg-color">bp</span>
+                                <a href="/tags/%E8%AE%B0%E5%BD%95/">
+                                    <span class="chip bg-color">记录</span>
                                 </a>
                             
                         </div>
@@ -753,7 +745,7 @@
     repo: 'blog---comments',
     owner: 'web-wuk0Ng',
     admin: ["web-wuk0Ng"],
-    id: '2026-04-25T12-00-00',
+    id: '2026-05-23T13-30-00',
     distractionFreeMode: false
   });
 
@@ -779,9 +771,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2026/05/23/SQL%E6%B3%A8%E5%85%A5%E5%AE%BD%E5%AD%97%E8%8A%82%E6%B3%A8%E5%85%A5/">
                     <div class="card-image">
@@ -799,9 +792,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2026-05-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -814,6 +807,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -836,13 +830,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2026/03/23/day3%E5%BA%8F%E5%88%97%E5%8C%96%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
+                <a href="/2026/04/25/bp%E7%94%A8%E6%9D%A5%E5%B9%B6%E5%8F%91/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="java反序列化-开发基础篇">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="bp并发操作">
                         
-                        <span class="card-title">java反序列化-开发基础篇</span>
+                        <span class="card-title">bp并发操作</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -853,7 +847,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-03-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-04-25
                             </span>
                         <span class="publish-author">
                             
@@ -870,12 +864,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AE%89%E5%85%A8/">
-                        <span class="chip bg-color">安全</span>
+                    <a href="/tags/SRC/">
+                        <span class="chip bg-color">SRC</span>
                     </a>
                     
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
+                    <a href="/tags/bp/">
+                        <span class="chip bg-color">bp</span>
                     </a>
                     
                 </div>
