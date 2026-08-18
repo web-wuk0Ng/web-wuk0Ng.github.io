@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="part1模型扫盲, wuk0Ng">
+    <meta name="keywords" content="part2项目全局认识, wuk0Ng">
     <meta name="description" content="wuk0Ng的个人博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>part1模型扫盲 | wuk0Ng</title>
+    <title>part2项目全局认识 | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -320,12 +320,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">part1模型扫盲</h1>
+                    <h1 class="description center-align post-title">part2项目全局认识</h1>
                 </div>
             </div>
         </div>
@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2026-08-17
+                    2026-08-18
                 </div>
                 
 
@@ -491,103 +491,22 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="什么是大模型"><a href="#什么是大模型" class="headerlink" title="什么是大模型"></a>什么是大模型</h1><p>大模型，LLM（large Language ），大语言模型</p>
-<h2 id="token"><a href="#token" class="headerlink" title="token"></a>token</h2><p>Token是大模型处理文本的”基本单位”，它既不是一个字，也不是一个词，你可以理解为把文字”切碎”后的一个个<br>小碎片。</p>
-<p>比如”我今天心情很好”，不是一个字是一个token，而是”我”、“今天”、“心情”、“很好”对应1~2个token</p>
-<h2 id="上下文窗口"><a href="#上下文窗口" class="headerlink" title="上下文窗口"></a>上下文窗口</h2><p>大模型每次对话时，能看到的内容总量上线，用token来衡量<br>就像黑板，没有记忆的话，之前讨论的东西就记不住了<br>除非压缩，即把写过的内容精简</p>
-<h2 id="无记忆"><a href="#无记忆" class="headerlink" title="无记忆"></a>无记忆</h2><p>大模型不会记忆，它之所以给人记住了的感觉，是因为应用层的代码负责记忆，应用都会把你们之前的所有历史对话，给AI看</p>
-<h2 id="对话的角色结构"><a href="#对话的角色结构" class="headerlink" title="对话的角色结构"></a>对话的角色结构</h2><p>system、user、assistant<br>既然多轮对话是靠<strong>传历史列表</strong>实现的，那这个列表长什么样？</p>
-<p>调用大模型 API 时，你传入的不是一段裸文字，而是一个有结构的消息列表，每条消息都有一个角色（role）：</p>
-<ul>
-<li><code>system</code>：系统提示，给模型的<strong>身份设定和行为规则</strong>。比如「你是一个 OnCall 助理，只能回答和系统故障相关的问题，回答必须简洁」。这部分用户看不见，但模型会严格遵守</li>
-<li><code>user</code>：用户的输入，就是你说的话</li>
-<li><code>assistant</code>：模型之前的回复，多轮对话时，把历史回复也打包进来，模型才知道「之前说了什么」</li>
-</ul>
-<p>用伪代码表示，大概长这样：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">messages = [</span><br><span class="line">    &#123; &quot;role&quot;: &quot;system&quot;,    &quot;content&quot;: &quot;你是一个 OnCall 助理，回答必须简洁&quot; &#125;,</span><br><span class="line">    &#123; &quot;role&quot;: &quot;user&quot;,      &quot;content&quot;: &quot;昨晚数据库报警是什么原因？&quot; &#125;,</span><br><span class="line">    &#123; &quot;role&quot;: &quot;assistant&quot;,  &quot;content&quot;: &quot;是慢查询导致的连接池耗尽。&quot; &#125;,</span><br><span class="line">    &#123; &quot;role&quot;: &quot;user&quot;,      &quot;content&quot;: &quot;怎么预防？&quot; &#125;  // 当前问题</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<p>模型看到这整个列表，才能知道「用户在问什么、之前说过什么、我应该怎么回答」。</p>
-<p>这个结构非常重要，后面学 Prompt 的时候，我们会专门讲怎么用好 <code>system</code> 角色，它是控制模型行为最核心的手段</p>
-<p>这个角色就像是我们在写提示词的时候为什么要经常给AI说，你是什么什么，然后怎么怎么样，看到这里似乎我了解的更深了一点了</p>
-<h2 id="大模型不能做什么"><a href="#大模型不能做什么" class="headerlink" title="大模型不能做什么"></a>大模型不能做什么</h2><p>能做什么我们丰富的工程经验已经很了解了<br>不能做什么？<br>1.没有执行能力，不能和外部世界交互。这个时候就需要很多的这个tool，MCP这些呀<br>2.知识有保质期，还容易瞎编，也就是它不知道的情况下不一定会说我不知道，而是可能瞎编，也就是我们说的幻觉<br>3.上下文窗口邮上线，内容太长了就记不住<br>我们RAG就是要解决这个问题，不把全部内容塞进窗口，而是按需检索最关键的片段</p>
-<h1 id="什么是prompt"><a href="#什么是prompt" class="headerlink" title="什么是prompt"></a>什么是prompt</h1><p>prompt，这个概念应该是我24年刚高考完建立的，当时用mid画画那个，每次要画图都要先输入下<code>/prompt</code></p>
-<p>写好prompt的6个核心原则</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.首先就是前面说的，你要和AI说你是什么什么身份</span><br><span class="line">2.要做什么比不要做什么更加适合</span><br><span class="line">3.多给大模型业务背景信息之类的</span><br><span class="line">4.指定输出格式，比如是json、md还是什么格式</span><br><span class="line">5.给几个示例，胜过写一堆规则</span><br><span class="line">6.可以让大模型先试试写出思考逻辑或者说梳理关键条件步骤，然后给出结论</span><br></pre></td></tr></table></figure>
-
-<p>在agent开发中，只有一个行为能控制大模型，就是prompt</p>
-<h1 id="什么是agent"><a href="#什么是agent" class="headerlink" title="什么是agent"></a>什么是agent</h1><p>我的理解是大模型，或者说几年前看到的那种AI，就是对话式的，只能回答问题，好的能生成图片视频啥的。更多方面的生产上还是没有用到<br>agent，用上了工具，可以在我们电脑本地写word或者网页直接上手写东西，都是一点问题没有的</p>
-<p>agent的四个组件<br>1.LLM，大模型<br>2.tools，工具<br>3.Memory,记忆<br>4.Loop执行循环，不断重复思考，行动，观察这个循环，直到任务完成</p>
-<p>agent的工具原理，ReAct，推理，观察，再推理的这样一个过程</p>
-<p>agent的另外一个工作原理,Plan and execute<br>之前的这样一个逻辑是说，ReAct是边想边做，任务多了容易迷路，然后<br>token消耗的也比较多等等问题</p>
-<p>ReAct&#x3D;边开车边看导航:每走到一个路口，才决定下一步拐哪。灵活，但如果最开始方向就偏了，容易绕很<br>多冤枉路<br>PlanandExecute&#x3D;出发前规划好完整路线:先打开地图，把走哪条路、哪里转弯、预计几点到全部规划<br>好，再出发。执行时按路线走，不用每个路口重新想</p>
-<p>所以这个PlanandExecute就有两个阶段，一个是设定目标，另一个是执行</p>
-<p>任务步骤少，就是ReAct<br>多就是PlanandExecute<br>再复杂就是PlanandExecute做外嵌，每个子任务内部跑ReAct</p>
-<p>workflow(工作流)，就是提前写好一个确定的流程</p>
-<h1 id="tool"><a href="#tool" class="headerlink" title="tool"></a>tool</h1><p>这个可能就按照字面意思理解可能就足够了的</p>
-<h1 id="Function-Call"><a href="#Function-Call" class="headerlink" title="Function Call"></a>Function Call</h1><p>一个工具就是：函数本体+名称+描述+参数定义，大模型靠工具描述来判断要不要调这个工具<br>但是大模型只会说话，agent调用工具的话就必须知道调哪个工具，什么参数</p>
-<p>Function Call的本质是一套大模型和agent之间的标准化工具调用协议<br>用一套固定的json结构返回调用命令</p>
-<p>大模型根据我们开发者写的文档，决定要不要调用某工具之类的</p>
-<p>然后大模型调用的时候就会严格按照格式调用传参</p>
-<p>然后工具返回结果，agent把结果回传给大模型</p>
-<h1 id="MCP"><a href="#MCP" class="headerlink" title="MCP"></a>MCP</h1><p>我初步的一个理解是，agent要用到浏览器或者BP抓包的时候，要配置个这玩意</p>
-<p>这个就是类似type-c，现在手机充电都是这玩意，以前苹果有自己的，安卓有自己的，菠萝有自己的<br>然后又要有对应的线，电脑上又得支持这么多线</p>
-<p>MCP就是统一起来了的。工具写一个MCP server 。然后AI应用各写一次MCP clicet，然后一个工具就只要一个了。就像只要一个type-c的线，各种手机都能冲上电了</p>
-<p>MCP server的三种能力，其实也就像我觉得，用MCP连接上浏览器，确实有点像一个工具了</p>
-<p>1.tools<br>2.resources<br>3.prompts</p>
-<p>有无MCP对比<br>每个工具自己写Function Call<br>有就是直接接入已有MCP server,工具现成可用</p>
-<h1 id="skills"><a href="#skills" class="headerlink" title="skills"></a>skills</h1><p>应该这样说，prompt是skill的灵魂，但不是全部。因为skills会有脚本啥的也算在其中呀，就肯定多了对应情况直接调用脚本的这个</p>
-<h1 id="RAG"><a href="#RAG" class="headerlink" title="RAG"></a>RAG</h1><p>我现在的理解就是先检索，再回答<br>中间的四个步骤也算是比较清楚<br>就是<br>1.加载文档<br>2.文本切块<br>3.向量化<br>4.存入向量数据库</p>
-<p>没有RAG，无法访问，模型只有通用知识<br>有RAG，可以基于私有知识</p>
-<h1 id="向量数据库"><a href="#向量数据库" class="headerlink" title="向量数据库"></a>向量数据库</h1><p>这个就需要比较深厚的基础知识了</p>
-<table>
-<thead>
-<tr>
-<th>对比维度</th>
-<th>普通数据库（MySQL）</th>
-<th>向量数据库（Milvus&#x2F;Pinecone…）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>核心用途</td>
-<td>结构化数据存储和精确查询</td>
-<td>向量存储和相似度搜索</td>
-</tr>
-<tr>
-<td>索引结构</td>
-<td>B+ 树（适合精确匹配&#x2F;范围查询）</td>
-<td>ANN 索引，如 HNSW（适合近邻搜索）</td>
-</tr>
-<tr>
-<td>查询类型</td>
-<td>id &#x3D; 5、age &gt; 18、LIKE 匹配</td>
-<td>找 top-k 个最相似向量</td>
-</tr>
-<tr>
-<td>向量相似度查询</td>
-<td>不支持（只能暴力全表扫描）</td>
-<td>原生支持，毫秒级</td>
-</tr>
-<tr>
-<td>百万级向量查询速度</td>
-<td>数秒（暴力遍历，不可用）</td>
-<td>毫秒级（ANN 索引加速）</td>
-</tr>
-<tr>
-<td>数据形式</td>
-<td>表格（行列结构）</td>
-<td>向量 + 元数据</td>
-</tr>
-<tr>
-<td>适合 RAG 吗</td>
-<td>存能存，查不行</td>
-<td>专为这个场景设计</td>
-</tr>
-</tbody></table>
-<h1 id="harness"><a href="#harness" class="headerlink" title="harness"></a>harness</h1><p>prompt，更像是塑造模型的概率空间<br>context，管理上下文<br>harness，让模型在真实执行中，持续做对。<br>Prompt是Context的一部分，Context是Harness的一部分。</p>
-<p>理解的话，就像是这个单词本来的一个意思，限制，马缰的这么个意思<br>模型就像是下线，然后Harness就像是下线</p>
-<p>驾驭工程，从原来的提示词把问题讲清楚，到把信息搜队，再到让模型在真实环境中持续做对</p>
-<p>之前模型没有做对，我们往往从提示词出发，可以再考虑说agent.md加一条规则，补一个自动化测试等等</p>
-<h1 id="loop"><a href="#loop" class="headerlink" title="loop"></a>loop</h1><p>也像这个单词的字面意思<br>循环<br>发现任务，布置任务，检查结果，决定下一步<br>这一套流程设计成一个能自己运转的循环<br>一个提示词是本次得到的答案变好了，loop，收益是，之后每一次循环都变好</p>
+                <h1 id="背景：为什么要做这个项目"><a href="#背景：为什么要做这个项目" class="headerlink" title="背景：为什么要做这个项目"></a>背景：为什么要做这个项目</h1><p>我觉得就是说，要投递那些需要善用AI的岗位，这个就是一个很好的项目，除非就是说，要求善用AI只是写着玩，并没有真正的需求，只是这个时代如此，他也写一个这个上去了</p>
+<h1 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h1><p>三大Agent：知识库Agent,对话agent，运维agent<br>一个服务通常可以分为几层来看，对于该系统而言，也是如此，分为如下几层<br>1.接入层：对外提供API接口<br>2.业务层：利用服务层的组件进行编排，负责向接入层提供编排完成可使用的agent<br>3.服务层:核心组件实现层，如加载文件，切分文件，提供工具等。负责向业务层提供原子能力，支撑Agent的编排<br>4.存储层：文档信息我们存储到向量数据库中</p>
+<h2 id="知识库RAG"><a href="#知识库RAG" class="headerlink" title="知识库RAG"></a>知识库RAG</h2><p>大概就是把原始文档（如业务告警处理手册）切割为多个语义完整的片段<br>提问后，将用户问题向量化，去向量数据库里面进行相似度匹配，查询最相似的10个片段<br>使用专门计算文本相似度的模型，逐个对计算用户问题与每个召回片段的语义相关性<br>生成：选出最相似的3个片段+用户问题，交给大模型，让大模型根据提供的3个片段进行回答</p>
+<h2 id="对话agent"><a href="#对话agent" class="headerlink" title="对话agent"></a>对话agent</h2><p>对话Agent的核心目标是结合外部知识(RAG召回)与工具调用能力(ReAct模式)，解决复杂问题。<br>整体流程可概括为:<br>1.从向量数据库中获取与用户问题相关的上下文信息<br>2.构建带上下文(召回的内容)的systemprompt<br>3.使用ReAct模式进行多轮交互<br>4.最终输出答案</p>
+<p>第1次循环:思考-&gt;行动-&gt;观察<br>举一个技术场景的例子，问题:地球和火星的质量加起来是多少?(AI不知道具体数值，需要调用工具)<br>思考:我需要地球和火星的质量，得先查地球质量。行动:调用查星球质量工具，输入地球<br>观察:工具返回地球质量≈5.97x1024kg</p>
+<p>第2次循环:再思考-&gt;行动-&gt;观察<br>思考:有了地球质量，还缺火星的，继续查火星。</p>
+<p>行动:调用查星球质量工具，输入火星<br>观察:工具返回火星质量≈6.42x1023kg<br>第3次循环:再思考-&gt;行动-&gt;观察<br>思考:现在有两个数了，需要相加，得用计算器。<br>行动:调用计算器工具，输入5.97e24+6.42e23<br> 观察:工具返回≈6.61x1024kg<br>结束循环:结果够了，可以回答用户了，地球和火星的质量加起来是6.61x1024kg</p>
+<h2 id="运维agent"><a href="#运维agent" class="headerlink" title="运维agent"></a>运维agent</h2><p>运维agent的核心目标是将运维人员的告警处理经验转换为自动化流程，通过计划生成-&gt;工具执行-&gt;动态调整的闭环，替代人工完成重复性告警排查工作</p>
+<p>整体架构可概括为：</p>
+<ol>
+<li>从向量数据库中获取与告警相关的上下文信息</li>
+<li>构建带上下文(召回的内容和工具信息)的system prompt</li>
+<li>使用Plan-Execute-Replan模式进行多轮交互<br> a. Planner生成结构化排查计划<br> c. Executor调用监控&#x2F;日志工具执行步骤<br> d. Replanner评估结果，决定继续执行&#x2F;调整计划&#x2F;输出结论</li>
+<li>最终输出答案</li>
+</ol>
+<h1 id="选型分析-大模型应用开发框架"><a href="#选型分析-大模型应用开发框架" class="headerlink" title="选型分析:大模型应用开发框架"></a>选型分析:大模型应用开发框架</h1><p>大模型应用开发框架选型<br>我这里选择Python生态框架(如:LangChain、LangGraph、LlamaIndex)</p>
 
                 
             </div>
@@ -614,7 +533,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://web-wuk0ng.github.io/2026/08/17/part1%E6%A8%A1%E5%9E%8B%E6%89%AB%E7%9B%B2/">https://web-wuk0ng.github.io/2026/08/17/part1%E6%A8%A1%E5%9E%8B%E6%89%AB%E7%9B%B2/</a>
+                    <a href="https://web-wuk0ng.github.io/2026/08/18/part2%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%B1%80%E8%AE%A4%E7%9F%A5/">https://web-wuk0ng.github.io/2026/08/18/part2%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%B1%80%E8%AE%A4%E7%9F%A5/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -832,7 +751,7 @@
     repo: 'blog---comments',
     owner: 'web-wuk0Ng',
     admin: ["web-wuk0Ng"],
-    id: '2026-08-17T20-00-00',
+    id: '2026-08-18T10-00-00',
     distractionFreeMode: false
   });
 
@@ -858,9 +777,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2026/08/18/part2%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%B1%80%E8%AE%A4%E7%9F%A5/">
                     <div class="card-image">
@@ -878,9 +798,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2026-08-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-08-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -893,6 +813,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -915,13 +836,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2026/08/12/%E9%98%BF%E9%87%8C%E4%BA%91%E9%9D%A2%E7%BB%8F/">
+                <a href="/2026/08/17/part1%E6%A8%A1%E5%9E%8B%E6%89%AB%E7%9B%B2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="面经">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="part1模型扫盲">
                         
-                        <span class="card-title">面经</span>
+                        <span class="card-title">part1模型扫盲</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -932,7 +853,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-08-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-08-17
                             </span>
                         <span class="publish-author">
                             
@@ -949,12 +870,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AE%9E%E4%B9%A0/">
-                        <span class="chip bg-color">实习</span>
+                    <a href="/tags/agent/">
+                        <span class="chip bg-color">agent</span>
                     </a>
                     
-                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
-                        <span class="chip bg-color">面试</span>
+                    <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">大模型</span>
                     </a>
                     
                 </div>
