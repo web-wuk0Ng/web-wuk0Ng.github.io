@@ -1,0 +1,1484 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="part4对话agent方案设计与源码分析, wuk0Ng">
+    <meta name="description" content="wuk0Ng的个人博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>part4对话agent方案设计与源码分析 | wuk0Ng</title>
+    <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(/medias/my_background.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/jiushen.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">wuk0Ng</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/jiushen.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">wuk0Ng</div>
+        <div class="logo-desc">
+            
+            wuk0Ng的个人博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/web-wuk0Ng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/web-wuk0Ng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">part4对话agent方案设计与源码分析</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/agent/">
+                                <span class="chip bg-color">agent</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">
+                                <span class="chip bg-color">大模型</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                记录
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-08-19
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="前置准备——对话的需求、场景、价值分析"><a href="#前置准备——对话的需求、场景、价值分析" class="headerlink" title="前置准备——对话的需求、场景、价值分析"></a>前置准备——对话的需求、场景、价值分析</h1><p>前面做的是一个rag，这里就是真正做一个agent了<br>一个根据知识，不确定地回答你的一个agent<br>背后用到的技术<br>1.RAG<br>2.prompt工程，提示词<br>3.多轮对话，记住上下文<br>4.流式输出，我们在这个让AI思考一个复杂问题的时候，是希望一下子蹦出一大段东西，还是说展现思考过程和慢慢地把答案吐出来？显然是后者<br>5.容错处理。也就是AI的幻觉方面，就像是我们常说的“老板的幻觉比AI还严重”。当agent在知识库里找不到答案时，会选择瞎编。但是正确的处理方式应该时说诚实告诉用户我暂时回答不了，或者换一个用户更能接受的委婉方法，而不是直接瞎编</p>
+<h1 id="架构设计-ReAct设计模式核心原理"><a href="#架构设计-ReAct设计模式核心原理" class="headerlink" title="架构设计:ReAct设计模式核心原理"></a>架构设计:ReAct设计模式核心原理</h1><p>ReAct：让AI边做边想。或者说一个，想，做，想的这么一个循环<br>大模型不善于计算，往往计算是调用工具来进行计算的</p>
+<h2 id="早期的ReAct是怎么实现的"><a href="#早期的ReAct是怎么实现的" class="headerlink" title="早期的ReAct是怎么实现的"></a>早期的ReAct是怎么实现的</h2><p>早期就是解析成固定格式的字符串调用工具什么的方式</p>
+<p>核心就是几行代码，本质上是一个while循环+字符串解析</p>
+<h2 id="现代ReAct是怎么实现的"><a href="#现代ReAct是怎么实现的" class="headerlink" title="现代ReAct是怎么实现的"></a>现代ReAct是怎么实现的</h2><p>Function Call（函数调用）</p>
+<p>Function Call就是把古法ReAct标准化了–用json来统一工具的定义和调用格式。AI调用工具的时候不再输出自然语言，而是直接返回结构化的JSON</p>
+<p>结果回传方面：工具的返回结果也按照规定的格式传回给AI</p>
+<h2 id="ReAct的优点"><a href="#ReAct的优点" class="headerlink" title="ReAct的优点"></a>ReAct的优点</h2><p>1.让AI具备了使用工具的能力</p>
+<p>2.让AI的回答更准确、更可靠</p>
+<p>3.具备了处理复杂多步骤任务的能力</p>
+<h1 id="架构设计：对话agent的核心流程解析"><a href="#架构设计：对话agent的核心流程解析" class="headerlink" title="架构设计：对话agent的核心流程解析"></a>架构设计：对话agent的核心流程解析</h1><p>对话agent的核心目标是结合外部知识(RAG召回)与工具调用能力（ReAct模式），解决复杂问题</p>
+<p>整体流程可概括为：</p>
+<p>1.用户输入-embedding-向量数据库召回</p>
+<p>2.构建带上下文（召回的内容）的prompt</p>
+<p>3.ReAct模式多轮交互</p>
+<p>4.最终输出答案</p>
+<p>RAG召回：让agent学习外部知识</p>
+<p>目标：从向量数据库中获取用户问题相关的上下文信息，避免大模型出现幻觉</p>
+<p>步骤：</p>
+<p>1.用户输入经IuputToRag Lambda Node处理，生成用于召回的字符串</p>
+<p>2.调用Retriever组件（以Milvus数据库为例），通过Embedding将问题向量化</p>
+<p>3.向量数据库执行相似度匹配，返回相关文档</p>
+<p>4.结果存入map[“documents”]，作为后续prompt的上下文来源</p>
+<p>Prompt构建：动态拼接上下文与历史对话</p>
+<p>目标：将用户输入、rag召回内容、对话历史整合成大模型可理解的prompt。prompt构建好后，将prompt移交给ReAct组件使用</p>
+<p>ReAct模式：让Agent学会“思考-行动-观察”循环</p>
+<p>目标：通过多轮工具调用解决复杂问题，核心是“显式思考-工具调用-结果观察”</p>
+<h2 id="关键组件深析"><a href="#关键组件深析" class="headerlink" title="关键组件深析"></a>关键组件深析</h2><p>Lambda Node：数据流转的”转换器”：</p>
+<ul>
+<li><strong>InputToRag</strong>：<ul>
+<li>输入：用户原始问题（可自定义预处理，如过滤无关信息）。</li>
+<li>输出：用于RAG召回的字符串（直接影响召回精度，需确保与向量数据库存储内容匹配）。</li>
+</ul>
+</li>
+<li><strong>InputToChat</strong>：<ul>
+<li>输入：用户问题+对话历史。</li>
+<li>输出：map结构（含 content &#x2F; history 等key），作为 ChatTemplate 的动态参数来源。</li>
+</ul>
+</li>
+</ul>
+<p>Retriever：向量召回的 “连接器” 以 Milvus 实现为例，Retrieve 方法核心逻辑：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">func (r *MilvusRetriever) Retrieve(ctx context.Context, input string) ([]*schema</span><br><span class="line">// 1. 问题向量化</span><br><span class="line">embedding, _ := r.embedding.Embed(ctx, input)</span><br><span class="line">// 2. 向量数据库查询 (TopK相似度匹配)</span><br><span class="line">results, _ := r.client.Search(ctx, embedding, 5) // 取Top5相关文档</span><br><span class="line">// 3. 格式转换为schema.Document</span><br><span class="line">return convertToDocuments(results), nil</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Tool:Agent的“双手”</p>
+<p>Tool本质是带描述的函数，需明确告诉大模型</p>
+<ul>
+<li>函数名称（如：“查询当前时间”）</li>
+<li>入参&#x2F;返参格式（json来描述）</li>
+<li>使用场景（如“当问题设计当前时间时调用”）</li>
+</ul>
+<h1 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h1><p>先把源码给出来看看</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;对话接口</span><br><span class="line"></span><br><span class="line">提供基于 RAG Agent 的普通对话和流式对话接口</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">import json</span><br><span class="line">from fastapi import APIRouter, HTTPException</span><br><span class="line">from sse_starlette.sse import EventSourceResponse</span><br><span class="line">from app.models.request import ChatRequest, ClearRequest</span><br><span class="line">from app.models.response import SessionInfoResponse, ApiResponse</span><br><span class="line">from app.agent.mcp_client import format_exception_chain</span><br><span class="line">from app.services.rag_agent_service import rag_agent_service</span><br><span class="line">from loguru import logger</span><br><span class="line"></span><br><span class="line">router = APIRouter()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@router.post(&quot;/chat&quot;)</span><br><span class="line">async def chat(request: ChatRequest):</span><br><span class="line">    &quot;&quot;&quot;快速对话接口</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;code&quot;: 200,</span><br><span class="line">        &quot;message&quot;: &quot;success&quot;,</span><br><span class="line">        &quot;data&quot;: &#123;</span><br><span class="line">            &quot;success&quot;: true,</span><br><span class="line">            &quot;answer&quot;: &quot;回答内容&quot;,</span><br><span class="line">            &quot;errorMessage&quot;: null</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Args:</span><br><span class="line">        request: 对话请求</span><br><span class="line"></span><br><span class="line">    Returns:</span><br><span class="line">        统一格式的对话响应</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    try:</span><br><span class="line">        logger.info(f&quot;[会话 &#123;request.id&#125;] 收到快速对话请求: &#123;request.question&#125;&quot;)</span><br><span class="line">        answer = await rag_agent_service.query(</span><br><span class="line">            request.question,</span><br><span class="line">            session_id=request.id</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        logger.info(f&quot;[会话 &#123;request.id&#125;] 快速对话完成&quot;)</span><br><span class="line"></span><br><span class="line">        return &#123;</span><br><span class="line">            &quot;code&quot;: 200,</span><br><span class="line">            &quot;message&quot;: &quot;success&quot;,</span><br><span class="line">            &quot;data&quot;: &#123;</span><br><span class="line">                &quot;success&quot;: True,</span><br><span class="line">                &quot;answer&quot;: answer,</span><br><span class="line">                &quot;errorMessage&quot;: None</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    except Exception as e:</span><br><span class="line">        logger.error(f&quot;对话接口错误: &#123;e&#125;&quot;)</span><br><span class="line">        return &#123;</span><br><span class="line">            &quot;code&quot;: 500,</span><br><span class="line">            &quot;message&quot;: &quot;error&quot;,</span><br><span class="line">            &quot;data&quot;: &#123;</span><br><span class="line">                &quot;success&quot;: False,</span><br><span class="line">                &quot;answer&quot;: None,</span><br><span class="line">                &quot;errorMessage&quot;: str(e)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@router.post(&quot;/chat_stream&quot;)</span><br><span class="line">async def chat_stream(request: ChatRequest):</span><br><span class="line">    &quot;&quot;&quot;流式对话接口（基于 RAG Agent，SSE）</span><br><span class="line"></span><br><span class="line">    返回 SSE 格式，data 字段为 JSON：</span><br><span class="line"></span><br><span class="line">    工具调用事件:</span><br><span class="line">    event: message</span><br><span class="line">    data: &#123;&quot;type&quot;:&quot;tool_call&quot;,&quot;data&quot;:&#123;&quot;tool&quot;:&quot;工具名&quot;,&quot;status&quot;:&quot;start|end&quot;,&quot;input&quot;:&#123;...&#125;&#125;&#125;</span><br><span class="line"></span><br><span class="line">    内容流式事件:</span><br><span class="line">    event: message</span><br><span class="line">    data: &#123;&quot;type&quot;:&quot;content&quot;,&quot;data&quot;:&quot;内容块&quot;&#125;</span><br><span class="line"></span><br><span class="line">    完成事件:</span><br><span class="line">    event: message</span><br><span class="line">    data: &#123;&quot;type&quot;:&quot;done&quot;,&quot;data&quot;:&#123;&quot;answer&quot;:&quot;完整答案&quot;,&quot;tool_calls&quot;:[...]&#125;&#125;</span><br><span class="line"></span><br><span class="line">    Args:</span><br><span class="line">        request: 对话请求</span><br><span class="line"></span><br><span class="line">    Returns:</span><br><span class="line">        SSE 事件流</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    logger.info(f&quot;[会话 &#123;request.id&#125;] 收到流式对话请求: &#123;request.question&#125;&quot;)</span><br><span class="line"></span><br><span class="line">    async def event_generator():</span><br><span class="line">        try:</span><br><span class="line">            async for chunk in rag_agent_service.query_stream(request.question, session_id=request.id):</span><br><span class="line">                chunk_type = chunk.get(&quot;type&quot;, &quot;unknown&quot;)</span><br><span class="line">                chunk_data = chunk.get(&quot;data&quot;, None)</span><br><span class="line"></span><br><span class="line">                # 处理调试类型消息（新增）</span><br><span class="line">                if chunk_type == &quot;debug&quot;:</span><br><span class="line">                    # 调试信息，可以选择发送或忽略</span><br><span class="line">                    yield &#123;</span><br><span class="line">                        &quot;event&quot;: &quot;message&quot;,</span><br><span class="line">                        &quot;data&quot;: json.dumps(&#123;</span><br><span class="line">                            &quot;type&quot;: &quot;debug&quot;,</span><br><span class="line">                            &quot;node&quot;: chunk.get(&quot;node&quot;, &quot;unknown&quot;),</span><br><span class="line">                            &quot;message_type&quot;: chunk.get(&quot;message_type&quot;, &quot;unknown&quot;)</span><br><span class="line">                        &#125;, ensure_ascii=False)</span><br><span class="line">                    &#125;</span><br><span class="line">                elif chunk_type == &quot;tool_call&quot;:</span><br><span class="line">                    # 发送工具调用事件（可选，前端可以显示工具调用状态）</span><br><span class="line">                    yield &#123;</span><br><span class="line">                        &quot;event&quot;: &quot;message&quot;,</span><br><span class="line">                        &quot;data&quot;: json.dumps(&#123;</span><br><span class="line">                            &quot;type&quot;: &quot;tool_call&quot;,</span><br><span class="line">                            &quot;data&quot;: chunk_data</span><br><span class="line">                        &#125;, ensure_ascii=False)</span><br><span class="line">                    &#125;</span><br><span class="line">                elif chunk_type == &quot;search_results&quot;:</span><br><span class="line">                    # 发送检索结果（可选，前端可以忽略）</span><br><span class="line">                    yield &#123;</span><br><span class="line">                        &quot;event&quot;: &quot;message&quot;,</span><br><span class="line">                        &quot;data&quot;: json.dumps(&#123;</span><br><span class="line">                            &quot;type&quot;: &quot;search_results&quot;,</span><br><span class="line">                            &quot;data&quot;: chunk_data</span><br><span class="line">                        &#125;, ensure_ascii=False)</span><br><span class="line">                    &#125;</span><br><span class="line">                elif chunk_type == &quot;content&quot;:</span><br><span class="line">                    # 发送内容块 - 关键：data 必须是 JSON 字符串</span><br><span class="line">                    yield &#123;</span><br><span class="line">                        &quot;event&quot;: &quot;message&quot;,</span><br><span class="line">                        &quot;data&quot;: json.dumps(&#123;</span><br><span class="line">                            &quot;type&quot;: &quot;content&quot;,</span><br><span class="line">                            &quot;data&quot;: chunk_data</span><br><span class="line">                        &#125;, ensure_ascii=False)</span><br><span class="line">                    &#125;</span><br><span class="line">                elif chunk_type == &quot;complete&quot;:</span><br><span class="line">                    # 发送完成信号</span><br><span class="line">                    yield &#123;</span><br><span class="line">                        &quot;event&quot;: &quot;message&quot;,</span><br><span class="line">                        &quot;data&quot;: json.dumps(&#123;</span><br><span class="line">                            &quot;type&quot;: &quot;done&quot;,</span><br><span class="line">                            &quot;data&quot;: chunk_data</span><br><span class="line">                        &#125;, ensure_ascii=False)</span><br><span class="line">                    &#125;</span><br><span class="line">                elif chunk_type == &quot;error&quot;:</span><br><span class="line">                    # 发送错误信息</span><br><span class="line">                    yield &#123;</span><br><span class="line">                        &quot;event&quot;: &quot;message&quot;,</span><br><span class="line">                        &quot;data&quot;: json.dumps(&#123;</span><br><span class="line">                            &quot;type&quot;: &quot;error&quot;,</span><br><span class="line">                            &quot;data&quot;: str(chunk_data)</span><br><span class="line">                        &#125;, ensure_ascii=False)</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">            logger.info(f&quot;[会话 &#123;request.id&#125;] 流式对话完成&quot;)</span><br><span class="line"></span><br><span class="line">        except Exception as e:</span><br><span class="line">            logger.error(f&quot;流式对话接口错误: &#123;format_exception_chain(e)&#125;&quot;)</span><br><span class="line">            yield &#123;</span><br><span class="line">                &quot;event&quot;: &quot;message&quot;,</span><br><span class="line">                &quot;data&quot;: json.dumps(&#123;</span><br><span class="line">                    &quot;type&quot;: &quot;error&quot;,</span><br><span class="line">                    &quot;data&quot;: str(e)</span><br><span class="line">                &#125;, ensure_ascii=False)</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">    return EventSourceResponse(event_generator())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@router.post(&quot;/chat/clear&quot;, response_model=ApiResponse)</span><br><span class="line">async def clear_session(request: ClearRequest):</span><br><span class="line">    &quot;&quot;&quot;清空会话历史</span><br><span class="line"></span><br><span class="line">    Args:</span><br><span class="line">        request: 清空请求</span><br><span class="line"></span><br><span class="line">    Returns:</span><br><span class="line">        操作结果</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    try:</span><br><span class="line">        success = rag_agent_service.clear_session(request.session_id)</span><br><span class="line">        logger.info(f&quot;清空会话: &#123;request.session_id&#125;, 结果: &#123;success&#125;&quot;)</span><br><span class="line"></span><br><span class="line">        return ApiResponse(</span><br><span class="line">            status=&quot;success&quot; if success else &quot;error&quot;,</span><br><span class="line">            message=&quot;会话已清空&quot; if success else &quot;清空会话失败&quot;,</span><br><span class="line">            data=None</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    except Exception as e:</span><br><span class="line">        logger.error(f&quot;清空会话错误: &#123;e&#125;&quot;)</span><br><span class="line">        raise HTTPException(status_code=500, detail=str(e))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@router.get(&quot;/chat/session/&#123;session_id&#125;&quot;, response_model=SessionInfoResponse)</span><br><span class="line">async def get_session_info(session_id: str) -&gt; SessionInfoResponse:</span><br><span class="line">    &quot;&quot;&quot;查询会话历史</span><br><span class="line"></span><br><span class="line">    Args:</span><br><span class="line">        session_id: 会话 ID</span><br><span class="line"></span><br><span class="line">    Returns:</span><br><span class="line">        会话信息</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    try:</span><br><span class="line">        history = rag_agent_service.get_session_history(session_id)</span><br><span class="line"></span><br><span class="line">        return SessionInfoResponse(</span><br><span class="line">            session_id=session_id,</span><br><span class="line">            message_count=len(history),</span><br><span class="line">            history=history</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    except Exception as e:</span><br><span class="line">        logger.error(f&quot;获取会话信息错误: &#123;e&#125;&quot;)</span><br><span class="line">        raise HTTPException(status_code=500, detail=str(e))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>和</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;RAG Agent 服务 - 基于 LangGraph 的智能代理</span><br><span class="line"></span><br><span class="line">使用 langchain_qwq 的 ChatQwen 原生集成，</span><br><span class="line">支持真正的流式输出和更好的模型适配。</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">from typing import Annotated, Any, AsyncGenerator, Dict, Sequence</span><br><span class="line"></span><br><span class="line">from langchain.agents import create_agent</span><br><span class="line">from langchain_core.messages import (</span><br><span class="line">    BaseMessage,</span><br><span class="line">    HumanMessage,</span><br><span class="line">    RemoveMessage,</span><br><span class="line">    SystemMessage,</span><br><span class="line">)</span><br><span class="line">from langgraph.checkpoint.memory import MemorySaver</span><br><span class="line">from langgraph.graph.message import REMOVE_ALL_MESSAGES, add_messages</span><br><span class="line">from loguru import logger</span><br><span class="line">from typing_extensions import TypedDict</span><br><span class="line">from langchain_qwq import ChatQwen</span><br><span class="line"></span><br><span class="line">from app.config import config</span><br><span class="line">from app.tools import DEFAULT_LOCAL_AGENT_TOOLS</span><br><span class="line">from app.agent.mcp_client import (</span><br><span class="line">    get_mcp_client_with_retry,</span><br><span class="line">    load_mcp_tools_safe,</span><br><span class="line">    format_exception_chain,</span><br><span class="line">    suggest_mcp_transport,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 阿里千问大模型和langchain集成参考： https://docs.langchain.com/oss/python/integrations/chat/qwen</span><br><span class="line"># 注意：需要配置环境变量 DASHSCOPE_API_BASE=https://dashscope.aliyuncs.com/compatible-mode/v1 否则默认访问的是新加坡站点</span><br><span class="line"># 同时也需要配置环境变量 DASHSCOPE_API_KEY=your_api_key</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class AgentState(TypedDict):</span><br><span class="line">    &quot;&quot;&quot;Agent 状态&quot;&quot;&quot;</span><br><span class="line">    messages: Annotated[Sequence[BaseMessage], add_messages]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def trim_messages_middleware(state: AgentState) -&gt; dict[str, Any] | None:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    修剪消息历史，只保留最近的几条消息以适应上下文窗口</span><br><span class="line"></span><br><span class="line">    策略：</span><br><span class="line">    - 保留第一条系统消息（System Message）</span><br><span class="line">    - 保留最近的 6 条消息（3 轮对话）</span><br><span class="line">    - 当消息少于等于 7 条时，不做修剪</span><br><span class="line"></span><br><span class="line">    Args:</span><br><span class="line">        state: Agent 状态</span><br><span class="line"></span><br><span class="line">    Returns:</span><br><span class="line">        包含修剪后消息的字典，如果无需修剪则返回 None</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    messages = state[&quot;messages&quot;]</span><br><span class="line"></span><br><span class="line">    # 如果消息数量较少，无需修剪</span><br><span class="line">    if len(messages) &lt;= 7:</span><br><span class="line">        return None</span><br><span class="line"></span><br><span class="line">    # 提取第一条系统消息</span><br><span class="line">    first_msg = messages[0]</span><br><span class="line"></span><br><span class="line">    # 保留最近的 6 条消息（确保包含完整的对话轮次）</span><br><span class="line">    recent_messages = messages[-6:] if len(messages) % 2 == 0 else messages[-7:]</span><br><span class="line"></span><br><span class="line">    # 构建新的消息列表</span><br><span class="line">    new_messages = [first_msg] + list(recent_messages)</span><br><span class="line"></span><br><span class="line">    logger.debug(f&quot;修剪消息历史: &#123;len(messages)&#125; -&gt; &#123;len(new_messages)&#125; 条&quot;)</span><br><span class="line"></span><br><span class="line">    return &#123;</span><br><span class="line">        &quot;messages&quot;: [</span><br><span class="line">            RemoveMessage(id=REMOVE_ALL_MESSAGES),</span><br><span class="line">            *new_messages</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class RagAgentService:</span><br><span class="line">    &quot;&quot;&quot;RAG Agent 服务 - 使用 LangGraph + ChatQwen 原生集成&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    def __init__(self, streaming: bool = True):</span><br><span class="line">        &quot;&quot;&quot;初始化 RAG Agent 服务</span><br><span class="line"></span><br><span class="line">        Args:</span><br><span class="line">            streaming: 是否启用流式输出，默认为 True</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        self.model_name = config.rag_model</span><br><span class="line">        self.streaming = streaming</span><br><span class="line">        self.system_prompt = self._build_system_prompt()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        self.model = ChatQwen(</span><br><span class="line">            model=self.model_name,</span><br><span class="line">            api_key=config.dashscope_api_key,</span><br><span class="line">            temperature=0.7,</span><br><span class="line">            streaming=streaming,</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        # 定义基础工具（与 AIOps Planner/Executor 使用同一套默认本地工具）</span><br><span class="line">        self.tools = list(DEFAULT_LOCAL_AGENT_TOOLS)</span><br><span class="line"></span><br><span class="line">        # MCP 客户端（延迟初始化，使用全局管理）</span><br><span class="line">        self.mcp_tools: list = []</span><br><span class="line"></span><br><span class="line">        # 创建内存检查点（用于会话管理）</span><br><span class="line">        self.checkpointer = MemorySaver()</span><br><span class="line"></span><br><span class="line">        # Agent 初始化（会在异步方法中完成）</span><br><span class="line">        self.agent = None</span><br><span class="line">        self._agent_initialized = False</span><br><span class="line"></span><br><span class="line">        logger.info(f&quot;RAG Agent 服务初始化完成 (ChatQwen), model=&#123;self.model_name&#125;, streaming=&#123;streaming&#125;&quot;)</span><br><span class="line"></span><br><span class="line">    async def _initialize_agent(self):</span><br><span class="line">        &quot;&quot;&quot;异步初始化 Agent（包括 MCP 工具）&quot;&quot;&quot;</span><br><span class="line">        if self._agent_initialized:</span><br><span class="line">            return</span><br><span class="line"></span><br><span class="line">        for name, server in config.mcp_servers.items():</span><br><span class="line">            hint = suggest_mcp_transport(</span><br><span class="line">                str(server.get(&quot;url&quot;, &quot;&quot;)),</span><br><span class="line">                str(server.get(&quot;transport&quot;, &quot;&quot;)),</span><br><span class="line">            )</span><br><span class="line">            if hint:</span><br><span class="line">                logger.warning(f&quot;MCP 配置 [&#123;name&#125;]: &#123;hint&#125;&quot;)</span><br><span class="line"></span><br><span class="line">        mcp_client = await get_mcp_client_with_retry()</span><br><span class="line">        mcp_tools, mcp_err = await load_mcp_tools_safe(mcp_client)</span><br><span class="line">        if mcp_err:</span><br><span class="line">            logger.warning(</span><br><span class="line">                f&quot;MCP 工具加载失败，将仅使用本地工具继续运行:\n&#123;mcp_err&#125;&quot;</span><br><span class="line">            )</span><br><span class="line">            self.mcp_tools = []</span><br><span class="line">        else:</span><br><span class="line">            self.mcp_tools = mcp_tools</span><br><span class="line">            logger.info(f&quot;成功加载 &#123;len(mcp_tools)&#125; 个 MCP 工具&quot;)</span><br><span class="line"></span><br><span class="line">        all_tools = self.tools + self.mcp_tools</span><br><span class="line"></span><br><span class="line">        self.agent = create_agent(</span><br><span class="line">            self.model,</span><br><span class="line">            tools=all_tools,</span><br><span class="line">            checkpointer=self.checkpointer,</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        self._agent_initialized = True</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        if all_tools:</span><br><span class="line">            tool_names = [tool.name if hasattr(tool, &quot;name&quot;) else str(tool) for tool in all_tools]</span><br><span class="line">            logger.info(f&quot;可用工具列表: &#123;&#x27;, &#x27;.join(tool_names)&#125;&quot;)</span><br><span class="line"></span><br><span class="line">    def _build_system_prompt(self) -&gt; str:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        构建系统提示词</span><br><span class="line"></span><br><span class="line">        注意：LangChain 框架会自动将工具信息传递给 LLM，</span><br><span class="line">        因此系统提示词中无需列举具体的工具列表。</span><br><span class="line"></span><br><span class="line">        Returns:</span><br><span class="line">            str: 系统提示词</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        from textwrap import dedent</span><br><span class="line"></span><br><span class="line">        return dedent(&quot;&quot;&quot;</span><br><span class="line">            你是一个专业的AI助手，能够使用多种工具来帮助用户解决问题。</span><br><span class="line"></span><br><span class="line">            工作原则:</span><br><span class="line">            1. 理解用户需求，选择合适的工具来完成任务</span><br><span class="line">            2. 当需要获取实时信息或专业知识时，主动使用相关工具</span><br><span class="line">            3. 基于工具返回的结果提供准确、专业的回答</span><br><span class="line">            4. 如果工具无法提供足够信息，请诚实地告知用户</span><br><span class="line"></span><br><span class="line">            回答要求:</span><br><span class="line">            - 保持友好、专业的语气</span><br><span class="line">            - 回答简洁明了，重点突出</span><br><span class="line">            - 基于事实，不编造信息</span><br><span class="line">            - 如有不确定的地方，明确说明</span><br><span class="line"></span><br><span class="line">            请根据用户的问题，灵活使用可用工具，提供高质量的帮助。</span><br><span class="line">        &quot;&quot;&quot;).strip()</span><br><span class="line"></span><br><span class="line">    async def query(</span><br><span class="line">        self,</span><br><span class="line">        question: str,</span><br><span class="line">        session_id: str,</span><br><span class="line">    ) -&gt; str:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        非流式处理用户问题（一次性返回完整答案）</span><br><span class="line"></span><br><span class="line">        Args:</span><br><span class="line">            question: 用户问题</span><br><span class="line">            session_id: 会话ID（作为 thread_id）</span><br><span class="line"></span><br><span class="line">        Returns:</span><br><span class="line">            str: 完整答案</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        try:</span><br><span class="line">            await self._initialize_agent()</span><br><span class="line"></span><br><span class="line">            logger.info(f&quot;[会话 &#123;session_id&#125;] RAG Agent 收到查询（非流式）: &#123;question&#125;&quot;)</span><br><span class="line"></span><br><span class="line">            # 构建消息列表（系统提示 + 用户问题）</span><br><span class="line">            messages = [</span><br><span class="line">                SystemMessage(content=self.system_prompt),</span><br><span class="line">                HumanMessage(content=question)</span><br><span class="line">            ]</span><br><span class="line"></span><br><span class="line">            # 构建 Agent 输入</span><br><span class="line">            agent_input = &#123;&quot;messages&quot;: messages&#125;</span><br><span class="line"></span><br><span class="line">            # 配置 thread_id（用于会话持久化）</span><br><span class="line">            config_dict = &#123;</span><br><span class="line">                &quot;configurable&quot;: &#123;</span><br><span class="line">                    &quot;thread_id&quot;: session_id</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            result = await self.agent.ainvoke(</span><br><span class="line">                input=agent_input,</span><br><span class="line">                config=config_dict,</span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line">            # 提取最终答案</span><br><span class="line">            messages_result = result.get(&quot;messages&quot;, [])</span><br><span class="line">            if messages_result:</span><br><span class="line">                last_message = messages_result[-1]</span><br><span class="line">                answer = last_message.content if hasattr(last_message, &#x27;content&#x27;) else str(last_message)</span><br><span class="line"></span><br><span class="line">                # 记录工具调用</span><br><span class="line">                if hasattr(last_message, &quot;tool_calls&quot;) and last_message.tool_calls:</span><br><span class="line">                    tool_names = [tc.get(&quot;name&quot;, &quot;unknown&quot;) for tc in last_message.tool_calls]</span><br><span class="line">                    logger.info(f&quot;[会话 &#123;session_id&#125;] Agent 调用了工具: &#123;tool_names&#125;&quot;)</span><br><span class="line"></span><br><span class="line">                logger.info(f&quot;[会话 &#123;session_id&#125;] RAG Agent 查询完成（非流式）&quot;)</span><br><span class="line">                return answer</span><br><span class="line"></span><br><span class="line">            logger.warning(f&quot;[会话 &#123;session_id&#125;] Agent 返回结果为空&quot;)</span><br><span class="line">            return &quot;&quot;</span><br><span class="line"></span><br><span class="line">        except Exception as e:</span><br><span class="line">            logger.error(</span><br><span class="line">                f&quot;[会话 &#123;session_id&#125;] RAG Agent 查询失败（非流式）: &quot;</span><br><span class="line">                f&quot;&#123;format_exception_chain(e)&#125;&quot;</span><br><span class="line">            )</span><br><span class="line">            raise</span><br><span class="line"></span><br><span class="line">    async def query_stream(</span><br><span class="line">        self,</span><br><span class="line">        question: str,</span><br><span class="line">        session_id: str,</span><br><span class="line">    ) -&gt; AsyncGenerator[Dict[str, Any], None]:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        流式处理用户问题（逐步返回答案片段）</span><br><span class="line"></span><br><span class="line">        Args:</span><br><span class="line">            question: 用户问题</span><br><span class="line">            session_id: 会话ID（作为 thread_id）</span><br><span class="line"></span><br><span class="line">        Yields:</span><br><span class="line">            Dict[str, Any]: 包含流式数据的字典</span><br><span class="line">                - type: &quot;content&quot; | &quot;tool_call&quot; | &quot;complete&quot; | &quot;error&quot;</span><br><span class="line">                - data: 具体内容</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        try:</span><br><span class="line">            await self._initialize_agent()</span><br><span class="line"></span><br><span class="line">            logger.info(f&quot;[会话 &#123;session_id&#125;] RAG Agent 收到查询（流式）: &#123;question&#125;&quot;)</span><br><span class="line"></span><br><span class="line">            # 构建消息列表（系统提示 + 用户问题）</span><br><span class="line">            messages = [</span><br><span class="line">                SystemMessage(content=self.system_prompt),</span><br><span class="line">                HumanMessage(content=question)</span><br><span class="line">            ]</span><br><span class="line"></span><br><span class="line">            # 构建 Agent 输入</span><br><span class="line">            agent_input = &#123;&quot;messages&quot;: messages&#125;</span><br><span class="line"></span><br><span class="line">            # 配置 thread_id（用于会话持久化）</span><br><span class="line">            config_dict = &#123;</span><br><span class="line">                &quot;configurable&quot;: &#123;</span><br><span class="line">                    &quot;thread_id&quot;: session_id</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            async for token, metadata in self.agent.astream(</span><br><span class="line">                input=agent_input,</span><br><span class="line">                config=config_dict,</span><br><span class="line">                stream_mode=&quot;messages&quot;,</span><br><span class="line">            ):</span><br><span class="line">                node_name = metadata.get(&#x27;langgraph_node&#x27;, &#x27;unknown&#x27;) if isinstance(metadata, dict) else &#x27;unknown&#x27;</span><br><span class="line">                message_type = type(token).__name__</span><br><span class="line"></span><br><span class="line">                if message_type in (&quot;AIMessage&quot;, &quot;AIMessageChunk&quot;):</span><br><span class="line">                    content_blocks = getattr(token, &#x27;content_blocks&#x27;, None)</span><br><span class="line"></span><br><span class="line">                    if content_blocks and isinstance(content_blocks, list):</span><br><span class="line">                        for block in content_blocks:</span><br><span class="line">                            if isinstance(block, dict) and block.get(&#x27;type&#x27;) == &#x27;text&#x27;:</span><br><span class="line">                                text_content = block.get(&#x27;text&#x27;, &#x27;&#x27;)</span><br><span class="line">                                if text_content:</span><br><span class="line">                                    yield &#123;</span><br><span class="line">                                        &quot;type&quot;: &quot;content&quot;,</span><br><span class="line">                                        &quot;data&quot;: text_content,</span><br><span class="line">                                        &quot;node&quot;: node_name</span><br><span class="line">                                    &#125;</span><br><span class="line"></span><br><span class="line">            logger.info(f&quot;[会话 &#123;session_id&#125;] RAG Agent 查询完成（流式）&quot;)</span><br><span class="line">            yield &#123;&quot;type&quot;: &quot;complete&quot;&#125;</span><br><span class="line"></span><br><span class="line">        except Exception as e:</span><br><span class="line">            detail = format_exception_chain(e)</span><br><span class="line">            logger.error(</span><br><span class="line">                f&quot;[会话 &#123;session_id&#125;] RAG Agent 查询失败（流式）: &#123;detail&#125;&quot;</span><br><span class="line">            )</span><br><span class="line">            yield &#123;&quot;type&quot;: &quot;error&quot;, &quot;data&quot;: detail&#125;</span><br><span class="line"></span><br><span class="line">    def get_session_history(self, session_id: str) -&gt; list:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        获取会话历史（从 MemorySaver checkpointer 中读取）</span><br><span class="line"></span><br><span class="line">        Args:</span><br><span class="line">            session_id: 会话ID（即 thread_id）</span><br><span class="line"></span><br><span class="line">        Returns:</span><br><span class="line">            list: 消息历史列表 [&#123;&quot;role&quot;: &quot;user|assistant&quot;, &quot;content&quot;: &quot;...&quot;, &quot;timestamp&quot;: &quot;...&quot;&#125;]</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        try:</span><br><span class="line">            # 使用 checkpointer 的 get 方法获取最新的检查点</span><br><span class="line">            config = &#123;&quot;configurable&quot;: &#123;&quot;thread_id&quot;: session_id&#125;&#125;</span><br><span class="line">            </span><br><span class="line">            # 获取该 thread 的最新检查点</span><br><span class="line">            checkpoint_tuple = self.checkpointer.get(config)</span><br><span class="line">            </span><br><span class="line">            if not checkpoint_tuple:</span><br><span class="line">                logger.info(f&quot;获取会话历史: &#123;session_id&#125;, 消息数量: 0&quot;)</span><br><span class="line">                return []</span><br><span class="line">            </span><br><span class="line">            # checkpoint_tuple 可能是命名元组或普通元组，安全地提取 checkpoint</span><br><span class="line">            # 通常第一个元素是 checkpoint 数据</span><br><span class="line">            if hasattr(checkpoint_tuple, &#x27;checkpoint&#x27;):</span><br><span class="line">                checkpoint_data = checkpoint_tuple.checkpoint  # type: ignore</span><br><span class="line">            else:</span><br><span class="line">                # 如果是普通元组，第一个元素是 checkpoint</span><br><span class="line">                checkpoint_data = checkpoint_tuple[0] if checkpoint_tuple else &#123;&#125;</span><br><span class="line">            </span><br><span class="line">            # 从检查点中提取消息</span><br><span class="line">            messages = checkpoint_data.get(&quot;channel_values&quot;, &#123;&#125;).get(&quot;messages&quot;, [])</span><br><span class="line">            </span><br><span class="line">            # 转换为前端需要的格式</span><br><span class="line">            history = []</span><br><span class="line">            for msg in messages:</span><br><span class="line">                # 跳过系统消息</span><br><span class="line">                if isinstance(msg, SystemMessage):</span><br><span class="line">                    continue</span><br><span class="line">                    </span><br><span class="line">                role = &quot;user&quot; if isinstance(msg, HumanMessage) else &quot;assistant&quot;</span><br><span class="line">                content = msg.content if hasattr(msg, &#x27;content&#x27;) else str(msg)</span><br><span class="line">                </span><br><span class="line">                # 提取时间戳（如果有的话）</span><br><span class="line">                timestamp = getattr(msg, &#x27;timestamp&#x27;, None)</span><br><span class="line">                if timestamp:</span><br><span class="line">                    history.append(&#123;</span><br><span class="line">                        &quot;role&quot;: role,</span><br><span class="line">                        &quot;content&quot;: content,</span><br><span class="line">                        &quot;timestamp&quot;: timestamp</span><br><span class="line">                    &#125;)</span><br><span class="line">                else:</span><br><span class="line">                    from datetime import datetime</span><br><span class="line">                    history.append(&#123;</span><br><span class="line">                        &quot;role&quot;: role,</span><br><span class="line">                        &quot;content&quot;: content,</span><br><span class="line">                        &quot;timestamp&quot;: datetime.now().isoformat()</span><br><span class="line">                    &#125;)</span><br><span class="line">            </span><br><span class="line">            logger.info(f&quot;获取会话历史: &#123;session_id&#125;, 消息数量: &#123;len(history)&#125;&quot;)</span><br><span class="line">            return history</span><br><span class="line">            </span><br><span class="line">        except Exception as e:</span><br><span class="line">            logger.error(f&quot;获取会话历史失败: &#123;session_id&#125;, 错误: &#123;e&#125;&quot;)</span><br><span class="line">            return []</span><br><span class="line"></span><br><span class="line">    def clear_session(self, session_id: str) -&gt; bool:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        清空会话历史（从 MemorySaver checkpointer 中删除）</span><br><span class="line"></span><br><span class="line">        Args:</span><br><span class="line">            session_id: 会话ID（即 thread_id）</span><br><span class="line"></span><br><span class="line">        Returns:</span><br><span class="line">            bool: 是否成功</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        try:</span><br><span class="line">            # 使用 checkpointer 的 delete_thread 方法删除该 thread 的所有检查点</span><br><span class="line">            self.checkpointer.delete_thread(session_id)</span><br><span class="line">            </span><br><span class="line">            logger.info(f&quot;已清除会话历史: &#123;session_id&#125;&quot;)</span><br><span class="line">            return True</span><br><span class="line">            </span><br><span class="line">        except Exception as e:</span><br><span class="line">            logger.error(f&quot;清空会话历史失败: &#123;session_id&#125;, 错误: &#123;e&#125;&quot;)</span><br><span class="line">            return False</span><br><span class="line"></span><br><span class="line">    async def cleanup(self):</span><br><span class="line">        &quot;&quot;&quot;清理资源&quot;&quot;&quot;</span><br><span class="line">        try:</span><br><span class="line">            logger.info(&quot;清理 RAG Agent 服务资源...&quot;)</span><br><span class="line">            # MCP 客户端由全局管理器统一管理，无需手动清理</span><br><span class="line">            logger.info(&quot;RAG Agent 服务资源已清理&quot;)</span><br><span class="line">        except Exception as e:</span><br><span class="line">            logger.error(f&quot;清理资源失败: &#123;e&#125;&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 全局单例 - 启用流式输出</span><br><span class="line">rag_agent_service = RagAgentService(streaming=True)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="流程梳理"><a href="#流程梳理" class="headerlink" title="流程梳理"></a>流程梳理</h2><p>对话Agent的核心目标时结合外部知识（RAG召回）与工具调用能力（ReAct模式），解决复杂问题</p>
+<p>整体流程可以概括为：</p>
+<p>1.用户输入-embedding-向量数据库召回</p>
+<p>2.将召回内容作为上下文注入prompt</p>
+<p>3.LangGraph ReAct模式多轮工具调用</p>
+<p>4.流式输出最终答案</p>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p>消息召回：</p>
+<p>召回通过 <code>retrieve_knowledge</code> 工具实现，Agent 在推理时会自动判断是否需要调用该工具检索知识库。工具内部通过 <code>VectorStoreManager.similarity_search</code> 完成向量检索，详见 RAG 召回章节</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># retrieve_knowledge 工具挂载到 Agent 上</span></span><br><span class="line"><span class="variable language_">self</span>.tools = [retrieve_knowledge, get_current_time]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>构建prompt</p>
+<p>系统提示词在<code>_build_system_prompt</code>中构建，描述Agent的角色定位和行为准则。与工具序列无关–LangChain框架会自动将工具信息传递给大模型，prompt中无需手动列举</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">def _build_system_prompt(self) -&gt; str:</span><br><span class="line">    from textwrap import dedent</span><br><span class="line">    return dedent(&quot;&quot;&quot;</span><br><span class="line">        你是一个专业的AI助手，能够使用多种工具来帮助用户解决问题。</span><br><span class="line"></span><br><span class="line">        工作原则：</span><br><span class="line">        1. 理解用户需求，选择合适的工具来完成任务</span><br><span class="line">        2. 当需要获取实时信息或专业知识时，主动使用相关工具</span><br><span class="line">        3. 基于工具返回的结果提供准确、专业的回答</span><br><span class="line">        4. 如果工具无法提供足够信息，请诚实地告知用户</span><br><span class="line"></span><br><span class="line">        回答要求：</span><br><span class="line">        - 保持友好、专业的语气</span><br><span class="line">        - 回答简洁明了，重点突出</span><br><span class="line">        - 基于事实，不编造信息</span><br><span class="line">        - 如有不确定的地方，明确说明</span><br><span class="line"></span><br><span class="line">        请根据用户的问题，灵活使用可用工具，提供高质量的帮助。</span><br><span class="line">    &quot;&quot;&quot;).strip()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>历史会话由LangGraph的MemorySaver checkpointer自动管理，每次调用时传入相同的thread_id(即session_id)即可自动携带上下文，无需手动拼接历史消息到prompt</p>
+<h2 id="创建ReAct-Agent"><a href="#创建ReAct-Agent" class="headerlink" title="创建ReAct Agent"></a>创建ReAct Agent</h2><p>使用LangChain的Create_agent创建Agent,绑定<code>ChatQwen</code>模型、工具列表和<code>MemorySaver</code>检查点。MCP工具（腾讯云CLS日志、监控告警登）在首次请求时异步加载，与本地工具合并后一起绑定</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">class RagAgentService:</span><br><span class="line">    def __init__(self, streaming: bool = True):</span><br><span class="line">        self.model = ChatQwen(</span><br><span class="line">            model=config.rag_model,        # 默认 qwen‑max</span><br><span class="line">            api_key=config.dashscope_api_key,</span><br><span class="line">            temperature=0.7,</span><br><span class="line">            streaming=streaming,</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        # 本地工具: RAG 知识检索 + 时间查询</span><br><span class="line">        self.tools = [retrieve_knowledge, get_current_time]</span><br><span class="line"></span><br><span class="line">        # 会话持久化 (基于内存的 checkpointer)</span><br><span class="line">        self.checkpointer = MemorySaver()</span><br><span class="line"></span><br><span class="line">        self.agent = None  # 延迟初始化 (等待 MCP 工具加载完成)</span><br><span class="line"></span><br><span class="line">    async def _initialize_agent(self):</span><br><span class="line">        &quot;&quot;&quot;异步初始化 Agent（包括 MCP 工具）&quot;&quot;&quot;</span><br><span class="line">        if self._agent_initialized:</span><br><span class="line">            return</span><br><span class="line"></span><br><span class="line">        # 加载 MCP 工具 (CLS 日志服务 + 监控告警)</span><br><span class="line">        mcp_client = await get_mcp_client_with_retry()</span><br><span class="line">        mcp_tools = await mcp_client.get_tools()</span><br><span class="line"></span><br><span class="line">        # 合并所有工具</span><br><span class="line">        all_tools = self.tools + mcp_tools</span><br><span class="line"></span><br><span class="line">        self.agent = create_agent(</span><br><span class="line">            self.model,</span><br><span class="line">            tools=all_tools,</span><br><span class="line">            checkpointer=self.checkpointer,</span><br><span class="line">        )</span><br><span class="line">        self._agent_initialized = True</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="执行ReAct-Agent"><a href="#执行ReAct-Agent" class="headerlink" title="执行ReAct Agent"></a>执行ReAct Agent</h2><p>非流式调用</p>
+<p>调用agent.ainvoke，等待Agent完成全部推理和工具调用后一次性返回结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">async def query(self, question: str, session_id: str) -&gt; str:</span><br><span class="line">    await self._initialize_agent()</span><br><span class="line"></span><br><span class="line">    messages = [</span><br><span class="line">        SystemMessage(content=self.system_prompt),</span><br><span class="line">        HumanMessage(content=question)</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    result = await self.agent.ainvoke(</span><br><span class="line">        input=&#123;&quot;messages&quot;: messages&#125;,</span><br><span class="line">        config=&#123;&quot;configurable&quot;: &#123;&quot;thread_id&quot;: session_id&#125;&#125;,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    # 取最后一条消息作为最终答案</span><br><span class="line">    last_message = result[&quot;messages&quot;][-1]</span><br><span class="line">    return last_message.content</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>流式调用：</p>
+<p>调用<code>agent.astream</code>，使用stream_mode&#x3D;”messages”逐token输出，配合FastAPI的SSE接口实时推送给前端</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">async def query_stream(self, question: str, session_id: str) -&gt; AsyncGenerator:</span><br><span class="line">    await self._initialize_agent()</span><br><span class="line"></span><br><span class="line">    messages = [</span><br><span class="line">        SystemMessage(content=self.system_prompt),</span><br><span class="line">        HumanMessage(content=question)</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    async for token, metadata in self.agent.astream(</span><br><span class="line">        input=&#123;&quot;messages&quot;: messages&#125;,</span><br><span class="line">        config=&#123;&quot;configurable&quot;: &#123;&quot;thread_id&quot;: session_id&#125;&#125;,</span><br><span class="line">        stream_mode=&quot;messages&quot;,</span><br><span class="line">    ):</span><br><span class="line">        if type(token).__name__ in (&quot;AIMessage&quot;, &quot;AIMessageChunk&quot;):</span><br><span class="line">            content_blocks = getattr(token, &#x27;content_blocks&#x27;, None)</span><br><span class="line">            if content_blocks:</span><br><span class="line">                for block in content_blocks:</span><br><span class="line">                    if isinstance(block, dict) and block.get(&#x27;type&#x27;) == &#x27;text&#x27;:</span><br><span class="line">                        text = block.get(&#x27;text&#x27;, &#x27;&#x27;)</span><br><span class="line">                        if text:</span><br><span class="line">                            yield &#123;&quot;type&quot;: &quot;content&quot;, &quot;data&quot;: text&#125;</span><br><span class="line">    yield &#123;&quot;type&quot;: &quot;complete&quot;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>SSE接口层</p>
+<p><code>chat_stream</code>接口将<code>query_stream</code>产生的时间包装成SSE格式推送给客户端，不同类型的事件对应不同的前端展示逻辑</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">@router.post(&quot;/chat_stream&quot;)</span><br><span class="line">async def chat_stream(request: ChatRequest):</span><br><span class="line">    async def event_generator():</span><br><span class="line">        async for chunk in rag_agent_service.query_stream(request.question, sess):</span><br><span class="line">            chunk_type = chunk.get(&quot;type&quot;)</span><br><span class="line"></span><br><span class="line">            if chunk_type == &quot;content&quot;:</span><br><span class="line">                # 逐 token 文本内容</span><br><span class="line">                yield &#123;</span><br><span class="line">                    &quot;event&quot;: &quot;message&quot;,</span><br><span class="line">                    &quot;data&quot;: json.dumps(&#123;&quot;type&quot;: &quot;content&quot;, &quot;data&quot;: chunk[&quot;data&quot;]&#125;)</span><br><span class="line">                &#125;</span><br><span class="line">            elif chunk_type == &quot;tool_call&quot;:</span><br><span class="line">                # 工具调用状态（前端可展示&quot;正在检索知识库…&quot;等提示）</span><br><span class="line">                yield &#123;</span><br><span class="line">                    &quot;event&quot;: &quot;message&quot;,</span><br><span class="line">                    &quot;data&quot;: json.dumps(&#123;&quot;type&quot;: &quot;tool_call&quot;, &quot;data&quot;: chunk[&quot;data&quot;]&#125;)</span><br><span class="line">                &#125;</span><br><span class="line">            elif chunk_type == &quot;complete&quot;:</span><br><span class="line">                # 完成信号</span><br><span class="line">                yield &#123;</span><br><span class="line">                    &quot;event&quot;: &quot;message&quot;,</span><br><span class="line">                    &quot;data&quot;: json.dumps(&#123;&quot;type&quot;: &quot;done&quot;, &quot;data&quot;: chunk.get(&quot;data&quot;)&#125;)</span><br><span class="line">                &#125;</span><br><span class="line">            elif chunk_type == &quot;error&quot;:</span><br><span class="line">                yield &#123;</span><br><span class="line">                    &quot;event&quot;: &quot;message&quot;,</span><br><span class="line">                    &quot;data&quot;: json.dumps(&#123;&quot;type&quot;: &quot;error&quot;, &quot;data&quot;: str(chunk[&quot;data&quot;])&#125;)</span><br><span class="line">                &#125;</span><br><span class="line">    return EventSourceResponse(event_generator())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>crul调用实例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 非流式对话</span><br><span class="line">curl -X POST http://localhost:8000/api/chat \</span><br><span class="line">  -H &quot;Content-Type: application/json&quot; \</span><br><span class="line">  -d &#x27;&#123;&quot;id&quot;: &quot;session-001&quot;, &quot;question&quot;: &quot;CPU 使用率过高怎么排查？&quot;&#125;&#x27;</span><br><span class="line"></span><br><span class="line"># 流式对话 (SSE)</span><br><span class="line">curl -X POST http://localhost:8000/api/chat_stream \</span><br><span class="line">  -H &quot;Content-Type: application/json&quot; \</span><br><span class="line">  -d &#x27;&#123;&quot;id&quot;: &quot;session-001&quot;, &quot;question&quot;: &quot;CPU 使用率过高怎么排查？&quot;&#125;&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>至此，对话 Agent 的核心流程 ——RAG 召回与 ReAct 模式的代码就讲完了。框架帮我们做了很多事情：LangChain 负责工具绑定与调用，LangGraph 负责多轮推理的状态流转，MemorySaver 负责会话历史管理。核心是要搞懂设计原理：RAG 补充外部知识，ReAct 让模型具备多步骤工具调用能力</p>
+<h1 id="源码分析：API接口与Agent的整合"><a href="#源码分析：API接口与Agent的整合" class="headerlink" title="源码分析：API接口与Agent的整合"></a>源码分析：API接口与Agent的整合</h1><p>快速对话接口：</p>
+<p>与大模型对话，相同ID的对话带有上下文记忆功能</p>
+<p>请求方式:<code>POST /api/chat</code></p>
+<p>请求字段</p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Id</td>
+<td>string</td>
+<td>对话的唯一标识</td>
+</tr>
+<tr>
+<td>Question</td>
+<td>string</td>
+<td>用户提问</td>
+</tr>
+</tbody></table>
+<p>响应字段</p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Answer</td>
+<td>string</td>
+<td>系统回答</td>
+</tr>
+</tbody></table>
+<p>示例，就有点像抓数据包发过去的这样一个逻辑</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 示例: 快速对话</span><br><span class="line">curl -X POST http://localhost:6872/api/chat \</span><br><span class="line">  -H &quot;Content-Type: application/json&quot; \</span><br><span class="line">  -d &#x27;&#123;</span><br><span class="line">    &quot;Id&quot;: &quot;session-001&quot;,</span><br><span class="line">    &quot;Question&quot;: &quot;什么是人工智能？&quot;</span><br><span class="line">  &#125;&#x27;</span><br><span class="line"></span><br><span class="line"># 响应</span><br><span class="line">&#123;</span><br><span class="line">  &quot;message&quot;: &quot;OK&quot;,</span><br><span class="line">  &quot;data&quot;: &#123;</span><br><span class="line">    &quot;answer&quot;: &quot;AI 的回答内容...&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>流式对话接口：</p>
+<p>与大模型对话，相同ID的对话带有上下文记忆功能，通过SSE实现流式输出回答</p>
+<p>请求方法：<code>POST /api/chat_stream</code></p>
+<p>请求字段</p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Id</td>
+<td>string</td>
+<td>对话的唯一标识</td>
+</tr>
+<tr>
+<td>Question</td>
+<td>string</td>
+<td>用户提问</td>
+</tr>
+</tbody></table>
+<p>响应字段</p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>SSE响应格式：</p>
+<table>
+<thead>
+<tr>
+<th>event 类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>connected</td>
+<td>代表连接建立成功</td>
+</tr>
+<tr>
+<td>message</td>
+<td>回复的文本片段，会多次发送</td>
+</tr>
+<tr>
+<td>error</td>
+<td>连接异常，断开连接</td>
+</tr>
+<tr>
+<td>done</td>
+<td>消息推送完毕，断开连接</td>
+</tr>
+</tbody></table>
+<p>示例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"># 示例: 流式对话</span><br><span class="line">curl -X POST http://localhost:6872/api/chat_stream \</span><br><span class="line">  -H &quot;Content-Type: application/json&quot; \</span><br><span class="line">  -d &#x27;&#123;</span><br><span class="line">    &quot;Id&quot;: &quot;session-001&quot;,</span><br><span class="line">    &quot;Question&quot;: &quot;什么是人工智能？&quot;</span><br><span class="line">  &#125;&#x27;</span><br><span class="line"></span><br><span class="line"># 响应(SSE事件流)</span><br><span class="line">id: &lt;timestamp&gt;</span><br><span class="line">event: connected</span><br><span class="line">data: &#123;&quot;status&quot;: &quot;connected&quot;, &quot;client_id&quot;: &quot;session-001&quot;&#125;</span><br><span class="line"></span><br><span class="line">id: &lt;timestamp&gt;</span><br><span class="line">event: message</span><br><span class="line">data: 人工智能（AI）</span><br><span class="line"></span><br><span class="line">id: &lt;timestamp&gt;</span><br><span class="line">event: message</span><br><span class="line">data: 的发展历史</span><br><span class="line"></span><br><span class="line">id: &lt;timestamp&gt;</span><br><span class="line">event: message</span><br><span class="line">data: 可以追溯到...</span><br><span class="line"></span><br><span class="line">id: &lt;timestamp&gt;</span><br><span class="line">event: done</span><br><span class="line">data: Stream completed</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="快速对话接口的核心实现"><a href="#快速对话接口的核心实现" class="headerlink" title="快速对话接口的核心实现"></a>快速对话接口的核心实现</h2><ol>
+<li>接收请求，取出 id（session_id）和 question</li>
+<li>调用 <code>rag_agent_service.query</code> 执行 Agent 推理，<code>thread_id</code> 即 <code>session_id</code></li>
+<li>LangGraph MemorySaver 自动完成历史消息的读取与写入，无需手动管理</li>
+<li>返回答案</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">@router.post(&quot;/chat&quot;)</span><br><span class="line">async def chat(request: ChatRequest):</span><br><span class="line">    logger.info(f&quot;[会话 &#123;request.id&#125;] 收到快速对话请求: &#123;request.question&#125;&quot;)</span><br><span class="line"></span><br><span class="line">    # 直接调用 Agent，thread_id 决定会话隔离，历史消息由 MemorySaver 自动维护</span><br><span class="line">    answer = await rag_agent_service.query(</span><br><span class="line">        request.question,</span><br><span class="line">        session_id=request.id</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    return &#123;</span><br><span class="line">        &quot;code&quot;: 200,</span><br><span class="line">        &quot;message&quot;: &quot;success&quot;,</span><br><span class="line">        &quot;data&quot;: &#123;</span><br><span class="line">            &quot;success&quot;: True,</span><br><span class="line">            &quot;answer&quot;: answer,</span><br><span class="line">            &quot;errorMessage&quot;: None</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>query</code> 方法内部将系统提示 + 用户问题包装成消息列表，通过 <code>agent.ainvoke</code> 执行完整的 ReAct 推理链，并从最后一条消息中取出答案。<code>thread_id</code> 与 <code>MemorySaver</code> 配合，让相同 id 的请求自动携带历史上下文：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">async def query(self, question: str, session_id: str) -&gt; str:</span><br><span class="line">    await self._initialize_agent()</span><br><span class="line"></span><br><span class="line">    messages = [</span><br><span class="line">        SystemMessage(content=self.system_prompt),</span><br><span class="line">        HumanMessage(content=question)</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    # thread_id 相同则自动读取 MemorySaver 中的历史消息</span><br><span class="line">    result = await self.agent.ainvoke(</span><br><span class="line">        input=&#123;&quot;messages&quot;: messages&#125;,</span><br><span class="line">        config=&#123;&quot;configurable&quot;: &#123;&quot;thread_id&quot;: session_id&#125;&#125;,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    # 取最后一条消息作为最终答案</span><br><span class="line">    last_message = result[&quot;messages&quot;][-1]</span><br><span class="line">    return last_message.content</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>会话历史的消息裁剪由 <code>trim_messages_middleware</code> 节点负责，策略是保留第一条系统消息 + 最近 6 条消息（约 3 轮对话），防止多轮对话超出大模型的上下文窗口：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def trim_messages_middleware(state: AgentState):</span><br><span class="line">    messages = state[&quot;messages&quot;]</span><br><span class="line">    if len(messages) &lt;= 7:</span><br><span class="line">        return None  # 消息较少，无需裁剪</span><br><span class="line"></span><br><span class="line">    first_msg = messages[0]  # 保留系统消息</span><br><span class="line">    recent_messages = messages[-6:] if len(messages) % 2 == 0 else messages[-7:]</span><br><span class="line"></span><br><span class="line">    return &#123;</span><br><span class="line">        &quot;messages&quot;: [</span><br><span class="line">            RemoveMessage(id=REMOVE_ALL_MESSAGES),  # 清空所有旧消息</span><br><span class="line">            *([first_msg] + list(recent_messages))   # 写入保留的消息</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="流式对话接口的核心实现"><a href="#流式对话接口的核心实现" class="headerlink" title="流式对话接口的核心实现"></a>流式对话接口的核心实现</h2><p>SSE返回的消息event类型：</p>
+<table>
+<thead>
+<tr>
+<th>event 类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>message (type&#x3D;content)</td>
+<td>回复的文本片段，会多次发送</td>
+</tr>
+<tr>
+<td>message (type&#x3D;tool_call)</td>
+<td>工具调用状态通知</td>
+</tr>
+<tr>
+<td>message (type&#x3D;done)</td>
+<td>消息推送完毕</td>
+</tr>
+<tr>
+<td>message (type&#x3D;error)</td>
+<td>发生异常</td>
+</tr>
+</tbody></table>
+<ol>
+<li>流式对话的核心是 SSE，FastAPI 通过 <code>EventSourceResponse</code> 实现，无需手动设置 HTTP 头</li>
+<li>Agent 使用 <code>agent.astream</code> 的 <code>stream_mode=&quot;messages&quot;</code> 模式，逐 token 产生输出</li>
+<li>每次从流中读到文本内容，就通过 SSE 发送给客户端</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">@router.post(&quot;/chat_stream&quot;)</span><br><span class="line">async def chat_stream(request: ChatRequest):</span><br><span class="line">    async def event_generator():</span><br><span class="line">        async for chunk in rag_agent_service.query_stream(</span><br><span class="line">            request.question, session_id=request.id</span><br><span class="line">        ):</span><br><span class="line">            chunk_type = chunk.get(&quot;type&quot;)</span><br><span class="line"></span><br><span class="line">            if chunk_type == &quot;content&quot;:</span><br><span class="line">                # 逐 token 文本片段，实时推送</span><br><span class="line">                yield &#123;</span><br><span class="line">                    &quot;event&quot;: &quot;message&quot;,</span><br><span class="line">                    &quot;data&quot;: json.dumps(</span><br><span class="line">                        &#123;&quot;type&quot;: &quot;content&quot;, &quot;data&quot;: chunk[&quot;data&quot;]&#125;,</span><br><span class="line">                        ensure_ascii=False</span><br><span class="line">                    )</span><br><span class="line">                &#125;</span><br><span class="line">            elif chunk_type == &quot;tool_call&quot;:</span><br><span class="line">                # 工具调用状态（前端可展示&quot;正在检索知识库...&quot;等提示）</span><br><span class="line">                yield &#123;</span><br><span class="line">                    &quot;event&quot;: &quot;message&quot;,</span><br><span class="line">                    &quot;data&quot;: json.dumps(</span><br><span class="line">                        &#123;&quot;type&quot;: &quot;tool_call&quot;, &quot;data&quot;: chunk.get(&quot;data&quot;)&#125;,</span><br><span class="line">                        ensure_ascii=False</span><br><span class="line">                    )</span><br><span class="line">                &#125;</span><br><span class="line">            elif chunk_type == &quot;complete&quot;:</span><br><span class="line">                # 推送完成信号</span><br><span class="line">                yield &#123;</span><br><span class="line">                    &quot;event&quot;: &quot;message&quot;,</span><br><span class="line">                    &quot;data&quot;: json.dumps(&#123;&quot;type&quot;: &quot;done&quot;, &quot;data&quot;: None&#125;, ensure_ascii=False)</span><br><span class="line">                &#125;</span><br><span class="line">            elif chunk_type == &quot;error&quot;:</span><br><span class="line">                yield &#123;</span><br><span class="line">                    &quot;event&quot;: &quot;message&quot;,</span><br><span class="line">                    &quot;data&quot;: json.dumps(</span><br><span class="line">                        &#123;&quot;type&quot;: &quot;error&quot;, &quot;data&quot;: str(chunk.get(&quot;data&quot;))&#125;,</span><br><span class="line">                        ensure_ascii=False</span><br><span class="line">                    )</span><br><span class="line">                &#125;</span><br><span class="line">    # EventSourceResponse 自动处理 SSE 协议头和连接管理</span><br><span class="line">    return EventSourceResponse(event_generator())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>query_stream</code> 方法使用 <code>agent.astream</code> 的 <code>stream_mode=&quot;messages&quot;</code> 模式，每个 token 触发一次回调，从 <code>content_blocks</code> 中提取文本块后 yield 给上层</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">async def query_stream(self, question: str, session_id: str) -&gt; AsyncGenerator:</span><br><span class="line">    await self._initialize_agent()</span><br><span class="line"></span><br><span class="line">    messages = [</span><br><span class="line">        SystemMessage(content=self.system_prompt),</span><br><span class="line">        HumanMessage(content=question)</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    async for token, metadata in self.agent.astream(</span><br><span class="line">        input=&#123;&quot;messages&quot;: messages&#125;,</span><br><span class="line">        config=&#123;&quot;configurable&quot;: &#123;&quot;thread_id&quot;: session_id&#125;&#125;,</span><br><span class="line">        stream_mode=&quot;messages&quot;,  # 逐 token 输出模式</span><br><span class="line">    ):</span><br><span class="line">        if type(token).__name__ in (&quot;AIMessage&quot;, &quot;AIMessageChunk&quot;):</span><br><span class="line">            content_blocks = getattr(token, &#x27;content_blocks&#x27;, None)</span><br><span class="line">            if content_blocks:</span><br><span class="line">                for block in content_blocks:</span><br><span class="line">                    if isinstance(block, dict) and block.get(&#x27;type&#x27;) == &#x27;text&#x27;:</span><br><span class="line">                        text = block.get(&#x27;text&#x27;, &#x27;&#x27;)</span><br><span class="line">                        if text:</span><br><span class="line">                            yield &#123;&quot;type&quot;: &quot;content&quot;, &quot;data&quot;: text&#125;</span><br><span class="line">    yield &#123;&quot;type&quot;: &quot;complete&quot;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">wuk0Ng</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://web-wuk0ng.github.io/2026/08/19/part4%E5%AF%B9%E8%AF%9DAgent%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">https://web-wuk0ng.github.io/2026/08/19/part4%E5%AF%B9%E8%AF%9DAgent%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">wuk0Ng</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/agent/">
+                                    <span class="chip bg-color">agent</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">
+                                    <span class="chip bg-color">大模型</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/aliyunpay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <!-- 引入 Gitalk 官方 CSS（国内 CDN） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<!-- 引入主题自定义 CSS（如有需要，若 my-gitalk.css 是本地文件则保留原路径） -->
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+  <div class="comment_headling">
+    <i class="fas fa-comments fa-fw"></i>
+    <span>评论</span>
+  </div>
+  <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<!-- 引入 Gitalk 官方 JS（国内 CDN） -->
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+  let gitalk = new Gitalk({
+    clientID: 'Ov23liTNlK9NLcZwFSo8',
+    clientSecret: '7472cd54d6ca5e38d14f6d1b5176299bb4cf4ebe',
+    repo: 'blog---comments',
+    owner: 'web-wuk0Ng',
+    admin: ["web-wuk0Ng"],
+    id: '2026-08-19T17-00-00',
+    distractionFreeMode: false
+  });
+
+  gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2026/08/19/part4%E5%AF%B9%E8%AF%9DAgent%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="part4对话agent方案设计与源码分析">
+                        
+                        <span class="card-title">part4对话agent方案设计与源码分析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-08-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                    记录
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/agent/">
+                        <span class="chip bg-color">agent</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">大模型</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2026/08/19/part3%E7%9F%A5%E8%AF%86%E5%BA%93RAG%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="part3知识库RAG方案设计">
+                        
+                        <span class="card-title">part3知识库RAG方案设计</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-08-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                    记录
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/agent/">
+                        <span class="chip bg-color">agent</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">大模型</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2026</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">wuk0Ng</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/web-wuk0Ng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:3134985131@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=3442584626" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 3442584626" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
