@@ -12,12 +12,6 @@
     transition: opacity 220ms ease, transform 220ms ease;
 }
 
-.lin-desktop-pet.is-hidden {
-    pointer-events: none;
-    opacity: 0;
-    transform: translateY(32px);
-}
-
 .lin-pet-character {
     display: block;
     width: 100%;
@@ -26,6 +20,8 @@
     border: 0;
     outline: 0;
     background: transparent;
+    appearance: none;
+    -webkit-appearance: none;
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -152,77 +148,6 @@
     transform: rotate(45deg);
 }
 
-.lin-pet-close {
-    position: absolute;
-    z-index: 2;
-    top: 8px;
-    right: 3px;
-    width: 28px;
-    height: 28px;
-    padding: 0;
-    color: #52675a;
-    font-size: 20px;
-    line-height: 25px;
-    cursor: pointer;
-    border: 1px solid rgba(86, 113, 94, 0.22);
-    border-radius: 50%;
-    background: rgba(255, 253, 247, 0.88);
-    box-shadow: 0 5px 16px rgba(36, 58, 43, 0.15);
-    opacity: 0.74;
-}
-
-.lin-pet-close:hover {
-    color: #fff;
-    background: #668873;
-    opacity: 1;
-}
-
-.lin-pet-close:focus,
-.lin-pet-close:active {
-    background: rgba(255, 253, 247, 0.88);
-}
-
-.lin-pet-close:focus-visible {
-    color: #fff;
-    outline: 2px solid rgba(102, 136, 115, 0.5);
-    outline-offset: 2px;
-    background: #668873;
-}
-
-.lin-pet-restore {
-    position: fixed;
-    z-index: 996;
-    right: 18px;
-    bottom: 106px;
-    width: 42px;
-    height: 42px;
-    padding: 0;
-    color: #fff8e7;
-    font-family: serif;
-    font-size: 18px;
-    line-height: 40px;
-    cursor: pointer;
-    pointer-events: none;
-    border: 1px solid rgba(255, 245, 216, 0.48);
-    border-radius: 50%;
-    background: linear-gradient(135deg, #526f5c, #76917b);
-    box-shadow: 0 8px 22px rgba(37, 60, 44, 0.24);
-    opacity: 0;
-    transform: scale(0.82);
-    transition: opacity 180ms ease, transform 180ms ease;
-}
-
-.lin-pet-restore.is-visible {
-    pointer-events: auto;
-    opacity: 1;
-    transform: scale(1);
-}
-
-.lin-pet-restore:focus,
-.lin-pet-restore:active {
-    background: linear-gradient(135deg, #526f5c, #76917b);
-}
-
 @media only screen and (max-width: 600px) {
     .lin-desktop-pet {
         right: 47px;
@@ -237,19 +162,10 @@
         font-size: 12px;
     }
 
-    .lin-pet-close {
-        top: 2px;
-        right: -3px;
-        width: 25px;
-        height: 25px;
-        font-size: 18px;
-        line-height: 22px;
-    }
 }
 
 @media print {
-    .lin-desktop-pet,
-    .lin-pet-restore {
+    .lin-desktop-pet {
         display: none !important;
     }
 }
@@ -258,8 +174,7 @@
     .lin-desktop-pet,
     .lin-pet-character img,
     .lin-pet-petal,
-    .lin-pet-bubble,
-    .lin-pet-restore {
+    .lin-pet-bubble {
         animation: none !important;
         transition: none !important;
     }

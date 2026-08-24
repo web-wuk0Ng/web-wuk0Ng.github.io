@@ -5,10 +5,8 @@
     var character = pet && pet.querySelector('.lin-pet-character');
     var bubble = pet && pet.querySelector('.lin-pet-bubble');
     var effects = pet && pet.querySelector('.lin-pet-effects');
-    var closeButton = pet && pet.querySelector('.lin-pet-close');
-    var restoreButton = document.getElementById('linPetRestore');
 
-    if (!pet || !character || !bubble || !effects || !closeButton || !restoreButton) return;
+    if (!pet || !character || !bubble || !effects) return;
 
     var messages = [
         '在看什么？我也瞧瞧。',
@@ -18,7 +16,36 @@
         '慢慢读，我一直在这里。',
         '嗯？你在叫我？',
         '我听见了。',
-        '翻到哪一页了？'
+        '翻到哪一页了？',
+        '今天也要认真生活。',
+        '先别急，答案往往藏在细节里。',
+        '偶尔停一下，思路反而会更清楚。',
+        '这一段值得再看一遍。',
+        '你是不是又发现了新东西？',
+        '别只顾着赶路，也看看沿途。',
+        '有想法就记下来，别让它溜走。',
+        '读到这里，辛苦了。',
+        '换个角度，也许就通了。',
+        '我在听，你继续说。',
+        '今天想写点什么？',
+        '保持好奇，是件很难得的事。',
+        '安静读一会儿，也很好。',
+        '难题可以慢慢拆开来看。',
+        '记得保存刚才的灵感。',
+        '这篇内容，你最在意哪一段？',
+        '要不要回头看看前面的结论？',
+        '思路卡住时，先整理已知条件。',
+        '我会陪你把这一页看完。',
+        '今天的进度已经很不错了。',
+        '别忘了让眼睛休息一下。',
+        '再点一下，我可能会换个回答。',
+        '认真思考的样子，很容易被看出来。',
+        '有些答案，需要一点耐心。',
+        '把复杂的事情分成小步骤吧。',
+        '如果读懂了，就继续向下一页。',
+        '我刚刚好像看见一个好点子。',
+        '这里很安静，适合慢慢想。',
+        '每次回看，可能都会有新发现。'
     ];
     var reactions = ['is-greeting', 'is-floating', 'is-turning'];
     var messageIndex = 0;
@@ -70,19 +97,6 @@
         }, 4200);
     }
 
-    function setHidden(hidden) {
-        pet.classList.toggle('is-hidden', hidden);
-        restoreButton.classList.toggle('is-visible', hidden);
-        try {
-            window.sessionStorage.setItem('lin-pet-hidden', hidden ? '1' : '0');
-        } catch (error) {
-            // Storage can be unavailable in privacy modes; the pet still works.
-        }
-    }
-
-    closeButton.addEventListener('click', function () { setHidden(true); });
-    restoreButton.addEventListener('click', function () { setHidden(false); });
-
     character.addEventListener('click', function () {
         if (!drag || !drag.moved) speak();
     });
@@ -125,12 +139,6 @@
 
     character.addEventListener('pointerup', finishDrag);
     character.addEventListener('pointercancel', finishDrag);
-
-    try {
-        if (window.sessionStorage.getItem('lin-pet-hidden') === '1') setHidden(true);
-    } catch (error) {
-        // Ignore storage access failures.
-    }
 
     window.setTimeout(function () { bubble.classList.add('is-visible'); }, 900);
     hideTimer = window.setTimeout(function () { bubble.classList.remove('is-visible'); }, 4600);
