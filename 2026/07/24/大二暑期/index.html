@@ -13,11 +13,16 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#405f4c">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
     <title>大二暑期 | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
+
+    <link rel="dns-prefetch" href="//push.zhanzhang.baidu.com">
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+    
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -50,9 +55,7 @@
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/jiushen.jpg" class="logo-img" alt="LOGO">
-                    
+                    <img src="/medias/lin-pianpian/avatar.webp" class="logo-img" alt="林翩翩主题头像" width="42" height="42" decoding="async">
                     <span class="logo-span">wuk0Ng</span>
                 </a>
             </div>
@@ -149,9 +152,7 @@
 <div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
-        
-        <img src="/medias/jiushen.jpg" class="logo-img circle responsive-img">
-        
+        <img src="/medias/lin-pianpian/avatar.webp" class="logo-img circle responsive-img" alt="林翩翩主题头像" width="96" height="96" decoding="async">
         <div class="logo-name">wuk0Ng</div>
         <div class="logo-desc">
             
@@ -441,12 +442,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/360/">
-                                <span class="chip bg-color">360</span>
-                            </a>
-                        
                             <a href="/tags/%E5%AE%9E%E4%B9%A0/">
                                 <span class="chip bg-color">实习</span>
+                            </a>
+                        
+                            <a href="/tags/360/">
+                                <span class="chip bg-color">360</span>
                             </a>
                         
                     </div>
@@ -493,7 +494,7 @@
             <div id="articleContent">
                 <p>之前大一暑期的实习专门写过一篇博客了，这里又来<br>以后每年都有<br>然后每年年终也要有！！！<br>不知不觉中已经到了大二暑期<br>就是那个从大一开始就很期待的大二暑期，可以去大城市大公司的暑期<br>大二下是真的焦虑，高中时都没有长痘，但是为了找个实习真的每天晚上都睡不着<br>鼻子，鼻子下边，还有就是下巴这些地方总是长痘<br>最近稍微好了一点点</p>
 <p>好在结果还不错，至少比开始的预期要好，一开始怕安服这些都不要我</p>
-<p><img src="https://github.com/web-wuk0Ng/my-images/blob/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2026-07-24_175012_532.jpg?raw=true"></p>
+<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2026-07-24_175012_532.jpg?raw=true"></p>
 <p>原来真实的环境真能学到那么多</p>
 <p>昨天领到了第一份工资，请了两个对我最好，然后带我带得最多的同事喝咖啡，又了解了很多东西</p>
 <p>一个是原来有的同事很厉害呀，虽然有的走了，但是传奇还是留到这里。比如某人之前经常晚上11点才离开公司，挖一天的洞。最高一个4W人民币。太夸张了！</p>
@@ -570,12 +571,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/360/">
-                                    <span class="chip bg-color">360</span>
-                                </a>
-                            
                                 <a href="/tags/%E5%AE%9E%E4%B9%A0/">
                                     <span class="chip bg-color">实习</span>
+                                </a>
+                            
+                                <a href="/tags/360/">
+                                    <span class="chip bg-color">360</span>
                                 </a>
                             
                         </div>
@@ -727,8 +728,8 @@
     </div>
 
     
-        <!-- 引入 Gitalk 官方 CSS（国内 CDN） -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+        <!-- Gitalk is bundled with the theme to avoid a blocking overseas CDN request. -->
+<link rel="stylesheet" href="/libs/gitalk/gitalk.css">
 
 <!-- 引入主题自定义 CSS（如有需要，若 my-gitalk.css 是本地文件则保留原路径） -->
 <link rel="stylesheet" href="/css/my-gitalk.css">
@@ -741,8 +742,7 @@
   <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<!-- 引入 Gitalk 官方 JS（国内 CDN） -->
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
   let gitalk = new Gitalk({
     clientID: 'Ov23liTNlK9NLcZwFSo8',

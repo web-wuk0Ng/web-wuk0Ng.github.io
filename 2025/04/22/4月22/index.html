@@ -13,11 +13,16 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#405f4c">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
     <title>今天早八晚七，中间全是课，随便刷点题保持手感 | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
+
+    <link rel="dns-prefetch" href="//push.zhanzhang.baidu.com">
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+    
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -50,9 +55,7 @@
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/jiushen.jpg" class="logo-img" alt="LOGO">
-                    
+                    <img src="/medias/lin-pianpian/avatar.webp" class="logo-img" alt="林翩翩主题头像" width="42" height="42" decoding="async">
                     <span class="logo-span">wuk0Ng</span>
                 </a>
             </div>
@@ -149,9 +152,7 @@
 <div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
-        
-        <img src="/medias/jiushen.jpg" class="logo-img circle responsive-img">
-        
+        <img src="/medias/lin-pianpian/avatar.webp" class="logo-img circle responsive-img" alt="林翩翩主题头像" width="96" height="96" decoding="async">
         <div class="logo-name">wuk0Ng</div>
         <div class="logo-desc">
             
@@ -520,7 +521,7 @@
 <p>这里我第一次遇见这种题目，直接看wp了<br>创建一个temp.php文件，我们复制代码进去，用vscode打开，就发现问题了<br>它显示的就和我们在网页上看到的就不一样了<br>源码中有特殊unicode字符的存在<br>选定右边实际字符的参名和参数，并将复制其16进制数值，再转为16进制编码形式<br>将源代码存为php文件,在txt中看到有其他编码,使用010等工具打开php文件,看到第二个get方式传递的参数有其他编码并且变量及数据变换了位置,实际上这才是真正传递的变量以及数据,将他们的十六进制复制出来(为什么不直接复制文本呢,因为复制文本直接GET提交就相当与提交的其他数据了),复制出来后,使用脚本或者手动将每个16进制数(2位)，进行加百分号,此时即变成url形势的了,提交的数据将会经过pup自动转码,无法转码的则是源码内的其他编码,数据比对成功<br>重点就是第二个传的参数不是我们看到的，找到要传的参数，并取HEX十六进制的前面加上%传</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?ahahahaha=jitanglailo&amp;%E2%80%AE%E2%81%A6%55%67%65%69%77%6F%E2%81%A9%E2%81%A6%63%75%69%73%68%69%79%75%61%6E=%E2%80%AE%E2%81%A6%20%46%6C%61%67%21%E2%81%A9%E2%81%A6%4E%31%53%41%43%54%46</span><br></pre></td></tr></table></figure>
 <h1 id="羊城杯-2020-easycon"><a href="#羊城杯-2020-easycon" class="headerlink" title="[羊城杯 2020]easycon"></a>[羊城杯 2020]easycon</h1><p>1分<br>RCE信息收集目录扫描<br>题目描述</p>
-<p>得到的flag使用NSSCTF{}格式提交。<br>进入之后是一个Ubuntu的默认页面，一般来说文件名是index.html<br>可以通过目录扫描的得到<br>[20:55:50] 200 -  241B  - &#x2F;index.php<br>[20:55:50] 200 -  241B  - &#x2F;index.php&#x2F;login&#x2F;<br>有这两个文件<br>进入index.php，弹出eval post cmd<br>输入cmd&#x3D;system(‘ls &#x2F;‘);回显bin boot dev etc home lib lib32 lib64 libx32 media mnt opt proc root run sbin srv sys tmp usr var<br>cmd&#x3D;system(‘ls’);第一次想的方向和题解是有出入的，bbbbbbbbb.txt gw.jpg gw2.jpg index.html index.php<br>访问www….&#x2F;bbbbbbbbb.txt出现很长一串东西<br>根据观察很像base64编码<br>解码后，开头有一个JFIF，是图片类型的文件头。所以这可能是图片进行base64编码<br><img src="data:image/jpeg;base64,/9j/......">的形式，这里我是认为能少用在线工具就少用，要么就下载到本地<br>新建一个heml文件，用vscode打开，输入英文!<br>回车出现</p>
+<p>得到的flag使用NSSCTF{}格式提交。<br>进入之后是一个Ubuntu的默认页面，一般来说文件名是index.html<br>可以通过目录扫描的得到<br>[20:55:50] 200 -  241B  - &#x2F;index.php<br>[20:55:50] 200 -  241B  - &#x2F;index.php&#x2F;login&#x2F;<br>有这两个文件<br>进入index.php，弹出eval post cmd<br>输入cmd&#x3D;system(‘ls &#x2F;‘);回显bin boot dev etc home lib lib32 lib64 libx32 media mnt opt proc root run sbin srv sys tmp usr var<br>cmd&#x3D;system(‘ls’);第一次想的方向和题解是有出入的，bbbbbbbbb.txt gw.jpg gw2.jpg index.html index.php<br>访问www….&#x2F;bbbbbbbbb.txt出现很长一串东西<br>根据观察很像base64编码<br>解码后，开头有一个JFIF，是图片类型的文件头。所以这可能是图片进行base64编码<br><img loading="lazy" decoding="async" src="data:image/jpeg;base64,/9j/......">的形式，这里我是认为能少用在线工具就少用，要么就下载到本地<br>新建一个heml文件，用vscode打开，输入英文!<br>回车出现</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <p>将我们的内容加入到body页面<br>最后用浏览器打开就是一个图片的形式了<br>转化为nssctf格式NSSCTF{do_u_kn0w_c@idao}<br>应该也算是杂项方面的吧</p>
 <h1 id="MoeCTF-2022-baby-file"><a href="#MoeCTF-2022-baby-file" class="headerlink" title="[MoeCTF 2022]baby_file"></a>[MoeCTF 2022]baby_file</h1><p>1分<br>PHP伪协议PHP文件包含<br>题目描述</p>
@@ -845,8 +846,8 @@ echo $flag;
     </div>
 
     
-        <!-- 引入 Gitalk 官方 CSS（国内 CDN） -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+        <!-- Gitalk is bundled with the theme to avoid a blocking overseas CDN request. -->
+<link rel="stylesheet" href="/libs/gitalk/gitalk.css">
 
 <!-- 引入主题自定义 CSS（如有需要，若 my-gitalk.css 是本地文件则保留原路径） -->
 <link rel="stylesheet" href="/css/my-gitalk.css">
@@ -859,8 +860,7 @@ echo $flag;
   <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<!-- 引入 Gitalk 官方 JS（国内 CDN） -->
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
   let gitalk = new Gitalk({
     clientID: 'Ov23liTNlK9NLcZwFSo8',

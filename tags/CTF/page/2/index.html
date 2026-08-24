@@ -13,11 +13,16 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#405f4c">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
     <title>标签: CTF | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
+
+    <link rel="dns-prefetch" href="//push.zhanzhang.baidu.com">
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+    
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -50,9 +55,7 @@
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/jiushen.jpg" class="logo-img" alt="LOGO">
-                    
+                    <img src="/medias/lin-pianpian/avatar.webp" class="logo-img" alt="林翩翩主题头像" width="42" height="42" decoding="async">
                     <span class="logo-span">wuk0Ng</span>
                 </a>
             </div>
@@ -149,9 +152,7 @@
 <div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
-        
-        <img src="/medias/jiushen.jpg" class="logo-img circle responsive-img">
-        
+        <img src="/medias/lin-pianpian/avatar.webp" class="logo-img circle responsive-img" alt="林翩翩主题头像" width="96" height="96" decoding="async">
         <div class="logo-name">wuk0Ng</div>
         <div class="logo-desc">
             
@@ -321,6 +322,7 @@
     <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
         <div class="brand">
+            
             <div class="title center-align">
                 
                 着我汉家衣裳，兴我礼仪之邦
@@ -329,17 +331,40 @@
 
             <div class="description center-align">
                 
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                <span id="subtitle" aria-live="polite">老骥伏枥，志在千里</span>
                 <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: ['老骥伏枥，志在千里','An old steed in the stable still aspires to gallop a thousand li'],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
+                    (function () {
+                        var target = document.getElementById('subtitle');
+                        var phrases = ["老骥伏枥，志在千里","An old steed in the stable still aspires to gallop a thousand li"];
+                        var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                        if (!target || reducedMotion || !phrases.length) return;
+
+                        var phraseIndex = 0;
+                        var letterIndex = phrases[0].length;
+                        var deleting = true;
+                        target.classList.add('native-typed');
+
+                        function typeNext() {
+                            var phrase = phrases[phraseIndex];
+                            letterIndex += deleting ? -1 : 1;
+                            target.textContent = phrase.slice(0, Math.max(0, letterIndex));
+
+                            if (!deleting && letterIndex >= phrase.length) {
+                                deleting = true;
+                                window.setTimeout(typeNext, 1800);
+                                return;
+                            }
+                            if (deleting && letterIndex <= 0) {
+                                deleting = false;
+                                phraseIndex = (phraseIndex + 1) % phrases.length;
+                                window.setTimeout(typeNext, 260);
+                                return;
+                            }
+                            window.setTimeout(typeNext, deleting ? 50 : 100);
+                        }
+
+                        window.setTimeout(typeNext, 300 + 1200);
+                    }());
                 </script>
                 
             </div>
@@ -378,10 +403,19 @@
                 </a>
                 
                 
+                <a href="/tags/%E8%AE%B0%E5%BD%95/" title="记录: 6">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="记录" style="background-color: #F5EEF8;">记录
+                        <span class="tag-length">6</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/%E5%8F%8D%E6%80%9D/" title="反思: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="反思" style="background-color: #F5EEF8;">反思
+                            data-tagname="反思" style="background-color: #D5F5E3;">反思
                         <span class="tag-length">3</span>
                     </span>
                 </a>
@@ -390,7 +424,7 @@
                 <a href="/tags/%E5%AD%A6%E4%B9%A0/" title="学习: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="学习" style="background-color: #D5F5E3;">学习
+                            data-tagname="学习" style="background-color: #E8F8F5;">学习
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -399,7 +433,7 @@
                 <a href="/tags/%E5%81%9A%E9%A2%98/" title="做题: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="做题" style="background-color: #E8F8F5;">做题
+                            data-tagname="做题" style="background-color: #FEF9E7;">做题
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -408,79 +442,124 @@
                 <a href="/tags/CTF/" title="CTF: 28">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
-                            data-tagname="CTF" style="background-color: #FEF9E7;">CTF
+                            data-tagname="CTF" style="background-color: #F8F9F9;">CTF
                         <span class="tag-length">28</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/%E6%A0%A1%E8%B5%9B/" title="校赛: 2">
+                <a href="/tags/%E6%AF%94%E8%B5%9B/" title="比赛: 19">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="校赛" style="background-color: #F8F9F9;">校赛
+                            data-tagname="比赛" style="background-color: #82E0AA;">比赛
+                        <span class="tag-length">19</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E5%BA%94%E6%80%A5/" title="应急: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="应急" style="background-color: #D7BDE2;">应急
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Linux/" title="Linux: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Linux" style="background-color: #A3E4D7;">Linux
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/SRC/" title="SRC: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="SRC" style="background-color: #85C1E9;">SRC
+                        <span class="tag-length">3</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/bp/" title="bp: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="bp" style="background-color: #F8C471;">bp
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/java/" title="java: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="java" style="background-color: #F9E79F;">java
                         <span class="tag-length">2</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/%E8%A7%84%E5%88%92/" title="规划: 4">
+                <a href="/tags/%E5%AE%89%E5%85%A8/" title="安全: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="规划" style="background-color: #82E0AA;">规划
+                            data-tagname="安全" style="background-color: #F8C471;">安全
+                        <span class="tag-length">3</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/SQL/" title="SQL: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="SQL" style="background-color: #A3E4D7;">SQL
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/nodejs/" title="nodejs: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="nodejs" style="background-color: #82E0AA;">nodejs
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/agent/" title="agent: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="agent" style="background-color: #FEF9E7;">agent
                         <span class="tag-length">4</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/%E7%BB%86%E8%8A%82/" title="细节: 1">
+                <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" title="大模型: 4">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="细节" style="background-color: #D7BDE2;">细节
+                            data-tagname="大模型" style="background-color: #FFF;">大模型
+                        <span class="tag-length">4</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/phar/" title="phar: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="phar" style="background-color: #F9EBEA;">phar
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/%E8%AE%B0%E5%BD%95/" title="记录: 6">
+                <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="反序列化: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="记录" style="background-color: #A3E4D7;">记录
-                        <span class="tag-length">6</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/sql%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" title="sql进阶学习: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="sql进阶学习" style="background-color: #85C1E9;">sql进阶学习
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/ctf%E8%B5%9B%E9%A2%98/" title="ctf赛题: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="ctf赛题" style="background-color: #F8C471;">ctf赛题
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E7%A1%AC%E4%BB%B6/" title="硬件: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="硬件" style="background-color: #F9E79F;">硬件
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/sql%E7%BB%88%E6%9E%81%E7%89%88/" title="sql终极版: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="sql终极版" style="background-color: #FEF9E7;">sql终极版
+                            data-tagname="反序列化" style="background-color: #A3E4D7;">反序列化
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -495,11 +574,56 @@
                 </a>
                 
                 
-                <a href="/tags/ssti/" title="ssti: 1">
+                <a href="/tags/%E5%AE%9E%E4%B9%A0/" title="实习: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="ssti" style="background-color: #A3E4D7;">ssti
+                            data-tagname="实习" style="background-color: #D5F5E3;">实习
+                        <span class="tag-length">3</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/ssrf/" title="ssrf: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="ssrf" style="background-color: #A3E4D7;">ssrf
                         <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/sql%E7%BB%88%E6%9E%81%E7%89%88/" title="sql终极版: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="sql终极版" style="background-color: #FEF9E7;">sql终极版
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/ctf%E8%B5%9B%E9%A2%98/" title="ctf赛题: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="ctf赛题" style="background-color: #D5F5E3;">ctf赛题
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/sql%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" title="sql进阶学习: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="sql进阶学习" style="background-color: #F9EBEA;">sql进阶学习
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0/" title="安全学习: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="安全学习" style="background-color: #F9E79F;">安全学习
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
@@ -508,6 +632,51 @@
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="bug" style="background-color: #F8F9F9;">bug
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/STEAM/" title="STEAM: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="STEAM" style="background-color: #85C1E9;">STEAM
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E6%B8%B8%E6%88%8F/" title="游戏: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="游戏" style="background-color: #FEF9E7;">游戏
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/shell/" title="shell: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="shell" style="background-color: #FFF;">shell
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/ctf/" title="ctf: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="ctf" style="background-color: #F9E79F;">ctf
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/ssti/" title="ssti: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="ssti" style="background-color: #A3E4D7;">ssti
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -540,163 +709,10 @@
                 </a>
                 
                 
-                <a href="/tags/%E5%AE%89%E5%85%A8/" title="安全: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="安全" style="background-color: #F8C471;">安全
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%AF%94%E8%B5%9B/" title="比赛: 19">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="比赛" style="background-color: #D7BDE2;">比赛
-                        <span class="tag-length">19</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0/" title="安全学习: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="安全学习" style="background-color: #F9E79F;">安全学习
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/tags/%E5%9B%BE%E7%89%87/" title="图片: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="图片" style="background-color: #F8C471;">图片
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/shell/" title="shell: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="shell" style="background-color: #FFF;">shell
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/ctf/" title="ctf: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="ctf" style="background-color: #F9E79F;">ctf
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/ssrf/" title="ssrf: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="ssrf" style="background-color: #A3E4D7;">ssrf
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/nodejs/" title="nodejs: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="nodejs" style="background-color: #82E0AA;">nodejs
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%BA%94%E6%80%A5/" title="应急: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="应急" style="background-color: #A3E4D7;">应急
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Linux/" title="Linux: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Linux" style="background-color: #E8F8F5;">Linux
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/phar/" title="phar: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="phar" style="background-color: #F9EBEA;">phar
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="反序列化: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="反序列化" style="background-color: #A3E4D7;">反序列化
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/STEAM/" title="STEAM: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="STEAM" style="background-color: #85C1E9;">STEAM
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%B8%B8%E6%88%8F/" title="游戏: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="游戏" style="background-color: #FEF9E7;">游戏
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/java/" title="java: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="java" style="background-color: #A3E4D7;">java
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/SRC/" title="SRC: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="SRC" style="background-color: #FEF9E7;">SRC
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/bp/" title="bp: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="bp" style="background-color: #FEF9E7;">bp
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/SQL/" title="SQL: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="SQL" style="background-color: #A3E4D7;">SQL
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -711,11 +727,29 @@
                 </a>
                 
                 
-                <a href="/tags/%E5%AE%9E%E4%B9%A0/" title="实习: 3">
+                <a href="/tags/%E6%A0%A1%E8%B5%9B/" title="校赛: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="实习" style="background-color: #D5F5E3;">实习
-                        <span class="tag-length">3</span>
+                            data-tagname="校赛" style="background-color: #FEF9E7;">校赛
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E8%A7%84%E5%88%92/" title="规划: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="规划" style="background-color: #F8C471;">规划
+                        <span class="tag-length">4</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E7%A1%AC%E4%BB%B6/" title="硬件: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="硬件" style="background-color: #F9E79F;">硬件
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -729,20 +763,11 @@
                 </a>
                 
                 
-                <a href="/tags/agent/" title="agent: 4">
+                <a href="/tags/%E7%BB%86%E8%8A%82/" title="细节: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="agent" style="background-color: #FEF9E7;">agent
-                        <span class="tag-length">4</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" title="大模型: 4">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="大模型" style="background-color: #FFF;">大模型
-                        <span class="tag-length">4</span>
+                            data-tagname="细节" style="background-color: #FEF9E7;">细节
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -1047,13 +1072,13 @@
             
             <div class="article tag-post col s12 m6 l4" data-tags="CTF, 比赛" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/06/15/%E7%9F%AD%E6%9C%9F%E7%B2%97%E6%9A%B4%E8%A7%84%E5%88%92/">
+                    <a href="/2025/06/15/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E8%BF%9B%E9%98%B6/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="短期的一个粗暴规划">
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="反序列化初步">
                             
-                            <span class="card-title">短期的一个粗暴规划</span>
+                            <span class="card-title">反序列化初步</span>
                         </div>
                     </a>
                     <div class="card-content article-content">

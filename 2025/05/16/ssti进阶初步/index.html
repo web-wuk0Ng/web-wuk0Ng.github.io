@@ -13,11 +13,16 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#405f4c">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
     <title>ssti进阶学习 | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
+
+    <link rel="dns-prefetch" href="//push.zhanzhang.baidu.com">
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+    
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -50,9 +55,7 @@
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/jiushen.jpg" class="logo-img" alt="LOGO">
-                    
+                    <img src="/medias/lin-pianpian/avatar.webp" class="logo-img" alt="林翩翩主题头像" width="42" height="42" decoding="async">
                     <span class="logo-span">wuk0Ng</span>
                 </a>
             </div>
@@ -149,9 +152,7 @@
 <div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
-        
-        <img src="/medias/jiushen.jpg" class="logo-img circle responsive-img">
-        
+        <img src="/medias/lin-pianpian/avatar.webp" class="logo-img circle responsive-img" alt="林翩翩主题头像" width="96" height="96" decoding="async">
         <div class="logo-name">wuk0Ng</div>
         <div class="logo-desc">
             
@@ -932,8 +933,8 @@ SSTIJinja2Flask
     </div>
 
     
-        <!-- 引入 Gitalk 官方 CSS（国内 CDN） -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+        <!-- Gitalk is bundled with the theme to avoid a blocking overseas CDN request. -->
+<link rel="stylesheet" href="/libs/gitalk/gitalk.css">
 
 <!-- 引入主题自定义 CSS（如有需要，若 my-gitalk.css 是本地文件则保留原路径） -->
 <link rel="stylesheet" href="/css/my-gitalk.css">
@@ -946,8 +947,7 @@ SSTIJinja2Flask
   <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<!-- 引入 Gitalk 官方 JS（国内 CDN） -->
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
   let gitalk = new Gitalk({
     clientID: 'Ov23liTNlK9NLcZwFSo8',
@@ -985,59 +985,6 @@ SSTIJinja2Flask
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/05/18/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B01/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="博客更新公告">
-                        
-                        <span class="card-title">博客更新公告</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-05-18
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%9B%B4%E6%96%B0/">
-                        <span class="chip bg-color">更新</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8D%87%E7%BA%A7/">
-                        <span class="chip bg-color">升级</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/2025/05/16/ssti%E8%AF%B4%E6%98%8E/">
                     <div class="card-image">
                         
@@ -1054,9 +1001,9 @@ SSTIJinja2Flask
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-16
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-05-16
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1078,6 +1025,59 @@ SSTIJinja2Flask
                     
                     <a href="/tags/bug/">
                         <span class="chip bg-color">bug</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/05/12/sql%E6%B3%A8%E5%85%A5%E7%BB%88%E6%9E%81%E6%89%8B%E5%8A%A8/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="sql注入进阶终级">
+                        
+                        <span class="card-title">sql注入进阶终级</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                    记录
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/sql%E7%BB%88%E6%9E%81%E7%89%88/">
+                        <span class="chip bg-color">sql终极版</span>
+                    </a>
+                    
+                    <a href="/tags/ctf%E8%B5%9B%E9%A2%98/">
+                        <span class="chip bg-color">ctf赛题</span>
                     </a>
                     
                 </div>

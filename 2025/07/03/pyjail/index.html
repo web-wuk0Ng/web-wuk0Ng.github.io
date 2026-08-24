@@ -13,11 +13,16 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#405f4c">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
     <title>pyjail（无实战版） | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
+
+    <link rel="dns-prefetch" href="//push.zhanzhang.baidu.com">
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+    
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -50,9 +55,7 @@
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/jiushen.jpg" class="logo-img" alt="LOGO">
-                    
+                    <img src="/medias/lin-pianpian/avatar.webp" class="logo-img" alt="林翩翩主题头像" width="42" height="42" decoding="async">
                     <span class="logo-span">wuk0Ng</span>
                 </a>
             </div>
@@ -149,9 +152,7 @@
 <div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
-        
-        <img src="/medias/jiushen.jpg" class="logo-img circle responsive-img">
-        
+        <img src="/medias/lin-pianpian/avatar.webp" class="logo-img circle responsive-img" alt="林翩翩主题头像" width="96" height="96" decoding="async">
         <div class="logo-name">wuk0Ng</div>
         <div class="logo-desc">
             
@@ -707,7 +708,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> types</span><br><span class="line"><span class="built_in">print</span> types.FileType(<span class="string">&quot;flag&quot;</span>).read()</span><br></pre></td></tr></table></figure>
 <p>这里还有学长写的一个关于更加深入理解python魔术方法<br>这里就和前面一样，直接把它文章的内容给复制过来了</p>
 <h2 id="更加深入的理解Python魔术方法"><a href="#更加深入的理解Python魔术方法" class="headerlink" title="更加深入的理解Python魔术方法"></a>更加深入的理解Python魔术方法</h2><p>我们先看一个报错</p>
-<p><img src="https://sl0wjamz.oss-cn-hangzhou.aliyuncs.com/img/image-20241022173651605.png" alt="image-20241022173651605"></p>
+<p><img loading="lazy" decoding="async" src="https://sl0wjamz.oss-cn-hangzhou.aliyuncs.com/img/image-20241022173651605.png" alt="image-20241022173651605"></p>
 <p>在 Python 中，<code>__init__</code> 方法属于类的实例方法，但它本质上是通过 <code>method-wrapper</code> 或 <code>wrapper_descriptor</code> 实现的特殊方法，而不是常规的函数对象。这就是为什么在访问 <code>__init__</code> 的时候会看到 <code>method-wrapper</code>，并且无法访问像 <code>__globals__</code> 这样的属性。</p>
 <p><strong><code>__init__</code> 是一个特殊方法</strong>： <code>__init__</code> 是类的构造函数（初始化方法），它是一个绑定方法，调用时由 Python 自动处理。这种特殊的绑定方法不像普通的函数或方法那样包含 <code>__globals__</code> 属性，因为它是通过内部机制实现的，而不是像常规函数那样存在于全局命名空间。</p>
 <p>**绑定方法和 <code>method-wrapper</code>**： 通过 <code>obj.__init__</code> 访问 <code>__init__</code> 实际上返回的是一个绑定到对象的 <code>method-wrapper</code>，它是 Python 的一种优化机制，用于类的魔法方法。<code>method-wrapper</code> 并不暴露 <code>__globals__</code> 属性，因为它与普通函数不同，不能直接通过 <code>globals()</code> 访问其全局变量。</p>
@@ -715,13 +716,13 @@
 <blockquote>
 <p>重点在第三点，能够有globals属性的必须是def定义的函数（lambda也可以</p>
 </blockquote>
-<p><img src="https://sl0wjamz.oss-cn-hangzhou.aliyuncs.com/img/image-20241022174223178.png" alt="image-20241022174223178"></p>
-<p><img src="https://sl0wjamz.oss-cn-hangzhou.aliyuncs.com/img/image-20241022174511612.png" alt="image-20241022174511612"></p>
+<p><img loading="lazy" decoding="async" src="https://sl0wjamz.oss-cn-hangzhou.aliyuncs.com/img/image-20241022174223178.png" alt="image-20241022174223178"></p>
+<p><img loading="lazy" decoding="async" src="https://sl0wjamz.oss-cn-hangzhou.aliyuncs.com/img/image-20241022174511612.png" alt="image-20241022174511612"></p>
 <p>很清晰了，函数能直接访问他<code>所在模块</code>的所有变量和属性，你看test3已经访问到了之前定义的匿名函数。</p>
 <blockquote>
 <p>所以我们的目的一般都是通过访问类或者<code>类</code>的<code>实例</code>来访问函数的globals属性</p>
 </blockquote>
-<p><img src="https://sl0wjamz.oss-cn-hangzhou.aliyuncs.com/img/image-20241022174549243.png" alt="image-20241022174549243"></p>
+<p><img loading="lazy" decoding="async" src="https://sl0wjamz.oss-cn-hangzhou.aliyuncs.com/img/image-20241022174549243.png" alt="image-20241022174549243"></p>
 <ul>
 <li>注意跳板为实例的时候，必须得访问__class__来访问到他的类。</li>
 </ul>
@@ -1610,8 +1611,8 @@
     </div>
 
     
-        <!-- 引入 Gitalk 官方 CSS（国内 CDN） -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+        <!-- Gitalk is bundled with the theme to avoid a blocking overseas CDN request. -->
+<link rel="stylesheet" href="/libs/gitalk/gitalk.css">
 
 <!-- 引入主题自定义 CSS（如有需要，若 my-gitalk.css 是本地文件则保留原路径） -->
 <link rel="stylesheet" href="/css/my-gitalk.css">
@@ -1624,8 +1625,7 @@
   <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<!-- 引入 Gitalk 官方 JS（国内 CDN） -->
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
   let gitalk = new Gitalk({
     clientID: 'Ov23liTNlK9NLcZwFSo8',

@@ -13,11 +13,16 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#405f4c">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
     <title>py-web | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
+
+    <link rel="dns-prefetch" href="//push.zhanzhang.baidu.com">
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+    
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -50,9 +55,7 @@
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/jiushen.jpg" class="logo-img" alt="LOGO">
-                    
+                    <img src="/medias/lin-pianpian/avatar.webp" class="logo-img" alt="林翩翩主题头像" width="42" height="42" decoding="async">
                     <span class="logo-span">wuk0Ng</span>
                 </a>
             </div>
@@ -149,9 +152,7 @@
 <div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
-        
-        <img src="/medias/jiushen.jpg" class="logo-img circle responsive-img">
-        
+        <img src="/medias/lin-pianpian/avatar.webp" class="logo-img circle responsive-img" alt="林翩翩主题头像" width="96" height="96" decoding="async">
         <div class="logo-name">wuk0Ng</div>
         <div class="logo-desc">
             
@@ -697,7 +698,7 @@
 <p>一进去就可以看到一个东西，最快1秒，最慢三秒内解决20道数学题，一般这样就出flag了<br>但是，手打的话很难这么快，还没有错误，这里肯定就是要借助我们的脚本了，我们先来抓一个包来看看</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">POST / HTTP/1.1</span><br><span class="line">Host: node5.anna.nssctf.cn:29507</span><br><span class="line">Content-Length: 5</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">Origin: http://node5.anna.nssctf.cn:29507</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5790.102 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7</span><br><span class="line">Referer: http://node5.anna.nssctf.cn:29507/</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Cookie: PHPSESSID=c9c0e0j8imad0lsu0h2cv1jga6</span><br><span class="line">Connection: close</span><br><span class="line"></span><br><span class="line">ans=1</span><br></pre></td></tr></table></figure>
 <p>大概就是这个样子的一个数据包<br>再来看一下页面，要计算的数字都是在什么h5标签下的</p>
-<p><img src="https://github.com/web-wuk0Ng/my-images/blob/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-09-04%20144215.png?raw=true"></p>
+<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-09-04%20144215.png?raw=true"></p>
 <p>现在就可以开始写我们的脚本了<br>首先我们要知道发包的get和post请求<br>get的简单一点</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line"># 目标URL（示例）</span><br><span class="line">base_url = &quot;http://example.com/api/data&quot;</span><br><span class="line"></span><br><span class="line"># 1. 基础GET请求（无参数）</span><br><span class="line">response_basic = requests.get(base_url)</span><br><span class="line">print(&quot;基础GET请求状态码：&quot;, response_basic.status_code)</span><br><span class="line">print(&quot;基础GET响应内容：&quot;, response_basic.text[:200])  # 打印前200字符</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 2. 带参数的GET请求（通过params参数传递）</span><br><span class="line"># 参数会自动拼接到URL后面，格式为：url?key1=value1&amp;key2=value2</span><br><span class="line">params = &#123;</span><br><span class="line">    &quot;id&quot;: 123,</span><br><span class="line">    &quot;category&quot;: &quot;test&quot;,</span><br><span class="line">    &quot;page&quot;: 1</span><br><span class="line">&#125;</span><br><span class="line">response_with_params = requests.get(base_url, params=params)</span><br><span class="line">print(&quot;\n带参数的GET请求URL：&quot;, response_with_params.url)  # 查看实际请求的URL</span><br><span class="line">print(&quot;带参数的响应状态码：&quot;, response_with_params.status_code)</span><br><span class="line">print(&quot;带参数的响应内容：&quot;, response_with_params.text[:200])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 3. 带请求头（Headers）的GET请求</span><br><span class="line"># 常用于伪装浏览器、携带Cookie或认证信息</span><br><span class="line">headers = &#123;</span><br><span class="line">    &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&quot;,</span><br><span class="line">    &quot;Cookie&quot;: &quot;session_id=abc123; user=test&quot;,  # 携带Cookie</span><br><span class="line">    &quot;Accept-Language&quot;: &quot;zh-CN,zh;q=0.9&quot;</span><br><span class="line">&#125;</span><br><span class="line">response_with_headers = requests.get(base_url, params=params, headers=headers)</span><br><span class="line">print(&quot;\n带请求头的响应状态码：&quot;, response_with_headers.status_code)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 4. 处理JSON响应</span><br><span class="line"># 如果服务器返回JSON格式数据，可直接用.json()方法解析</span><br><span class="line">try:</span><br><span class="line">    json_response = response_with_params.json()  # 解析为Python字典/列表</span><br><span class="line">    print(&quot;\nJSON响应解析结果：&quot;, type(json_response))  # 打印数据类型</span><br><span class="line">    # 示例：获取JSON中的特定字段</span><br><span class="line">    if isinstance(json_response, dict):</span><br><span class="line">        print(&quot;JSON中的&#x27;code&#x27;字段：&quot;, json_response.get(&quot;code&quot;))</span><br><span class="line">except ValueError:</span><br><span class="line">    print(&quot;\n响应不是有效的JSON格式&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 5. 设置超时时间（防止请求无限等待）</span><br><span class="line">try:</span><br><span class="line">    # 超时时间设为5秒（连接超时+读取超时）</span><br><span class="line">    response_with_timeout = requests.get(base_url, timeout=5)</span><br><span class="line">    print(&quot;\n超时设置下的响应状态码：&quot;, response_with_timeout.status_code)</span><br><span class="line">except requests.exceptions.Timeout:</span><br><span class="line">    print(&quot;\n请求超时！&quot;)</span><br></pre></td></tr></table></figure>
 <p>post的也比较简单</p>
@@ -963,8 +964,8 @@
     </div>
 
     
-        <!-- 引入 Gitalk 官方 CSS（国内 CDN） -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+        <!-- Gitalk is bundled with the theme to avoid a blocking overseas CDN request. -->
+<link rel="stylesheet" href="/libs/gitalk/gitalk.css">
 
 <!-- 引入主题自定义 CSS（如有需要，若 my-gitalk.css 是本地文件则保留原路径） -->
 <link rel="stylesheet" href="/css/my-gitalk.css">
@@ -977,8 +978,7 @@
   <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<!-- 引入 Gitalk 官方 JS（国内 CDN） -->
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
   let gitalk = new Gitalk({
     clientID: 'Ov23liTNlK9NLcZwFSo8',

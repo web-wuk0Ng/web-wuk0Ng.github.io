@@ -13,11 +13,16 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#405f4c">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
     <title>nodejs初步 | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
+
+    <link rel="dns-prefetch" href="//push.zhanzhang.baidu.com">
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+    
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -50,9 +55,7 @@
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/jiushen.jpg" class="logo-img" alt="LOGO">
-                    
+                    <img src="/medias/lin-pianpian/avatar.webp" class="logo-img" alt="林翩翩主题头像" width="42" height="42" decoding="async">
                     <span class="logo-span">wuk0Ng</span>
                 </a>
             </div>
@@ -149,9 +152,7 @@
 <div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
-        
-        <img src="/medias/jiushen.jpg" class="logo-img circle responsive-img">
-        
+        <img src="/medias/lin-pianpian/avatar.webp" class="logo-img circle responsive-img" alt="林翩翩主题头像" width="96" height="96" decoding="async">
         <div class="logo-name">wuk0Ng</div>
         <div class="logo-desc">
             
@@ -520,7 +521,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">function</span> <span class="title function_">A</span>(<span class="params"></span>)&#123;&#125;;</span><br><span class="line">&gt; <span class="keyword">let</span> a = <span class="keyword">new</span> <span class="title function_">A</span>();</span><br><span class="line">&gt; A.<span class="property"><span class="keyword">prototype</span></span> = a.<span class="property">__proto__</span></span><br><span class="line"><span class="literal">true</span></span><br><span class="line">&gt; A.<span class="property">__proto__</span></span><br><span class="line">&#123;&#125;</span><br><span class="line">&gt; A.<span class="property">__proto__</span>.<span class="property">__proto__</span></span><br><span class="line">[<span class="title class_">Object</span>: <span class="literal">null</span> prototype] &#123;&#125;</span><br></pre></td></tr></table></figure>
 <p>原型链定义及如何污染</p>
 <p>原型链的核心就是依赖对象proto的指向，当访问的属性在该对象不存在时，就会向上从该对象构造函数的prototype的进行查找，直至查找到Object的原型null为止</p>
-<p><img src="https://github.com/web-wuk0Ng/my-images/raw/main/58d6e11ff3871aceb32089c0a2fc7586.png"></p>
+<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/raw/main/58d6e11ff3871aceb32089c0a2fc7586.png"></p>
 <p>由于对象之间存在继承关系，所以当我们要使用或者输出一个变量就会通过原型链向上搜索，当上层没有就会再向上上层搜索，直到指向 null，若此时还未找到就会返回 undefined<br>原型链污染就是修改其构造函数中的属性值，使其他通过该构造函数实例化出的对象也具有这个属性的值。<br>由于对象是无序的，当使用第二种方式访问对象时，只能使用指明下标的方式去访问。<br>因此我们可以通过 a [“proto“] 的方式去访问其原型对象</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; a=[];</span><br><span class="line">[]</span><br><span class="line">&gt; b=[];</span><br><span class="line">&gt; b[<span class="string">&quot;__proto__&quot;</span>]</span><br><span class="line"><span class="title class_">Object</span>(<span class="number">0</span>) []</span><br><span class="line">&gt; b[<span class="string">&quot;__proto__&quot;</span>][<span class="string">&quot;name&quot;</span>]=<span class="string">&quot;m0re&quot;</span>;</span><br><span class="line"><span class="string">&#x27;m0re&#x27;</span></span><br><span class="line">&gt; a</span><br><span class="line">[]</span><br><span class="line">&gt; a.<span class="property">name</span></span><br><span class="line"><span class="string">&#x27;m0re&#x27;</span></span><br></pre></td></tr></table></figure>
 <p>调用对象属性时, 会查找属性，如果本身没有，则会去proto中查找，也就是构造函数的显式原型中查找，如果构造函数中也没有该属性，因为构造函数也是对象，也有proto，那么会去proto的显式原型中查找，一直到null</p>
@@ -529,7 +530,7 @@
 <h1 id="LitCTF-2025-多重宇宙日记"><a href="#LitCTF-2025-多重宇宙日记" class="headerlink" title="[LitCTF 2025]多重宇宙日记"></a>[LitCTF 2025]多重宇宙日记</h1><p>221分<br>原型链污染NodeJS<br>ez原型链，你能成为管理员拿到flag吗？<br>一进去是</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">欢迎来到多重宇宙日记!</span><br><span class="line"></span><br><span class="line">在这里，你可以记录下你在各个宇宙中的冒险笔记。</span><br><span class="line"></span><br><span class="line">据说，管理员拥有一把能够解锁宇宙终极秘密的钥匙，它就藏在管理员的专属控制面板里。然而，这个控制面板似乎只有真正的管理员才能进入。</span><br><span class="line"></span><br><span class="line">你的任务是，找到方法进入管理员面板，并拿到那把名为Flag的钥匙。</span><br><span class="line"></span><br><span class="line">Flag格式：flag&#123;...&#125;</span><br><span class="line"></span><br><span class="line">登录 或 注册 开始你的旅程</span><br></pre></td></tr></table></figure>
 <p>这样的<br>随便注册一个账号进入</p>
-<p><img src="https://github.com/web-wuk0Ng/my-images/raw/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-06-23%20145153.png"></p>
+<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/raw/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-06-23%20145153.png"></p>
 <p>再来查看网页源代码</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">// 更新表单的JS提交</span><br><span class="line"> document.getElementById(&#x27;profileUpdateForm&#x27;).addEventListener(&#x27;submit&#x27;, async function(event) &#123;</span><br><span class="line">     event.preventDefault();</span><br><span class="line">     const statusEl = document.getElementById(&#x27;updateStatus&#x27;);</span><br><span class="line">     const currentSettingsEl = document.getElementById(&#x27;currentSettings&#x27;);</span><br><span class="line">     statusEl.textContent = &#x27;正在更新...&#x27;;</span><br><span class="line"></span><br><span class="line">     const formData = new FormData(event.target);</span><br><span class="line">     const settingsPayload = &#123;&#125;;</span><br><span class="line">     // 构建 settings 对象，只包含有值的字段</span><br><span class="line">     if (formData.get(&#x27;theme&#x27;)) settingsPayload.theme = formData.get(&#x27;theme&#x27;);</span><br><span class="line">     if (formData.get(&#x27;language&#x27;)) settingsPayload.language = formData.get(&#x27;language&#x27;);</span><br><span class="line">     // ...可以添加其他字段</span><br><span class="line"></span><br><span class="line">     try &#123;</span><br><span class="line">         const response = await fetch(&#x27;/api/profile/update&#x27;, &#123;</span><br><span class="line">             method: &#x27;POST&#x27;,</span><br><span class="line">             headers: &#123;</span><br><span class="line">                 &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,</span><br><span class="line">             &#125;,</span><br><span class="line">             body: JSON.stringify(&#123; settings: settingsPayload &#125;) // 包装在 &quot;settings&quot;键下</span><br><span class="line">         &#125;);</span><br><span class="line">         const result = await response.json();</span><br><span class="line">         if (response.ok) &#123;</span><br><span class="line">             statusEl.textContent = &#x27;成功: &#x27; + result.message;</span><br><span class="line">             currentSettingsEl.textContent = JSON.stringify(result.settings, null, 2);</span><br><span class="line">             // 刷新页面以更新导航栏（如果isAdmin状态改变）</span><br><span class="line">             setTimeout(() =&gt; window.location.reload(), 1000);</span><br><span class="line">         &#125; else &#123;</span><br><span class="line">             statusEl.textContent = &#x27;错误: &#x27; + result.message;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125; catch (error) &#123;</span><br><span class="line">         statusEl.textContent = &#x27;请求失败: &#x27; + error.toString();</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;);</span><br><span class="line"></span><br><span class="line"> // 发送原始JSON的函数</span><br><span class="line"> async function sendRawJson() &#123;</span><br><span class="line">     const rawJson = document.getElementById(&#x27;rawJsonSettings&#x27;).value;</span><br><span class="line">     const statusEl = document.getElementById(&#x27;rawJsonStatus&#x27;);</span><br><span class="line">     const currentSettingsEl = document.getElementById(&#x27;currentSettings&#x27;);</span><br><span class="line">     statusEl.textContent = &#x27;正在发送...&#x27;;</span><br><span class="line">     try &#123;</span><br><span class="line">         const parsedJson = JSON.parse(rawJson); // 确保是合法的JSON</span><br><span class="line">         const response = await fetch(&#x27;/api/profile/update&#x27;, &#123;</span><br><span class="line">             method: &#x27;POST&#x27;,</span><br><span class="line">             headers: &#123;</span><br><span class="line">                 &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,</span><br><span class="line">             &#125;,</span><br><span class="line">             body: JSON.stringify(parsedJson) // 直接发送用户输入的JSON</span><br><span class="line">         &#125;);</span><br><span class="line">         const result = await response.json();</span><br><span class="line">         if (response.ok) &#123;</span><br><span class="line">             statusEl.textContent = &#x27;成功: &#x27; + result.message;</span><br><span class="line">             currentSettingsEl.textContent = JSON.stringify(result.settings, null, 2);</span><br><span class="line">              // 刷新页面以更新导航栏（如果isAdmin状态改变）</span><br><span class="line">             setTimeout(() =&gt; window.location.reload(), 1000);</span><br><span class="line">         &#125; else &#123;</span><br><span class="line">             statusEl.textContent = &#x27;错误: &#x27; + result.message;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125; catch (error) &#123;</span><br><span class="line">          statusEl.textContent = &#x27;请求失败或JSON无效: &#x27; + error.toString();</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 <p>非预期</p>
@@ -758,8 +759,8 @@
     </div>
 
     
-        <!-- 引入 Gitalk 官方 CSS（国内 CDN） -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+        <!-- Gitalk is bundled with the theme to avoid a blocking overseas CDN request. -->
+<link rel="stylesheet" href="/libs/gitalk/gitalk.css">
 
 <!-- 引入主题自定义 CSS（如有需要，若 my-gitalk.css 是本地文件则保留原路径） -->
 <link rel="stylesheet" href="/css/my-gitalk.css">
@@ -772,8 +773,7 @@
   <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<!-- 引入 Gitalk 官方 JS（国内 CDN） -->
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
   let gitalk = new Gitalk({
     clientID: 'Ov23liTNlK9NLcZwFSo8',

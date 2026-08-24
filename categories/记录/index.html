@@ -13,11 +13,16 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#405f4c">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
     <title>分类: 记录 | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
+
+    <link rel="dns-prefetch" href="//push.zhanzhang.baidu.com">
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+    
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -50,9 +55,7 @@
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/jiushen.jpg" class="logo-img" alt="LOGO">
-                    
+                    <img src="/medias/lin-pianpian/avatar.webp" class="logo-img" alt="林翩翩主题头像" width="42" height="42" decoding="async">
                     <span class="logo-span">wuk0Ng</span>
                 </a>
             </div>
@@ -149,9 +152,7 @@
 <div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
-        
-        <img src="/medias/jiushen.jpg" class="logo-img circle responsive-img">
-        
+        <img src="/medias/lin-pianpian/avatar.webp" class="logo-img circle responsive-img" alt="林翩翩主题头像" width="96" height="96" decoding="async">
         <div class="logo-name">wuk0Ng</div>
         <div class="logo-desc">
             
@@ -321,6 +322,7 @@
     <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
         <div class="brand">
+            
             <div class="title center-align">
                 
                 着我汉家衣裳，兴我礼仪之邦
@@ -329,17 +331,40 @@
 
             <div class="description center-align">
                 
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                <span id="subtitle" aria-live="polite">老骥伏枥，志在千里</span>
                 <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: ['老骥伏枥，志在千里','An old steed in the stable still aspires to gallop a thousand li'],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
+                    (function () {
+                        var target = document.getElementById('subtitle');
+                        var phrases = ["老骥伏枥，志在千里","An old steed in the stable still aspires to gallop a thousand li"];
+                        var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                        if (!target || reducedMotion || !phrases.length) return;
+
+                        var phraseIndex = 0;
+                        var letterIndex = phrases[0].length;
+                        var deleting = true;
+                        target.classList.add('native-typed');
+
+                        function typeNext() {
+                            var phrase = phrases[phraseIndex];
+                            letterIndex += deleting ? -1 : 1;
+                            target.textContent = phrase.slice(0, Math.max(0, letterIndex));
+
+                            if (!deleting && letterIndex >= phrase.length) {
+                                deleting = true;
+                                window.setTimeout(typeNext, 1800);
+                                return;
+                            }
+                            if (deleting && letterIndex <= 0) {
+                                deleting = false;
+                                phraseIndex = (phraseIndex + 1) % phrases.length;
+                                window.setTimeout(typeNext, 260);
+                                return;
+                            }
+                            window.setTimeout(typeNext, deleting ? 50 : 100);
+                        }
+
+                        window.setTimeout(typeNext, 300 + 1200);
+                    }());
                 </script>
                 
             </div>
@@ -734,12 +759,12 @@ tokenToken是大模型处理文本的”基本单位”，它既不是一个字�
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/360/">
-                            <span class="chip bg-color">360</span>
-                        </a>
-                        
                         <a href="/tags/%E5%AE%9E%E4%B9%A0/">
                             <span class="chip bg-color">实习</span>
+                        </a>
+                        
+                        <a href="/tags/360/">
+                            <span class="chip bg-color">360</span>
                         </a>
                         
                     </div>
@@ -836,12 +861,12 @@ oracle SQL注入学习oracle注入
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/CTF/">
-                            <span class="chip bg-color">CTF</span>
-                        </a>
-                        
                         <a href="/tags/%E8%AE%B0%E5%BD%95/">
                             <span class="chip bg-color">记录</span>
+                        </a>
+                        
+                        <a href="/tags/CTF/">
+                            <span class="chip bg-color">CTF</span>
                         </a>
                         
                     </div>
