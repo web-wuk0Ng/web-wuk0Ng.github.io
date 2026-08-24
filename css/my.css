@@ -1,415 +1,6 @@
-/* Lin Pianpian theme: local-only assets, no external font dependency. */
-:root {
-    --lin-ink: #28372e;
-    --lin-deep: #355442;
-    --lin-jade: #668873;
-    --lin-leaf: #8eaa8e;
-    --lin-cream: #fffaf0;
-    --lin-paper: rgba(255, 253, 247, 0.92);
-    --lin-gold: #d7b978;
-    --lin-peach: #e8b8ad;
-    --lin-line: rgba(74, 104, 84, 0.15);
-    --lin-shadow: 0 18px 45px rgba(42, 63, 50, 0.13);
-}
+/* Here is your custom css styles. */
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    color: var(--lin-ink);
-    background-color: #f4f0e7;
-    background-image:
-        radial-gradient(circle at 10% 10%, rgba(216, 232, 215, 0.78), transparent 34%),
-        radial-gradient(circle at 88% 30%, rgba(246, 219, 205, 0.46), transparent 31%),
-        linear-gradient(135deg, rgba(255, 253, 248, 0.97), rgba(237, 244, 235, 0.94)) !important;
-    background-attachment: fixed !important;
-}
-
-body::before {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    content: "";
-    opacity: 0.33;
-    background-image:
-        linear-gradient(30deg, transparent 48%, rgba(85, 119, 93, 0.05) 49%, rgba(85, 119, 93, 0.05) 51%, transparent 52%);
-    background-size: 36px 36px;
-}
-
-::selection {
-    color: #fff;
-    background: var(--lin-jade);
-}
-
-a {
-    transition: color 180ms ease, opacity 180ms ease;
-}
-
-a:focus-visible,
-button:focus-visible {
-    outline: 3px solid rgba(215, 185, 120, 0.75);
-    outline-offset: 3px;
-}
-
-/* Navigation */
-#headNav {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-    background: linear-gradient(90deg, rgba(37, 67, 51, 0.82), rgba(70, 99, 77, 0.66)) !important;
-    box-shadow: 0 8px 30px rgba(27, 48, 36, 0.12);
-    backdrop-filter: blur(14px) saturate(120%);
-    -webkit-backdrop-filter: blur(14px) saturate(120%);
-}
-
-#headNav.nav-transparent {
-    background: linear-gradient(180deg, rgba(24, 43, 32, 0.58), rgba(24, 43, 32, 0.02)) !important;
-    box-shadow: none;
-}
-
-.brand-logo .logo-img {
-    width: 42px;
-    height: 42px;
-    margin-right: 10px;
-    border: 2px solid rgba(255, 248, 229, 0.86);
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 4px 16px rgba(19, 39, 27, 0.22);
-}
-
-.logo-span {
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-shadow: 0 2px 12px rgba(19, 38, 27, 0.28);
-}
-
-.nav-menu > li > a {
-    position: relative;
-    font-weight: 500;
-}
-
-.nav-menu > li > a::after {
-    position: absolute;
-    right: 18px;
-    bottom: 11px;
-    left: 18px;
-    height: 2px;
-    content: "";
-    background: linear-gradient(90deg, transparent, #f8dfae, transparent);
-    transform: scaleX(0);
-    transition: transform 180ms ease;
-}
-
-.nav-menu > li > a:hover::after {
-    transform: scaleX(1);
-}
-
-/* Home hero */
-.lin-hero {
-    isolation: isolate;
-    overflow: hidden;
-    background-color: #405d4b !important;
-    background-image: url("/medias/lin-pianpian/hero-bg-v2.webp") !important;
-    background-position: center 46% !important;
-    background-size: cover !important;
-}
-
-.lin-hero::before {
-    z-index: 0;
-    background:
-        linear-gradient(90deg, rgba(31, 53, 40, 0.84) 0%, rgba(44, 71, 54, 0.62) 43%, rgba(42, 60, 49, 0.2) 72%, rgba(28, 43, 34, 0.34) 100%),
-        linear-gradient(0deg, rgba(29, 47, 36, 0.46), transparent 38%) !important;
-    opacity: 1 !important;
-}
-
-.lin-hero::after {
-    z-index: 0;
-    opacity: 0.8 !important;
-    background:
-        radial-gradient(circle at 72% 22%, rgba(255, 238, 195, 0.22) 0 3px, transparent 4px),
-        radial-gradient(circle at 88% 43%, rgba(255, 224, 209, 0.2) 0 4px, transparent 5px),
-        radial-gradient(circle at 60% 70%, rgba(255, 246, 210, 0.16) 0 2px, transparent 3px) !important;
-    background-size: 190px 190px, 270px 270px, 150px 150px !important;
-}
-
-.lin-hero .container {
-    z-index: 3;
-    width: min(92%, 1280px);
-}
-
-.lin-hero .row > .col {
-    width: 54% !important;
-    margin-left: 3% !important;
-}
-
-.lin-hero .brand .title,
-.lin-hero .brand .description,
-.lin-hero .cover-btns,
-.lin-hero .cover-social-link {
-    text-align: left !important;
-}
-
-.lin-kicker {
-    display: inline-flex;
-    gap: 0.7rem;
-    align-items: center;
-    padding: 7px 14px;
-    margin-bottom: 18px;
-    color: #fff3ce;
-    font-size: 0.94rem;
-    letter-spacing: 0.18em;
-    border: 1px solid rgba(255, 239, 194, 0.42);
-    border-radius: 999px;
-    background: rgba(255, 250, 231, 0.1);
-    box-shadow: inset 0 0 18px rgba(255, 250, 231, 0.05);
-    backdrop-filter: blur(8px);
-}
-
-.lin-hero .brand .title {
-    max-width: 680px;
-    color: #fffdf6;
-    font-size: clamp(2.35rem, 4.35vw, 4.7rem);
-    font-weight: 700;
-    line-height: 1.18;
-    letter-spacing: 0.04em;
-    text-shadow: 0 5px 25px rgba(25, 44, 32, 0.42);
-}
-
-.lin-hero .brand .description {
-    min-height: 36px;
-    margin-top: 22px;
-    color: rgba(255, 252, 241, 0.9);
-    font-size: clamp(1rem, 1.35vw, 1.2rem);
-    letter-spacing: 0.08em;
-}
-
-.native-typed::after {
-    display: inline-block;
-    width: 1px;
-    height: 1.15em;
-    margin-left: 7px;
-    vertical-align: -0.16em;
-    content: "";
-    background: #f6dfad;
-    animation: lin-cursor 0.85s steps(1) infinite;
-}
-
-@keyframes lin-cursor {
-    50% { opacity: 0; }
-}
-
-.lin-hero .cover-btns {
-    margin-top: 34px;
-}
-
-.lin-hero .cover-btns a {
-    min-width: 126px;
-    margin: 0 12px 12px 0;
-    color: #314d3b;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    border: 1px solid rgba(255, 248, 227, 0.78);
-    border-radius: 999px;
-    background: rgba(255, 250, 235, 0.9);
-    box-shadow: 0 8px 24px rgba(22, 44, 30, 0.18);
-}
-
-.lin-hero .cover-btns a:hover {
-    color: #fff;
-    background: var(--lin-jade);
-    transform: translateY(-2px);
-}
-
-.lin-hero .cover-social-link {
-    margin-top: 30px;
-}
-
-.lin-hero .cover-social-link a {
-    color: rgba(255, 252, 240, 0.92);
-    text-shadow: 0 3px 14px rgba(28, 49, 36, 0.36);
-}
-
-/* Cards and reading surfaces */
-.content {
-    position: relative;
-}
-
-.index-card .card,
-.articles .card,
-#artDetail .card,
-.about-container .card,
-.archive-calendar,
-.card {
-    border: 1px solid rgba(99, 127, 104, 0.13);
-    border-radius: 20px;
-    background: var(--lin-paper);
-    box-shadow: var(--lin-shadow);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.index-card {
-    margin-top: -42px;
-}
-
-.index-card .card {
-    overflow: hidden;
-}
-
-.index-card .card::before {
-    display: block;
-    width: 100%;
-    height: 4px;
-    content: "";
-    background: linear-gradient(90deg, var(--lin-jade), var(--lin-gold), var(--lin-peach));
-}
-
-.articles {
-    padding-top: 24px;
-}
-
-.articles .article .card {
-    overflow: hidden;
-    transform: translateY(0);
-    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
-}
-
-.articles .article .card:hover {
-    border-color: rgba(107, 139, 112, 0.36);
-    box-shadow: 0 24px 54px rgba(43, 69, 51, 0.2);
-    transform: translateY(-7px);
-}
-
-.articles .card-image {
-    overflow: hidden;
-    background: #dce7dd;
-}
-
-.articles .card-image::after {
-    position: absolute;
-    inset: 38% 0 0;
-    content: "";
-    pointer-events: none;
-    background: linear-gradient(transparent, rgba(27, 46, 34, 0.72));
-}
-
-.articles .card-image img {
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    transition: transform 500ms cubic-bezier(.2, .7, .2, 1), filter 300ms ease;
-}
-
-.articles .card:hover .card-image img {
-    filter: saturate(1.05) brightness(1.03);
-    transform: scale(1.045);
-}
-
-.articles .card-image .card-title {
-    z-index: 1;
-    width: 100%;
-    padding: 24px 20px 17px;
-    font-weight: 700;
-    line-height: 1.35;
-    letter-spacing: 0.03em;
-    text-shadow: 0 2px 12px rgba(19, 36, 25, 0.52);
-}
-
-.article-content .summary {
-    color: #637067;
-    line-height: 1.8;
-}
-
-.publish-info {
-    color: #8c978f;
-}
-
-.article-tags .chip,
-.chip.bg-color {
-    color: #496553;
-    border: 1px solid rgba(101, 136, 111, 0.18);
-    background: #edf4eb !important;
-}
-
-.article-tags .chip:hover,
-.chip.bg-color:hover {
-    color: #fff;
-    background: var(--lin-jade) !important;
-}
-
-#artDetail .card,
-.about-container .card {
-    overflow: hidden;
-}
-
-#articleContent {
-    color: #354139;
-    font-size: 1.02rem;
-    line-height: 1.9;
-}
-
-#articleContent h1,
-#articleContent h2,
-#articleContent h3 {
-    color: var(--lin-deep);
-}
-
-#articleContent h2 {
-    padding-left: 13px;
-    border-left: 4px solid var(--lin-gold);
-}
-
-#articleContent blockquote {
-    color: #55665b;
-    border-left-color: var(--lin-jade);
-    border-radius: 0 12px 12px 0;
-    background: rgba(226, 238, 226, 0.66);
-}
-
-#articleContent img {
-    border-radius: 12px;
-    box-shadow: 0 12px 30px rgba(46, 68, 53, 0.12);
-}
-
-.profile .avatar-img {
-    padding: 4px;
-    border: 2px solid rgba(209, 180, 115, 0.7);
-    background: #fffaf0;
-    box-shadow: 0 12px 28px rgba(50, 76, 58, 0.17);
-}
-
-/* Secondary covers and footer */
-.pd-header .brand .title,
-.pd-header .brand .description {
-    text-shadow: 0 3px 18px rgba(28, 43, 34, 0.38);
-}
-
-footer {
-    border-top: 1px solid rgba(255, 246, 222, 0.18);
-    background: linear-gradient(135deg, #304c3b, #486653) !important;
-}
-
-.top-scroll {
-    background: var(--lin-jade) !important;
-    box-shadow: 0 7px 20px rgba(41, 66, 49, 0.25);
-}
-
-.sidenav .mobile-head {
-    position: relative;
-    overflow: hidden;
-    background:
-        linear-gradient(rgba(47, 78, 58, 0.7), rgba(47, 78, 58, 0.86)),
-        url("/medias/lin-pianpian/hero-bg-v2.webp") center / cover !important;
-}
-
-.sidenav .mobile-head .logo-img {
-    width: 86px;
-    height: 86px;
-    border: 3px solid rgba(255, 248, 228, 0.86);
-    object-fit: cover;
-    box-shadow: 0 10px 24px rgba(24, 44, 31, 0.3);
-}
-
-/* Lightweight desktop-pet interaction. */
+/* Lin Pianpian desktop pet. The rest of the site keeps the original theme. */
 .lin-desktop-pet {
     position: fixed;
     z-index: 996;
@@ -438,6 +29,14 @@ footer {
     -webkit-tap-highlight-color: transparent;
 }
 
+.lin-pet-character:hover,
+.lin-pet-character:focus,
+.lin-pet-character:active {
+    outline: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
 .lin-desktop-pet.is-dragging .lin-pet-character {
     cursor: grabbing;
 }
@@ -455,10 +54,63 @@ footer {
     animation: lin-pet-greeting 620ms ease;
 }
 
+.lin-pet-character.is-floating img {
+    animation: lin-pet-floating 760ms cubic-bezier(.2, .8, .2, 1);
+}
+
+.lin-pet-character.is-turning img {
+    animation: lin-pet-turning 720ms ease;
+}
+
 @keyframes lin-pet-greeting {
     0%, 100% { transform: rotate(0); }
-    35% { transform: rotate(-1.8deg) translateY(-5px); }
-    70% { transform: rotate(1deg) translateY(-2px); }
+    35% { transform: rotate(-2.8deg) translateY(-9px); }
+    70% { transform: rotate(1.8deg) translateY(-3px); }
+}
+
+@keyframes lin-pet-floating {
+    0%, 100% { transform: translateY(0) scale(1); }
+    42% { transform: translateY(-18px) scale(1.025); }
+    72% { transform: translateY(-5px) scale(0.995); }
+}
+
+@keyframes lin-pet-turning {
+    0%, 100% { transform: rotate(0) translateX(0); }
+    34% { transform: rotate(3deg) translateX(7px); }
+    68% { transform: rotate(-1.5deg) translateX(-3px); }
+}
+
+.lin-pet-effects {
+    position: absolute;
+    z-index: 3;
+    inset: 0;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.lin-pet-petal {
+    position: absolute;
+    top: 42%;
+    left: 51%;
+    width: 9px;
+    height: 6px;
+    border-radius: 90% 12% 90% 12%;
+    background: linear-gradient(135deg, #f3dfaa, #d49da0);
+    box-shadow: 0 1px 5px rgba(77, 54, 48, 0.2);
+    opacity: 0;
+    animation: lin-pet-petal 900ms ease-out forwards;
+}
+
+@keyframes lin-pet-petal {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) rotate(0) scale(0.55);
+    }
+    20% { opacity: 0.95; }
+    100% {
+        opacity: 0;
+        transform: translate(var(--petal-x), var(--petal-y)) rotate(var(--petal-r)) scale(1);
+    }
 }
 
 .lin-pet-bubble {
@@ -487,6 +139,19 @@ footer {
     transform: translateX(0) translateY(0);
 }
 
+.lin-pet-bubble::after {
+    position: absolute;
+    right: -8px;
+    bottom: 12px;
+    width: 14px;
+    height: 14px;
+    content: "";
+    border-top: 1px solid rgba(93, 122, 100, 0.22);
+    border-right: 1px solid rgba(93, 122, 100, 0.22);
+    background: rgba(255, 253, 246, 0.94);
+    transform: rotate(45deg);
+}
+
 .lin-pet-close {
     position: absolute;
     z-index: 2;
@@ -508,8 +173,20 @@ footer {
 
 .lin-pet-close:hover {
     color: #fff;
-    background: var(--lin-jade);
+    background: #668873;
     opacity: 1;
+}
+
+.lin-pet-close:focus,
+.lin-pet-close:active {
+    background: rgba(255, 253, 247, 0.88);
+}
+
+.lin-pet-close:focus-visible {
+    color: #fff;
+    outline: 2px solid rgba(102, 136, 115, 0.5);
+    outline-offset: 2px;
+    background: #668873;
 }
 
 .lin-pet-restore {
@@ -541,84 +218,12 @@ footer {
     transform: scale(1);
 }
 
-@media only screen and (max-width: 992px) {
-    .lin-hero::before {
-        background: linear-gradient(90deg, rgba(31, 53, 40, 0.84), rgba(44, 71, 54, 0.54), rgba(30, 48, 37, 0.42)) !important;
-    }
-
-    .lin-hero .row > .col {
-        width: 62% !important;
-        margin-left: 1% !important;
-    }
-
+.lin-pet-restore:focus,
+.lin-pet-restore:active {
+    background: linear-gradient(135deg, #526f5c, #76917b);
 }
 
 @media only screen and (max-width: 600px) {
-    .lin-hero {
-        min-height: 680px;
-        background-position: 45% center !important;
-    }
-
-    .lin-hero::before {
-        background: linear-gradient(180deg, rgba(30, 52, 39, 0.66), rgba(37, 61, 46, 0.84)) !important;
-    }
-
-    .lin-hero .container {
-        width: 94%;
-    }
-
-    .lin-hero .row > .col {
-        width: 92% !important;
-        margin-left: 4% !important;
-    }
-
-    .lin-hero .brand .title,
-    .lin-hero .brand .description,
-    .lin-hero .cover-btns,
-    .lin-hero .cover-social-link {
-        text-align: center !important;
-    }
-
-    .lin-kicker {
-        margin-top: -8vh;
-        font-size: 0.78rem;
-        letter-spacing: 0.1em;
-    }
-
-    .lin-hero .brand .title {
-        font-size: clamp(2rem, 10vw, 3.2rem);
-    }
-
-    .lin-hero .brand .description {
-        min-height: 54px;
-        font-size: 0.95rem;
-    }
-
-    .lin-hero .cover-btns {
-        margin-top: 24px;
-    }
-
-    .lin-hero .cover-btns a {
-        min-width: 118px;
-        margin: 0 4px 10px;
-    }
-
-    .index-card {
-        margin-top: -24px;
-    }
-
-    .index-card .card,
-    .articles .card,
-    #artDetail .card,
-    .about-container .card,
-    .card {
-        border-radius: 16px;
-    }
-
-    .articles .article .card:hover {
-        transform: none;
-    }
-
     .lin-desktop-pet {
         right: 47px;
         width: 155px;
@@ -650,14 +255,12 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+    .lin-desktop-pet,
+    .lin-pet-character img,
+    .lin-pet-petal,
+    .lin-pet-bubble,
+    .lin-pet-restore {
+        animation: none !important;
+        transition: none !important;
     }
 }

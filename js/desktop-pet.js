@@ -4,33 +4,70 @@
     var pet = document.getElementById('linDesktopPet');
     var character = pet && pet.querySelector('.lin-pet-character');
     var bubble = pet && pet.querySelector('.lin-pet-bubble');
+    var effects = pet && pet.querySelector('.lin-pet-effects');
     var closeButton = pet && pet.querySelector('.lin-pet-close');
     var restoreButton = document.getElementById('linPetRestore');
 
-    if (!pet || !character || !bubble || !closeButton || !restoreButton) return;
+    if (!pet || !character || !bubble || !effects || !closeButton || !restoreButton) return;
 
     var messages = [
         '在看什么？我也瞧瞧。',
-        '林间有风，写累了便歇一会儿。',
+        '写累了便歇一会儿。',
         '这篇文章，倒有几分意思。',
         '既然来了，就留下些灵感吧。',
-        '慢慢读，我一直在这里。'
+        '慢慢读，我一直在这里。',
+        '嗯？你在叫我？',
+        '我听见了。',
+        '翻到哪一页了？'
     ];
+    var reactions = ['is-greeting', 'is-floating', 'is-turning'];
     var messageIndex = 0;
     var hideTimer = 0;
+    var reactionTimer = 0;
     var drag = null;
 
+    function makePetals() {
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        for (var i = 0; i < 6; i++) {
+            var petal = document.createElement('span');
+            petal.className = 'lin-pet-petal';
+            petal.style.setProperty('--petal-x', (-62 + Math.random() * 124).toFixed(0) + 'px');
+            petal.style.setProperty('--petal-y', (-54 - Math.random() * 74).toFixed(0) + 'px');
+            petal.style.setProperty('--petal-r', (-55 + Math.random() * 110).toFixed(0) + 'deg');
+            petal.style.animationDelay = (i * 45) + 'ms';
+            effects.appendChild(petal);
+            window.setTimeout(function (node) {
+                if (node.parentNode) node.parentNode.removeChild(node);
+            }, 1050, petal);
+        }
+    }
+
+    function react() {
+        var reaction = reactions[Math.floor(Math.random() * reactions.length)];
+        reactions.forEach(function (name) { character.classList.remove(name); });
+        void character.offsetWidth;
+        character.classList.add(reaction);
+        window.clearTimeout(reactionTimer);
+        reactionTimer = window.setTimeout(function () {
+            character.classList.remove(reaction);
+        }, 820);
+        makePetals();
+    }
+
     function speak() {
-        messageIndex = (messageIndex + 1) % messages.length;
+        var nextIndex;
+        do {
+            nextIndex = Math.floor(Math.random() * messages.length);
+        } while (messages.length > 1 && nextIndex === messageIndex);
+        messageIndex = nextIndex;
         bubble.textContent = messages[messageIndex];
         bubble.classList.add('is-visible');
-        character.classList.remove('is-greeting');
-        void character.offsetWidth;
-        character.classList.add('is-greeting');
+        react();
         window.clearTimeout(hideTimer);
         hideTimer = window.setTimeout(function () {
             bubble.classList.remove('is-visible');
-        }, 3600);
+        }, 4200);
     }
 
     function setHidden(hidden) {
