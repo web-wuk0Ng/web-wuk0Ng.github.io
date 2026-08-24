@@ -200,7 +200,7 @@
             var centerY = rect.top + rect.height * 0.42;
             var normalizedX = Math.max(-1, Math.min(1, (event.clientX - centerX) / (window.innerWidth * 0.42)));
             var normalizedY = Math.max(-1, Math.min(1, (event.clientY - centerY) / (window.innerHeight * 0.48)));
-            setLook(normalizedX * 5.2, normalizedY * -3.2, normalizedX * 5, normalizedY * 3);
+            setLook(normalizedX * 10, normalizedY * -6, normalizedX * 10, normalizedY * 6);
             lookFrame = 0;
         });
     }
