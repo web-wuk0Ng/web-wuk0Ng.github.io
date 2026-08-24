@@ -100,15 +100,17 @@ $(function () {
                 this.insertAdjacentElement('afterend', captionDiv)
             }
         });
-        $('#articleContent, #myGallery').lightGallery({
-            selector: '.img-item',
-            // 启用字幕
-            subHtmlSelectorRelative: true
-        });
+        if ($.fn.lightGallery) {
+            $('#articleContent, #myGallery').lightGallery({
+                selector: '.img-item',
+                // 启用字幕
+                subHtmlSelectorRelative: true
+            });
+        }
 
         // progress bar init
         const progressElement = window.document.querySelector('.progress-bar');
-        if (progressElement) {
+        if (progressElement && typeof ScrollProgress !== 'undefined') {
             new ScrollProgress((x, y) => {
                 progressElement.style.width = y * 100 + '%';
             });
