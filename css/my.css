@@ -198,30 +198,6 @@ button:focus-visible {
     50% { opacity: 0; }
 }
 
-.lin-hero-character {
-    position: absolute;
-    z-index: 4;
-    right: max(2vw, calc((100vw - 1440px) / 2));
-    bottom: -8vh;
-    width: min(40vw, 580px);
-    height: 95vh;
-    pointer-events: none;
-    filter: drop-shadow(0 24px 34px rgba(17, 37, 25, 0.28));
-    animation: lin-float 6s ease-in-out infinite;
-}
-
-.lin-hero-character img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center bottom;
-}
-
-@keyframes lin-float {
-    0%, 100% { transform: translateY(0) rotate(-0.25deg); }
-    50% { transform: translateY(-9px) rotate(0.25deg); }
-}
-
 .lin-hero .cover-btns {
     margin-top: 34px;
 }
@@ -433,6 +409,138 @@ footer {
     box-shadow: 0 10px 24px rgba(24, 44, 31, 0.3);
 }
 
+/* Lightweight desktop-pet interaction. */
+.lin-desktop-pet {
+    position: fixed;
+    z-index: 996;
+    right: 62px;
+    bottom: -2px;
+    width: 260px;
+    user-select: none;
+    touch-action: none;
+    transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.lin-desktop-pet.is-hidden {
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(32px);
+}
+
+.lin-pet-character {
+    display: block;
+    width: 100%;
+    padding: 0;
+    cursor: grab;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.lin-desktop-pet.is-dragging .lin-pet-character {
+    cursor: grabbing;
+}
+
+.lin-pet-character img {
+    display: block;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    filter: drop-shadow(0 12px 18px rgba(22, 42, 29, 0.24));
+    transform-origin: center bottom;
+}
+
+.lin-pet-character.is-greeting img {
+    animation: lin-pet-greeting 620ms ease;
+}
+
+@keyframes lin-pet-greeting {
+    0%, 100% { transform: rotate(0); }
+    35% { transform: rotate(-1.8deg) translateY(-5px); }
+    70% { transform: rotate(1deg) translateY(-2px); }
+}
+
+.lin-pet-bubble {
+    position: absolute;
+    top: 24%;
+    right: calc(100% - 26px);
+    width: 184px;
+    padding: 11px 14px;
+    color: #3e5547;
+    font-size: 13px;
+    line-height: 1.55;
+    letter-spacing: 0.02em;
+    pointer-events: none;
+    border: 1px solid rgba(93, 122, 100, 0.22);
+    border-radius: 14px 14px 4px 14px;
+    background: rgba(255, 253, 246, 0.94);
+    box-shadow: 0 10px 28px rgba(36, 59, 43, 0.15);
+    opacity: 0;
+    transform: translateX(8px) translateY(4px);
+    transition: opacity 180ms ease, transform 180ms ease;
+    backdrop-filter: blur(8px);
+}
+
+.lin-pet-bubble.is-visible {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+
+.lin-pet-close {
+    position: absolute;
+    z-index: 2;
+    top: 8px;
+    right: 3px;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    color: #52675a;
+    font-size: 20px;
+    line-height: 25px;
+    cursor: pointer;
+    border: 1px solid rgba(86, 113, 94, 0.22);
+    border-radius: 50%;
+    background: rgba(255, 253, 247, 0.88);
+    box-shadow: 0 5px 16px rgba(36, 58, 43, 0.15);
+    opacity: 0.74;
+}
+
+.lin-pet-close:hover {
+    color: #fff;
+    background: var(--lin-jade);
+    opacity: 1;
+}
+
+.lin-pet-restore {
+    position: fixed;
+    z-index: 996;
+    right: 18px;
+    bottom: 106px;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    color: #fff8e7;
+    font-family: serif;
+    font-size: 18px;
+    line-height: 40px;
+    cursor: pointer;
+    pointer-events: none;
+    border: 1px solid rgba(255, 245, 216, 0.48);
+    border-radius: 50%;
+    background: linear-gradient(135deg, #526f5c, #76917b);
+    box-shadow: 0 8px 22px rgba(37, 60, 44, 0.24);
+    opacity: 0;
+    transform: scale(0.82);
+    transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.lin-pet-restore.is-visible {
+    pointer-events: auto;
+    opacity: 1;
+    transform: scale(1);
+}
+
 @media only screen and (max-width: 992px) {
     .lin-hero::before {
         background: linear-gradient(90deg, rgba(31, 53, 40, 0.84), rgba(44, 71, 54, 0.54), rgba(30, 48, 37, 0.42)) !important;
@@ -443,11 +551,6 @@ footer {
         margin-left: 1% !important;
     }
 
-    .lin-hero-character {
-        right: -8vw;
-        width: 52vw;
-        opacity: 0.88;
-    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -491,15 +594,6 @@ footer {
         font-size: 0.95rem;
     }
 
-    .lin-hero-character {
-        right: -26vw;
-        bottom: -14vh;
-        width: 92vw;
-        height: 62vh;
-        opacity: 0.35;
-        filter: drop-shadow(0 16px 24px rgba(17, 37, 25, 0.2));
-    }
-
     .lin-hero .cover-btns {
         margin-top: 24px;
     }
@@ -523,6 +617,35 @@ footer {
 
     .articles .article .card:hover {
         transform: none;
+    }
+
+    .lin-desktop-pet {
+        right: 47px;
+        width: 155px;
+    }
+
+    .lin-pet-bubble {
+        top: 20%;
+        right: calc(100% - 18px);
+        width: 142px;
+        padding: 9px 11px;
+        font-size: 12px;
+    }
+
+    .lin-pet-close {
+        top: 2px;
+        right: -3px;
+        width: 25px;
+        height: 25px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+}
+
+@media print {
+    .lin-desktop-pet,
+    .lin-pet-restore {
+        display: none !important;
     }
 }
 
