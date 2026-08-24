@@ -19,7 +19,8 @@
     <title>大二暑期 | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
 
-    <link rel="dns-prefetch" href="//push.zhanzhang.baidu.com">
+    <link rel="dns-prefetch" href="//hm.baidu.com">
+    <link rel="dns-prefetch" href="//zz.bdstatic.com">
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -495,7 +496,7 @@
             <div id="articleContent">
                 <p>之前大一暑期的实习专门写过一篇博客了，这里又来<br>以后每年都有<br>然后每年年终也要有！！！<br>不知不觉中已经到了大二暑期<br>就是那个从大一开始就很期待的大二暑期，可以去大城市大公司的暑期<br>大二下是真的焦虑，高中时都没有长痘，但是为了找个实习真的每天晚上都睡不着<br>鼻子，鼻子下边，还有就是下巴这些地方总是长痘<br>最近稍微好了一点点</p>
 <p>好在结果还不错，至少比开始的预期要好，一开始怕安服这些都不要我</p>
-<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2026-07-24_175012_532.jpg?raw=true"></p>
+<p><img loading="lazy" decoding="async" src="/images/github-local/3b670b54dddfddf2.jpg"></p>
 <p>原来真实的环境真能学到那么多</p>
 <p>昨天领到了第一份工资，请了两个对我最好，然后带我带得最多的同事喝咖啡，又了解了很多东西</p>
 <p>一个是原来有的同事很厉害呀，虽然有的走了，但是传奇还是留到这里。比如某人之前经常晚上11点才离开公司，挖一天的洞。最高一个4W人民币。太夸张了！</p>
@@ -895,19 +896,47 @@
   <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
-  let gitalk = new Gitalk({
-    clientID: 'Ov23liTNlK9NLcZwFSo8',
-    clientSecret: '7472cd54d6ca5e38d14f6d1b5176299bb4cf4ebe',
-    repo: 'blog---comments',
-    owner: 'web-wuk0Ng',
-    admin: ["web-wuk0Ng"],
-    id: '2026-07-24T18-00-00',
-    distractionFreeMode: false
-  });
+  (function () {
+    var container = document.getElementById('gitalk-container');
+    var loaded = false;
+    if (!container) return;
 
-  gitalk.render('gitalk-container');
+    function renderGitalk() {
+      var gitalk = new Gitalk({
+        clientID: 'Ov23liTNlK9NLcZwFSo8',
+        clientSecret: '7472cd54d6ca5e38d14f6d1b5176299bb4cf4ebe',
+        repo: 'blog---comments',
+        owner: 'web-wuk0Ng',
+        admin: ["web-wuk0Ng"],
+        id: '2026-07-24T18-00-00',
+        distractionFreeMode: false
+      });
+      gitalk.render('gitalk-container');
+    }
+
+    function loadGitalk() {
+      if (loaded) return;
+      loaded = true;
+      var script = document.createElement('script');
+      script.src = '/libs/gitalk/gitalk.min.js';
+      script.async = true;
+      script.onload = renderGitalk;
+      document.head.appendChild(script);
+    }
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries.some(function (entry) { return entry.isIntersecting; })) {
+          observer.disconnect();
+          loadGitalk();
+        }
+      }, { rootMargin: '500px 0px' });
+      observer.observe(container);
+    } else {
+      window.addEventListener('load', loadGitalk, { once: true });
+    }
+  }());
 </script>
 
     
@@ -1347,7 +1376,7 @@ $(function () {
     <div class="lin-pet-bubble" role="status" aria-live="polite">在看什么？我也瞧瞧。</div>
     <div class="lin-pet-effects" aria-hidden="true"></div>
     <button class="lin-pet-character" type="button" aria-label="和林翩翩互动" title="点击互动，也可以拖动">
-        <img src="/medias/lin-pianpian/official-desktop-pet.webp" alt="林翩翩桌宠" width="576" height="703" loading="lazy" decoding="async">
+        <img src="/medias/lin-pianpian/official-desktop-pet.webp" alt="林翩翩桌宠" width="576" height="703" loading="lazy" decoding="async" fetchpriority="low">
     </button>
 </aside>
 
@@ -1363,21 +1392,30 @@ $(function () {
 
     <!-- Baidu Analytics -->
 
+
     <!-- Baidu Push -->
 
 <script>
     (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
+        if (/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) return;
+
+        function loadBaiduPush() {
+            var bp = document.createElement('script');
+            bp.async = true;
             bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            document.head.appendChild(bp);
         }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
+
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadBaiduPush, { timeout: 4500 });
+        } else {
+            window.addEventListener('load', function () {
+                window.setTimeout(loadBaiduPush, 1800);
+            }, { once: true });
+        }
     })();
 </script>
+
 
     
     <script src="/libs/others/clicklove.js" async="async"></script>

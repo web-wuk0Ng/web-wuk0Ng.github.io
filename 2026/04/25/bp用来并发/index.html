@@ -19,7 +19,8 @@
     <title>bp并发操作 | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
 
-    <link rel="dns-prefetch" href="//push.zhanzhang.baidu.com">
+    <link rel="dns-prefetch" href="//hm.baidu.com">
+    <link rel="dns-prefetch" href="//zz.bdstatic.com">
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -493,15 +494,15 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>首先这个并发操作有很多实现模式，然后bp新的版本还有自带的并发功能，但是那个不是很方便<br>然后还有就是这里讲的是最基础的，没有涉及到多个参数的，还有横向的并发<br><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/ScreenShot_2026-04-25_131507_612.png?raw=true"></p>
+                <p>首先这个并发操作有很多实现模式，然后bp新的版本还有自带的并发功能，但是那个不是很方便<br>然后还有就是这里讲的是最基础的，没有涉及到多个参数的，还有横向的并发<br><img loading="lazy" decoding="async" src="/images/github-local/2ef11d0bfe5271b6.png"></p>
 <p>主要就是用了这个插件tutbo intruder</p>
 <p>bp的官方商店是有的</p>
 <p>然后我们可以安装</p>
 <p>然后抓到网页就可以鼠标右键然后进行选择了</p>
 <p>然后发送到了对应模块之后就可以选择脚本了</p>
-<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/ScreenShot_2026-04-25_153229_694.png?raw=true"></p>
+<p><img loading="lazy" decoding="async" src="/images/github-local/3c65d01ab3bc1408.png"></p>
 <p>安装后，只需要在数据中，找一个位置添加并发插件必须的参数%s，就可以把数据包发送到并发插件进行并发。</p>
-<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/ScreenShot_2026-04-25_153622_677.png?raw=true"></p>
+<p><img loading="lazy" decoding="async" src="/images/github-local/79cafc6db3588cd9.png"></p>
 <p>一般是选择race.py，但是新的版本中并没有这个对应的脚本</p>
 <p>我们可以自己添加</p>
 <p>race.py</p>
@@ -898,19 +899,47 @@
   <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
-  let gitalk = new Gitalk({
-    clientID: 'Ov23liTNlK9NLcZwFSo8',
-    clientSecret: '7472cd54d6ca5e38d14f6d1b5176299bb4cf4ebe',
-    repo: 'blog---comments',
-    owner: 'web-wuk0Ng',
-    admin: ["web-wuk0Ng"],
-    id: '2026-04-25T12-00-00',
-    distractionFreeMode: false
-  });
+  (function () {
+    var container = document.getElementById('gitalk-container');
+    var loaded = false;
+    if (!container) return;
 
-  gitalk.render('gitalk-container');
+    function renderGitalk() {
+      var gitalk = new Gitalk({
+        clientID: 'Ov23liTNlK9NLcZwFSo8',
+        clientSecret: '7472cd54d6ca5e38d14f6d1b5176299bb4cf4ebe',
+        repo: 'blog---comments',
+        owner: 'web-wuk0Ng',
+        admin: ["web-wuk0Ng"],
+        id: '2026-04-25T12-00-00',
+        distractionFreeMode: false
+      });
+      gitalk.render('gitalk-container');
+    }
+
+    function loadGitalk() {
+      if (loaded) return;
+      loaded = true;
+      var script = document.createElement('script');
+      script.src = '/libs/gitalk/gitalk.min.js';
+      script.async = true;
+      script.onload = renderGitalk;
+      document.head.appendChild(script);
+    }
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries.some(function (entry) { return entry.isIntersecting; })) {
+          observer.disconnect();
+          loadGitalk();
+        }
+      }, { rootMargin: '500px 0px' });
+      observer.observe(container);
+    } else {
+      window.addEventListener('load', loadGitalk, { once: true });
+    }
+  }());
 </script>
 
     
@@ -1350,7 +1379,7 @@ $(function () {
     <div class="lin-pet-bubble" role="status" aria-live="polite">在看什么？我也瞧瞧。</div>
     <div class="lin-pet-effects" aria-hidden="true"></div>
     <button class="lin-pet-character" type="button" aria-label="和林翩翩互动" title="点击互动，也可以拖动">
-        <img src="/medias/lin-pianpian/official-desktop-pet.webp" alt="林翩翩桌宠" width="576" height="703" loading="lazy" decoding="async">
+        <img src="/medias/lin-pianpian/official-desktop-pet.webp" alt="林翩翩桌宠" width="576" height="703" loading="lazy" decoding="async" fetchpriority="low">
     </button>
 </aside>
 
@@ -1366,21 +1395,30 @@ $(function () {
 
     <!-- Baidu Analytics -->
 
+
     <!-- Baidu Push -->
 
 <script>
     (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
+        if (/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) return;
+
+        function loadBaiduPush() {
+            var bp = document.createElement('script');
+            bp.async = true;
             bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            document.head.appendChild(bp);
         }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
+
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadBaiduPush, { timeout: 4500 });
+        } else {
+            window.addEventListener('load', function () {
+                window.setTimeout(loadBaiduPush, 1800);
+            }, { once: true });
+        }
     })();
 </script>
+
 
     
     <script src="/libs/others/clicklove.js" async="async"></script>

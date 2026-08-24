@@ -19,7 +19,8 @@
     <title>归档: 2026/4 | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
 
-    <link rel="dns-prefetch" href="//push.zhanzhang.baidu.com">
+    <link rel="dns-prefetch" href="//hm.baidu.com">
+    <link rel="dns-prefetch" href="//zz.bdstatic.com">
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -742,7 +743,7 @@ $(function () {
     <div class="lin-pet-bubble" role="status" aria-live="polite">在看什么？我也瞧瞧。</div>
     <div class="lin-pet-effects" aria-hidden="true"></div>
     <button class="lin-pet-character" type="button" aria-label="和林翩翩互动" title="点击互动，也可以拖动">
-        <img src="/medias/lin-pianpian/official-desktop-pet.webp" alt="林翩翩桌宠" width="576" height="703" loading="lazy" decoding="async">
+        <img src="/medias/lin-pianpian/official-desktop-pet.webp" alt="林翩翩桌宠" width="576" height="703" loading="lazy" decoding="async" fetchpriority="low">
     </button>
 </aside>
 
@@ -758,21 +759,30 @@ $(function () {
 
     <!-- Baidu Analytics -->
 
+
     <!-- Baidu Push -->
 
 <script>
     (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
+        if (/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) return;
+
+        function loadBaiduPush() {
+            var bp = document.createElement('script');
+            bp.async = true;
             bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            document.head.appendChild(bp);
         }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
+
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadBaiduPush, { timeout: 4500 });
+        } else {
+            window.addEventListener('load', function () {
+                window.setTimeout(loadBaiduPush, 1800);
+            }, { once: true });
+        }
     })();
 </script>
+
 
     
     <script src="/libs/others/clicklove.js" async="async"></script>

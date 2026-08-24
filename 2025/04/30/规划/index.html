@@ -19,7 +19,8 @@
     <title>两周的规划 | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
 
-    <link rel="dns-prefetch" href="//push.zhanzhang.baidu.com">
+    <link rel="dns-prefetch" href="//hm.baidu.com">
+    <link rel="dns-prefetch" href="//zz.bdstatic.com">
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -887,19 +888,47 @@
   <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
-  let gitalk = new Gitalk({
-    clientID: 'Ov23liTNlK9NLcZwFSo8',
-    clientSecret: '7472cd54d6ca5e38d14f6d1b5176299bb4cf4ebe',
-    repo: 'blog---comments',
-    owner: 'web-wuk0Ng',
-    admin: ["web-wuk0Ng"],
-    id: '2025-04-30T22-00-00',
-    distractionFreeMode: false
-  });
+  (function () {
+    var container = document.getElementById('gitalk-container');
+    var loaded = false;
+    if (!container) return;
 
-  gitalk.render('gitalk-container');
+    function renderGitalk() {
+      var gitalk = new Gitalk({
+        clientID: 'Ov23liTNlK9NLcZwFSo8',
+        clientSecret: '7472cd54d6ca5e38d14f6d1b5176299bb4cf4ebe',
+        repo: 'blog---comments',
+        owner: 'web-wuk0Ng',
+        admin: ["web-wuk0Ng"],
+        id: '2025-04-30T22-00-00',
+        distractionFreeMode: false
+      });
+      gitalk.render('gitalk-container');
+    }
+
+    function loadGitalk() {
+      if (loaded) return;
+      loaded = true;
+      var script = document.createElement('script');
+      script.src = '/libs/gitalk/gitalk.min.js';
+      script.async = true;
+      script.onload = renderGitalk;
+      document.head.appendChild(script);
+    }
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries.some(function (entry) { return entry.isIntersecting; })) {
+          observer.disconnect();
+          loadGitalk();
+        }
+      }, { rootMargin: '500px 0px' });
+      observer.observe(container);
+    } else {
+      window.addEventListener('load', loadGitalk, { once: true });
+    }
+  }());
 </script>
 
     
@@ -959,12 +988,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/sql%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">sql进阶学习</span>
-                    </a>
-                    
                     <a href="/tags/ctf%E8%B5%9B%E9%A2%98/">
                         <span class="chip bg-color">ctf赛题</span>
+                    </a>
+                    
+                    <a href="/tags/sql%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">sql进阶学习</span>
                     </a>
                     
                 </div>
@@ -1339,7 +1368,7 @@ $(function () {
     <div class="lin-pet-bubble" role="status" aria-live="polite">在看什么？我也瞧瞧。</div>
     <div class="lin-pet-effects" aria-hidden="true"></div>
     <button class="lin-pet-character" type="button" aria-label="和林翩翩互动" title="点击互动，也可以拖动">
-        <img src="/medias/lin-pianpian/official-desktop-pet.webp" alt="林翩翩桌宠" width="576" height="703" loading="lazy" decoding="async">
+        <img src="/medias/lin-pianpian/official-desktop-pet.webp" alt="林翩翩桌宠" width="576" height="703" loading="lazy" decoding="async" fetchpriority="low">
     </button>
 </aside>
 
@@ -1355,21 +1384,30 @@ $(function () {
 
     <!-- Baidu Analytics -->
 
+
     <!-- Baidu Push -->
 
 <script>
     (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
+        if (/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) return;
+
+        function loadBaiduPush() {
+            var bp = document.createElement('script');
+            bp.async = true;
             bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            document.head.appendChild(bp);
         }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
+
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadBaiduPush, { timeout: 4500 });
+        } else {
+            window.addEventListener('load', function () {
+                window.setTimeout(loadBaiduPush, 1800);
+            }, { once: true });
+        }
     })();
 </script>
+
 
     
     <script src="/libs/others/clicklove.js" async="async"></script>

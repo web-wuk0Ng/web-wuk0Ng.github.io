@@ -9,6 +9,7 @@
     width: 260px;
     user-select: none;
     touch-action: none;
+    perspective: 800px;
     transition: opacity 220ms ease, transform 220ms ease;
 }
 
@@ -23,6 +24,11 @@
     appearance: none;
     -webkit-appearance: none;
     -webkit-tap-highlight-color: transparent;
+    transform: translate3d(var(--pet-look-shift-x, 0), var(--pet-look-shift-y, 0), 0)
+        rotateY(var(--pet-look-x, 0deg)) rotateX(var(--pet-look-y, 0deg));
+    transform-origin: center bottom;
+    transition: transform 120ms ease-out;
+    will-change: transform;
 }
 
 .lin-pet-character:hover,
@@ -35,6 +41,7 @@
 
 .lin-desktop-pet.is-dragging .lin-pet-character {
     cursor: grabbing;
+    transition: none;
 }
 
 .lin-pet-character img {
@@ -172,6 +179,7 @@
 
 @media (prefers-reduced-motion: reduce) {
     .lin-desktop-pet,
+    .lin-pet-character,
     .lin-pet-character img,
     .lin-pet-petal,
     .lin-pet-bubble {

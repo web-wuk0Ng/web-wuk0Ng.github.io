@@ -19,7 +19,8 @@
     <title>pickle反序列化2 | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
 
-    <link rel="dns-prefetch" href="//push.zhanzhang.baidu.com">
+    <link rel="dns-prefetch" href="//hm.baidu.com">
+    <link rel="dns-prefetch" href="//zz.bdstatic.com">
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -496,7 +497,7 @@
                 <h1 id="CISCN-2019华北Day1-Web2"><a href="#CISCN-2019华北Day1-Web2" class="headerlink" title="[CISCN 2019华北Day1]Web2"></a>[CISCN 2019华北Day1]Web2</h1><p>首先我们打开插件看下，flask的web框架<br>然后就是我们要花钱买东西，接下来基本就确定是要伪造一个session了<br>但是这里的思路是错的，哈哈<br>当时意识到了一点不对劲<br>具体就是我们要买到等级6，但是，这里面的这个买不到等级6<br>不然怎么买？重复很多次？但是这里没有设计可以增加经验不断买的地方<br>还有就是抓包，有很多很多的数据，这里该怎么处理？<br>实际上可以一次性就买到等级6了<br>但是，也是因为刚才卡了一下的缘故，是可以点击下一页的<br>此时注意url栏</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://node4.anna.nssctf.cn:28363/shop?page=3</span><br></pre></td></tr></table></figure>
 <p>还有就是，点击这个图片，找到我们需要的地方</p>
-<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-07-17%20143235.png?raw=true"></p>
+<p><img loading="lazy" decoding="async" src="/images/github-local/f9597c808b83083c.png"></p>
 <p>看到b站会员对应的这个lv4.png了吗<br>那我们也是可以找到等级6的</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">url = &#x27;http://node4.anna.nssctf.cn:28363/shop?page=&#x27;</span><br><span class="line"></span><br><span class="line">for i in range(500):</span><br><span class="line">    u = url + str(i);</span><br><span class="line">    try:</span><br><span class="line">        response = requests.get(u)</span><br><span class="line">        if &#x27;lv6.png&#x27; in response.text:</span><br><span class="line">            print(i)</span><br><span class="line">            break</span><br><span class="line">    except:</span><br><span class="line">        pass</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>运行脚本，找到page180是我们需要的<br>然后最后的结算页面，思路还是需要一些技巧或者多次尝试。我们可以将discount修改为一些比较小的数字<br>得到一个需要admin访问的页面</p>
@@ -527,7 +528,7 @@
 <p>这里我们使用之前的一个方法，放入cyverchef里面<br>我们进行base64解码之后</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;alg&quot;:&quot;HS256&quot;,&quot;typ&quot;:&quot;JWT&quot;&#125;&#123;&quot;username&quot;:&quot;1&quot;&#125;.&quot;`Î..@0àÚc¤ÿ-.~Ì.¶h.¨üa.è³=Ð®´</span><br></pre></td></tr></table></figure>
 <p>然后我们看了看到对不上的原因应该就是这里是先有一个{“alg”:”HS256”,”typ”:”JWT”},我们可以直接对最重要的部分进行修改就可以了<br>{“username”:”admin”}</p>
-<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-07-17%20162922.png?raw=true"></p>
+<p><img loading="lazy" decoding="async" src="/images/github-local/b3a4d59bcd122823.png"></p>
 <p>最后我们可以得到另外一个地址<br>还有就是这个，如果我们已经知道这个session的组成部分，我们直接给这个session的关键部分换一个位置。当然，都知道关键部分的位置这些信息了，也没有必要用session2那个脚本了。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/static/asd1f654e683wq/www.zip</span><br></pre></td></tr></table></figure>
 <p>访问<br>然后进行审计，得到有用的信息，审计admin文件</p>
@@ -989,19 +990,47 @@
   <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
-  let gitalk = new Gitalk({
-    clientID: 'Ov23liTNlK9NLcZwFSo8',
-    clientSecret: '7472cd54d6ca5e38d14f6d1b5176299bb4cf4ebe',
-    repo: 'blog---comments',
-    owner: 'web-wuk0Ng',
-    admin: ["web-wuk0Ng"],
-    id: '2025-07-18T14-00-00',
-    distractionFreeMode: false
-  });
+  (function () {
+    var container = document.getElementById('gitalk-container');
+    var loaded = false;
+    if (!container) return;
 
-  gitalk.render('gitalk-container');
+    function renderGitalk() {
+      var gitalk = new Gitalk({
+        clientID: 'Ov23liTNlK9NLcZwFSo8',
+        clientSecret: '7472cd54d6ca5e38d14f6d1b5176299bb4cf4ebe',
+        repo: 'blog---comments',
+        owner: 'web-wuk0Ng',
+        admin: ["web-wuk0Ng"],
+        id: '2025-07-18T14-00-00',
+        distractionFreeMode: false
+      });
+      gitalk.render('gitalk-container');
+    }
+
+    function loadGitalk() {
+      if (loaded) return;
+      loaded = true;
+      var script = document.createElement('script');
+      script.src = '/libs/gitalk/gitalk.min.js';
+      script.async = true;
+      script.onload = renderGitalk;
+      document.head.appendChild(script);
+    }
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries.some(function (entry) { return entry.isIntersecting; })) {
+          observer.disconnect();
+          loadGitalk();
+        }
+      }, { rootMargin: '500px 0px' });
+      observer.observe(container);
+    } else {
+      window.addEventListener('load', loadGitalk, { once: true });
+    }
+  }());
 </script>
 
     
@@ -1441,7 +1470,7 @@ $(function () {
     <div class="lin-pet-bubble" role="status" aria-live="polite">在看什么？我也瞧瞧。</div>
     <div class="lin-pet-effects" aria-hidden="true"></div>
     <button class="lin-pet-character" type="button" aria-label="和林翩翩互动" title="点击互动，也可以拖动">
-        <img src="/medias/lin-pianpian/official-desktop-pet.webp" alt="林翩翩桌宠" width="576" height="703" loading="lazy" decoding="async">
+        <img src="/medias/lin-pianpian/official-desktop-pet.webp" alt="林翩翩桌宠" width="576" height="703" loading="lazy" decoding="async" fetchpriority="low">
     </button>
 </aside>
 
@@ -1457,21 +1486,30 @@ $(function () {
 
     <!-- Baidu Analytics -->
 
+
     <!-- Baidu Push -->
 
 <script>
     (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
+        if (/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) return;
+
+        function loadBaiduPush() {
+            var bp = document.createElement('script');
+            bp.async = true;
             bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            document.head.appendChild(bp);
         }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
+
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadBaiduPush, { timeout: 4500 });
+        } else {
+            window.addEventListener('load', function () {
+                window.setTimeout(loadBaiduPush, 1800);
+            }, { once: true });
+        }
     })();
 </script>
+
 
     
     <script src="/libs/others/clicklove.js" async="async"></script>

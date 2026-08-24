@@ -19,7 +19,8 @@
     <title>关于 | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
 
-    <link rel="dns-prefetch" href="//push.zhanzhang.baidu.com">
+    <link rel="dns-prefetch" href="//hm.baidu.com">
+    <link rel="dns-prefetch" href="//zz.bdstatic.com">
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -846,18 +847,6 @@
             
             
             
-            <a href="/tags/CTF/">
-                <span class="chip center-align waves-effect waves-light chip-default">CTF</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E6%AF%94%E8%B5%9B/">
-                <span class="chip center-align waves-effect waves-light chip-default">比赛</span>
-            </a>
-            
-            
-            
             <a href="/tags/%E5%AD%A6%E4%B9%A0/">
                 <span class="chip center-align waves-effect waves-light chip-default">学习</span>
             </a>
@@ -876,14 +865,14 @@
             
             
             
-            <a href="/tags/SRC/">
-                <span class="chip center-align waves-effect waves-light chip-default">SRC</span>
+            <a href="/tags/CTF/">
+                <span class="chip center-align waves-effect waves-light chip-default">CTF</span>
             </a>
             
             
             
-            <a href="/tags/bp/">
-                <span class="chip center-align waves-effect waves-light chip-default">bp</span>
+            <a href="/tags/%E6%AF%94%E8%B5%9B/">
+                <span class="chip center-align waves-effect waves-light chip-default">比赛</span>
             </a>
             
             
@@ -900,6 +889,18 @@
             
             
             
+            <a href="/tags/SRC/">
+                <span class="chip center-align waves-effect waves-light chip-default">SRC</span>
+            </a>
+            
+            
+            
+            <a href="/tags/bp/">
+                <span class="chip center-align waves-effect waves-light chip-default">bp</span>
+            </a>
+            
+            
+            
             <a href="/tags/java/">
                 <span class="chip center-align waves-effect waves-light chip-default">java</span>
             </a>
@@ -912,6 +913,12 @@
             
             
             
+            <a href="/tags/nodejs/">
+                <span class="chip center-align waves-effect waves-light chip-default">nodejs</span>
+            </a>
+            
+            
+            
             <a href="/tags/agent/">
                 <span class="chip center-align waves-effect waves-light chip-default">agent</span>
             </a>
@@ -920,12 +927,6 @@
             
             <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">
                 <span class="chip center-align waves-effect waves-light chip-default">大模型</span>
-            </a>
-            
-            
-            
-            <a href="/tags/nodejs/">
-                <span class="chip center-align waves-effect waves-light chip-default">nodejs</span>
             </a>
             
             
@@ -968,14 +969,8 @@
             
             
             
-            <a href="/tags/bug/">
-                <span class="chip center-align waves-effect waves-light chip-default">bug</span>
-            </a>
-            
-            
-            
-            <a href="/tags/sql%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/">
-                <span class="chip center-align waves-effect waves-light chip-default">sql进阶学习</span>
+            <a href="/tags/sql%E7%BB%88%E6%9E%81%E7%89%88/">
+                <span class="chip center-align waves-effect waves-light chip-default">sql终极版</span>
             </a>
             
             
@@ -986,8 +981,8 @@
             
             
             
-            <a href="/tags/sql%E7%BB%88%E6%9E%81%E7%89%88/">
-                <span class="chip center-align waves-effect waves-light chip-default">sql终极版</span>
+            <a href="/tags/bug/">
+                <span class="chip center-align waves-effect waves-light chip-default">bug</span>
             </a>
             
             
@@ -1000,6 +995,12 @@
             
             <a href="/tags/%E6%B8%B8%E6%88%8F/">
                 <span class="chip center-align waves-effect waves-light chip-default">游戏</span>
+            </a>
+            
+            
+            
+            <a href="/tags/sql%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/">
+                <span class="chip center-align waves-effect waves-light chip-default">sql进阶学习</span>
             </a>
             
             
@@ -1022,12 +1023,6 @@
             
             
             
-            <a href="/tags/ssti/">
-                <span class="chip center-align waves-effect waves-light chip-default">ssti</span>
-            </a>
-            
-            
-            
             <a href="/tags/%E6%9B%B4%E6%96%B0/">
                 <span class="chip center-align waves-effect waves-light chip-default">更新</span>
             </a>
@@ -1036,6 +1031,12 @@
             
             <a href="/tags/%E5%8D%87%E7%BA%A7/">
                 <span class="chip center-align waves-effect waves-light chip-default">升级</span>
+            </a>
+            
+            
+            
+            <a href="/tags/ssti/">
+                <span class="chip center-align waves-effect waves-light chip-default">ssti</span>
             </a>
             
             
@@ -1327,7 +1328,7 @@ $(function () {
     <div class="lin-pet-bubble" role="status" aria-live="polite">在看什么？我也瞧瞧。</div>
     <div class="lin-pet-effects" aria-hidden="true"></div>
     <button class="lin-pet-character" type="button" aria-label="和林翩翩互动" title="点击互动，也可以拖动">
-        <img src="/medias/lin-pianpian/official-desktop-pet.webp" alt="林翩翩桌宠" width="576" height="703" loading="lazy" decoding="async">
+        <img src="/medias/lin-pianpian/official-desktop-pet.webp" alt="林翩翩桌宠" width="576" height="703" loading="lazy" decoding="async" fetchpriority="low">
     </button>
 </aside>
 
@@ -1343,21 +1344,30 @@ $(function () {
 
     <!-- Baidu Analytics -->
 
+
     <!-- Baidu Push -->
 
 <script>
     (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
+        if (/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) return;
+
+        function loadBaiduPush() {
+            var bp = document.createElement('script');
+            bp.async = true;
             bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            document.head.appendChild(bp);
         }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
+
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadBaiduPush, { timeout: 4500 });
+        } else {
+            window.addEventListener('load', function () {
+                window.setTimeout(loadBaiduPush, 1800);
+            }, { once: true });
+        }
     })();
 </script>
+
 
     
     <script src="/libs/others/clicklove.js" async="async"></script>
