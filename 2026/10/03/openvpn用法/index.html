@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="应急响应思路初步, wuk0Ng">
+    <meta name="keywords" content="openvpn使用, wuk0Ng">
     <meta name="description" content="wuk0Ng的个人博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>应急响应思路初步 | wuk0Ng</title>
+    <title>openvpn使用 | wuk0Ng</title>
     <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
 
     <link rel="dns-prefetch" href="//hm.baidu.com">
@@ -326,12 +326,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.webp')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.webp')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">应急响应思路初步</h1>
+                    <h1 class="description center-align post-title">openvpn使用</h1>
                 </div>
             </div>
         </div>
@@ -476,7 +476,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2026-08-27
+                    2026-10-03
                 </div>
                 
 
@@ -497,183 +497,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="应急响应思路整理"><a href="#应急响应思路整理" class="headerlink" title="应急响应思路整理"></a>应急响应思路整理</h1><h2 id="一、整体思路"><a href="#一、整体思路" class="headerlink" title="一、整体思路"></a>一、整体思路</h2><p>应急响应核心思路：</p>
-<blockquote>
-<p>确认事件 → 隔离止损 → 判断入口 → 排查持久化 → 定位恶意进程&#x2F;文件 → 分析网络行为 → 横向排查 → 清除恢复 → 复盘加固</p>
-</blockquote>
-<p>前面都是AI给的一个方法，但是好像是少了一步，就是可以先查看用户等等</p>
-<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/%E6%88%AA%E5%9B%BE_20260814_172053_893.png?raw=true" alt="截图"></p>
-<h2 id="二、Windows-进程排查"><a href="#二、Windows-进程排查" class="headerlink" title="二、Windows 进程排查"></a>二、Windows 进程排查</h2><p>查看进程：</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tasklist</span><br><span class="line">tasklist /v</span><br></pre></td></tr></table></figure>
+                <p>之前打雷神众测的时候，和发现这个最近要打的一个内网靶机都要用到OPENVPN,我这里就简单给下安装包和最简单的教程吧<br><a target="_blank" rel="noopener" href="https://openvpn.net/community/">https://openvpn.net/community/</a><br>这个应该是官网<br>然后有个教程文档我放</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/web-wuk0Ng/my-images/blob/main/%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6%EF%BC%88%E6%B5%8B%E8%AF%95%E4%BA%BA%E5%91%98%EF%BC%89v2.0.pdf</span><br></pre></td></tr></table></figure>
+<p>剩下的就是两种情况，一种是用账号密码登陆进去的<br>一种是给了一个.ovpn的文件<br>安装好了，稍微跟下教程，然后不会的地方再问下AI基本环境这块问题都是不大的</p>
 
-<p>查看进程路径、PID、PPID 和命令行：</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wmic process get Name,ProcessId,ParentProcessId,ExecutablePath,CommandLine</span><br></pre></td></tr></table></figure>
-
-<p>PowerShell：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-CimInstance</span> Win32_Process |</span><br><span class="line"><span class="built_in">Select-Object</span> ProcessId,ParentProcessId,Name,ExecutablePath,CommandLine</span><br></pre></td></tr></table></figure>
-
-<p>重点关注：</p>
-<ul>
-<li><code>powershell.exe</code></li>
-<li><code>cmd.exe</code></li>
-<li><code>wscript.exe</code></li>
-<li><code>cscript.exe</code></li>
-<li><code>mshta.exe</code></li>
-<li><code>rundll32.exe</code></li>
-<li><code>regsvr32.exe</code></li>
-<li><code>certutil.exe</code></li>
-</ul>
-<p>重点不是这些进程本身，而是<strong>父子进程关系和命令行参数</strong>。</p>
-<p>例如：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">WINWORD.EXE</span><br><span class="line">    ↓</span><br><span class="line">powershell.exe</span><br><span class="line">    ↓</span><br><span class="line">下载 Payload</span><br><span class="line">    ↓</span><br><span class="line">abc.exe</span><br><span class="line">    ↓</span><br><span class="line">外联 C2</span><br></pre></td></tr></table></figure>
-
-<h2 id="三、网络连接排查"><a href="#三、网络连接排查" class="headerlink" title="三、网络连接排查"></a>三、网络连接排查</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano</span><br></pre></td></tr></table></figure>
-
-<p>只看已建立连接：</p>
-<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/%E6%88%AA%E5%9B%BE_20260814_181300_112.png?raw=true" alt="jietu"></p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano | <span class="built_in">findstr</span> ESTABLISHED</span><br></pre></td></tr></table></figure>
-
-<p>根据 PID 查进程：</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tasklist | <span class="built_in">findstr</span> <span class="number">1234</span></span><br></pre></td></tr></table></figure>
-
-<p>重点关注：</p>
-<ul>
-<li>陌生公网 IP</li>
-<li>VPS &#x2F; 云服务器 IP</li>
-<li>异常高位端口</li>
-<li><code>AppData</code>、<code>Temp</code> 下程序外联</li>
-<li>随机文件名进程长期外联</li>
-</ul>
-<h2 id="四、注册表持久化"><a href="#四、注册表持久化" class="headerlink" title="四、注册表持久化"></a>四、注册表持久化</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reg query &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Run&quot;</span><br><span class="line">reg query &quot;HKLM\Software\Microsoft\Windows\CurrentVersion\Run&quot;</span><br><span class="line">reg query &quot;HKLM\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run&quot;</span><br></pre></td></tr></table></figure>
-
-<p>RunOnce：</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reg query &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce&quot;</span><br><span class="line">reg query &quot;HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce&quot;</span><br></pre></td></tr></table></figure>
-
-<p>重点关注：</p>
-<ul>
-<li>AppData</li>
-<li>Temp</li>
-<li>ProgramData</li>
-<li>Users\Public</li>
-<li>随机 exe</li>
-<li>powershell</li>
-<li>cmd</li>
-<li>wscript</li>
-<li>mshta</li>
-</ul>
-<h2 id="五、计划任务"><a href="#五、计划任务" class="headerlink" title="五、计划任务"></a>五、计划任务</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">schtasks /query /fo LIST /v</span><br></pre></td></tr></table></figure>
-
-<p>PowerShell：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-ScheduledTask</span></span><br></pre></td></tr></table></figure>
-
-<p>重点关注：</p>
-<ul>
-<li>登录触发</li>
-<li>开机触发</li>
-<li>高频执行</li>
-<li>名称伪装 <code>Update</code></li>
-<li>PowerShell 隐藏执行</li>
-<li>AppData 下的程序</li>
-</ul>
-<h2 id="六、服务排查"><a href="#六、服务排查" class="headerlink" title="六、服务排查"></a>六、服务排查</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wmic service get Name,DisplayName,PathName,StartMode,State</span><br></pre></td></tr></table></figure>
-
-<p>PowerShell：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-CimInstance</span> Win32_Service |</span><br><span class="line"><span class="built_in">Select-Object</span> Name,State,StartMode,PathName</span><br></pre></td></tr></table></figure>
-
-<p>重点关注：</p>
-<ul>
-<li><code>AppData</code></li>
-<li><code>Temp</code></li>
-<li><code>Users\Public</code></li>
-<li>随机服务名</li>
-<li>Auto 自动启动</li>
-<li>服务名称正常但文件路径异常</li>
-</ul>
-<h2 id="七、异常文件排查"><a href="#七、异常文件排查" class="headerlink" title="七、异常文件排查"></a>七、异常文件排查</h2><p>最近一天文件：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-ChildItem</span> C:\Users <span class="literal">-Recurse</span> <span class="literal">-ErrorAction</span> SilentlyContinue |</span><br><span class="line"><span class="built_in">Where-Object</span> &#123;<span class="variable">$_</span>.LastWriteTime <span class="operator">-gt</span> (<span class="built_in">Get-Date</span>).AddDays(<span class="literal">-1</span>)&#125; |</span><br><span class="line"><span class="built_in">Sort-Object</span> LastWriteTime <span class="literal">-Descending</span> |</span><br><span class="line"><span class="built_in">Select-Object</span> LastWriteTime,FullName</span><br></pre></td></tr></table></figure>
-
-<p>重点文件类型：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-ChildItem</span> C:\Users <span class="literal">-Recurse</span> <span class="literal">-Include</span> *.exe,*.dll,*.ps1,*.bat,*.vbs,*.js <span class="literal">-ErrorAction</span> SilentlyContinue |</span><br><span class="line"><span class="built_in">Where-Object</span> &#123;<span class="variable">$_</span>.LastWriteTime <span class="operator">-gt</span> (<span class="built_in">Get-Date</span>).AddDays(<span class="literal">-1</span>)&#125;</span><br></pre></td></tr></table></figure>
-
-<p>重点目录：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%TEMP%</span><br><span class="line">%APPDATA%</span><br><span class="line">%LOCALAPPDATA%</span><br><span class="line">C:\ProgramData</span><br><span class="line">C:\Users\Public</span><br><span class="line">Downloads</span><br><span class="line">Desktop</span><br></pre></td></tr></table></figure>
-
-<h2 id="八、Hash-和签名"><a href="#八、Hash-和签名" class="headerlink" title="八、Hash 和签名"></a>八、Hash 和签名</h2><p>计算 SHA256：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-FileHash</span> .\suspicious.exe <span class="literal">-Algorithm</span> SHA256</span><br></pre></td></tr></table></figure>
-
-<p>查看数字签名：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-AuthenticodeSignature</span> .\suspicious.exe</span><br></pre></td></tr></table></figure>
-
-<p>需要提取的 IOC：</p>
-<ul>
-<li>文件名</li>
-<li>文件路径</li>
-<li>SHA256</li>
-<li>创建时间</li>
-<li>修改时间</li>
-<li>父进程</li>
-<li>命令行</li>
-<li>IP</li>
-<li>域名</li>
-<li>端口</li>
-</ul>
-<h2 id="九、Windows-日志"><a href="#九、Windows-日志" class="headerlink" title="九、Windows 日志"></a>九、Windows 日志</h2><p>重点事件 ID：</p>
-<table>
-<thead>
-<tr>
-<th>Event ID</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>4624</td>
-<td>登录成功</td>
-</tr>
-<tr>
-<td>4625</td>
-<td>登录失败</td>
-</tr>
-<tr>
-<td>4688</td>
-<td>进程创建</td>
-</tr>
-<tr>
-<td>4698</td>
-<td>创建计划任务</td>
-</tr>
-<tr>
-<td>7045</td>
-<td>安装服务</td>
-</tr>
-<tr>
-<td>1102</td>
-<td>清除安全日志</td>
-</tr>
-</tbody></table>
-<p>例如查看 4624：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-WinEvent</span> <span class="literal">-FilterHashtable</span> <span class="selector-tag">@</span>&#123;</span><br><span class="line">    LogName=<span class="string">&#x27;Security&#x27;</span></span><br><span class="line">    Id=<span class="number">4624</span></span><br><span class="line">&#125; <span class="literal">-MaxEvents</span> <span class="number">50</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="十、银狐木马实战思路"><a href="#十、银狐木马实战思路" class="headerlink" title="十、银狐木马实战思路"></a>十、银狐木马实战思路</h2><p>银狐场景可以按照：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">确认告警</span><br><span class="line">↓</span><br><span class="line">隔离主机</span><br><span class="line">↓</span><br><span class="line">查异常进程</span><br><span class="line">↓</span><br><span class="line">查网络连接</span><br><span class="line">↓</span><br><span class="line">定位 C2</span><br><span class="line">↓</span><br><span class="line">查 Run 注册表</span><br><span class="line">↓</span><br><span class="line">查计划任务</span><br><span class="line">↓</span><br><span class="line">查服务</span><br><span class="line">↓</span><br><span class="line">查最近落地文件</span><br><span class="line">↓</span><br><span class="line">计算 Hash</span><br><span class="line">↓</span><br><span class="line">向前追溯初始入口</span><br><span class="line">↓</span><br><span class="line">横向 IOC 排查</span><br><span class="line">↓</span><br><span class="line">清除恢复</span><br></pre></td></tr></table></figure>
-
-<p>可能还原出的攻击链：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">用户收到微信 / QQ 文件</span><br><span class="line">↓</span><br><span class="line">下载 财务通知.zip</span><br><span class="line">↓</span><br><span class="line">执行 通知.exe</span><br><span class="line">↓</span><br><span class="line">释放 AppData\Roaming\update.exe</span><br><span class="line">↓</span><br><span class="line">写入 Run 注册表</span><br><span class="line">↓</span><br><span class="line">创建计划任务</span><br><span class="line">↓</span><br><span class="line">update.exe 外联 C2</span><br><span class="line">↓</span><br><span class="line">下载第二阶段 Payload</span><br><span class="line">↓</span><br><span class="line">远控 / 信息窃取</span><br></pre></td></tr></table></figure>
-
-<p>这里其实就是还有一个思路：比如在计划任务注册表中呀，又或者在电脑上有各种问题呀，又比如做了免杀呀</p>
-<p>这里就是可以火绒和360两个一起用，基本上就没有太多问题了</p>
-<p>至少能解决很多实战中真实的应急情况了</p>
-<h2 id="十一、面试回答"><a href="#十一、面试回答" class="headerlink" title="十一、面试回答"></a>十一、面试回答</h2><blockquote>
-<p>我一般先确认告警时间、主机和异常现象，保留现场并根据情况隔离主机。</p>
-<p>然后从进程和网络连接入手，通过 <code>tasklist</code>、<code>wmic process</code> 和 <code>netstat -ano</code> 定位异常进程、父子进程以及 C2。</p>
-<p>接着排查注册表 Run、计划任务、服务和启动目录这些持久化点，再根据异常文件路径和创建时间向前追溯攻击入口，同时提取 Hash、IP、域名等 IOC。</p>
-<p>Windows 我还会重点结合 4688、4624、7045、1102 等日志判断进程执行、异常登录、服务创建以及清日志行为。</p>
-<p>最后根据 IOC 在其他主机做横向排查，确认影响范围，再进行清除、恢复和漏洞加固。</p>
-</blockquote>
-<h2 id="十二、核心思维"><a href="#十二、核心思维" class="headerlink" title="十二、核心思维"></a>十二、核心思维</h2><p>不要只记：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">查进程</span><br><span class="line">查端口</span><br><span class="line">查注册表</span><br><span class="line">查计划任务</span><br><span class="line">查服务</span><br></pre></td></tr></table></figure>
-
-<p>真正应该一直追：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">攻击者怎么进来的？</span><br><span class="line">↓</span><br><span class="line">谁执行了 Payload？</span><br><span class="line">↓</span><br><span class="line">Payload 落在哪里？</span><br><span class="line">↓</span><br><span class="line">启动了什么进程？</span><br><span class="line">↓</span><br><span class="line">连接了哪个 C2？</span><br><span class="line">↓</span><br><span class="line">怎么持久化？</span><br><span class="line">↓</span><br><span class="line">有没有提权？</span><br><span class="line">↓</span><br><span class="line">有没有横向？</span><br><span class="line">↓</span><br><span class="line">有没有数据窃取？</span><br><span class="line">↓</span><br><span class="line">影响了多少机器？</span><br></pre></td></tr></table></figure>
                 
             </div>
             <hr/>
@@ -699,7 +526,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://web-wuk0ng.github.io/2026/08/27/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E6%80%9D%E8%B7%AF%E6%95%B4%E7%90%86/">https://web-wuk0ng.github.io/2026/08/27/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E6%80%9D%E8%B7%AF%E6%95%B4%E7%90%86/</a>
+                    <a href="https://web-wuk0ng.github.io/2026/10/03/openvpn%E7%94%A8%E6%B3%95/">https://web-wuk0ng.github.io/2026/10/03/openvpn%E7%94%A8%E6%B3%95/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1073,7 +900,7 @@
         repo: 'blog---comments',
         owner: 'web-wuk0Ng',
         admin: ["web-wuk0Ng"],
-        id: '2026-08-27T11-00-00',
+        id: '2026-10-03T11-00-00',
         distractionFreeMode: false
       });
       gitalk.render('gitalk-container');
@@ -1122,9 +949,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2026/10/03/openvpn%E7%94%A8%E6%B3%95/">
                     <div class="card-image">
@@ -1142,9 +970,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2026-10-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-10-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1157,6 +985,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1179,13 +1008,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2026/08/19/part4%E5%AF%B9%E8%AF%9DAgent%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
+                <a href="/2026/08/27/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E6%80%9D%E8%B7%AF%E6%95%B4%E7%90%86/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.webp" class="responsive-img" alt="part4对话agent方案设计与源码分析" loading="lazy" decoding="async" fetchpriority="low">
+                        <img src="/medias/featureimages/14.webp" class="responsive-img" alt="应急响应思路初步" loading="lazy" decoding="async" fetchpriority="low">
                         
-                        <span class="card-title">part4对话agent方案设计与源码分析</span>
+                        <span class="card-title">应急响应思路初步</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1196,7 +1025,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-08-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-08-27
                             </span>
                         <span class="publish-author">
                             
@@ -1213,12 +1042,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/agent/">
-                        <span class="chip bg-color">agent</span>
+                    <a href="/tags/%E5%BA%94%E6%80%A5/">
+                        <span class="chip bg-color">应急</span>
                     </a>
                     
-                    <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">
-                        <span class="chip bg-color">大模型</span>
+                    <a href="/tags/%E5%AE%89%E6%9C%8D/">
+                        <span class="chip bg-color">安服</span>
                     </a>
                     
                 </div>
