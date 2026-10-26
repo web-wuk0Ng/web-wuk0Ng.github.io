@@ -1,5 +1,95 @@
 /* Here is your custom css styles. */
 
+/* Compact monochrome article list on the homepage. */
+.home-title-grid {
+    margin-top: 28px;
+}
+
+.home-title-grid .article-row {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.home-title-grid .home-title-card {
+    margin-bottom: 16px;
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+.home-title-grid .home-title-card.animated {
+    animation: none !important;
+}
+
+.home-title-grid .home-title-card .card {
+    min-height: 112px;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid rgba(20, 20, 20, 0.18);
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+    transition: border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.home-title-grid .home-title-link {
+    display: flex;
+    min-height: 112px;
+    padding: 18px 20px;
+    align-items: center;
+    justify-content: center;
+    color: #181818;
+    text-align: center;
+}
+
+.home-title-grid .home-title-link h2 {
+    display: -webkit-box;
+    margin: 0;
+    overflow: hidden;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.55;
+    letter-spacing: 0.025em;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.home-title-grid .home-title-card .card:hover,
+.home-title-grid .home-title-card .card:focus-within {
+    border-color: #111;
+    background: #111;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+    transform: translateY(-3px);
+}
+
+.home-title-grid .home-title-card .card:hover .home-title-link,
+.home-title-grid .home-title-card .card:focus-within .home-title-link {
+    color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+    .home-title-grid {
+        margin-top: 20px;
+    }
+
+    .home-title-grid .home-title-card {
+        margin-bottom: 12px;
+    }
+
+    .home-title-grid .home-title-card .card,
+    .home-title-grid .home-title-link {
+        min-height: 82px;
+    }
+
+    .home-title-grid .home-title-link {
+        padding: 14px 16px;
+    }
+
+    .home-title-grid .home-title-link h2 {
+        font-size: 16px;
+        -webkit-line-clamp: 2;
+    }
+}
+
 /* Lin Pianpian desktop pet. The rest of the site keeps the original theme. */
 .lin-desktop-pet {
     position: fixed;
