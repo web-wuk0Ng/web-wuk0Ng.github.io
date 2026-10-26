@@ -1,0 +1,1932 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="part05运维Agent方案设计与源码分析, wuk0Ng">
+    <meta name="description" content="wuk0Ng的个人博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>part05运维Agent方案设计与源码分析 | wuk0Ng</title>
+    <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
+
+    <link rel="dns-prefetch" href="//hm.baidu.com">
+    <link rel="dns-prefetch" href="//zz.bdstatic.com">
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css?v=20260824-speed1">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css?v=20260824-2">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+   
+<style>
+    body{
+       background-image: url(/medias/my_background.webp);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/jiushen.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">wuk0Ng</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/jiushen.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">wuk0Ng</div>
+        <div class="logo-desc">
+            
+            wuk0Ng的个人博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/web-wuk0Ng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/web-wuk0Ng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.webp')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">part05运维Agent方案设计与源码分析</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/agent/">
+                                <span class="chip bg-color">agent</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%BA%A2%E9%98%9F/">
+                                <span class="chip bg-color">红队</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                记录
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-10-26
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="前置准备"><a href="#前置准备" class="headerlink" title="前置准备"></a>前置准备</h2><p>我觉得我们设计一个蓝队agent的话，这个运维agent是少不了了。就是我们有报错，有告警的话，全部是人工看确实是很麻烦的一个步骤</p>
+<p>这个就是一套重复的体力活</p>
+<p>1.看告警信息，提取关键信息（哪个服务？什么错误？什么时间？）</p>
+<p>2.去日志平台搜索日志</p>
+<p>3.去监控平台看指标曲线</p>
+<p>4.根据经验判断原因</p>
+<p>5.决定处理方案（观察？重启？联系下游？）</p>
+<p>区别于普通的程序，agent做的：告警来了，先查日志，发现超时错误，那就再去查下下游服务的状态，发现下游正常，那就看是不是自己服务的连接池是不是满了，一步步推理下去，最终定位到根本原因</p>
+<p>为什么需要运维agent<br>1.新人培养问题<br>2.80%都是老面孔，每次都需要重新查一遍<br>3.各个系统是割裂的，排查得来回切换</p>
+<p>运维agent的目标是什么？<br>让机器去处理重复的事，让人去做有价值的事</p>
+<p>运维agent有哪些核心功能<br>1.实时告警相应与自动排查<br>2.工程师维护一个错误码&#x2F;错误特征的知识库，达到智能匹配根本原因<br>3.告警处理，总结本次排查过程，更新知识库，下次遇到类似的问题，直接复用<br>在这个过程中不断进步升级</p>
+<h2 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a>架构设计</h2><p>plan-execute-replan<br>1.像老同事一样有条理地规划排查步骤<br>2.遇到此路不通时能够灵活调整方向<br>3.统一调度各个系统的工具</p>
+<p>先规划，再执行，随时调整</p>
+<p>和ReAct的区别就在于，react没有一个完整的计划，每一步都是临场决策<br>用plan-execute-replan的场景：任务比较复杂，步骤多，需要一步步地推进。比如运维告警排查，自动化报告生成，多系统联动的工作流。这类工作如果“边想边做”，很容易跑偏或者遗漏步骤</p>
+<p>用ReAct场景，任务比较灵活，事先不确定需要几步，探索性强。比如回答一个开放性问题，在网上搜索信息等，这个任务如果要先做出计划，反而显得僵硬</p>
+<p>plan-execute-replan优势：<br>1.结构化拆解，把复杂问题变简单<br>2.动态适应，遇到问题不死磕<br>3.职责分离，各司其职更加高效（规划，执行，评估三个职责分开，交给不同agent来做）<br>4.任务进度可以观测</p>
+<p>关键代码：app&#x2F;agent&#x2F;aiops&#x2F; 目录下的 state.py、planner.py、executor.py、replanner.py，以及 app&#x2F;services&#x2F;aiops_service.py。</p>
+<p>运维 Agent 的核心目标是 规划 → 执行 → 评估 → 调整。整体流程就是三个节点：</p>
+<ol>
+<li><strong>Planner</strong>：拆解排查步骤，生成执行计划</li>
+<li><strong>Executor</strong>：从计划中取出第一个步骤，调用工具执行</li>
+<li><strong>Replanner</strong>：评估执行结果，决定继续、调整计划还是生成最终报告</li>
+</ol>
+<p>三个节点通过 LangGraph <code>StateGraph</code> 串联，共享同一份 <code>PlanExecuteState</code> 状态对象在整个流程中传递。</p>
+<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/2026/10/%E6%88%AA%E5%B1%8F2026-10-26%2015.04.14.png?raw=true"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">通用 Plan-Execute-Replan 状态定义</span><br><span class="line">基于 LangGraph 官方教程实现</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">from typing import List, TypedDict, Annotated</span><br><span class="line">import operator</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class PlanExecuteState(TypedDict):</span><br><span class="line">    &quot;&quot;&quot;Plan-Execute-Replan 状态&quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    # 用户输入（任务描述）</span><br><span class="line">    input: str</span><br><span class="line">    </span><br><span class="line">    # 执行计划（步骤列表）</span><br><span class="line">    plan: List[str]</span><br><span class="line">    </span><br><span class="line">    # 已执行的步骤历史</span><br><span class="line">    # 使用 operator.add 实现追加式更新（而非覆盖）</span><br><span class="line">    past_steps: Annotated[List[tuple], operator.add]</span><br><span class="line">    </span><br><span class="line">    # 最终响应/报告</span><br><span class="line">    response: str</span><br></pre></td></tr></table></figure>
+
+<p><code>past_steps</code> 使用 <code>Annotated[List[tuple], operator.add]</code> 声明，LangGraph 会将每次节点返回的 <code>past_steps</code> 自动追加到列表中，而不是覆盖，无需手动维护历史。</p>
+<p>Planner节点</p>
+<p>Planner 负责制定执行计划，输出一个结构化的步骤列表。核心流程：</p>
+<ol>
+<li>先调用 <code>retrieve_knowledge</code> 查询知识库，寻找历史经验文档</li>
+<li>获取所有可用工具（本地工具 + MCP 工具），格式化为文字描述</li>
+<li>将工具列表和经验文档注入 prompt，调用 LLM 生成结构化计划</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">Planner 节点：制定执行计划</span><br><span class="line">基于 LangGraph 官方教程实现</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">from textwrap import dedent</span><br><span class="line">from typing import Dict, Any, List</span><br><span class="line">from langchain_core.prompts import ChatPromptTemplate</span><br><span class="line">from langchain_qwq import ChatQwen</span><br><span class="line">from pydantic import BaseModel, Field</span><br><span class="line">from loguru import logger</span><br><span class="line"></span><br><span class="line">from app.config import config</span><br><span class="line">from app.tools import DEFAULT_LOCAL_AGENT_TOOLS, retrieve_knowledge</span><br><span class="line">from app.agent.mcp_client import get_mcp_client_with_retry</span><br><span class="line">from .state import PlanExecuteState</span><br><span class="line">from .utils import format_tools_description</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Plan(BaseModel):</span><br><span class="line">    &quot;&quot;&quot;计划的输出格式&quot;&quot;&quot;</span><br><span class="line">    steps: List[str] = Field(</span><br><span class="line">        description=&quot;完成任务所需的不同步骤。这些步骤应该按顺序执行，每一步都建立在前一步的基础上。&quot;</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Planner 提示词</span><br><span class="line">planner_prompt = ChatPromptTemplate.from_messages(</span><br><span class="line">    [</span><br><span class="line">        (</span><br><span class="line">            &quot;system&quot;,</span><br><span class="line">            dedent(&quot;&quot;&quot;</span><br><span class="line">                作为一个专家级别的规划者，你需要将复杂的任务分解为可执行的步骤。</span><br><span class="line"></span><br><span class="line">                可用工具列表（用于制定计划时参考）：</span><br><span class="line"></span><br><span class="line">                &#123;tools_description&#125;</span><br><span class="line"></span><br><span class="line">                注意：你的职责是制定计划，实际的工具调用由 Executor 负责执行。</span><br><span class="line"></span><br><span class="line">                &#123;experience_context&#125;</span><br><span class="line"></span><br><span class="line">                对于给定的任务，请创建一个简单的、逐步的计划来完成它。计划应该：</span><br><span class="line">                - 将任务分解为逻辑上独立的步骤</span><br><span class="line">                - 每个步骤应该明确使用哪些工具(如果需要工具的话)来获取信息, 最好能同时提供工具执行所需要的参数</span><br><span class="line">                - 步骤之间应该有清晰的依赖关系</span><br><span class="line">                - 步骤描述要具体、可操作</span><br><span class="line">                - **如果有相关经验文档，请参考其中的方法和步骤制定计划**</span><br><span class="line"></span><br><span class="line">                示例输入：&quot;分析当前系统的性能问题&quot;</span><br><span class="line">                示例输出（假设有对应工具）：</span><br><span class="line">                步骤1: 使用 get_metrics 工具收集系统的 CPU 和内存使用情况</span><br><span class="line">                步骤2: 使用 query_logs 工具检查最近的错误日志</span><br><span class="line">                步骤3: 使用 query_database 工具分析慢查询日志</span><br><span class="line">                步骤4: 综合以上信息生成性能分析报告</span><br><span class="line">            &quot;&quot;&quot;).strip(),</span><br><span class="line">        ),</span><br><span class="line">        (&quot;placeholder&quot;, &quot;&#123;messages&#125;&quot;),</span><br><span class="line">    ]</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">async def planner(state: PlanExecuteState) -&gt; Dict[str, Any]:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    规划节点：根据用户输入生成执行计划</span><br><span class="line"></span><br><span class="line">    流程：</span><br><span class="line">    1. 先查询内部文档，获取相关经验和最佳实践</span><br><span class="line">    2. 基于经验文档和可用工具制定执行计划</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    logger.info(&quot;=== Planner：制定执行计划 ===&quot;)</span><br><span class="line"></span><br><span class="line">    input_text = state.get(&quot;input&quot;, &quot;&quot;)</span><br><span class="line">    logger.info(f&quot;用户输入: &#123;input_text&#125;&quot;)</span><br><span class="line"></span><br><span class="line">    try:</span><br><span class="line">        # 步骤1: 查询内部文档获取相关经验</span><br><span class="line">        logger.info(&quot;查询内部文档，寻找相关经验...&quot;)</span><br><span class="line">        experience_docs = &quot;&quot;</span><br><span class="line">        try:</span><br><span class="line">            # retrieve_knowledge 使用 response_format=&quot;content_and_artifact&quot;</span><br><span class="line">            # ainvoke() 只返回 content（字符串），不是元组</span><br><span class="line">            context_str = await retrieve_knowledge.ainvoke(&#123;&quot;query&quot;: input_text&#125;)</span><br><span class="line">            if context_str and context_str.strip():</span><br><span class="line">                experience_docs = context_str</span><br><span class="line">                logger.info(f&quot;找到相关经验文档，长度: &#123;len(experience_docs)&#125;&quot;)</span><br><span class="line">            else:</span><br><span class="line">                logger.info(&quot;未找到相关经验文档&quot;)</span><br><span class="line">        except Exception as e:</span><br><span class="line">            logger.warning(f&quot;查询内部文档失败: &#123;e&#125;&quot;)</span><br><span class="line"></span><br><span class="line">        # 步骤2: 获取可用工具列表</span><br><span class="line">        # 获取本地工具</span><br><span class="line">        local_tools = list(DEFAULT_LOCAL_AGENT_TOOLS)</span><br><span class="line"></span><br><span class="line">        # 获取 MCP 工具</span><br><span class="line">        mcp_client = await get_mcp_client_with_retry()</span><br><span class="line">        mcp_tools = await mcp_client.get_tools()</span><br><span class="line"></span><br><span class="line">        # 合并所有工具</span><br><span class="line">        all_tools = local_tools + mcp_tools</span><br><span class="line">        logger.info(f&quot;可用工具数量: 本地 &#123;len(local_tools)&#125; + MCP &#123;len(mcp_tools)&#125;&quot;)</span><br><span class="line"></span><br><span class="line">        # 格式化工具描述</span><br><span class="line">        tools_description = format_tools_description(all_tools)</span><br><span class="line"></span><br><span class="line">        # 步骤3: 格式化经验文档上下文</span><br><span class="line">        if experience_docs:</span><br><span class="line">            experience_context = dedent(f&quot;&quot;&quot;</span><br><span class="line">                ## 相关经验文档</span><br><span class="line"></span><br><span class="line">                以下是从知识库中检索到的相关经验和最佳实践，请参考这些经验制定执行计划：</span><br><span class="line"></span><br><span class="line">                &#123;experience_docs&#125;</span><br><span class="line"></span><br><span class="line">                ---</span><br><span class="line">            &quot;&quot;&quot;).strip()</span><br><span class="line">        else:</span><br><span class="line">            experience_context = &quot;&quot;</span><br><span class="line"></span><br><span class="line">        # 步骤4: 创建 LLM 并生成计划</span><br><span class="line">        llm = ChatQwen(</span><br><span class="line">            model=config.rag_model,</span><br><span class="line">            api_key=config.dashscope_api_key,</span><br><span class="line">            temperature=0</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        planner_chain = planner_prompt | llm.with_structured_output(Plan)</span><br><span class="line"></span><br><span class="line">        # 调用 LLM 生成计划</span><br><span class="line">        plan_result = await planner_chain.ainvoke(&#123;</span><br><span class="line">            &quot;messages&quot;: [(&quot;user&quot;, input_text)],</span><br><span class="line">            &quot;tools_description&quot;: tools_description,</span><br><span class="line">            &quot;experience_context&quot;: experience_context</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        # 提取步骤列表</span><br><span class="line">        if isinstance(plan_result, Plan):</span><br><span class="line">            plan_steps = plan_result.steps</span><br><span class="line">        else:</span><br><span class="line">            # 如果返回的是字典，提取 steps 字段</span><br><span class="line">            plan_steps = plan_result.get(&quot;steps&quot;, [])  # type: ignore</span><br><span class="line"></span><br><span class="line">        logger.info(f&quot;计划已生成，共 &#123;len(plan_steps)&#125; 个步骤&quot;)</span><br><span class="line">        for i, step in enumerate(plan_steps, 1):</span><br><span class="line">            logger.info(f&quot;  步骤&#123;i&#125;: &#123;step&#125;&quot;)</span><br><span class="line"></span><br><span class="line">        return &#123;&quot;plan&quot;: plan_steps&#125;</span><br><span class="line"></span><br><span class="line">    except Exception as e:</span><br><span class="line">        logger.error(f&quot;生成计划失败: &#123;e&#125;&quot;, exc_info=True)</span><br><span class="line">        # 返回一个默认计划</span><br><span class="line">        return &#123;</span><br><span class="line">            &quot;plan&quot;: [</span><br><span class="line">                &quot;收集相关信息&quot;,</span><br><span class="line">                &quot;分析数据&quot;,</span><br><span class="line">                &quot;生成报告&quot;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>计划的输出格式用Pydantic Plan模型约束，通过llm.with_structured_output(Plan)保证llm的输出可以直接解析为步骤列表</p>
+<p>planner Prompt</p>
+<p>planner的系统提示词要求模型将任务分解为逻辑独立的步骤，每步指明使用哪个工具以及所需参数。如果查到了经验文档，也会作为参考注入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">planner_prompt = ChatPromptTemplate.from_messages([</span><br><span class="line">    (&quot;system&quot;, &quot;&quot;&quot;</span><br><span class="line">作为一个专家级别的规划者，你需要将复杂的任务分解为可执行的步骤。</span><br><span class="line"></span><br><span class="line">可用工具列表（用于制定计划时参考）：</span><br><span class="line">&#123;tools_description&#125;</span><br><span class="line"></span><br><span class="line">注意：你的职责是制定计划，实际的工具调用由 Executor 负责执行。</span><br><span class="line"></span><br><span class="line">&#123;experience_context&#125;</span><br><span class="line"></span><br><span class="line">对于给定的任务，请创建一个简单的、逐步的计划：</span><br><span class="line">- 将任务分解为逻辑上独立的步骤</span><br><span class="line">- 每个步骤明确使用哪些工具（如果需要），最好能同时提供工具所需参数</span><br><span class="line">- 步骤之间应有清晰的依赖关系</span><br><span class="line">- 如果有相关经验文档，请参考其中的方法和步骤制定计划</span><br><span class="line">&quot;&quot;&quot;),</span><br><span class="line">    (&quot;placeholder&quot;, &quot;&#123;messages&#125;&quot;),</span><br><span class="line">])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Executor节点</p>
+<p>Executor每次只执行计划中的第一个步骤，使用LangGraph的ToolNode自动处理工具调用，执行完后将该步骤从plan中移除，并将结果追加到Past_steps:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">Executor 节点：执行单个步骤</span><br><span class="line">基于 LangGraph 官方教程实现</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">from typing import Dict, Any</span><br><span class="line">from langchain_core.messages import HumanMessage, SystemMessage</span><br><span class="line">from langchain_qwq import ChatQwen</span><br><span class="line">from langgraph.prebuilt import ToolNode</span><br><span class="line">from loguru import logger</span><br><span class="line"></span><br><span class="line">from app.config import config</span><br><span class="line">from app.tools import DEFAULT_LOCAL_AGENT_TOOLS</span><br><span class="line">from app.agent.mcp_client import get_mcp_client_with_retry</span><br><span class="line">from .state import PlanExecuteState</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">async def executor(state: PlanExecuteState) -&gt; Dict[str, Any]:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    执行节点：执行计划中的下一个步骤</span><br><span class="line">    </span><br><span class="line">    使用 LangGraph 的 ToolNode 自动处理工具调用</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    logger.info(&quot;=== Executor：执行步骤 ===&quot;)</span><br><span class="line"></span><br><span class="line">    plan = state.get(&quot;plan&quot;, [])</span><br><span class="line"></span><br><span class="line">    # 如果计划为空，不执行</span><br><span class="line">    if not plan:</span><br><span class="line">        logger.info(&quot;计划为空，跳过执行&quot;)</span><br><span class="line">        return &#123;&#125;</span><br><span class="line"></span><br><span class="line">    # 取出第一个步骤</span><br><span class="line">    task = plan[0]</span><br><span class="line">    logger.info(f&quot;当前任务: &#123;task&#125;&quot;)</span><br><span class="line"></span><br><span class="line">    try:</span><br><span class="line">        # 获取本地工具</span><br><span class="line">        local_tools = list(DEFAULT_LOCAL_AGENT_TOOLS)</span><br><span class="line"></span><br><span class="line">        # 获取 MCP 工具</span><br><span class="line">        mcp_client = await get_mcp_client_with_retry()</span><br><span class="line">        mcp_tools = await mcp_client.get_tools()</span><br><span class="line">        logger.info(f&quot;可用工具数量: 本地 &#123;len(local_tools)&#125; + MCP &#123;len(mcp_tools)&#125;&quot;)</span><br><span class="line"></span><br><span class="line">        # 合并所有工具</span><br><span class="line">        all_tools = local_tools + mcp_tools</span><br><span class="line"></span><br><span class="line">        # 创建 LLM（绑定工具）</span><br><span class="line">        llm = ChatQwen(</span><br><span class="line">            model=config.rag_model,</span><br><span class="line">            api_key=config.dashscope_api_key,</span><br><span class="line">            temperature=0</span><br><span class="line">        )</span><br><span class="line">        llm_with_tools = llm.bind_tools(all_tools)</span><br><span class="line"></span><br><span class="line">        # 创建工具节点（自动执行工具调用）</span><br><span class="line">        tool_node = ToolNode(all_tools)</span><br><span class="line"></span><br><span class="line">        # 构建消息（只包含当前步骤，避免原始任务干扰）</span><br><span class="line">        messages = [</span><br><span class="line">            SystemMessage(content=&quot;&quot;&quot;你是一个能力强大的助手，负责执行具体的任务步骤。</span><br><span class="line"></span><br><span class="line">你可以使用各种工具来完成任务。对于每个步骤：</span><br><span class="line">1. 理解步骤的目标</span><br><span class="line">2. 选择合适的工具，如果已经指定了工具，则使用指定的工具</span><br><span class="line">3. 调用工具获取信息</span><br><span class="line">4. 返回执行结果</span><br><span class="line"></span><br><span class="line">注意：</span><br><span class="line">- 如果工具调用失败，请说明失败原因</span><br><span class="line">- 不要编造数据，只返回实际获取的信息</span><br><span class="line">- 执行结果要清晰、准确</span><br><span class="line">- 专注于当前步骤，不要考虑其他任务&quot;&quot;&quot;),</span><br><span class="line">            HumanMessage(content=f&quot;请执行以下任务: &#123;task&#125;&quot;)</span><br><span class="line">        ]</span><br><span class="line"></span><br><span class="line">        # 第一步：LLM 决定是否调用工具</span><br><span class="line">        llm_response = await llm_with_tools.ainvoke(messages)</span><br><span class="line">        logger.info(f&quot;LLM 响应类型: &#123;type(llm_response)&#125;&quot;)</span><br><span class="line"></span><br><span class="line">        # 第二步：如果有工具调用，执行工具</span><br><span class="line">        if hasattr(llm_response, &quot;tool_calls&quot;) and llm_response.tool_calls:</span><br><span class="line">            logger.info(f&quot;检测到 &#123;len(llm_response.tool_calls)&#125; 个工具调用&quot;)</span><br><span class="line">            </span><br><span class="line">            # 使用 ToolNode 自动执行工具</span><br><span class="line">            messages.append(llm_response)</span><br><span class="line">            tool_messages = await tool_node.ainvoke(&#123;&quot;messages&quot;: messages&#125;)</span><br><span class="line">            </span><br><span class="line">            # 第三步：将工具结果返回给 LLM 生成最终答案</span><br><span class="line">            messages.extend(tool_messages[&quot;messages&quot;])</span><br><span class="line">            final_response = await llm_with_tools.ainvoke(messages)</span><br><span class="line">            result = final_response.content if hasattr(final_response, &#x27;content&#x27;) else str(final_response)</span><br><span class="line">        else:</span><br><span class="line">            # 没有工具调用，直接使用 LLM 的输出</span><br><span class="line">            logger.info(&quot;LLM 未调用工具，直接返回结果&quot;)</span><br><span class="line">            result = llm_response.content if hasattr(llm_response, &#x27;content&#x27;) else str(llm_response)</span><br><span class="line"></span><br><span class="line">        logger.info(f&quot;步骤执行完成，结果长度: &#123;len(result)&#125;&quot;)</span><br><span class="line"></span><br><span class="line">        # 返回更新：移除已执行的步骤，添加执行历史</span><br><span class="line">        return &#123;</span><br><span class="line">            &quot;plan&quot;: plan[1:],  # 移除第一个步骤</span><br><span class="line">            &quot;past_steps&quot;: [(task, result)],  # 使用 operator.add 追加</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    except Exception as e:</span><br><span class="line">        logger.error(f&quot;执行步骤失败: &#123;e&#125;&quot;, exc_info=True)</span><br><span class="line">        return &#123;</span><br><span class="line">            &quot;plan&quot;: plan[1:],</span><br><span class="line">            &quot;past_steps&quot;: [(task, f&quot;执行失败: &#123;str(e)&#125;&quot;)],</span><br><span class="line">        &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>Replanner节点</p>
+<p>Replanner 根据原始任务、已执行步骤和剩余计划做出三选一的决策：</p>
+<table>
+<thead>
+<tr>
+<th>决策</th>
+<th>含义</th>
+<th>触发条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>respond</code></td>
+<td>信息充足，立即生成最终报告</td>
+<td>最高优先级，已执行 ≥ 3 步且有关键信息</td>
+</tr>
+<tr>
+<td><code>continue</code></td>
+<td>当前计划合理，继续执行</td>
+<td>剩余步骤确实必要</td>
+</tr>
+<tr>
+<td><code>replan</code></td>
+<td>调整计划，替换剩余步骤</td>
+<td>最低优先级，计划有重大偏差时才使用</td>
+</tr>
+</tbody></table>
+<p>决策同样用 Pydantic 模型约束输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Act(BaseModel):</span><br><span class="line">    action: str = Field(description=&quot;下一步行动: &#x27;continue&#x27; | &#x27;replan&#x27; | &#x27;respond&#x27;&quot;)</span><br><span class="line">    new_steps: List[str] = Field(default_factory=list, description=&quot;replan 时的新步骤列表&quot;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">Replanner 节点：重新规划或生成最终响应</span><br><span class="line">基于 LangGraph 官方教程实现</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">from textwrap import dedent</span><br><span class="line">from typing import Dict, Any, List</span><br><span class="line">from langchain_core.prompts import ChatPromptTemplate</span><br><span class="line">from langchain_qwq import ChatQwen</span><br><span class="line">from pydantic import BaseModel, Field</span><br><span class="line">from loguru import logger</span><br><span class="line"></span><br><span class="line">from app.config import config</span><br><span class="line">from app.tools import DEFAULT_LOCAL_AGENT_TOOLS</span><br><span class="line">from app.agent.mcp_client import get_mcp_client_with_retry</span><br><span class="line">from .state import PlanExecuteState</span><br><span class="line">from .utils import format_tools_description</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Response(BaseModel):</span><br><span class="line">    &quot;&quot;&quot;最终响应的格式&quot;&quot;&quot;</span><br><span class="line">    response: str = Field(description=&quot;对用户的最终响应&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Act(BaseModel):</span><br><span class="line">    &quot;&quot;&quot;重新规划的输出格式&quot;&quot;&quot;</span><br><span class="line">    action: str = Field(</span><br><span class="line">        description=&quot;&quot;&quot;下一步的行动，必须是以下三种之一：</span><br><span class="line">        - &#x27;continue&#x27;: 当前计划合理，继续执行下一个步骤</span><br><span class="line">        - &#x27;replan&#x27;: 当前计划需要调整，提供新的步骤列表</span><br><span class="line">        - &#x27;respond&#x27;: 计划已完成且信息充足，生成最终响应&quot;&quot;&quot;</span><br><span class="line">    )</span><br><span class="line">    # action 为 &#x27;replan&#x27; 时，新的步骤列表（会替换当前剩余计划）</span><br><span class="line">    new_steps: List[str] = Field(</span><br><span class="line">        default_factory=list,</span><br><span class="line">        description=&quot;新的步骤列表（如果 action 是 &#x27;replan&#x27;，这些步骤会替换剩余计划）&quot;</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Replanner 提示词</span><br><span class="line">replanner_prompt = ChatPromptTemplate.from_messages(</span><br><span class="line">    [</span><br><span class="line">        (</span><br><span class="line">            &quot;system&quot;,</span><br><span class="line">            dedent(&quot;&quot;&quot;</span><br><span class="line">                作为一个重新规划专家，你需要根据已执行的步骤决定下一步行动。</span><br><span class="line"></span><br><span class="line">                可用工具列表（用于制定计划时参考）：</span><br><span class="line"></span><br><span class="line">                &#123;tools_description&#125;</span><br><span class="line"></span><br><span class="line">                注意：你的职责是制定或调整计划，实际的工具调用由 Executor 负责执行。</span><br><span class="line"></span><br><span class="line">                你有三个选择（按优先级排序）：</span><br><span class="line"></span><br><span class="line">                **1. &#x27;respond&#x27; - 信息充足，立即生成最终响应** 【最高优先级】</span><br><span class="line">                   - 使用场景：当前信息已经足够回答用户问题</span><br><span class="line">                   - 决策标准：</span><br><span class="line">                     * 已执行步骤 &gt;= 3 且获取了关键信息</span><br><span class="line">                     * 或者已执行步骤 &gt;= 5（无论结果如何）</span><br><span class="line">                     * 或者当前信息完全满足任务需求</span><br><span class="line">                   - ⚠️ 不要等到&quot;完美&quot;才响应，&quot;足够好&quot;就应该立即 respond</span><br><span class="line"></span><br><span class="line">                **2. &#x27;continue&#x27; - 当前计划合理，继续执行** 【次优先级】</span><br><span class="line">                   - 使用场景：剩余计划合理且必要</span><br><span class="line">                   - 决策标准：剩余步骤确实能提供关键信息</span><br><span class="line">                   - ⚠️ 如果剩余步骤不是&quot;必需&quot;的，应选择 respond</span><br><span class="line"></span><br><span class="line">                **3. &#x27;replan&#x27; - 当前计划有严重问题** 【最低优先级，谨慎使用】</span><br><span class="line">                   - 使用场景：原计划明显错误或遗漏关键步骤</span><br><span class="line">                   - ⚠️ **严格限制**：</span><br><span class="line">                     * 新步骤数量必须 &lt;= 当前剩余步骤数</span><br><span class="line">                     * 优先简化计划，不要添加不必要的步骤</span><br><span class="line">                     * 总步骤数已执行 &gt;= 5 次时，禁止 replan，只能 respond</span><br><span class="line"></span><br><span class="line">                评估标准：</span><br><span class="line">                - 当前信息是否已经足够解决用户问题？【最关键】</span><br><span class="line">                - 已执行步骤是否成功获取了核心信息？</span><br><span class="line">                - 剩余步骤是否真的&quot;必需&quot;？</span><br><span class="line">                - 已执行步骤数是否过多（&gt;= 5）？如果是，立即 respond</span><br><span class="line"></span><br><span class="line">                **决策优先级口诀：** </span><br><span class="line">                &quot;优先结束 &gt; 保持不变 &gt; 调整计划&quot;</span><br><span class="line">                &quot;信息足够就响应，不要追求完美&quot;</span><br><span class="line">            &quot;&quot;&quot;).strip(),</span><br><span class="line">        ),</span><br><span class="line">        (&quot;placeholder&quot;, &quot;&#123;messages&#125;&quot;),</span><br><span class="line">    ]</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 最终响应生成提示词</span><br><span class="line">response_prompt = ChatPromptTemplate.from_messages(</span><br><span class="line">    [</span><br><span class="line">        (</span><br><span class="line">            &quot;system&quot;,</span><br><span class="line">            dedent(&quot;&quot;&quot;</span><br><span class="line">                根据原始任务和已执行步骤的结果，生成一个全面的最终响应。</span><br><span class="line"></span><br><span class="line">                响应要求：</span><br><span class="line">                - 清晰、结构化</span><br><span class="line">                - 基于实际数据，不要编造</span><br><span class="line">                - 如果某些步骤失败，要诚实说明</span><br><span class="line">                - 使用 Markdown 格式</span><br><span class="line">            &quot;&quot;&quot;).strip(),</span><br><span class="line">        ),</span><br><span class="line">        (&quot;placeholder&quot;, &quot;&#123;messages&#125;&quot;),</span><br><span class="line">    ]</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">async def replanner(state: PlanExecuteState) -&gt; Dict[str, Any]:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    重新规划节点：决定是继续、调整计划还是生成最终响应</span><br><span class="line"></span><br><span class="line">    三种决策：</span><br><span class="line">    1. continue - 继续执行当前计划</span><br><span class="line">    2. replan - 调整计划（替换剩余步骤）</span><br><span class="line">    3. respond - 生成最终响应</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    logger.info(&quot;=== Replanner：重新规划 ===&quot;)</span><br><span class="line"></span><br><span class="line">    input_text = state.get(&quot;input&quot;, &quot;&quot;)</span><br><span class="line">    plan = state.get(&quot;plan&quot;, [])</span><br><span class="line">    past_steps = state.get(&quot;past_steps&quot;, [])</span><br><span class="line"></span><br><span class="line">    logger.info(f&quot;剩余计划步骤: &#123;len(plan)&#125;&quot;)</span><br><span class="line">    logger.info(f&quot;已执行步骤: &#123;len(past_steps)&#125;&quot;)</span><br><span class="line"></span><br><span class="line">    # ⚠️ 强制限制：如果已执行步骤过多，直接生成响应</span><br><span class="line">    MAX_STEPS = 8</span><br><span class="line">    if len(past_steps) &gt;= MAX_STEPS:</span><br><span class="line">        logger.warning(f&quot;已执行 &#123;len(past_steps)&#125; 个步骤，超过最大限制 &#123;MAX_STEPS&#125;，强制生成最终响应&quot;)</span><br><span class="line">        llm = ChatQwen(</span><br><span class="line">            model=config.rag_model,</span><br><span class="line">            api_key=config.dashscope_api_key,</span><br><span class="line">            temperature=0</span><br><span class="line">        )</span><br><span class="line">        return await _generate_response(state, llm)</span><br><span class="line"></span><br><span class="line">    # 获取可用工具列表</span><br><span class="line">    try:</span><br><span class="line">        # 获取本地工具</span><br><span class="line">        local_tools = list(DEFAULT_LOCAL_AGENT_TOOLS)</span><br><span class="line"></span><br><span class="line">        # 获取 MCP 工具</span><br><span class="line">        mcp_client = await get_mcp_client_with_retry()</span><br><span class="line">        mcp_tools = await mcp_client.get_tools()</span><br><span class="line"></span><br><span class="line">        # 合并所有工具</span><br><span class="line">        all_tools = local_tools + mcp_tools</span><br><span class="line">        logger.info(f&quot;可用工具数量: 本地 &#123;len(local_tools)&#125; + MCP &#123;len(mcp_tools)&#125;&quot;)</span><br><span class="line"></span><br><span class="line">        # 格式化工具描述</span><br><span class="line">        tools_description = format_tools_description(all_tools)</span><br><span class="line">    except Exception as e:</span><br><span class="line">        logger.warning(f&quot;获取工具列表失败: &#123;e&#125;&quot;)</span><br><span class="line">        tools_description = &quot;无法获取工具列表&quot;</span><br><span class="line"></span><br><span class="line">    # 创建 LLM</span><br><span class="line">    llm = ChatQwen(</span><br><span class="line">        model=config.rag_model,</span><br><span class="line">        api_key=config.dashscope_api_key,</span><br><span class="line">        temperature=0</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    # 格式化已执行的步骤</span><br><span class="line">    steps_summary = &quot;\n&quot;.join([</span><br><span class="line">        f&quot;步骤: &#123;step&#125;\n结果: &#123;result[:300]&#125;...&quot;</span><br><span class="line">        for step, result in past_steps</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line">    # 如果还有剩余计划，进行决策</span><br><span class="line">    if plan:</span><br><span class="line">        logger.info(&quot;还有剩余计划，评估下一步行动&quot;)</span><br><span class="line"></span><br><span class="line">        replanner_chain = replanner_prompt | llm.with_structured_output(Act)</span><br><span class="line"></span><br><span class="line">        try:</span><br><span class="line">            messages = [</span><br><span class="line">                (&quot;user&quot;, f&quot;原始任务: &#123;input_text&#125;&quot;),</span><br><span class="line">                (&quot;user&quot;, f&quot;已执行的步骤:\n&#123;steps_summary&#125;&quot;),</span><br><span class="line">                (&quot;user&quot;, f&quot;剩余计划: &#123;&#x27;, &#x27;.join(plan)&#125;&quot;),</span><br><span class="line">                (&quot;user&quot;, f&quot;⚠️ 重要提示：已执行 &#123;len(past_steps)&#125; 个步骤，请优先考虑是否信息已足够生成响应（respond）&quot;)</span><br><span class="line">            ]</span><br><span class="line"></span><br><span class="line">            act = await replanner_chain.ainvoke(&#123;</span><br><span class="line">                &quot;messages&quot;: messages,</span><br><span class="line">                &quot;tools_description&quot;: tools_description</span><br><span class="line">            &#125;)</span><br><span class="line"></span><br><span class="line">            # 处理返回结果</span><br><span class="line">            if isinstance(act, Act):</span><br><span class="line">                action = act.action</span><br><span class="line">                new_steps = act.new_steps</span><br><span class="line">            else:</span><br><span class="line">                # 如果返回的是字典</span><br><span class="line">                action = act.get(&quot;action&quot;, &quot;continue&quot;)  # type: ignore</span><br><span class="line">                new_steps = act.get(&quot;new_steps&quot;, [])  # type: ignore</span><br><span class="line"></span><br><span class="line">            logger.info(f&quot;Replanner 决策: &#123;action&#125;&quot;)</span><br><span class="line"></span><br><span class="line">            if action == &quot;respond&quot;:</span><br><span class="line">                logger.info(&quot;决定生成最终响应&quot;)</span><br><span class="line">                return await _generate_response(state, llm)</span><br><span class="line"></span><br><span class="line">            elif action == &quot;replan&quot;:</span><br><span class="line">                # ⚠️ 强制限制：新步骤数不能超过当前剩余步骤数</span><br><span class="line">                if len(new_steps) &gt; len(plan):</span><br><span class="line">                    logger.warning(</span><br><span class="line">                        f&quot;新步骤数 &#123;len(new_steps)&#125; &gt; 剩余步骤数 &#123;len(plan)&#125;，&quot;</span><br><span class="line">                        f&quot;强制截断为 &#123;len(plan)&#125; 个步骤&quot;</span><br><span class="line">                    )</span><br><span class="line">                    new_steps = new_steps[:len(plan)]</span><br><span class="line">                </span><br><span class="line">                # ⚠️ 二次检查：如果已执行步骤 &gt;= 5，禁止 replan</span><br><span class="line">                if len(past_steps) &gt;= 5:</span><br><span class="line">                    logger.warning(f&quot;已执行 &#123;len(past_steps)&#125; 个步骤，禁止重新规划，强制生成响应&quot;)</span><br><span class="line">                    return await _generate_response(state, llm)</span><br><span class="line">                </span><br><span class="line">                logger.info(f&quot;决定调整计划，新步骤数量: &#123;len(new_steps)&#125;&quot;)</span><br><span class="line">                if new_steps:</span><br><span class="line">                    # 替换剩余计划</span><br><span class="line">                    return &#123;&quot;plan&quot;: new_steps&#125;</span><br><span class="line">                else:</span><br><span class="line">                    logger.warning(&quot;replan 但未提供新步骤，继续执行原计划&quot;)</span><br><span class="line">                    return &#123;&#125;</span><br><span class="line"></span><br><span class="line">            else:  # action == &quot;continue&quot;</span><br><span class="line">                logger.info(&quot;决定继续执行当前计划&quot;)</span><br><span class="line">                return &#123;&#125;  # 不修改状态，继续执行</span><br><span class="line"></span><br><span class="line">        except Exception as e:</span><br><span class="line">            logger.error(f&quot;重新规划失败: &#123;e&#125;, 继续执行剩余计划&quot;)</span><br><span class="line">            return &#123;&#125;</span><br><span class="line"></span><br><span class="line">    else:</span><br><span class="line">        # 没有剩余计划，生成最终响应</span><br><span class="line">        logger.info(&quot;计划已执行完毕，生成最终响应&quot;)</span><br><span class="line">        return await _generate_response(state, llm)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">async def _generate_response(state: PlanExecuteState, llm: ChatQwen) -&gt; Dict[str, Any]:</span><br><span class="line">    &quot;&quot;&quot;生成最终响应&quot;&quot;&quot;</span><br><span class="line">    logger.info(&quot;生成最终响应...&quot;)</span><br><span class="line"></span><br><span class="line">    input_text = state.get(&quot;input&quot;, &quot;&quot;)</span><br><span class="line">    past_steps = state.get(&quot;past_steps&quot;, [])</span><br><span class="line"></span><br><span class="line">    # 格式化执行历史</span><br><span class="line">    execution_history = &quot;\n\n&quot;.join([</span><br><span class="line">        f&quot;### 步骤: &#123;step&#125;\n**结果:**\n&#123;result&#125;&quot;</span><br><span class="line">        for step, result in past_steps</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line">    response_gen = response_prompt | llm.with_structured_output(Response)</span><br><span class="line"></span><br><span class="line">    try:</span><br><span class="line">        messages = [</span><br><span class="line">            (&quot;user&quot;, f&quot;原始任务: &#123;input_text&#125;&quot;),</span><br><span class="line">            (&quot;user&quot;, f&quot;执行历史:\n&#123;execution_history&#125;&quot;),</span><br><span class="line">            (&quot;user&quot;, &quot;请基于以上信息生成全面的最终响应&quot;)</span><br><span class="line">        ]</span><br><span class="line"></span><br><span class="line">        response_obj = await response_gen.ainvoke(&#123;&quot;messages&quot;: messages&#125;)</span><br><span class="line"></span><br><span class="line">        # 处理返回结果</span><br><span class="line">        if isinstance(response_obj, Response):</span><br><span class="line">            final_response = response_obj.response</span><br><span class="line">        else:</span><br><span class="line">            # 如果返回的是字典</span><br><span class="line">            final_response = response_obj.get(&quot;response&quot;, &quot;&quot;)  # type: ignore</span><br><span class="line"></span><br><span class="line">        logger.info(f&quot;最终响应生成完成，长度: &#123;len(final_response)&#125;&quot;)</span><br><span class="line"></span><br><span class="line">        return &#123;&quot;response&quot;: final_response&#125;</span><br><span class="line"></span><br><span class="line">    except Exception as e:</span><br><span class="line">        logger.error(f&quot;生成响应失败: &#123;e&#125;&quot;)</span><br><span class="line">        # 生成简单的后备响应</span><br><span class="line">        fallback_response = f&quot;&quot;&quot;# 任务执行结果</span><br><span class="line"></span><br><span class="line">## 原始任务</span><br><span class="line">&#123;input_text&#125;</span><br><span class="line"></span><br><span class="line">## 执行的步骤</span><br><span class="line">&#123;_format_simple_steps(past_steps)&#125;</span><br><span class="line"></span><br><span class="line">## 说明</span><br><span class="line">由于系统异常，无法生成完整响应。以上是已收集的信息。</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">        return &#123;&quot;response&quot;: fallback_response&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def _format_simple_steps(past_steps: list) -&gt; str:</span><br><span class="line">    &quot;&quot;&quot;格式化步骤列表（简单版）&quot;&quot;&quot;</span><br><span class="line">    if not past_steps:</span><br><span class="line">        return &quot;无&quot;</span><br><span class="line"></span><br><span class="line">    formatted = []</span><br><span class="line">    for i, (step, result) in enumerate(past_steps, 1):</span><br><span class="line">        result_preview = result[:200] + &quot;...&quot; if len(result) &gt; 200 else result</span><br><span class="line">        formatted.append(f&quot;&#123;i&#125;. **&#123;step&#125;**\n   &#123;result_preview&#125;\n&quot;)</span><br><span class="line"></span><br><span class="line">    return &quot;\n&quot;.join(formatted)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>构建 LangGraph 工作流 </p>
+<p>三个节点通过 StateGraph 连接，replanner 之后根据状态中是否存在 response 进行条件路由：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">def _build_graph(self):</span><br><span class="line">    workflow = StateGraph(PlanExecuteState)</span><br><span class="line"></span><br><span class="line">    # 添加三个节点</span><br><span class="line">    workflow.add_node(&quot;planner&quot;, planner)</span><br><span class="line">    workflow.add_node(&quot;executor&quot;, executor)</span><br><span class="line">    workflow.add_node(&quot;replanner&quot;, replanner)</span><br><span class="line"></span><br><span class="line">    # 固定边: planner -&gt; executor -&gt; replanner</span><br><span class="line">    workflow.set_entry_point(&quot;planner&quot;)</span><br><span class="line">    workflow.add_edge(&quot;planner&quot;, &quot;executor&quot;)</span><br><span class="line">    workflow.add_edge(&quot;executor&quot;, &quot;replanner&quot;)</span><br><span class="line"></span><br><span class="line">    # 条件边: replanner 根据状态决定结束还是继续执行</span><br><span class="line">    def should_continue(state: PlanExecuteState) -&gt; str:</span><br><span class="line">        if state.get(&quot;response&quot;):</span><br><span class="line">            return END          # 已生成最终响应，结束流程</span><br><span class="line">        if state.get(&quot;plan&quot;):</span><br><span class="line">            return &quot;executor&quot;   # 还有步骤，继续执行</span><br><span class="line">        return END</span><br><span class="line"></span><br><span class="line">    workflow.add_conditional_edges(&quot;replanner&quot;, should_continue, &#123;</span><br><span class="line">        &quot;executor&quot;: &quot;executor&quot;,</span><br><span class="line">        END: END</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    return workflow.compile(checkpointer=MemorySaver())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>具体工作流结构</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[用户任务] → planner → executor → replanner</span><br><span class="line">                ↑                    |</span><br><span class="line">                |      continue/replan</span><br><span class="line">                └────────────────────┘</span><br><span class="line">                                     |</span><br><span class="line">                            respond / 空计划</span><br><span class="line">                                     ↓</span><br><span class="line">                                   [END]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>执行工作流（流式输出）</p>
+<p>AIOpsService.execute 使用 <code>graph.astream(stream_mode=&quot;updates&quot;)</code> 流式执行，每个节点完成后立即产生事件，可以实时推送给前端展示执行进度</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">async def execute(self, user_input: str, session_id: str) -&gt; AsyncGenerator:</span><br><span class="line">    initial_state: PlanExecuteState = &#123;</span><br><span class="line">        &quot;input&quot;: user_input,</span><br><span class="line">        &quot;plan&quot;: [],</span><br><span class="line">        &quot;past_steps&quot;: [],</span><br><span class="line">        &quot;response&quot;: &quot;&quot;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    async for event in self.graph.astream(</span><br><span class="line">        input=initial_state,</span><br><span class="line">        config=&#123;&quot;configurable&quot;: &#123;&quot;thread_id&quot;: session_id&#125;&#125;,</span><br><span class="line">        stream_mode=&quot;updates&quot;  # 每个节点更新后立即推送</span><br><span class="line">    ):</span><br><span class="line">        for node_name, node_output in event.items():</span><br><span class="line">            if node_name == &quot;planner&quot;:</span><br><span class="line">                yield self._format_planner_event(node_output)      # type: plan</span><br><span class="line">            elif node_name == &quot;executor&quot;:</span><br><span class="line">                yield self._format_executor_event(node_output)    # type: step_complete</span><br><span class="line">            elif node_name == &quot;replanner&quot;:</span><br><span class="line">                yield self._format_replanner_event(node_output)   # type: report / status</span><br><span class="line"></span><br><span class="line">    # 所有节点完成，推送最终响应</span><br><span class="line">    final_state = self.graph.get_state(&#123;&quot;configurable&quot;: &#123;&quot;thread_id&quot;: session_id&#125;&#125;)</span><br><span class="line">    final_response = final_state.values.get(&quot;response&quot;, &quot;&quot;) if final_state else &quot;&quot;</span><br><span class="line"></span><br><span class="line">    yield &#123;</span><br><span class="line">        &quot;type&quot;: &quot;complete&quot;,</span><br><span class="line">        &quot;stage&quot;: &quot;complete&quot;,</span><br><span class="line">        &quot;message&quot;: &quot;任务执行完成&quot;,</span><br><span class="line">        &quot;response&quot;: final_response</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>流式事件对照表</p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>stage</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>plan</code></td>
+<td><code>plan_created</code></td>
+<td>Planner 生成了执行计划</td>
+</tr>
+<tr>
+<td><code>step_complete</code></td>
+<td><code>step_executed</code></td>
+<td>Executor 执行完一个步骤</td>
+</tr>
+<tr>
+<td><code>report</code></td>
+<td><code>final_report</code></td>
+<td>Replanner 生成了最终报告</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>各节点名</td>
+<td>节点运行中的状态通知</td>
+</tr>
+<tr>
+<td><code>complete</code></td>
+<td><code>complete</code></td>
+<td>整个工作流结束</td>
+</tr>
+<tr>
+<td><code>error</code></td>
+<td><code>error</code></td>
+<td>执行出错</td>
+</tr>
+</tbody></table>
+<p>对应前面代码里的 <code>yield</code>：</p>
+<ul>
+<li>planner → <code>type: plan, stage: plan_created</code></li>
+<li>executor → <code>type: step_complete, stage: step_executed</code></li>
+<li>replanner 分两种：<code>report(final_report)</code> &#x2F; <code>status</code></li>
+<li>循环结束后推送 <code>complete</code></li>
+<li>异常捕获分支抛出 <code>error</code></li>
+</ul>
+<h2 id="api接口与Agent的整合"><a href="#api接口与Agent的整合" class="headerlink" title="api接口与Agent的整合"></a>api接口与Agent的整合</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">AIOps 智能运维接口</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">import json</span><br><span class="line">from fastapi import APIRouter</span><br><span class="line">from sse_starlette.sse import EventSourceResponse</span><br><span class="line">from loguru import logger</span><br><span class="line"></span><br><span class="line">from app.models.aiops import AIOpsRequest</span><br><span class="line">from app.services.aiops_service import aiops_service</span><br><span class="line"></span><br><span class="line">router = APIRouter()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@router.post(&quot;/aiops&quot;)</span><br><span class="line">async def diagnose_stream(request: AIOpsRequest):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    AIOps 故障诊断接口（流式 SSE）</span><br><span class="line"></span><br><span class="line">    **功能说明：**</span><br><span class="line">    - 自动获取当前系统的活动告警</span><br><span class="line">    - 使用 Plan-Execute-Replan 模式进行智能诊断</span><br><span class="line">    - 流式返回诊断过程和结果</span><br><span class="line"></span><br><span class="line">    **SSE 事件类型：**</span><br><span class="line"></span><br><span class="line">    1. `status` - 状态更新</span><br><span class="line">       ```json</span><br><span class="line">       &#123;</span><br><span class="line">         &quot;type&quot;: &quot;status&quot;,</span><br><span class="line">         &quot;stage&quot;: &quot;fetching_alerts&quot;,</span><br><span class="line">         &quot;message&quot;: &quot;正在获取系统告警信息...&quot;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<pre><code>2. `plan` - 诊断计划制定完成
+   <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;plan&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;stage&quot;</span><span class="punctuation">:</span> <span class="string">&quot;plan_created&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;message&quot;</span><span class="punctuation">:</span> <span class="string">&quot;诊断计划已制定，共 6 个步骤&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;target_alert&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span>...<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;plan&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;步骤1: ...&quot;</span><span class="punctuation">,</span> <span class="string">&quot;步骤2: ...&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+3. `step_complete` - 步骤执行完成
+   <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;step_complete&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;stage&quot;</span><span class="punctuation">:</span> <span class="string">&quot;step_executed&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;message&quot;</span><span class="punctuation">:</span> <span class="string">&quot;步骤执行完成 (2/6)&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;current_step&quot;</span><span class="punctuation">:</span> <span class="string">&quot;查询系统日志&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;result_preview&quot;</span><span class="punctuation">:</span> <span class="string">&quot;...&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;remaining_steps&quot;</span><span class="punctuation">:</span> <span class="number">4</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+4. `report` - 最终诊断报告
+   <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;report&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;stage&quot;</span><span class="punctuation">:</span> <span class="string">&quot;final_report&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;message&quot;</span><span class="punctuation">:</span> <span class="string">&quot;最终诊断报告已生成&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;report&quot;</span><span class="punctuation">:</span> <span class="string">&quot;# 故障诊断报告\\n...&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;evidence&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span>...<span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+5. `complete` - 诊断完成
+   <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;complete&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;stage&quot;</span><span class="punctuation">:</span> <span class="string">&quot;diagnosis_complete&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;message&quot;</span><span class="punctuation">:</span> <span class="string">&quot;诊断流程完成&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;diagnosis&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span>...<span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+6. `error` - 错误信息
+   <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;error&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;stage&quot;</span><span class="punctuation">:</span> <span class="string">&quot;error&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;message&quot;</span><span class="punctuation">:</span> <span class="string">&quot;诊断过程发生错误: ...&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+**使用示例：**
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST <span class="string">&quot;http://localhost:9900/api/aiops&quot;</span> \\</span><br><span class="line">  -H <span class="string">&quot;Content-Type: application/json&quot;</span> \\</span><br><span class="line">  -d <span class="string">&#x27;&#123;&quot;session_id&quot;: &quot;session-123&quot;&#125;&#x27;</span> \\</span><br><span class="line">  --no-buffer</span><br></pre></td></tr></table></figure>
+
+**前端使用示例：**
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> eventSource = <span class="keyword">new</span> <span class="title class_">EventSource</span>(<span class="string">&#x27;/api/aiops&#x27;</span>);</span><br><span class="line"></span><br><span class="line">eventSource.<span class="property">onmessage</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> data = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(event.<span class="property">data</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (data.<span class="property">type</span> === <span class="string">&#x27;plan&#x27;</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;诊断计划:&#x27;</span>, data.<span class="property">plan</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (data.<span class="property">type</span> === <span class="string">&#x27;step_complete&#x27;</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;步骤完成:&#x27;</span>, data.<span class="property">current_step</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (data.<span class="property">type</span> === <span class="string">&#x27;report&#x27;</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;最终报告:&#x27;</span>, data.<span class="property">report</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (data.<span class="property">type</span> === <span class="string">&#x27;complete&#x27;</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;诊断完成&#x27;</span>);</span><br><span class="line">    eventSource.<span class="title function_">close</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+Args:
+    request: AIOps 诊断请求
+
+Returns:
+    SSE 事件流
+&quot;&quot;&quot;
+session_id = request.session_id or &quot;default&quot;
+logger.info(f&quot;[会话 &#123;session_id&#125;] 收到 AIOps 诊断请求（流式）&quot;)
+
+async def event_generator():
+    try:
+        async for event in aiops_service.diagnose(session_id=session_id):
+            # 发送事件
+            yield &#123;
+                &quot;event&quot;: &quot;message&quot;,
+                &quot;data&quot;: json.dumps(event, ensure_ascii=False)
+            &#125;
+
+            # 如果是完成或错误事件，结束流
+            if event.get(&quot;type&quot;) in [&quot;complete&quot;, &quot;error&quot;]:
+                break
+
+        logger.info(f&quot;[会话 &#123;session_id&#125;] AIOps 诊断流式响应完成&quot;)
+
+    except Exception as e:
+        logger.error(f&quot;[会话 &#123;session_id&#125;] AIOps 诊断流式响应异常: &#123;e&#125;&quot;, exc_info=True)
+        yield &#123;
+            &quot;event&quot;: &quot;message&quot;,
+            &quot;data&quot;: json.dumps(&#123;
+                &quot;type&quot;: &quot;error&quot;,
+                &quot;stage&quot;: &quot;exception&quot;,
+                &quot;message&quot;: f&quot;诊断异常: &#123;str(e)&#125;&quot;
+            &#125;, ensure_ascii=False)
+        &#125;
+
+return EventSourceResponse(event_generator())
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">以及</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>“””<br>通用 Plan-Execute-Replan 服务<br>基于 LangGraph 官方教程实现<br>“””</p>
+<p>from typing import AsyncGenerator, Dict, Any<br>from langgraph.graph import StateGraph, END<br>from langgraph.checkpoint.memory import MemorySaver<br>from loguru import logger</p>
+<p>from app.agent.aiops import PlanExecuteState, planner, executor, replanner</p>
+<h1 id="节点名称常量"><a href="#节点名称常量" class="headerlink" title="节点名称常量"></a>节点名称常量</h1><p>NODE_PLANNER &#x3D; “planner”<br>NODE_EXECUTOR &#x3D; “executor”<br>NODE_REPLANNER &#x3D; “replanner”</p>
+<p>class AIOpsService:<br>    “””通用 Plan-Execute-Replan 服务”””</p>
+<pre><code>def __init__(self):
+    &quot;&quot;&quot;初始化服务&quot;&quot;&quot;
+    self.checkpointer = MemorySaver()
+    self.graph = self._build_graph()
+    logger.info(&quot;Plan-Execute-Replan Service 初始化完成&quot;)
+
+def _build_graph(self):
+    &quot;&quot;&quot;构建 Plan-Execute-Replan 工作流&quot;&quot;&quot;
+    logger.info(&quot;构建工作流图...&quot;)
+
+    # 创建状态图
+    workflow = StateGraph(PlanExecuteState)
+
+    # 添加节点
+    workflow.add_node(NODE_PLANNER, planner)      # 制定计划
+    workflow.add_node(NODE_EXECUTOR, executor)  # 执行步骤
+    workflow.add_node(NODE_REPLANNER, replanner)  # 重新规划
+
+    # 设置入口点
+    workflow.set_entry_point(NODE_PLANNER)
+
+    # 定义边
+    workflow.add_edge(NODE_PLANNER, NODE_EXECUTOR)     # planner -&gt; executor
+    workflow.add_edge(NODE_EXECUTOR, NODE_REPLANNER)   # executor -&gt; replanner
+
+    # replanner 的条件边
+    def should_continue(state: PlanExecuteState) -&gt; str:
+        &quot;&quot;&quot;判断是否继续执行&quot;&quot;&quot;
+        # 如果已经生成了最终响应，结束
+        if state.get(&quot;response&quot;):
+            logger.info(&quot;已生成最终响应，结束流程&quot;)
+            return END
+
+        # 如果还有计划步骤，继续执行
+        plan = state.get(&quot;plan&quot;, [])
+        if plan:
+            logger.info(f&quot;继续执行，剩余 &#123;len(plan)&#125; 个步骤&quot;)
+            return NODE_EXECUTOR
+
+        # 计划为空但没有响应，返回 replanner 生成响应
+        logger.info(&quot;计划执行完毕，生成最终响应&quot;)
+        return END
+
+    workflow.add_conditional_edges(
+        NODE_REPLANNER,
+        should_continue,
+        &#123;
+            NODE_EXECUTOR: NODE_EXECUTOR,
+            END: END
+        &#125;
+    )
+
+    # 编译工作流
+    compiled_graph = workflow.compile(checkpointer=self.checkpointer)
+
+    logger.info(&quot;工作流图构建完成&quot;)
+    return compiled_graph
+
+async def execute(
+    self,
+    user_input: str,
+    session_id: str = &quot;default&quot;
+) -&gt; AsyncGenerator[Dict[str, Any], None]:
+    &quot;&quot;&quot;
+    执行 Plan-Execute-Replan 流程
+
+    Args:
+        user_input: 用户的任务描述
+        session_id: 会话ID
+
+    Yields:
+        Dict[str, Any]: 流式事件
+    &quot;&quot;&quot;
+    logger.info(f&quot;[会话 &#123;session_id&#125;] 开始执行任务: &#123;user_input&#125;&quot;)
+
+    try:
+        # 初始化状态
+        initial_state: PlanExecuteState = &#123;
+            &quot;input&quot;: user_input,
+            &quot;plan&quot;: [],
+            &quot;past_steps&quot;: [],
+            &quot;response&quot;: &quot;&quot;
+        &#125;
+
+        # 流式执行工作流
+        config_dict = &#123;
+            &quot;configurable&quot;: &#123;
+                &quot;thread_id&quot;: session_id
+            &#125;
+        &#125;
+
+        async for event in self.graph.astream(
+            input=initial_state,
+            config=config_dict,
+            stream_mode=&quot;updates&quot;
+        ):
+            # 解析事件
+            for node_name, node_output in event.items():
+                logger.info(f&quot;节点 &#39;&#123;node_name&#125;&#39; 输出事件&quot;)
+
+                # 根据节点类型生成不同的事件
+                if node_name == NODE_PLANNER:
+                    yield self._format_planner_event(node_output)
+
+                elif node_name == NODE_EXECUTOR:
+                    yield self._format_executor_event(node_output)
+
+                elif node_name == NODE_REPLANNER:
+                    yield self._format_replanner_event(node_output)
+
+        # 获取最终状态
+        final_state = self.graph.get_state(config_dict)
+        final_response = &quot;&quot;
+
+        # 安全地获取响应（处理 values 可能为 None 的情况）
+        if final_state and final_state.values:
+            final_response = final_state.values.get(&quot;response&quot;, &quot;&quot;)
+
+        # 发送完成事件
+        yield &#123;
+            &quot;type&quot;: &quot;complete&quot;,
+            &quot;stage&quot;: &quot;complete&quot;,
+            &quot;message&quot;: &quot;任务执行完成&quot;,
+            &quot;response&quot;: final_response
+        &#125;
+
+        logger.info(f&quot;[会话 &#123;session_id&#125;] 任务执行完成&quot;)
+
+    except Exception as e:
+        logger.error(f&quot;[会话 &#123;session_id&#125;] 任务执行失败: &#123;e&#125;&quot;, exc_info=True)
+        yield &#123;
+            &quot;type&quot;: &quot;error&quot;,
+            &quot;stage&quot;: &quot;error&quot;,
+            &quot;message&quot;: f&quot;任务执行出错: &#123;str(e)&#125;&quot;
+        &#125;
+
+async def diagnose(
+    self,
+    session_id: str = &quot;default&quot;
+) -&gt; AsyncGenerator[Dict[str, Any], None]:
+    &quot;&quot;&quot;
+    AIOps 诊断接口（兼容旧接口）
+
+    Args:
+        session_id: 会话ID
+
+    Yields:
+        Dict[str, Any]: 诊断过程的流式事件
+    &quot;&quot;&quot;
+    # 使用固定的 AIOps 任务描述
+    from textwrap import dedent
+    aiops_task = dedent(&quot;&quot;&quot;诊断当前系统是否存在告警，如果存在告警请详细分析告警原因并生成诊断报告，诊断报告输出格式要求：
+            <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"># 告警分析报告</span><br><span class="line">    </span><br><span class="line">---</span><br><span class="line">    </span><br><span class="line">## 📋 活跃告警清单</span><br><span class="line">    </span><br><span class="line">| 告警名称 | 级别 | 目标服务 | 首次触发时间 | 最新触发时间 | 状态 |</span><br><span class="line">|---------|------|----------|-------------|-------------|------|</span><br><span class="line">| [告警1名称] | [级别] | [服务名] | [时间] | [时间] | 活跃 |</span><br><span class="line">| [告警2名称] | [级别] | [服务名] | [时间] | [时间] | 活跃 |</span><br><span class="line">    </span><br><span class="line">---</span><br><span class="line">    </span><br><span class="line">## 🔍 告警根因分析1 - [告警名称]</span><br><span class="line">    </span><br><span class="line">### 告警详情</span><br><span class="line">- **告警级别**: [级别]</span><br><span class="line">- **受影响服务**: [服务名]</span><br><span class="line">- **持续时间**: [X分钟]</span><br><span class="line">    </span><br><span class="line">### 症状描述</span><br><span class="line">[根据监控指标描述症状]</span><br><span class="line">    </span><br><span class="line">### 日志证据</span><br><span class="line">[引用查询到的关键日志]</span><br><span class="line">    </span><br><span class="line">### 根因结论</span><br><span class="line">[基于证据得出的根本原因]</span><br><span class="line">    </span><br><span class="line">---</span><br><span class="line">    </span><br><span class="line">## 🛠️ 处理方案执行1 - [告警名称]</span><br><span class="line">    </span><br><span class="line">### 已执行的排查步骤</span><br><span class="line">1. [步骤1]</span><br><span class="line">2. [步骤2]</span><br><span class="line">    </span><br><span class="line">### 处理建议</span><br><span class="line">[给出具体的处理建议]</span><br><span class="line">    </span><br><span class="line">### 预期效果</span><br><span class="line">[说明预期的效果]</span><br><span class="line">    </span><br><span class="line">---</span><br><span class="line">    </span><br><span class="line">## 🔍 告警根因分析2 - [告警名称]</span><br><span class="line">[如果有第2个告警，重复上述格式]</span><br><span class="line">    </span><br><span class="line">---</span><br><span class="line">    </span><br><span class="line">## 📊 结论</span><br><span class="line">    </span><br><span class="line">### 整体评估</span><br><span class="line">[总结所有告警的整体情况]</span><br><span class="line">    </span><br><span class="line">### 关键发现</span><br><span class="line">- [发现1]</span><br><span class="line">- [发现2]</span><br><span class="line">    </span><br><span class="line">### 后续建议</span><br><span class="line">1. [建议1]</span><br><span class="line">2. [建议2]</span><br><span class="line">    </span><br><span class="line">### 风险评估</span><br><span class="line">[评估当前风险等级和影响范围]</span><br></pre></td></tr></table></figure>
+
+            **重要提醒**：
+            - 最终输出必须是纯 Markdown 文本，不要包含 JSON 结构
+            - 所有内容必须基于工具查询的真实数据，严禁编造
+            - 如果某个步骤失败，在结论中如实说明，不要跳过&quot;&quot;&quot;)
+
+    async for event in self.execute(aiops_task, session_id):
+        # 转换事件格式以兼容旧的 API
+        if event.get(&quot;type&quot;) == &quot;complete&quot;:
+            # 将 response 包装为 diagnosis 格式
+            yield &#123;
+                &quot;type&quot;: &quot;complete&quot;,
+                &quot;stage&quot;: &quot;diagnosis_complete&quot;,
+                &quot;message&quot;: &quot;诊断流程完成&quot;,
+                &quot;diagnosis&quot;: &#123;
+                    &quot;status&quot;: &quot;completed&quot;,
+                    &quot;report&quot;: event.get(&quot;response&quot;, &quot;&quot;)
+                &#125;
+            &#125;
+        else:
+            yield event
+
+def _format_planner_event(self, state: Dict | None) -&gt; Dict:
+    &quot;&quot;&quot;格式化 Planner 节点事件&quot;&quot;&quot;
+    if not state:
+        return &#123;
+            &quot;type&quot;: &quot;status&quot;,
+            &quot;stage&quot;: &quot;planner&quot;,
+            &quot;message&quot;: &quot;规划节点执行中&quot;
+        &#125;
+
+    plan = state.get(&quot;plan&quot;, [])
+
+    return &#123;
+        &quot;type&quot;: &quot;plan&quot;,
+        &quot;stage&quot;: &quot;plan_created&quot;,
+        &quot;message&quot;: f&quot;执行计划已制定，共 &#123;len(plan)&#125; 个步骤&quot;,
+        &quot;plan&quot;: plan
+    &#125;
+
+def _format_executor_event(self, state: Dict | None) -&gt; Dict:
+    &quot;&quot;&quot;格式化 Executor 节点事件&quot;&quot;&quot;
+    if not state:
+        return &#123;
+            &quot;type&quot;: &quot;status&quot;,
+            &quot;stage&quot;: &quot;executor&quot;,
+            &quot;message&quot;: &quot;执行节点运行中&quot;
+        &#125;
+
+    plan = state.get(&quot;plan&quot;, [])
+    past_steps = state.get(&quot;past_steps&quot;, [])
+
+    if past_steps:
+        last_step, _ = past_steps[-1]
+        return &#123;
+            &quot;type&quot;: &quot;step_complete&quot;,
+            &quot;stage&quot;: &quot;step_executed&quot;,
+            &quot;message&quot;: f&quot;步骤执行完成 (&#123;len(past_steps)&#125;/&#123;len(past_steps) + len(plan)&#125;)&quot;,
+            &quot;current_step&quot;: last_step,
+            &quot;remaining_steps&quot;: len(plan)
+        &#125;
+    else:
+        return &#123;
+            &quot;type&quot;: &quot;status&quot;,
+            &quot;stage&quot;: &quot;executor&quot;,
+            &quot;message&quot;: &quot;开始执行步骤&quot;
+        &#125;
+
+def _format_replanner_event(self, state: Dict | None) -&gt; Dict:
+    &quot;&quot;&quot;格式化 Replanner 节点事件&quot;&quot;&quot;
+    if not state:
+        return &#123;
+            &quot;type&quot;: &quot;status&quot;,
+            &quot;stage&quot;: &quot;replanner&quot;,
+            &quot;message&quot;: &quot;评估节点运行中&quot;
+        &#125;
+
+    response = state.get(&quot;response&quot;, &quot;&quot;)
+    plan = state.get(&quot;plan&quot;, [])
+
+    if response:
+        # 已生成最终响应
+        return &#123;
+            &quot;type&quot;: &quot;report&quot;,
+            &quot;stage&quot;: &quot;final_report&quot;,
+            &quot;message&quot;: &quot;最终报告已生成&quot;,
+            &quot;report&quot;: response
+        &#125;
+    else:
+        # 重新规划
+        return &#123;
+            &quot;type&quot;: &quot;status&quot;,
+            &quot;stage&quot;: &quot;replanner&quot;,
+            &quot;message&quot;: f&quot;评估完成，&#123;&#39;继续执行剩余步骤&#39; if plan else &#39;准备生成最终响应&#39;&#125;&quot;,
+            &quot;remaining_steps&quot;: len(plan)
+        &#125;
+</code></pre>
+<h1 id="全局单例"><a href="#全局单例" class="headerlink" title="全局单例"></a>全局单例</h1><p>aiops_service &#x3D; AIOpsService()</p>
+<pre><code>
+1. 接口无需用户传入具体问题，Agent 自己主动查询活跃告警，prompt 中已嵌入了完整的诊断任务描述
+2. 接口调用 aiops_service.diagnose，内部使用固定的 AIOps 任务描述启动 Plan-Execute-Replan 工作流
+3. 工作流通过 graph.astream 流式执行，每个节点完成后立即通过 SSE 推送事件给前端
+4. 接收到 complete 或 error 事件后，关闭 SSE 流
+
+
+
+`execute` 方法以固定的初始状态启动 LangGraph 工作流，通过 `stream_mode=&quot;updates&quot;` 实时推送各节点的执行结果：
+
+`diagnose` 方法内部构造固定的 AIOps 任务描述，将其传入通用的 `execute` 方法启动工作流。任务描述中已明确告知 Agent 该做什么，无需用户填写——这就是这个接口不需要请求参数的原因：
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">wuk0Ng</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://web-wuk0ng.github.io/2026/10/26/part05%E8%BF%90%E7%BB%B4Agent%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">https://web-wuk0ng.github.io/2026/10/26/part05%E8%BF%90%E7%BB%B4Agent%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">wuk0Ng</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/agent/">
+                                    <span class="chip bg-color">agent</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BA%A2%E9%98%9F/">
+                                    <span class="chip bg-color">红队</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 42px 0 22px;
+        text-align: center;
+    }
+
+    #reward .reward-open {
+        width: 52px;
+        height: 52px;
+        padding: 0;
+        color: #fff;
+        font-size: 1.35rem;
+        line-height: 52px;
+        cursor: pointer;
+        border: 0;
+        border-radius: 50%;
+        background: #ef5350;
+        box-shadow: 0 5px 16px rgba(239, 83, 80, 0.3);
+        transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    #reward .reward-open:hover,
+    #reward .reward-open:focus-visible {
+        background: #ef5350;
+        box-shadow: 0 8px 22px rgba(239, 83, 80, 0.38);
+        transform: translateY(-2px);
+    }
+
+    .reward-dialog[hidden] {
+        display: none !important;
+    }
+
+    .reward-dialog {
+        position: fixed;
+        z-index: 10020;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 180ms ease, visibility 180ms ease;
+    }
+
+    .reward-dialog.is-open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .reward-dialog-backdrop {
+        position: absolute;
+        inset: 0;
+        cursor: pointer;
+        background: rgba(15, 20, 18, 0.62);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+    }
+
+    .reward-dialog-panel {
+        position: relative;
+        z-index: 1;
+        width: min(620px, 94vw);
+        max-height: calc(100vh - 36px);
+        padding: 26px 28px 24px;
+        overflow: auto;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+        outline: 0;
+        transform: translateY(12px) scale(0.98);
+        transition: transform 180ms ease;
+    }
+
+    .reward-dialog.is-open .reward-dialog-panel {
+        transform: translateY(0) scale(1);
+    }
+
+    .reward-dialog-close {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        color: #555;
+        font-size: 28px;
+        line-height: 34px;
+        cursor: pointer;
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+    }
+
+    .reward-dialog-close:hover,
+    .reward-dialog-close:focus-visible {
+        color: #fff;
+        background: #ef5350;
+    }
+
+    .reward-dialog-title {
+        padding: 0 34px;
+        margin: 0 0 8px;
+        color: #333;
+        font-size: 1.5rem;
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    .reward-dialog-tip {
+        margin: 0 0 20px;
+        color: #777;
+        font-size: 0.92rem;
+        text-align: center;
+    }
+
+    .reward-methods {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .reward-method {
+        padding: 14px;
+        margin: 0;
+        border: 1px solid #ececec;
+        border-radius: 12px;
+        background: #fafafa;
+    }
+
+    .reward-qr-frame {
+        display: flex;
+        aspect-ratio: 1 / 1;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 8px;
+        background: #fff;
+    }
+
+    .reward-qr {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .reward-qr[hidden] {
+        display: none !important;
+    }
+
+    .reward-qr-missing {
+        padding: 20px;
+        color: #999;
+        line-height: 1.7;
+        text-align: center;
+    }
+
+    .reward-method figcaption {
+        margin-top: 10px;
+        color: #444;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    body.reward-dialog-open {
+        overflow: hidden;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .reward-dialog-panel {
+            padding: 24px 18px 20px;
+        }
+
+        .reward-methods {
+            grid-template-columns: 1fr;
+        }
+
+        .reward-method {
+            width: min(100%, 270px);
+            margin: 0 auto;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .reward-dialog,
+        .reward-dialog-panel,
+        #reward .reward-open {
+            transition: none;
+        }
+    }
+</style>
+
+<div id="reward">
+    <button id="rewardOpen" class="reward-open" type="button" aria-haspopup="dialog" aria-controls="rewardDialog" title="打开打赏二维码">赏</button>
+</div>
+
+<div id="rewardDialog" class="reward-dialog" hidden>
+    <div class="reward-dialog-backdrop" data-reward-close aria-hidden="true"></div>
+    <section class="reward-dialog-panel" role="dialog" aria-modal="true" aria-labelledby="rewardDialogTitle" tabindex="-1">
+        <button class="reward-dialog-close" type="button" data-reward-close aria-label="关闭打赏窗口" title="关闭">×</button>
+        <h4 id="rewardDialogTitle" class="reward-dialog-title">你的赏识是我前进的动力</h4>
+        <p class="reward-dialog-tip">请选择支付宝或微信扫码支持</p>
+        <div class="reward-methods">
+            <figure class="reward-method">
+                <div class="reward-qr-frame">
+                    <img src="/medias/reward/aliyunpay.png" class="reward-qr" alt="支付宝打赏二维码" loading="lazy" decoding="async">
+                    <div class="reward-qr-missing" hidden>支付宝二维码暂未配置</div>
+                </div>
+                <figcaption>支付宝</figcaption>
+            </figure>
+            <figure class="reward-method">
+                <div class="reward-qr-frame">
+                    <img src="/medias/reward/wechat1.png" class="reward-qr" alt="微信打赏二维码" loading="lazy" decoding="async">
+                    <div class="reward-qr-missing" hidden>微信二维码暂未配置</div>
+                </div>
+                <figcaption>微信</figcaption>
+            </figure>
+        </div>
+    </section>
+</div>
+
+<script>
+    (function () {
+        var openButton = document.getElementById('rewardOpen');
+        var dialog = document.getElementById('rewardDialog');
+        if (!openButton || !dialog) return;
+
+        var panel = dialog.querySelector('.reward-dialog-panel');
+        var closeButtons = dialog.querySelectorAll('[data-reward-close]');
+        var lastFocused = null;
+        var closeTimer = 0;
+
+        document.body.appendChild(dialog);
+
+        dialog.querySelectorAll('.reward-qr').forEach(function (image) {
+            function showMissing() {
+                image.hidden = true;
+                var message = image.nextElementSibling;
+                if (message) message.hidden = false;
+            }
+
+            image.addEventListener('error', showMissing);
+            if (image.complete && image.naturalWidth === 0) showMissing();
+        });
+
+        function openDialog() {
+            window.clearTimeout(closeTimer);
+            lastFocused = document.activeElement;
+            dialog.hidden = false;
+            document.body.classList.add('reward-dialog-open');
+            window.requestAnimationFrame(function () {
+                dialog.classList.add('is-open');
+                panel.focus();
+            });
+        }
+
+        function closeDialog() {
+            dialog.classList.remove('is-open');
+            document.body.classList.remove('reward-dialog-open');
+            closeTimer = window.setTimeout(function () {
+                dialog.hidden = true;
+                if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+            }, 180);
+        }
+
+        openButton.addEventListener('click', openDialog);
+        closeButtons.forEach(function (button) {
+            button.addEventListener('click', closeDialog);
+        });
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && !dialog.hidden) closeDialog();
+        });
+    }());
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <!-- Gitalk is bundled with the theme to avoid a blocking overseas CDN request. -->
+<link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+
+<!-- 引入主题自定义 CSS（如有需要，若 my-gitalk.css 是本地文件则保留原路径） -->
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+  <div class="comment_headling">
+    <i class="fas fa-comments fa-fw"></i>
+    <span>评论</span>
+  </div>
+  <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script>
+  (function () {
+    var container = document.getElementById('gitalk-container');
+    var loaded = false;
+    if (!container) return;
+
+    function renderGitalk() {
+      var gitalk = new Gitalk({
+        clientID: 'Ov23liTNlK9NLcZwFSo8',
+        clientSecret: '7472cd54d6ca5e38d14f6d1b5176299bb4cf4ebe',
+        repo: 'blog---comments',
+        owner: 'web-wuk0Ng',
+        admin: ["web-wuk0Ng"],
+        id: '2026-10-26T16-00-00',
+        distractionFreeMode: false
+      });
+      gitalk.render('gitalk-container');
+    }
+
+    function loadGitalk() {
+      if (loaded) return;
+      loaded = true;
+      var script = document.createElement('script');
+      script.src = '/libs/gitalk/gitalk.min.js';
+      script.async = true;
+      script.onload = renderGitalk;
+      document.head.appendChild(script);
+    }
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries.some(function (entry) { return entry.isIntersecting; })) {
+          observer.disconnect();
+          loadGitalk();
+        }
+      }, { rootMargin: '500px 0px' });
+      observer.observe(container);
+    } else {
+      window.addEventListener('load', loadGitalk, { once: true });
+    }
+  }());
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2026/10/26/java%E6%A8%A1%E6%9D%BF%E6%B3%A8%E5%85%A5/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.webp" class="responsive-img" alt="java模板注入" loading="lazy" decoding="async" fetchpriority="low">
+                        
+                        <span class="card-title">java模板注入</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-10-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                    记录
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BA%A2%E9%98%9F/">
+                        <span class="chip bg-color">红队</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2026/10/23/springboot%E4%B8%8A%E4%BC%A0%E7%82%B9%E5%88%A9%E7%94%A8/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.webp" class="responsive-img" alt="springboot上传点利用" loading="lazy" decoding="async" fetchpriority="low">
+                        
+                        <span class="card-title">springboot上传点利用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-10-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                    记录
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
+                        <span class="chip bg-color">文件上传</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2026</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">wuk0Ng</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/web-wuk0Ng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:3134985131@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=3442584626" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 3442584626" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+    <aside id="linDesktopPet" class="lin-desktop-pet" aria-label="林翩翩桌宠">
+    <div class="lin-pet-bubble" role="status" aria-live="polite">这儿……便是你的住处？</div>
+    <div class="lin-pet-effects" aria-hidden="true"></div>
+    <button class="lin-pet-character" type="button" aria-label="和林翩翩互动" title="点击互动，也可以拖动">
+        <img src="/medias/lin-pianpian/official-desktop-pet.webp" alt="林翩翩桌宠" width="576" height="703" loading="lazy" decoding="async" fetchpriority="low">
+    </button>
+</aside>
+
+<script src="/js/desktop-pet.js?v=20260824-2" defer fetchpriority="low"></script>
+
+
+    <script src="/libs/materialize/materialize.min.js" defer fetchpriority="low"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js" defer fetchpriority="low"></script>
+    <script src="/libs/aos/aos.js" defer fetchpriority="low"></script>
+    
+    <script src="/libs/scrollprogress/scrollProgress.min.js" defer fetchpriority="low"></script>
+    
+    
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js" defer fetchpriority="low"></script>
+    
+    <script src="/js/matery.js?v=20260824-speed1" defer fetchpriority="low"></script>
+
+    <!-- Baidu Analytics -->
+
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        if (/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) return;
+
+        function loadBaiduPush() {
+            var bp = document.createElement('script');
+            bp.async = true;
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            document.head.appendChild(bp);
+        }
+
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadBaiduPush, { timeout: 4500 });
+        } else {
+            window.addEventListener('load', function () {
+                window.setTimeout(loadBaiduPush, 1800);
+            }, { once: true });
+        }
+    })();
+</script>
+
+
+    
+    <script>
+        (function () {
+            var optionalScripts = [];
+            
+            optionalScripts.push('/libs/others/clicklove.js');
+            
+            
+            optionalScripts.push('/libs/others/busuanzi.pure.mini.js');
+            
+
+            function loadOptionalScripts() {
+                optionalScripts.forEach(function (src, index) {
+                    window.setTimeout(function () {
+                        var script = document.createElement('script');
+                        script.src = src;
+                        script.async = true;
+                        document.body.appendChild(script);
+                    }, index * 500);
+                });
+            }
+
+            window.addEventListener('load', function () {
+                if ('requestIdleCallback' in window) {
+                    window.requestIdleCallback(loadOptionalScripts, { timeout: 3000 });
+                } else {
+                    window.setTimeout(loadOptionalScripts, 1500);
+                }
+            }, { once: true });
+        })();
+    </script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
