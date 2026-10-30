@@ -1,0 +1,1564 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="MSF&amp;CS介绍与使用, wuk0Ng">
+    <meta name="description" content="wuk0Ng的个人博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>MSF&amp;CS介绍与使用 | wuk0Ng</title>
+    <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
+
+    <link rel="dns-prefetch" href="//hm.baidu.com">
+    <link rel="dns-prefetch" href="//zz.bdstatic.com">
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css?v=20260824-speed1">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css?v=20261026-compact3">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+   
+<style>
+    body{
+       background-image: url(/medias/my_background.webp);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/jiushen.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">wuk0Ng</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/jiushen.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">wuk0Ng</div>
+        <div class="logo-desc">
+            
+            wuk0Ng的个人博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/web-wuk0Ng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/web-wuk0Ng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.webp')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">MSF&amp;CS介绍与使用</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%BA%A2%E9%98%9F/">
+                                <span class="chip bg-color">红队</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%86%85%E7%BD%91/">
+                                <span class="chip bg-color">内网</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                记录
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-10-30
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>内网信息收集-基础收集</p>
+<p>大佬博客：</p>
+<p><a target="_blank" rel="noopener" href="https://yuy0ung.github.io/blog/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/%E5%86%85%E7%BD%91%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/%E5%86%85%E7%BD%91%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-%E5%9F%BA%E7%A1%80%E6%94%B6%E9%9B%86/#%E5%86%85%E7%BD%91%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-%E5%9F%BA%E7%A1%80%E6%94%B6%E9%9B%86">https://yuy0ung.github.io/blog/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/%E5%86%85%E7%BD%91%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/%E5%86%85%E7%BD%91%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-%E5%9F%BA%E7%A1%80%E6%94%B6%E9%9B%86/#%E5%86%85%E7%BD%91%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-%E5%9F%BA%E7%A1%80%E6%94%B6%E9%9B%86</a></p>
+<p>主要有：</p>
+<p>本机基础信息收集<br>域内信息收集<br>基于powershell的收集</p>
+<h1 id="本机基础信息收集"><a href="#本机基础信息收集" class="headerlink" title="本机基础信息收集"></a>本机基础信息收集</h1><p>在getshell后，首先就是以当前主机为中心进行信息收集</p>
+<h5 id="查看当前用户权限"><a href="#查看当前用户权限" class="headerlink" title="查看当前用户权限"></a>查看当前用户权限</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whoami /all</span><br></pre></td></tr></table></figure>
+<p>回显</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>可以查看当前用户所处的用户组、拥有的特权等，用于综合判断是否需要提权</p>
+<h5 id="查看网络配置信息"><a href="#查看网络配置信息" class="headerlink" title="查看网络配置信息"></a>查看网络配置信息</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipconfig /all</span><br></pre></td></tr></table></figure>
+
+<p>查看当前主机网络配置情况，包括主机的IP地址、主机名、各网络适配器的信息等，可以判断主机所在网段</p>
+<p>output</p>
+<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/2026/10/ScreenShot_2026-10-30_220652_780.png?raw=true"></p>
+<p>值得一提的是DNS服务器地址，搭建过域环境便知道，DNS服务器的IP地址通常就为域控制器的地址</p>
+<p>我这边显示的是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">无线局域网适配器 WLAN:</span><br><span class="line"></span><br><span class="line">   连接特定的 DNS 后缀 . . . . . . . :</span><br><span class="line">   描述. . . . . . . . . . . . . . . : Intel(R) Wi-Fi 6E AX211 160MHz</span><br><span class="line">   物理地址. . . . . . . . . . . . . : F0-20-FF-20-2F-79</span><br><span class="line">   DHCP 已启用 . . . . . . . . . . . : 是</span><br><span class="line">   自动配置已启用. . . . . . . . . . : 是</span><br><span class="line">   本地链接 IPv6 地址. . . . . . . . : fe80::ff2d:bf97:c20c:10a9%19(首选)</span><br><span class="line">   IPv4 地址 . . . . . . . . . . . . : 10.61.171.46(首选)</span><br><span class="line">   子网掩码  . . . . . . . . . . . . : 255.255.0.0</span><br><span class="line">   获得租约的时间  . . . . . . . . . : 2026年10月28日 22:39:31</span><br><span class="line">   租约过期的时间  . . . . . . . . . : 2026年11月2日 8:06:41</span><br><span class="line">   默认网关. . . . . . . . . . . . . : 10.61.0.1</span><br><span class="line">   DHCP 服务器 . . . . . . . . . . . : 10.61.0.1</span><br><span class="line">   DHCPv6 IAID . . . . . . . . . . . : 166732031</span><br><span class="line">   DHCPv6 客户端 DUID  . . . . . . . : 00-01-00-01-2F-6B-CE-19-F0-20-FF-20-2F-79</span><br><span class="line">   DNS 服务器  . . . . . . . . . . . : 10.63.63.63</span><br><span class="line">                                       10.1.118.10</span><br><span class="line">   TCPIP 上的 NetBIOS  . . . . . . . : 已启用</span><br></pre></td></tr></table></figure>
+
+<p>并且就这一台机器有，除了clash有一个没地址的DNS</p>
+<h5 id="查看主机路由信息"><a href="#查看主机路由信息" class="headerlink" title="查看主机路由信息"></a>查看主机路由信息</h5><p>查看主机路由表：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route print</span><br></pre></td></tr></table></figure>
+
+<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/2026/10/ScreenShot_2026-10-30_221257_728.png?raw=true"></p>
+<p>路由表中的“网络目标”都是主机可以访问到的，后续可以对其中的网段进行探测</p>
+<h5 id="查看操作系统信息"><a href="#查看操作系统信息" class="headerlink" title="查看操作系统信息"></a>查看操作系统信息</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systeminfo</span><br></pre></td></tr></table></figure>
+
+<p>查看操作系统信息，包括主机名、操作系统版本、系统目录、所处的域或工作组、网卡信息、安装的补丁</p>
+<p>这个就不展示了，妈的，这里要展示我的邮箱，也算又知道了个钓鱼啥的思路</p>
+<h5 id="查看端口连接信息"><a href="#查看端口连接信息" class="headerlink" title="查看端口连接信息"></a>查看端口连接信息</h5><p>查看主机的TCP、UDP端口的监听和开放情况，内网其他主机访问本机时也会建立连接，所以也能用来收集内网地址段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano</span><br></pre></td></tr></table></figure>
+
+<p>output</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">C:\Users\31349&gt;netstat -ano</span><br><span class="line"></span><br><span class="line">活动连接</span><br><span class="line"></span><br><span class="line">  协议  本地地址          外部地址        状态           PID</span><br><span class="line">  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING       2612</span><br><span class="line">  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING       4</span><br><span class="line">  TCP    0.0.0.0:902            0.0.0.0:0              LISTENING       14704</span><br><span class="line">  TCP    0.0.0.0:912            0.0.0.0:0              LISTENING       14704</span><br><span class="line">  TCP    0.0.0.0:3307           0.0.0.0:0              LISTENING       8416</span><br><span class="line">  TCP    0.0.0.0:5040           0.0.0.0:0              LISTENING       14492</span><br><span class="line">  TCP    0.0.0.0:7680           0.0.0.0:0              LISTENING       28144</span><br><span class="line">  TCP    0.0.0.0:7891           0.0.0.0:0              LISTENING       52064</span><br><span class="line">  TCP    0.0.0.0:9199           0.0.0.0:0              LISTENING       45520</span><br><span class="line">  TCP    0.0.0.0:27036          0.0.0.0:0              LISTENING       25616</span><br><span class="line">  TCP    0.0.0.0:33061          0.0.0.0:0              LISTENING       8416</span><br><span class="line">  TCP    0.0.0.0:49664          0.0.0.0:0              LISTENING       2288</span><br><span class="line">  TCP    0.0.0.0:49665          0.0.0.0:0              LISTENING       2124</span><br><span class="line">  TCP    0.0.0.0:49668          0.0.0.0:0              LISTENING       3264</span><br><span class="line">  TCP    0.0.0.0:49669          0.0.0.0:0              LISTENING       4532</span><br><span class="line">  TCP    0.0.0.0:49670          0.0.0.0:0              LISTENING       5424</span><br><span class="line">  TCP    0.0.0.0:49757          0.0.0.0:0              LISTENING       13184</span><br><span class="line">  TCP    0.0.0.0:49761          0.0.0.0:0              LISTENING       5704</span><br><span class="line">  TCP    0.0.0.0:49783          0.0.0.0:0              LISTENING       2244</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看当前会话列表"><a href="#查看当前会话列表" class="headerlink" title="查看当前会话列表"></a>查看当前会话列表</h5><p>查看当前主机与所连接的客户机之间的会话</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net session</span><br></pre></td></tr></table></figure>
+
+<p>output</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C:\Windows\System32&gt;net session</span><br><span class="line">列表是空的。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">C:\Windows\System32&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看当前网络共享信息"><a href="#查看当前网络共享信息" class="headerlink" title="查看当前网络共享信息"></a>查看当前网络共享信息</h5><p>查看主机开启的共享列表：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\31349&gt;net share</span><br><span class="line"></span><br><span class="line">共享名       资源                            注解</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">C$           C:\                             默认共享</span><br><span class="line">D$           D:\                             默认共享</span><br><span class="line">IPC$                                         远程 IPC</span><br><span class="line">ADMIN$       C:\WINDOWS                      远程管理</span><br><span class="line">命令成功完成。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">C:\Users\31349&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看已连接的网络共享"><a href="#查看已连接的网络共享" class="headerlink" title="查看已连接的网络共享"></a>查看已连接的网络共享</h5><p>查看主机与其他主机远程建立的网络共享连接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net use</span><br></pre></td></tr></table></figure>
+
+<p>output</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\31349&gt;net use</span><br><span class="line">会记录新的网络连接。</span><br><span class="line"></span><br><span class="line">列表是空的。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">C:\Users\31349&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看当前进程信息"><a href="#查看当前进程信息" class="headerlink" title="查看当前进程信息"></a>查看当前进程信息</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tasklist</span><br></pre></td></tr></table></figure>
+
+<p>output</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\31349&gt;tasklist</span><br><span class="line"></span><br><span class="line">映像名称                       PID 会话名              会话#       内存使用</span><br><span class="line">========================= ======== ================ =========== ============</span><br><span class="line">System Idle Process              0 Services                   0          8 K</span><br><span class="line">System                           4 Services                   0     10,392 K</span><br><span class="line">Registry                       464 Services                   0     52,256 K</span><br><span class="line">smss.exe                      1404 Services                   0      1,572 K</span><br><span class="line">csrss.exe                     1664 Services                   0      7,916 K</span><br><span class="line">wininit.exe                   2124 Services                   0      9,512 K</span><br><span class="line">csrss.exe                     2136 Console                    1      8,764 K</span><br><span class="line">winlogon.exe                  2232 Console                    1     17,888 K</span><br><span class="line">services.exe                  2244 Services                   0     20,880 K</span><br><span class="line">lsass.exe                     2288 Services                   0     37,612 K</span><br><span class="line">svchost.exe                   2436 Services                   0     48,416 K</span><br><span class="line">fontdrvhost.exe               2464 Console                    1     15,440 K</span><br><span class="line">fontdrvhost.exe               2472 Services                   0      4,200 K</span><br><span class="line">svchost.exe                   2612 Services                   0     24,072 K</span><br><span class="line">svchost.exe                   2656 Services                   0     16,572 K</span><br><span class="line">WUDFHost.exe                  2768 Services                   0      9,408 K</span><br><span class="line">dwm.exe                       2824 Console                    1    154,392 K</span><br><span class="line">WUDFHost.exe                  2916 Services                   0      8,724 K</span><br><span class="line">WUDFHost.exe                  2992 Services                   0     17,824 K</span><br><span class="line">WUDFHost.exe                  3052 Services                   0     13,516 K</span><br></pre></td></tr></table></figure>
+
+<p>这个做应急啥的也是可以用的</p>
+<p>也可以用WMIC:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wmic process get name, ProcessID, ExecutablePath</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看当前服务信息"><a href="#查看当前服务信息" class="headerlink" title="查看当前服务信息"></a>查看当前服务信息</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wmic service get Caption,Name,PathName,StartName,State</span><br></pre></td></tr></table></figure>
+
+<p>但是这个新版win好像已经弃用了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-CimInstance Win32_Service | Select-Object Caption,Name,PathName,StartName,State</span><br></pre></td></tr></table></figure>
+
+<p>在powershell里面</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\31349&gt; Get-CimInstance Win32_Service | Select-Object Caption,Name,PathName,StartName,State</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Caption   : 123SyncCloud Maintenance Service</span><br><span class="line">Name      : 123SyncCloud Maintenance Service</span><br><span class="line">PathName  : &quot;C:\ProgramData\123SyncCloud\service\MaintenanceService.exe&quot;</span><br><span class="line">StartName : LocalSystem</span><br><span class="line">State     : Running</span><br><span class="line"></span><br><span class="line">Caption   : 123SyncCloud Upgrade Service</span><br><span class="line">Name      : 123SyncCloud Upgrade Service</span><br><span class="line">PathName  : &quot;C:\ProgramData\123SyncCloud\service\UpgradeService.exe&quot;</span><br><span class="line">StartName : LocalSystem</span><br><span class="line">State     : Running</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看计划任务信息"><a href="#查看计划任务信息" class="headerlink" title="查看计划任务信息"></a>查看计划任务信息</h5><p>查看主机上所有的计划任务：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">schtasks /query /v /fo list</span><br></pre></td></tr></table></figure>
+
+<p>output</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">C:\Users\31349&gt;schtasks /query /v /fo list</span><br><span class="line"></span><br><span class="line">文件夹: \</span><br><span class="line">主机名:                             LAPTOP-059TNUP4</span><br><span class="line">任务名:                             \NahimicTask32</span><br><span class="line">下次运行时间:                       N/A</span><br><span class="line">模式:                               正在运行</span><br><span class="line">登录状态:                           交互方式/后台方式</span><br><span class="line">上次运行时间:                       2026/10/28 11:54:53</span><br><span class="line">上次结果:                           267009</span><br><span class="line">创建者:                             AVolute</span><br><span class="line">要运行的任务:                       C:\WINDOWS\system32\..\SysWOW64\NahimicSvc32.exe $(Arg0) $(Arg1) $(Arg2) $(Arg3) $(Arg4) $(Arg5) $(Arg6) $(Arg7)</span><br><span class="line">起始于:                             N/A</span><br><span class="line">注释:                               NahimicSvc task</span><br><span class="line">计划任务状态:                       已启用</span><br><span class="line">空闲时间:                           已禁用</span><br><span class="line">电源管理:</span><br><span class="line">作为用户运行:                       INTERACTIVE</span><br><span class="line">删除没有计划的任务:                 已禁用</span><br><span class="line">如果运行了 X 小时 X 分钟，停止任务: 72:00:00</span><br><span class="line">计划:                               计划数据在此格式中不可用。</span><br><span class="line">计划类型:                           仅在请求时</span><br><span class="line">开始时间:                           N/A</span><br><span class="line">开始日期:                           N/A</span><br><span class="line">结束日期:                           N/A</span><br><span class="line">天:                                 N/A</span><br><span class="line">月:                                 N/A</span><br><span class="line">重复: 每:                           N/A</span><br><span class="line">重复: 截止: 时间:                   N/A</span><br><span class="line">重复: 截止: 持续时间:               N/A</span><br><span class="line">重复: 如果还在运行，停止:           N/A</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看自启程序信息"><a href="#查看自启程序信息" class="headerlink" title="查看自启程序信息"></a>查看自启程序信息</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wmic startup get Caption,Command,Location,User</span><br></pre></td></tr></table></figure>
+
+<p>new version</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-CimInstance Win32_StartupCommand | Select Caption,Command,Location,User</span><br></pre></td></tr></table></figure>
+
+<p>also powershell</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\31349&gt; Get-CimInstance Win32_StartupCommand | Select Caption,Command,Location,User</span><br><span class="line"></span><br><span class="line">Caption              Command</span><br><span class="line">-------              -------</span><br><span class="line">Rainmeter            D:\rubishi\RAINME~1.EXE</span><br><span class="line">Snipaste             D:\Snipaste\Snipaste.exe</span><br><span class="line">VPET_Simulator       D:\SteamLibrary\steamapps\common\VPet\VPet-Simulator.Windows.exe</span><br><span class="line">发送至 OneNote       C:\PROGRA~1\MICROS~2\root\Office16\ONENOTEM.EXE /tsr</span><br><span class="line">JianyingPro          &quot;D:\LenovoSoftstore\Install\jianyangzhuanyeban\11.5.0.14471\JianyingProTray.exe&quot;</span><br><span class="line">OPENVPN-GUI          D:\2026misc\马漏洞复现\雷神众测\雷神众测openvpn客户端及使用说明-v3.0\VPN\OpenVPN\bin\openvpn-gu...</span><br><span class="line">namiclaw             D:\360\纳米work\namiclaw\Application\namiclaw.exe --auto-startup-systray</span><br><span class="line">ClaudeReliableBridge &quot;C:\Windows\System32\wscript.exe&quot; &quot;C:\Users\31349\.claude\reliable-bridge\start-hidden.vbs&quot;</span><br><span class="line">RtkAudUService       &quot;C:\WINDOWS\System32\DriverStore\FileRepository\realtekservice.inf_amd64_04ff63d068f8c626\RtkAu...</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">PS C:\Users\31349&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看系统补丁安装信息"><a href="#查看系统补丁安装信息" class="headerlink" title="查看系统补丁安装信息"></a>查看系统补丁安装信息</h5><p>查看主机安装的补丁列表，并过滤出补丁链接、名称、描述、补丁编号、安装时间：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wmic qfe get Caption,Description,HotFixID,InstalledOn</span><br></pre></td></tr></table></figure>
+
+<p>怎么全是这个指令，:sweat_smile:</p>
+<p>我们这样</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\31349&gt;powershell -c &quot;Get-CimInstance Win32_QuickFixEngineering | Select Caption,Description,HotFixID,InstalledOn&quot;</span><br><span class="line"></span><br><span class="line">Caption                                    Description     HotFixID  InstalledOn</span><br><span class="line">-------                                    -----------     --------  -----------</span><br><span class="line">http://support.microsoft.com/?kbid=5127694 Update          KB5127694 2026/10/15 0:00:00</span><br><span class="line">https://support.microsoft.com/help/5054156 Update          KB5054156 2025/10/18 0:00:00</span><br><span class="line">https://support.microsoft.com/help/5121794 Update          KB5121794 2026/10/15 0:00:00</span><br><span class="line">https://support.microsoft.com/help/5127648 Security Update KB5127648 2026/10/15 0:00:00</span><br><span class="line">                                           Security Update KB5127647 2026/10/15 0:00:00</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">C:\Users\31349&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看应用安装信息"><a href="#查看应用安装信息" class="headerlink" title="查看应用安装信息"></a>查看应用安装信息</h5><p>查看主机安装的应用软件信息，并过滤出应用的名称和版本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wmic product get Caption,Version</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看本地用户-组信息"><a href="#查看本地用户-组信息" class="headerlink" title="查看本地用户&#x2F;组信息"></a>查看本地用户&#x2F;组信息</h5><p>查看主机上的本地用户信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net user</span><br></pre></td></tr></table></figure>
+
+<p>output</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\31349&gt;net user</span><br><span class="line"></span><br><span class="line">\\LAPTOP-059TNUP4 的用户账户</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">31349                    Administrator            CodexSandboxOffline</span><br><span class="line">CodexSandboxOnline       DefaultAccount           Guest</span><br><span class="line">WDAGUtilityAccount       WsiAccount</span><br><span class="line">命令成功完成。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">C:\Users\31349&gt;</span><br></pre></td></tr></table></figure>
+
+<p>查看本地管理员组：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net localgroup administrators</span><br></pre></td></tr></table></figure>
+
+<p>output</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\31349&gt;net localgroup administrators</span><br><span class="line">别名     administrators</span><br><span class="line">注释     管理员对计算机/域有不受限制的完全访问权</span><br><span class="line"></span><br><span class="line">成员</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">31349</span><br><span class="line">Administrator</span><br><span class="line">命令成功完成。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">C:\Users\31349&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这里的本地管理员组不仅包含了本地管理员administrator，还包含了域全局组YUY0UNG\Domain Admins，这是主机加入域时自动添加的</p>
+<h5 id="查看当前登录用户"><a href="#查看当前登录用户" class="headerlink" title="查看当前登录用户"></a>查看当前登录用户</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">query user</span><br></pre></td></tr></table></figure>
+
+<h1 id="域内信息收集"><a href="#域内信息收集" class="headerlink" title="域内信息收集"></a>域内信息收集</h1><h5 id="是否存在域环境"><a href="#是否存在域环境" class="headerlink" title="是否存在域环境"></a>是否存在域环境</h5><p>查看当前工作站信息，包括当前计算机名、用户名、系统版本、工作站、登陆的域等：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net config workstation</span><br></pre></td></tr></table></figure>
+
+<p>output</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\31349&gt;net config workstation</span><br><span class="line">计算机名                     \\LAPTOP-059TNUP4</span><br><span class="line">计算机全名                   LAPTOP-059TNUP4</span><br><span class="line">用户名                       31349</span><br><span class="line"></span><br><span class="line">工作站正运行于</span><br><span class="line">        NetBT_Tcpip_&#123;44393EFC-29C4-25E4-B684-F168B398A2B4&#125; (000000000000)</span><br><span class="line"></span><br><span class="line">软件版本                     Windows 10 Home China</span><br><span class="line"></span><br><span class="line">工作站域                     WORKGROUP</span><br><span class="line">登录域                       MicrosoftAccount</span><br><span class="line"></span><br><span class="line">COM 打开超时 (秒)            0</span><br><span class="line">COM 发送计数 (字节)          16</span><br><span class="line">COM 发送超时 (毫秒)          250</span><br><span class="line">命令成功完成。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">C:\Users\31349&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看域用户信息"><a href="#查看域用户信息" class="headerlink" title="查看域用户信息"></a>查看域用户信息</h5><p>查看所有域用户：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net user /domain</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\31349&gt;net user /domain</span><br><span class="line">这项请求将在域 WORKGROUP 的域控制器处理。</span><br><span class="line"></span><br><span class="line">发生系统错误 1355。</span><br><span class="line"></span><br><span class="line">指定的域不存在，或无法联系。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">C:\Users\31349&gt;</span><br></pre></td></tr></table></figure>
+
+<p>只有域用户才有权限执行域内查询操作。计算机本地用户除非提升为本地SYSTEM权限，否则只能查询本机信息，无法查询域内信息并提示“拒绝访问”，这是因为在域环境中，所有与域有关的查询都需要通过域控来实现，并需要经过kerberos协议认证</p>
+<h5 id="查看域用户组信息"><a href="#查看域用户组信息" class="headerlink" title="查看域用户组信息"></a>查看域用户组信息</h5><p>列出域内所有用户组：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net group /domain</span><br></pre></td></tr></table></figure>
+
+<p>查看域管理员用户：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net group &quot;Domain Admins&quot; /domain</span><br></pre></td></tr></table></figure>
+
+<p>查看域内客户端主机：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net group &quot;Domain Computers&quot; /domain</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看域内密码策略"><a href="#查看域内密码策略" class="headerlink" title="查看域内密码策略"></a>查看域内密码策略</h5><p>查询域内用户的密码策略：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net account /domain</span><br></pre></td></tr></table></figure>
+
+<p>可以根据密码策略构造字典，并发起爆破攻击</p>
+<h5 id="查看域控列表"><a href="#查看域控列表" class="headerlink" title="查看域控列表"></a>查看域控列表</h5><p>查询域控制器组，可以得到所有域控制器的主机名：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net group &quot;Domain Controllers&quot; /domain</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看主DC"><a href="#查看主DC" class="headerlink" title="查看主DC"></a>查看主DC</h5><p>主域控会同时被用作时间服务器，以同步域内主机时钟，所以可以查询时间服务器来找到主DC的名称：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net time /domain</span><br></pre></td></tr></table></figure>
+
+<h5 id="定位域控"><a href="#定位域控" class="headerlink" title="定位域控"></a>定位域控</h5><p>知道目标主机名称后可以通过ping来确定主机在内网中的IP地址，如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping DC01.yuy0ung.com</span><br></pre></td></tr></table></figure>
+
+<p>可知域控DC01的IP为<code>192.168.111.100</code></p>
+<p>另外也可通过查找DNS服务器地址定位DC</p>
+<h5 id="查看域信任关系"><a href="#查看域信任关系" class="headerlink" title="查看域信任关系"></a>查看域信任关系</h5><p>域信任用于多域环境中的跨域资源共享</p>
+<p>查询主机所在域和其他域的信任关系：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nltest /domain_trusts</span><br></pre></td></tr></table></figure>
+
+<h1 id="内网资源探测"><a href="#内网资源探测" class="headerlink" title="内网资源探测"></a>内网资源探测</h1><h4 id="发现内网存活主机"><a href="#发现内网存活主机" class="headerlink" title="发现内网存活主机"></a>发现内网存活主机</h4><h5 id="基于ICMP"><a href="#基于ICMP" class="headerlink" title="基于ICMP"></a>基于ICMP</h5><p>即对整个网段IP执行ping命令，能ping通即存活：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for /L %I in (1,1,254) DO @ping -w 1 -n 1 192.168.111.%I | findstr &quot;TTL=&quot;</span><br></pre></td></tr></table></figure>
+
+<p>这个之前打靶机的时候也是实操过的</p>
+<h5 id="基于NetBIOS（网络基本输入-输出系统）"><a href="#基于NetBIOS（网络基本输入-输出系统）" class="headerlink" title="基于NetBIOS（网络基本输入&#x2F;输出系统）"></a>基于NetBIOS（网络基本输入&#x2F;输出系统）</h5><p>可以使用NBTScan扫描windows网络上NetBIOS名称，以发现内网存活主机：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nbtscan.exe 192.168.111.0/24</span><br></pre></td></tr></table></figure>
+
+<h5 id="基于UDP"><a href="#基于UDP" class="headerlink" title="基于UDP"></a>基于UDP</h5><p>可以使用unicornscan：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unicornscan.exe -mU 192.168.111.0/24</span><br></pre></td></tr></table></figure>
+
+<h5 id="基于ARP"><a href="#基于ARP" class="headerlink" title="基于ARP"></a>基于ARP</h5><p>使用ARP-Scan：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arp-scan.exe -t 192.168.111.0/24</span><br></pre></td></tr></table></figure>
+
+<h5 id="基于SMB（server-message-block，服务器消息块）"><a href="#基于SMB（server-message-block，服务器消息块）" class="headerlink" title="基于SMB（server message block，服务器消息块）"></a>基于SMB（server message block，服务器消息块）</h5><p>使用CrackMapExec：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crackmapexec smb 192.168.111.0/24</span><br></pre></td></tr></table></figure>
+
+<h4 id="内网端口扫描"><a href="#内网端口扫描" class="headerlink" title="内网端口扫描"></a>内网端口扫描</h4><h5 id="利用Telnet"><a href="#利用Telnet" class="headerlink" title="利用Telnet"></a>利用Telnet</h5><p>telnet可以简单测试指定端口状态：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">telnet 192.168.111.132 445</span><br></pre></td></tr></table></figure>
+
+<p>就是能看下连接的状态</p>
+<h5 id="使用Nmap"><a href="#使用Nmap" class="headerlink" title="使用Nmap"></a>使用Nmap</h5><p>扫描所有端口并识别服务：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sV -p- 192.168.111.132</span><br></pre></td></tr></table></figure>
+
+<h4 id="MSF探测内网"><a href="#MSF探测内网" class="headerlink" title="MSF探测内网"></a>MSF探测内网</h4><p>metasploit集成的很多收集模块：</p>
+<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/2026/10/ScreenShot_2026-10-30_225411_862.png?raw=true"></p>
+<p>笔者认为在实战情况下这类套件是不推荐使用的，所以不再细说</p>
+<h4 id="获取端口banner"><a href="#获取端口banner" class="headerlink" title="获取端口banner"></a>获取端口banner</h4><p>查看banner可以获取软件开发商、名称、版本号、服务类型等，有时还能利用历史漏洞</p>
+<h5 id="利用NetCat"><a href="#利用NetCat" class="headerlink" title="利用NetCat"></a>利用NetCat</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -nv 192.168.111.132 135</span><br></pre></td></tr></table></figure>
+
+<h5 id="利用telnet"><a href="#利用telnet" class="headerlink" title="利用telnet"></a>利用telnet</h5><p>和上面探测端口相同，telnet连接成功会返回相应banner</p>
+<h5 id="利用nmap"><a href="#利用nmap" class="headerlink" title="利用nmap"></a>利用nmap</h5><p>指定脚本即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap --script=banner -p 3389 192.168.111.132</span><br></pre></td></tr></table></figure>
+
+<h3 id="基于powershell的收集"><a href="#基于powershell的收集" class="headerlink" title="基于powershell的收集"></a>基于powershell的收集</h3><p>上面的信息收集大多基于主机的cmd命令行，这里将基于powershell的收集单独提及一下</p>
+<p>Powershell的优点：</p>
+<ul>
+<li>代码运行在内存中可以不去接触磁盘</li>
+<li>从另一个系统中下载代码并执行</li>
+<li>很多安全产品并不能监测到powershell的活动</li>
+<li>cmd.exe通常被阻止运行，但是powershell不会</li>
+</ul>
+<p>github上有很多基于powershell的后渗透套件，都内置了内网信息收集套件，可以用作参考：</p>
+<ul>
+<li>Empire：<a target="_blank" rel="noopener" href="https://github.com/EmpireProject/Empire">https://github.com/EmpireProject/Empire</a></li>
+<li>powersploit：<a target="_blank" rel="noopener" href="https://github.com/PowerShellMafia/PowerSploit">https://github.com/PowerShellMafia/PowerSploit</a></li>
+<li>NiShang：<a target="_blank" rel="noopener" href="https://github.com/samratashok/nishang">https://github.com/samratashok/nishang</a></li>
+</ul>
+<p>当然里面也有其他后渗透工具，可以作为了解</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">wuk0Ng</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://web-wuk0ng.github.io/2026/10/30/%E5%86%85%E7%BD%91%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86-%E5%9F%BA%E7%A1%80%E6%90%9C%E9%9B%86/">https://web-wuk0ng.github.io/2026/10/30/%E5%86%85%E7%BD%91%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86-%E5%9F%BA%E7%A1%80%E6%90%9C%E9%9B%86/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">wuk0Ng</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%BA%A2%E9%98%9F/">
+                                    <span class="chip bg-color">红队</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%86%85%E7%BD%91/">
+                                    <span class="chip bg-color">内网</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 42px 0 22px;
+        text-align: center;
+    }
+
+    #reward .reward-open {
+        width: 52px;
+        height: 52px;
+        padding: 0;
+        color: #fff;
+        font-size: 1.35rem;
+        line-height: 52px;
+        cursor: pointer;
+        border: 0;
+        border-radius: 50%;
+        background: #ef5350;
+        box-shadow: 0 5px 16px rgba(239, 83, 80, 0.3);
+        transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    #reward .reward-open:hover,
+    #reward .reward-open:focus-visible {
+        background: #ef5350;
+        box-shadow: 0 8px 22px rgba(239, 83, 80, 0.38);
+        transform: translateY(-2px);
+    }
+
+    .reward-dialog[hidden] {
+        display: none !important;
+    }
+
+    .reward-dialog {
+        position: fixed;
+        z-index: 10020;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 180ms ease, visibility 180ms ease;
+    }
+
+    .reward-dialog.is-open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .reward-dialog-backdrop {
+        position: absolute;
+        inset: 0;
+        cursor: pointer;
+        background: rgba(15, 20, 18, 0.62);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+    }
+
+    .reward-dialog-panel {
+        position: relative;
+        z-index: 1;
+        width: min(620px, 94vw);
+        max-height: calc(100vh - 36px);
+        padding: 26px 28px 24px;
+        overflow: auto;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+        outline: 0;
+        transform: translateY(12px) scale(0.98);
+        transition: transform 180ms ease;
+    }
+
+    .reward-dialog.is-open .reward-dialog-panel {
+        transform: translateY(0) scale(1);
+    }
+
+    .reward-dialog-close {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        color: #555;
+        font-size: 28px;
+        line-height: 34px;
+        cursor: pointer;
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+    }
+
+    .reward-dialog-close:hover,
+    .reward-dialog-close:focus-visible {
+        color: #fff;
+        background: #ef5350;
+    }
+
+    .reward-dialog-title {
+        padding: 0 34px;
+        margin: 0 0 8px;
+        color: #333;
+        font-size: 1.5rem;
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    .reward-dialog-tip {
+        margin: 0 0 20px;
+        color: #777;
+        font-size: 0.92rem;
+        text-align: center;
+    }
+
+    .reward-methods {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .reward-method {
+        padding: 14px;
+        margin: 0;
+        border: 1px solid #ececec;
+        border-radius: 12px;
+        background: #fafafa;
+    }
+
+    .reward-qr-frame {
+        display: flex;
+        aspect-ratio: 1 / 1;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 8px;
+        background: #fff;
+    }
+
+    .reward-qr {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .reward-qr[hidden] {
+        display: none !important;
+    }
+
+    .reward-qr-missing {
+        padding: 20px;
+        color: #999;
+        line-height: 1.7;
+        text-align: center;
+    }
+
+    .reward-method figcaption {
+        margin-top: 10px;
+        color: #444;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    body.reward-dialog-open {
+        overflow: hidden;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .reward-dialog-panel {
+            padding: 24px 18px 20px;
+        }
+
+        .reward-methods {
+            grid-template-columns: 1fr;
+        }
+
+        .reward-method {
+            width: min(100%, 270px);
+            margin: 0 auto;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .reward-dialog,
+        .reward-dialog-panel,
+        #reward .reward-open {
+            transition: none;
+        }
+    }
+</style>
+
+<div id="reward">
+    <button id="rewardOpen" class="reward-open" type="button" aria-haspopup="dialog" aria-controls="rewardDialog" title="打开打赏二维码">赏</button>
+</div>
+
+<div id="rewardDialog" class="reward-dialog" hidden>
+    <div class="reward-dialog-backdrop" data-reward-close aria-hidden="true"></div>
+    <section class="reward-dialog-panel" role="dialog" aria-modal="true" aria-labelledby="rewardDialogTitle" tabindex="-1">
+        <button class="reward-dialog-close" type="button" data-reward-close aria-label="关闭打赏窗口" title="关闭">×</button>
+        <h4 id="rewardDialogTitle" class="reward-dialog-title">你的赏识是我前进的动力</h4>
+        <p class="reward-dialog-tip">请选择支付宝或微信扫码支持</p>
+        <div class="reward-methods">
+            <figure class="reward-method">
+                <div class="reward-qr-frame">
+                    <img src="/medias/reward/aliyunpay.png" class="reward-qr" alt="支付宝打赏二维码" loading="lazy" decoding="async">
+                    <div class="reward-qr-missing" hidden>支付宝二维码暂未配置</div>
+                </div>
+                <figcaption>支付宝</figcaption>
+            </figure>
+            <figure class="reward-method">
+                <div class="reward-qr-frame">
+                    <img src="/medias/reward/wechat1.png" class="reward-qr" alt="微信打赏二维码" loading="lazy" decoding="async">
+                    <div class="reward-qr-missing" hidden>微信二维码暂未配置</div>
+                </div>
+                <figcaption>微信</figcaption>
+            </figure>
+        </div>
+    </section>
+</div>
+
+<script>
+    (function () {
+        var openButton = document.getElementById('rewardOpen');
+        var dialog = document.getElementById('rewardDialog');
+        if (!openButton || !dialog) return;
+
+        var panel = dialog.querySelector('.reward-dialog-panel');
+        var closeButtons = dialog.querySelectorAll('[data-reward-close]');
+        var lastFocused = null;
+        var closeTimer = 0;
+
+        document.body.appendChild(dialog);
+
+        dialog.querySelectorAll('.reward-qr').forEach(function (image) {
+            function showMissing() {
+                image.hidden = true;
+                var message = image.nextElementSibling;
+                if (message) message.hidden = false;
+            }
+
+            image.addEventListener('error', showMissing);
+            if (image.complete && image.naturalWidth === 0) showMissing();
+        });
+
+        function openDialog() {
+            window.clearTimeout(closeTimer);
+            lastFocused = document.activeElement;
+            dialog.hidden = false;
+            document.body.classList.add('reward-dialog-open');
+            window.requestAnimationFrame(function () {
+                dialog.classList.add('is-open');
+                panel.focus();
+            });
+        }
+
+        function closeDialog() {
+            dialog.classList.remove('is-open');
+            document.body.classList.remove('reward-dialog-open');
+            closeTimer = window.setTimeout(function () {
+                dialog.hidden = true;
+                if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+            }, 180);
+        }
+
+        openButton.addEventListener('click', openDialog);
+        closeButtons.forEach(function (button) {
+            button.addEventListener('click', closeDialog);
+        });
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && !dialog.hidden) closeDialog();
+        });
+    }());
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <!-- Gitalk is bundled with the theme to avoid a blocking overseas CDN request. -->
+<link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+
+<!-- 引入主题自定义 CSS（如有需要，若 my-gitalk.css 是本地文件则保留原路径） -->
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+  <div class="comment_headling">
+    <i class="fas fa-comments fa-fw"></i>
+    <span>评论</span>
+  </div>
+  <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script>
+  (function () {
+    var container = document.getElementById('gitalk-container');
+    var loaded = false;
+    if (!container) return;
+
+    function renderGitalk() {
+      var gitalk = new Gitalk({
+        clientID: 'Ov23liTNlK9NLcZwFSo8',
+        clientSecret: '7472cd54d6ca5e38d14f6d1b5176299bb4cf4ebe',
+        repo: 'blog---comments',
+        owner: 'web-wuk0Ng',
+        admin: ["web-wuk0Ng"],
+        id: '2026-10-30T23-00-00',
+        distractionFreeMode: false
+      });
+      gitalk.render('gitalk-container');
+    }
+
+    function loadGitalk() {
+      if (loaded) return;
+      loaded = true;
+      var script = document.createElement('script');
+      script.src = '/libs/gitalk/gitalk.min.js';
+      script.async = true;
+      script.onload = renderGitalk;
+      document.head.appendChild(script);
+    }
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries.some(function (entry) { return entry.isIntersecting; })) {
+          observer.disconnect();
+          loadGitalk();
+        }
+      }, { rootMargin: '500px 0px' });
+      observer.observe(container);
+    } else {
+      window.addEventListener('load', loadGitalk, { once: true });
+    }
+  }());
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles home-title-grid compact-prenext-grid">
+    <div class="row article-row">
+        <div class="article home-title-card col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a class="home-title-link" href="/2026/10/30/%E5%86%85%E7%BD%91%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86-%E5%9F%BA%E7%A1%80%E6%90%9C%E9%9B%86/" aria-label="阅读：MSF&amp;CS介绍与使用">
+                    <h2>MSF&amp;CS介绍与使用</h2>
+                </a>
+                
+                <div class="compact-card-tags" aria-label="文章标签">
+                    
+                    <a href="/tags/%E7%BA%A2%E9%98%9F/" class="compact-card-tag">#红队</a>
+                    
+                    <a href="/tags/%E5%86%85%E7%BD%91/" class="compact-card-tag">#内网</a>
+                    
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="article home-title-card col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a class="home-title-link" href="/2026/10/30/MSF&CS%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8/" aria-label="阅读：MSF&amp;CS介绍与使用">
+                    <h2>MSF&amp;CS介绍与使用</h2>
+                </a>
+                
+                <div class="compact-card-tags" aria-label="文章标签">
+                    
+                    <a href="/tags/%E7%BA%A2%E9%98%9F/" class="compact-card-tag">#红队</a>
+                    
+                    <a href="/tags/%E5%86%85%E7%BD%91/" class="compact-card-tag">#内网</a>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2026</span>
+            
+            <a href="/about" target="_blank">wuk0Ng</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color">加载中…</span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color">加载中…</span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/web-wuk0Ng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:3134985131@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=3442584626" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 3442584626" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+    <aside id="linDesktopPet" class="lin-desktop-pet" aria-label="林翩翩桌宠">
+    <div class="lin-pet-bubble" role="status" aria-live="polite">这儿……便是你的住处？</div>
+    <div class="lin-pet-effects" aria-hidden="true"></div>
+    <button class="lin-pet-character" type="button" aria-label="和林翩翩互动" title="点击互动，也可以拖动">
+        <img src="/medias/lin-pianpian/official-desktop-pet.webp" alt="林翩翩桌宠" width="576" height="703" loading="lazy" decoding="async" fetchpriority="low">
+    </button>
+</aside>
+
+<script src="/js/desktop-pet.js?v=20260824-2" defer fetchpriority="low"></script>
+
+
+    <script src="/libs/materialize/materialize.min.js" defer fetchpriority="low"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js" defer fetchpriority="low"></script>
+    <script src="/libs/aos/aos.js" defer fetchpriority="low"></script>
+    
+    <script src="/libs/scrollprogress/scrollProgress.min.js" defer fetchpriority="low"></script>
+    
+    
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js" defer fetchpriority="low"></script>
+    
+    <script src="/js/matery.js?v=20260824-speed1" defer fetchpriority="low"></script>
+
+    <!-- Baidu Analytics -->
+
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        if (/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) return;
+
+        function loadBaiduPush() {
+            var bp = document.createElement('script');
+            bp.async = true;
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            document.head.appendChild(bp);
+        }
+
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadBaiduPush, { timeout: 4500 });
+        } else {
+            window.addEventListener('load', function () {
+                window.setTimeout(loadBaiduPush, 1800);
+            }, { once: true });
+        }
+    })();
+</script>
+
+
+    
+    <script src="/libs/others/clicklove.js" async></script>
+    
+    
+    <script src="/libs/others/busuanzi.pure.mini.js?v=20261026-stats1" async></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
