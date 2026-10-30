@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
     
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css?v=20261026-compact1">
+    <link rel="stylesheet" type="text/css" href="/css/my.css?v=20261026-compact3">
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
@@ -320,68 +320,10 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                着我汉家衣裳，兴我礼仪之邦
-                
-            </div>
-
-            <div class="description center-align">
-                
-                <span id="subtitle" aria-live="polite">老骥伏枥，志在千里</span>
-                <script>
-                    (function () {
-                        var target = document.getElementById('subtitle');
-                        var phrases = ["老骥伏枥，志在千里","An old steed in the stable still aspires to gallop a thousand li"];
-                        var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                        if (!target || reducedMotion || !phrases.length) return;
-
-                        var phraseIndex = 0;
-                        var letterIndex = phrases[0].length;
-                        var deleting = true;
-                        target.classList.add('native-typed');
-
-                        function typeNext() {
-                            var phrase = phrases[phraseIndex];
-                            letterIndex += deleting ? -1 : 1;
-                            target.textContent = phrase.slice(0, Math.max(0, letterIndex));
-
-                            if (!deleting && letterIndex >= phrase.length) {
-                                deleting = true;
-                                window.setTimeout(typeNext, 1800);
-                                return;
-                            }
-                            if (deleting && letterIndex <= 0) {
-                                deleting = false;
-                                phraseIndex = (phraseIndex + 1) % phrases.length;
-                                window.setTimeout(typeNext, 260);
-                                return;
-                            }
-                            window.setTimeout(typeNext, deleting ? 50 : 100);
-                        }
-
-                        window.setTimeout(typeNext, 300 + 1200);
-                    }());
-                </script>
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<script>
-    $('.bg-cover').css('background-image', 'url(/medias/banner/0.webp)');
-</script>
-
-
-    </div>
-</div>
+    <header class="compact-page-heading">
+    <span>CATEGORY</span>
+    <h1>记录</h1>
+</header>
 
 <main class="content">
 
@@ -397,11 +339,11 @@
                 
                 
                 
-                <a href="/categories/%E8%AE%B0%E5%BD%95/" title="记录: 69">
+                <a href="/categories/%E8%AE%B0%E5%BD%95/" title="记录: 70">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             style="background-color: #F9EBEA;">记录
-                        <span class="tag-length">69</span>
+                        <span class="tag-length">70</span>
                     </span>
                 </a>
                 
@@ -412,514 +354,173 @@
 </div>
 
 
-    
-
-    <article id="articles" class="container articles">
+    <article id="articles" class="container articles home-title-grid">
         <div class="row tags-posts">
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/07/18/pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96(2)/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/9.webp" class="responsive-img" alt="pickle反序列化2" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">pickle反序列化2</span>
-                        </div>
+                    <a class="home-title-link" href="/2025/07/27/pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96(3)/" aria-label="阅读：pickle反序列化3opcode">
+                        <h2>pickle反序列化3opcode</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                [CISCN 2019华北Day1]Web2首先我们打开插件看下，flask的web框架然后就是我们要花钱买东西，接下来基本就确定是要伪造一个session了但是这里的思路是错的，哈哈当时意识到了一点不对劲具体就是我们要买到等级6，但是，这
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/CTF/">
-                            <span class="chip bg-color">CTF</span>
-                        </a>
+                        <a href="/tags/CTF/" class="compact-card-tag">#CTF</a>
                         
-                        <a href="/tags/%E6%AF%94%E8%B5%9B/">
-                            <span class="chip bg-color">比赛</span>
-                        </a>
+                        <a href="/tags/%E6%AF%94%E8%B5%9B/" class="compact-card-tag">#比赛</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/07/16/cookie%E4%BC%AA%E9%80%A0%E7%B1%BB/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.webp" class="responsive-img" alt="cookie伪造类" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">cookie伪造类</span>
-                        </div>
+                    <a class="home-title-link" href="/2025/07/18/pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96(2)/" aria-label="阅读：pickle反序列化2">
+                        <h2>pickle反序列化2</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                概念和使用简介首先，我也是在这个pyjail的学习中慢慢加深了对这个session的理解首先，我们可以去抓一个地方的包试试很多时候能抓到一个
-1Cookie:session=gASVKwAAAAAAAACMBXBvc2l4lIwGc3lzd
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/CTF/">
-                            <span class="chip bg-color">CTF</span>
-                        </a>
+                        <a href="/tags/CTF/" class="compact-card-tag">#CTF</a>
                         
-                        <a href="/tags/%E6%AF%94%E8%B5%9B/">
-                            <span class="chip bg-color">比赛</span>
-                        </a>
+                        <a href="/tags/%E6%AF%94%E8%B5%9B/" class="compact-card-tag">#比赛</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/07/15/pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/21.webp" class="responsive-img" alt="pickle反序列化" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">pickle反序列化</span>
-                        </div>
+                    <a class="home-title-link" href="/2025/07/16/cookie%E4%BC%AA%E9%80%A0%E7%B1%BB/" aria-label="阅读：cookie伪造类">
+                        <h2>cookie伪造类</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                一切之前这里我还是有很多知识点没有懂的，比如很多脚本只是复制了一遍，很多时候应该自己去些一下的还有就是，这个和JWT，session的相关程度还是比较高两天内，我会再出一遍名为session的文章来总结一些常见的session伪造等等知识和
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-15
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/CTF/">
-                            <span class="chip bg-color">CTF</span>
-                        </a>
+                        <a href="/tags/CTF/" class="compact-card-tag">#CTF</a>
                         
-                        <a href="/tags/python/">
-                            <span class="chip bg-color">python</span>
-                        </a>
+                        <a href="/tags/%E6%AF%94%E8%B5%9B/" class="compact-card-tag">#比赛</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/07/10/steam/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/16.webp" class="responsive-img" alt="steam打不开了" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">steam打不开了</span>
-                        </div>
+                    <a class="home-title-link" href="/2025/07/15/pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" aria-label="阅读：pickle反序列化">
+                        <h2>pickle反序列化</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                重大事故应急我的steam打不开了试着一晚上去关机打开，但是一直都是失败了后面导出搜教程，找到原因了删除hit.dll就可以了（每次打开steam这个也会跟着启动）这个文件怎么来的呢？噢，那还是一年前，刚高考完。以前玩电脑玩的少。我记得当时
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-10
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/STEAM/">
-                            <span class="chip bg-color">STEAM</span>
-                        </a>
+                        <a href="/tags/CTF/" class="compact-card-tag">#CTF</a>
                         
-                        <a href="/tags/%E6%B8%B8%E6%88%8F/">
-                            <span class="chip bg-color">游戏</span>
-                        </a>
+                        <a href="/tags/python/" class="compact-card-tag">#python</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/07/08/phar%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/22.webp" class="responsive-img" alt="phar反序列化" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">phar反序列化</span>
-                        </div>
+                    <a class="home-title-link" href="/2025/07/10/steam/" aria-label="阅读：steam打不开了">
+                        <h2>steam打不开了</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                首先，肯定是要掌握很多的反序列化的知识才可以的。这个之前做过了，不多讲了主要还是多做一下相关的题目来解决我关于这个方面的很多问题吧！
-phar是什么官方文档的解析：phar扩展提供了一种将整个PHP应用程序放入一个名为“phar”（PHP 
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/phar/">
-                            <span class="chip bg-color">phar</span>
-                        </a>
+                        <a href="/tags/STEAM/" class="compact-card-tag">#STEAM</a>
                         
-                        <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
-                            <span class="chip bg-color">反序列化</span>
-                        </a>
+                        <a href="/tags/%E6%B8%B8%E6%88%8F/" class="compact-card-tag">#游戏</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/07/07/Solar25%E5%B9%B46%E6%9C%88%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/15.webp" class="responsive-img" alt="solar 应急响应6月" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">solar 应急响应6月</span>
-                        </div>
+                    <a class="home-title-link" href="/2025/07/08/phar%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" aria-label="阅读：phar反序列化">
+                        <h2>phar反序列化</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                B01.1-恶意进程与连接分析题目描述
-此服务器被植入了一个后门，请提交后门文件的进程名称。（注意大小写）
-默认用户密码：qsnctf这里我们进去之后，在cmd里面输入我们的tasklist，然后再找到进程名称Win什么的第一次我输入了，但
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/%E5%BA%94%E6%80%A5/">
-                            <span class="chip bg-color">应急</span>
-                        </a>
+                        <a href="/tags/phar/" class="compact-card-tag">#phar</a>
                         
-                        <a href="/tags/Linux/">
-                            <span class="chip bg-color">Linux</span>
-                        </a>
+                        <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" class="compact-card-tag">#反序列化</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/07/03/pyjail/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.webp" class="responsive-img" alt="pyjail（无实战版）" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">pyjail（无实战版）</span>
-                        </div>
+                    <a class="home-title-link" href="/2025/07/07/Solar25%E5%B9%B46%E6%9C%88%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" aria-label="阅读：solar 应急响应6月">
+                        <h2>solar 应急响应6月</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                python沙箱逃逸（pyjail）很多知识和我们的这个ssti的内容还是很像的，这里目前就先做一点简单的笔记然后多找一些题目来做做看下主要是结合一个简单课程和学长的文章还有nss上面的题目来解决一下这些问题
-Pyjail的实现原理Pyth
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-03
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/CTF/">
-                            <span class="chip bg-color">CTF</span>
-                        </a>
+                        <a href="/tags/%E5%BA%94%E6%80%A5/" class="compact-card-tag">#应急</a>
                         
-                        <a href="/tags/%E6%AF%94%E8%B5%9B/">
-                            <span class="chip bg-color">比赛</span>
-                        </a>
+                        <a href="/tags/Linux/" class="compact-card-tag">#Linux</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/06/28/%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9A%91%E6%9C%9F/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.webp" class="responsive-img" alt="大一暑期初" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">大一暑期初</span>
-                        </div>
+                    <a class="home-title-link" href="/2025/07/03/pyjail/" aria-label="阅读：pyjail（无实战版）">
+                        <h2>pyjail（无实战版）</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                短学期昨天也结束了有很多想说的，也看到很多，最后还是希望后面的日子多收一下心思自己还有一条很苦的路没有走暑期可以干什么，实习，做ip、挣钱，回家好好玩60天很多想说的，写在这篇文章的，写好好好埋头干了
-实习有看到好友
-
-
-miniso可能也
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-06-28
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/%E5%8F%8D%E6%80%9D/">
-                            <span class="chip bg-color">反思</span>
-                        </a>
+                        <a href="/tags/CTF/" class="compact-card-tag">#CTF</a>
                         
-                        <a href="/tags/%E8%A7%84%E5%88%92/">
-                            <span class="chip bg-color">规划</span>
-                        </a>
+                        <a href="/tags/%E6%AF%94%E8%B5%9B/" class="compact-card-tag">#比赛</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/06/23/nodejs%E5%8E%9F%E5%9E%8B%E9%93%BE%E6%B1%A1%E6%9F%93%E5%88%9D%E6%AD%A5/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/3.webp" class="responsive-img" alt="nodejs初步" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">nodejs初步</span>
-                        </div>
+                    <a class="home-title-link" href="/2025/06/28/%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9A%91%E6%9C%9F/" aria-label="阅读：大一暑期初">
+                        <h2>大一暑期初</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                NodeJS从零开始到原型链污染nodejs基础Node.js 是一个基于 Chrome V8 引擎的 Javascript 运行环境它是由C++开发的，它只是一个JavaScript语言解释器。REPL环境运行JavaScript的代码在
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-06-23
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/CTF/">
-                            <span class="chip bg-color">CTF</span>
-                        </a>
+                        <a href="/tags/%E5%8F%8D%E6%80%9D/" class="compact-card-tag">#反思</a>
                         
-                        <a href="/tags/nodejs/">
-                            <span class="chip bg-color">nodejs</span>
-                        </a>
+                        <a href="/tags/%E8%A7%84%E5%88%92/" class="compact-card-tag">#规划</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/06/22/ssrf(%E5%88%9D%E6%AD%A5)/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.webp" class="responsive-img" alt="ssrf初步" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">ssrf初步</span>
-                        </div>
+                    <a class="home-title-link" href="/2025/06/23/nodejs%E5%8E%9F%E5%9E%8B%E9%93%BE%E6%B1%A1%E6%9F%93%E5%88%9D%E6%AD%A5/" aria-label="阅读：nodejs初步">
+                        <h2>nodejs初步</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                ssrf前置课程NAT我们来看是内网还是公网还有就是看怎么将内网映射到公网上我们是要从公网打到内网ssrf：服务器请求伪造，是一种由攻击者形成服务器端的安全漏洞NAT：网络地址转换，通过一个外部ip地址和端口映射到更大的内部ip地址集来转换
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-06-22
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/CTF/">
-                            <span class="chip bg-color">CTF</span>
-                        </a>
+                        <a href="/tags/CTF/" class="compact-card-tag">#CTF</a>
                         
-                        <a href="/tags/ssrf/">
-                            <span class="chip bg-color">ssrf</span>
-                        </a>
+                        <a href="/tags/nodejs/" class="compact-card-tag">#nodejs</a>
                         
                     </div>
                     
@@ -966,7 +567,6 @@ miniso可能也
             
                 <span id="year">2019-2026</span>
             
-            <span id="year">2019</span>
             <a href="/about" target="_blank">wuk0Ng</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
@@ -979,13 +579,13 @@ miniso可能也
             
             <span id="busuanzi_container_site_pv">
                 |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
+                    class="white-color">加载中…</span>&nbsp;次
             </span>
             
             
             <span id="busuanzi_container_site_uv">
                 |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
+                    class="white-color">加载中…</span>&nbsp;人
             </span>
             
             <br>
@@ -1188,36 +788,10 @@ $(function () {
 
 
     
-    <script>
-        (function () {
-            var optionalScripts = [];
-            
-            optionalScripts.push('/libs/others/clicklove.js');
-            
-            
-            optionalScripts.push('/libs/others/busuanzi.pure.mini.js');
-            
-
-            function loadOptionalScripts() {
-                optionalScripts.forEach(function (src, index) {
-                    window.setTimeout(function () {
-                        var script = document.createElement('script');
-                        script.src = src;
-                        script.async = true;
-                        document.body.appendChild(script);
-                    }, index * 500);
-                });
-            }
-
-            window.addEventListener('load', function () {
-                if ('requestIdleCallback' in window) {
-                    window.requestIdleCallback(loadOptionalScripts, { timeout: 3000 });
-                } else {
-                    window.setTimeout(loadOptionalScripts, 1500);
-                }
-            }, { once: true });
-        })();
-    </script>
+    <script src="/libs/others/clicklove.js" async></script>
+    
+    
+    <script src="/libs/others/busuanzi.pure.mini.js?v=20261026-stats1" async></script>
     
 
     

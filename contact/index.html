@@ -30,7 +30,7 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css?v=20261026-compact1">
+    <link rel="stylesheet" type="text/css" href="/css/my.css?v=20261026-compact3">
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
@@ -482,7 +482,6 @@
             
                 <span id="year">2019-2026</span>
             
-            <span id="year">2019</span>
             <a href="/about" target="_blank">wuk0Ng</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
@@ -495,13 +494,13 @@
             
             <span id="busuanzi_container_site_pv">
                 |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
+                    class="white-color">加载中…</span>&nbsp;次
             </span>
             
             
             <span id="busuanzi_container_site_uv">
                 |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
+                    class="white-color">加载中…</span>&nbsp;人
             </span>
             
             <br>
@@ -706,36 +705,10 @@ $(function () {
 
 
     
-    <script>
-        (function () {
-            var optionalScripts = [];
-            
-            optionalScripts.push('/libs/others/clicklove.js');
-            
-            
-            optionalScripts.push('/libs/others/busuanzi.pure.mini.js');
-            
-
-            function loadOptionalScripts() {
-                optionalScripts.forEach(function (src, index) {
-                    window.setTimeout(function () {
-                        var script = document.createElement('script');
-                        script.src = src;
-                        script.async = true;
-                        document.body.appendChild(script);
-                    }, index * 500);
-                });
-            }
-
-            window.addEventListener('load', function () {
-                if ('requestIdleCallback' in window) {
-                    window.requestIdleCallback(loadOptionalScripts, { timeout: 3000 });
-                } else {
-                    window.setTimeout(loadOptionalScripts, 1500);
-                }
-            }, { once: true });
-        })();
-    </script>
+    <script src="/libs/others/clicklove.js" async></script>
+    
+    
+    <script src="/libs/others/busuanzi.pure.mini.js?v=20261026-stats1" async></script>
     
 
     

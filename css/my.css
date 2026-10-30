@@ -1,6 +1,33 @@
 /* Here is your custom css styles. */
 
 /* Compact monochrome article list on the homepage. */
+.compact-page-heading {
+    display: flex;
+    min-height: 150px;
+    padding: 78px 24px 24px;
+    align-items: baseline;
+    justify-content: center;
+    gap: 14px;
+    color: #111;
+    border-bottom: 1px solid rgba(20, 20, 20, 0.14);
+    background: rgba(255, 255, 255, 0.94);
+}
+
+.compact-page-heading span {
+    color: #777;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+.compact-page-heading h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: 0.04em;
+}
+
 .home-title-grid {
     margin-top: 28px;
 }
@@ -16,11 +43,15 @@
     padding-left: 8px;
 }
 
-.home-title-grid .home-title-card.animated {
+.home-title-grid .home-title-card.animated,
+.compact-archive-card.animated {
     animation: none !important;
 }
 
-.home-title-grid .home-title-card .card {
+.home-title-grid .home-title-card .card,
+.compact-archive-card .card {
+    display: flex;
+    flex-direction: column;
     min-height: 112px;
     margin: 0;
     overflow: hidden;
@@ -33,6 +64,7 @@
 
 .home-title-grid .home-title-link {
     display: flex;
+    flex: 1;
     min-height: 112px;
     padding: 18px 20px;
     align-items: center;
@@ -54,7 +86,9 @@
 }
 
 .home-title-grid .home-title-card .card:hover,
-.home-title-grid .home-title-card .card:focus-within {
+.home-title-grid .home-title-card .card:focus-within,
+.compact-archive-card .card:hover,
+.compact-archive-card .card:focus-within {
     border-color: #111;
     background: #111;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
@@ -62,11 +96,70 @@
 }
 
 .home-title-grid .home-title-card .card:hover .home-title-link,
-.home-title-grid .home-title-card .card:focus-within .home-title-link {
+.home-title-grid .home-title-card .card:focus-within .home-title-link,
+.compact-archive-card .card:hover .home-title-link,
+.compact-archive-card .card:focus-within .home-title-link {
+    color: #fff;
+}
+
+.home-title-grid .compact-card-tags {
+    display: flex;
+    min-height: 34px;
+    padding: 7px 10px 8px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-top: 1px solid rgba(20, 20, 20, 0.1);
+    white-space: nowrap;
+}
+
+.home-title-grid .compact-card-tag {
+    max-width: 92px;
+    overflow: hidden;
+    color: #666;
+    font-size: 11px;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+}
+
+.home-title-grid .compact-card-tag:hover,
+.home-title-grid .compact-card-tag:focus {
+    color: #000;
+    text-decoration: underline;
+}
+
+.home-title-grid .home-title-card .card:hover .compact-card-tags,
+.home-title-grid .home-title-card .card:focus-within .compact-card-tags,
+.compact-archive-card .card:hover .compact-card-tags,
+.compact-archive-card .card:focus-within .compact-card-tags {
+    border-top-color: rgba(255, 255, 255, 0.18);
+}
+
+.home-title-grid .home-title-card .card:hover .compact-card-tag,
+.home-title-grid .home-title-card .card:focus-within .compact-card-tag,
+.compact-archive-card .card:hover .compact-card-tag,
+.compact-archive-card .card:focus-within .compact-card-tag {
+    color: #d9d9d9;
+}
+
+.home-title-grid .home-title-card .card:hover .compact-card-tag:hover,
+.home-title-grid .home-title-card .card:focus-within .compact-card-tag:focus,
+.compact-archive-card .card:hover .compact-card-tag:hover,
+.compact-archive-card .card:focus-within .compact-card-tag:focus {
     color: #fff;
 }
 
 @media only screen and (max-width: 600px) {
+    .compact-page-heading {
+        min-height: 120px;
+        padding: 68px 18px 18px;
+    }
+
+    .compact-page-heading h1 {
+        font-size: 22px;
+    }
+
     .home-title-grid {
         margin-top: 20px;
     }
@@ -76,6 +169,7 @@
     }
 
     .home-title-grid .home-title-card .card,
+    .compact-archive-card .card,
     .home-title-grid .home-title-link {
         min-height: 82px;
     }

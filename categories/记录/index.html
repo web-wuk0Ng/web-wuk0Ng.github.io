@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
     
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css?v=20261026-compact1">
+    <link rel="stylesheet" type="text/css" href="/css/my.css?v=20261026-compact3">
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
@@ -320,68 +320,10 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                着我汉家衣裳，兴我礼仪之邦
-                
-            </div>
-
-            <div class="description center-align">
-                
-                <span id="subtitle" aria-live="polite">老骥伏枥，志在千里</span>
-                <script>
-                    (function () {
-                        var target = document.getElementById('subtitle');
-                        var phrases = ["老骥伏枥，志在千里","An old steed in the stable still aspires to gallop a thousand li"];
-                        var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                        if (!target || reducedMotion || !phrases.length) return;
-
-                        var phraseIndex = 0;
-                        var letterIndex = phrases[0].length;
-                        var deleting = true;
-                        target.classList.add('native-typed');
-
-                        function typeNext() {
-                            var phrase = phrases[phraseIndex];
-                            letterIndex += deleting ? -1 : 1;
-                            target.textContent = phrase.slice(0, Math.max(0, letterIndex));
-
-                            if (!deleting && letterIndex >= phrase.length) {
-                                deleting = true;
-                                window.setTimeout(typeNext, 1800);
-                                return;
-                            }
-                            if (deleting && letterIndex <= 0) {
-                                deleting = false;
-                                phraseIndex = (phraseIndex + 1) % phrases.length;
-                                window.setTimeout(typeNext, 260);
-                                return;
-                            }
-                            window.setTimeout(typeNext, deleting ? 50 : 100);
-                        }
-
-                        window.setTimeout(typeNext, 300 + 1200);
-                    }());
-                </script>
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<script>
-    $('.bg-cover').css('background-image', 'url(/medias/banner/0.webp)');
-</script>
-
-
-    </div>
-</div>
+    <header class="compact-page-heading">
+    <span>CATEGORY</span>
+    <h1>记录</h1>
+</header>
 
 <main class="content">
 
@@ -397,11 +339,11 @@
                 
                 
                 
-                <a href="/categories/%E8%AE%B0%E5%BD%95/" title="记录: 69">
+                <a href="/categories/%E8%AE%B0%E5%BD%95/" title="记录: 70">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             style="background-color: #F9EBEA;">记录
-                        <span class="tag-length">69</span>
+                        <span class="tag-length">70</span>
                     </span>
                 </a>
                 
@@ -412,520 +354,173 @@
 </div>
 
 
-    
-
-    <article id="articles" class="container articles">
+    <article id="articles" class="container articles home-title-grid">
         <div class="row tags-posts">
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2026/10/26/java%E6%A8%A1%E6%9D%BF%E6%B3%A8%E5%85%A5/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/21.webp" class="responsive-img" alt="java模板注入" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">java模板注入</span>
-                        </div>
+                    <a class="home-title-link" href="/2026/10/30/MSF&CS%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8/" aria-label="阅读：MSF&amp;CS介绍与使用">
+                        <h2>MSF&amp;CS介绍与使用</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                前言参考大佬博客https://www.cnblogs.com/F12-blog/p/18131128https://cloud.tencent.com/developer/article/2457613https://cloud.tenc
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-10-26
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/java/">
-                            <span class="chip bg-color">java</span>
-                        </a>
+                        <a href="/tags/%E7%BA%A2%E9%98%9F/" class="compact-card-tag">#红队</a>
                         
-                        <a href="/tags/%E7%BA%A2%E9%98%9F/">
-                            <span class="chip bg-color">红队</span>
-                        </a>
+                        <a href="/tags/%E5%86%85%E7%BD%91/" class="compact-card-tag">#内网</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2026/10/26/part05%E8%BF%90%E7%BB%B4Agent%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/10.webp" class="responsive-img" alt="part05运维Agent方案设计与源码分析" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">part05运维Agent方案设计与源码分析</span>
-                        </div>
+                    <a class="home-title-link" href="/2026/10/26/java%E6%A8%A1%E6%9D%BF%E6%B3%A8%E5%85%A5/" aria-label="阅读：java模板注入">
+                        <h2>java模板注入</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                前置准备我觉得我们设计一个蓝队agent的话，这个运维agent是少不了了。就是我们有报错，有告警的话，全部是人工看确实是很麻烦的一个步骤
-这个就是一套重复的体力活
-1.看告警信息，提取关键信息（哪个服务？什么错误？什么时间？）
-2.去日志
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-10-26
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/agent/">
-                            <span class="chip bg-color">agent</span>
-                        </a>
+                        <a href="/tags/java/" class="compact-card-tag">#java</a>
                         
-                        <a href="/tags/%E7%BA%A2%E9%98%9F/">
-                            <span class="chip bg-color">红队</span>
-                        </a>
+                        <a href="/tags/%E7%BA%A2%E9%98%9F/" class="compact-card-tag">#红队</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2026/10/23/springboot%E4%B8%8A%E4%BC%A0%E7%82%B9%E5%88%A9%E7%94%A8/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/13.webp" class="responsive-img" alt="springboot上传点利用" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">springboot上传点利用</span>
-                        </div>
+                    <a class="home-title-link" href="/2026/10/26/part05%E8%BF%90%E7%BB%B4Agent%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" aria-label="阅读：part05运维Agent方案设计与源码分析">
+                        <h2>part05运维Agent方案设计与源码分析</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                前言我目前真不知道实战这个用的多不多，但是确实就是说这个，好像攻击的方法确实就是，比较繁琐复杂然后条件苛刻加上危害（不是指对说rce的这种危害，而是把别人服务打烂要坐牢）大
-然后我们简单可以实战利用的方法和比较复杂的方法都来看一下
-简单利用
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-10-23
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/java/">
-                            <span class="chip bg-color">java</span>
-                        </a>
+                        <a href="/tags/agent/" class="compact-card-tag">#agent</a>
                         
-                        <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
-                            <span class="chip bg-color">文件上传</span>
-                        </a>
+                        <a href="/tags/%E7%BA%A2%E9%98%9F/" class="compact-card-tag">#红队</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2026/10/20/fastjosn%E9%93%BE/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/3.webp" class="responsive-img" alt="fastjson1" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">fastjson1</span>
-                        </div>
+                    <a class="home-title-link" href="/2026/10/23/springboot%E4%B8%8A%E4%BC%A0%E7%82%B9%E5%88%A9%E7%94%A8/" aria-label="阅读：springboot上传点利用">
+                        <h2>springboot上传点利用</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                fastjson链1
-前言大佬博客，我参考了挺多的，https://yuy0ung.github.io/这篇至少要回答三个问题
-fastjson全版本利用分析，不出网思路说几条，templatesimpl链子利用？有点针对面试题学习的味道，
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-10-20
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/java/">
-                            <span class="chip bg-color">java</span>
-                        </a>
+                        <a href="/tags/java/" class="compact-card-tag">#java</a>
                         
-                        <a href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
-                            <span class="chip bg-color">代码审计</span>
-                        </a>
+                        <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="compact-card-tag">#文件上传</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2026/10/16/%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB%E7%BA%A2%E9%98%9F%E9%9D%B6%E5%9C%BA%E4%BA%8C/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/19.webp" class="responsive-img" alt="渗透攻击红队靶场二（1）" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">渗透攻击红队靶场二（1）</span>
-                        </div>
+                    <a class="home-title-link" href="/2026/10/20/fastjosn%E9%93%BE/" aria-label="阅读：fastjson1">
+                        <h2>fastjson1</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                靶场说明参考下大佬博客，https://colind0pe.top/
-渗透攻击红队靶场二考察点总结最终flag在域控的C盘根目录
-一、漏洞挖掘与利用Log4j2漏洞（JNDI注入）验证方法Log4j2-RCE漏洞利用与反弹shell获取永恒
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-10-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/%E7%BA%A2%E9%98%9F/">
-                            <span class="chip bg-color">红队</span>
-                        </a>
+                        <a href="/tags/java/" class="compact-card-tag">#java</a>
                         
-                        <a href="/tags/%E5%86%85%E7%BD%91/">
-                            <span class="chip bg-color">内网</span>
-                        </a>
+                        <a href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" class="compact-card-tag">#代码审计</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2026/10/12/JAVA%E4%BB%A3%E5%AE%A1-Tmall(%E8%BF%B7%E4%BD%A0%E5%A4%A9%E7%8C%AB%E5%95%86%E5%9F%8E)/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.webp" class="responsive-img" alt="JAVA代审-Tmall(迷你天猫商城)" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">JAVA代审-Tmall(迷你天猫商城)</span>
-                        </div>
+                    <a class="home-title-link" href="/2026/10/16/%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB%E7%BA%A2%E9%98%9F%E9%9D%B6%E5%9C%BA%E4%BA%8C/" aria-label="阅读：渗透攻击红队靶场二（1）">
+                        <h2>渗透攻击红队靶场二（1）</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                项目介绍迷你天猫商城是一个基于Spring Boot的综合性B2C电商平台，需求设计主要参考天猫商城的购物流程：用户从注册开始，到完成登录，浏览商品，加入购物车，进行下单，确认收货，评价等一系列操作。作为迷你天猫商城的核心组成部分之一，天猫
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-10-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/java/">
-                            <span class="chip bg-color">java</span>
-                        </a>
+                        <a href="/tags/%E7%BA%A2%E9%98%9F/" class="compact-card-tag">#红队</a>
                         
-                        <a href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
-                            <span class="chip bg-color">代码审计</span>
-                        </a>
+                        <a href="/tags/%E5%86%85%E7%BD%91/" class="compact-card-tag">#内网</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2026/10/07/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA%E4%B8%89/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.webp" class="responsive-img" alt="域渗透-红日靶场三" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">域渗透-红日靶场三</span>
-                        </div>
+                    <a class="home-title-link" href="/2026/10/12/JAVA%E4%BB%A3%E5%AE%A1-Tmall(%E8%BF%B7%E4%BD%A0%E5%A4%A9%E7%8C%AB%E5%95%86%E5%9F%8E)/" aria-label="阅读：JAVA代审-Tmall(迷你天猫商城)">
+                        <h2>JAVA代审-Tmall(迷你天猫商城)</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                豪爽对我来说，还是非常有挑战的一次域渗透的很有价值截至目前，第二长的一篇文章了
-靶场说明参考大佬博客https://cloud.tencent.com/developer/article/2016323https://cloud.tence
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-10-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/%E7%BA%A2%E9%98%9F/">
-                            <span class="chip bg-color">红队</span>
-                        </a>
+                        <a href="/tags/java/" class="compact-card-tag">#java</a>
                         
-                        <a href="/tags/%E5%86%85%E7%BD%91/">
-                            <span class="chip bg-color">内网</span>
-                        </a>
+                        <a href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" class="compact-card-tag">#代码审计</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2026/10/03/openvpn%E7%94%A8%E6%B3%95/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/19.webp" class="responsive-img" alt="openvpn使用" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">openvpn使用</span>
-                        </div>
+                    <a class="home-title-link" href="/2026/10/07/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA%E4%B8%89/" aria-label="阅读：域渗透-红日靶场三">
+                        <h2>域渗透-红日靶场三</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                之前打雷神众测的时候，和发现这个最近要打的一个内网靶机都要用到OPENVPN,我这里就简单给下安装包和最简单的教程吧https://openvpn.net/community/这个应该是官网然后有个教程文档我放
-1https://githu
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-10-03
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/%E5%BA%94%E6%80%A5/">
-                            <span class="chip bg-color">应急</span>
-                        </a>
+                        <a href="/tags/%E7%BA%A2%E9%98%9F/" class="compact-card-tag">#红队</a>
                         
-                        <a href="/tags/%E5%AE%89%E6%9C%8D/">
-                            <span class="chip bg-color">安服</span>
-                        </a>
+                        <a href="/tags/%E5%86%85%E7%BD%91/" class="compact-card-tag">#内网</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2026/08/27/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E6%80%9D%E8%B7%AF%E6%95%B4%E7%90%86/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/14.webp" class="responsive-img" alt="应急响应思路初步" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">应急响应思路初步</span>
-                        </div>
+                    <a class="home-title-link" href="/2026/10/03/openvpn%E7%94%A8%E6%B3%95/" aria-label="阅读：openvpn使用">
+                        <h2>openvpn使用</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                应急响应思路整理一、整体思路应急响应核心思路：
-
-确认事件 → 隔离止损 → 判断入口 → 排查持久化 → 定位恶意进程&#x2F;文件 → 分析网络行为 → 横向排查 → 清除恢复 → 复盘加固
-
-前面都是AI给的一个方法，但是好像是少了
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-08-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/%E5%BA%94%E6%80%A5/">
-                            <span class="chip bg-color">应急</span>
-                        </a>
+                        <a href="/tags/%E5%BA%94%E6%80%A5/" class="compact-card-tag">#应急</a>
                         
-                        <a href="/tags/%E5%AE%89%E6%9C%8D/">
-                            <span class="chip bg-color">安服</span>
-                        </a>
+                        <a href="/tags/%E5%AE%89%E6%9C%8D/" class="compact-card-tag">#安服</a>
                         
                     </div>
                     
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post home-title-card col s12 m6 l3" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2026/08/19/part4%E5%AF%B9%E8%AF%9DAgent%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/15.webp" class="responsive-img" alt="part4对话agent方案设计与源码分析" loading="lazy" decoding="async" fetchpriority="low">
-                            
-                            <span class="card-title">part4对话agent方案设计与源码分析</span>
-                        </div>
+                    <a class="home-title-link" href="/2026/08/27/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E6%80%9D%E8%B7%AF%E6%95%B4%E7%90%86/" aria-label="阅读：应急响应思路初步">
+                        <h2>应急响应思路初步</h2>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                前置准备——对话的需求、场景、价值分析前面做的是一个rag，这里就是真正做一个agent了一个根据知识，不确定地回答你的一个agent背后用到的技术1.RAG2.prompt工程，提示词3.多轮对话，记住上下文4.流式输出，我们在这个让AI
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-08-19
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
+                    <div class="compact-card-tags" aria-label="文章标签">
                         
-                        <a href="/tags/agent/">
-                            <span class="chip bg-color">agent</span>
-                        </a>
+                        <a href="/tags/%E5%BA%94%E6%80%A5/" class="compact-card-tag">#应急</a>
                         
-                        <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">
-                            <span class="chip bg-color">大模型</span>
-                        </a>
+                        <a href="/tags/%E5%AE%89%E6%9C%8D/" class="compact-card-tag">#安服</a>
                         
                     </div>
                     
@@ -971,7 +566,6 @@ fastjson全版本利用分析，不出网思路说几条，templatesimpl链子�
             
                 <span id="year">2019-2026</span>
             
-            <span id="year">2019</span>
             <a href="/about" target="_blank">wuk0Ng</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
@@ -984,13 +578,13 @@ fastjson全版本利用分析，不出网思路说几条，templatesimpl链子�
             
             <span id="busuanzi_container_site_pv">
                 |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
+                    class="white-color">加载中…</span>&nbsp;次
             </span>
             
             
             <span id="busuanzi_container_site_uv">
                 |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
+                    class="white-color">加载中…</span>&nbsp;人
             </span>
             
             <br>
@@ -1193,36 +787,10 @@ $(function () {
 
 
     
-    <script>
-        (function () {
-            var optionalScripts = [];
-            
-            optionalScripts.push('/libs/others/clicklove.js');
-            
-            
-            optionalScripts.push('/libs/others/busuanzi.pure.mini.js');
-            
-
-            function loadOptionalScripts() {
-                optionalScripts.forEach(function (src, index) {
-                    window.setTimeout(function () {
-                        var script = document.createElement('script');
-                        script.src = src;
-                        script.async = true;
-                        document.body.appendChild(script);
-                    }, index * 500);
-                });
-            }
-
-            window.addEventListener('load', function () {
-                if ('requestIdleCallback' in window) {
-                    window.requestIdleCallback(loadOptionalScripts, { timeout: 3000 });
-                } else {
-                    window.setTimeout(loadOptionalScripts, 1500);
-                }
-            }, { once: true });
-        })();
-    </script>
+    <script src="/libs/others/clicklove.js" async></script>
+    
+    
+    <script src="/libs/others/busuanzi.pure.mini.js?v=20261026-stats1" async></script>
     
 
     
