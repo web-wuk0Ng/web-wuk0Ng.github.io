@@ -8,6 +8,7 @@
     <meta name="description" content="wuk0Ng的个人博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
@@ -30,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css?v=20261026-compact3">
+    <link rel="stylesheet" type="text/css" href="/css/my.css?v=20261030-security1">
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
@@ -250,7 +251,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/web-wuk0Ng" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/web-wuk0Ng" class="waves-effect waves-light" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -307,7 +308,7 @@
     }
 </style>
 
-<a href="https://github.com/web-wuk0Ng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/web-wuk0Ng" class="github-corner tooltipped hide-on-med-and-down" target="_blank" rel="noopener noreferrer"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -317,6 +318,7 @@
               fill="currentColor" class="octo-body"></path>
     </svg>
 </a>
+
         
     </nav>
 
@@ -542,9 +544,9 @@
                 </span>
                 <span class="reprint-info">
                     本博客所有文章除特別声明外，均采用
-                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">wuk0Ng</a>
+                    <a href="/about" target="_blank" rel="noopener noreferrer">wuk0Ng</a>
                     !
                 </span>
             </div>
@@ -1126,9 +1128,10 @@
             
                 <span id="year">2019-2026</span>
             
-            <a href="/about" target="_blank">wuk0Ng</a>
-            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <a href="/about" target="_blank" rel="noopener noreferrer">wuk0Ng</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="noopener noreferrer">Matery</a>
+            |&nbsp;<button type="button" class="security-notice-footer-link" data-security-notice-open aria-haspopup="dialog">安全与免责声明</button>
             <br>
             
             
@@ -1153,13 +1156,13 @@
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/web-wuk0Ng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/web-wuk0Ng" class="tooltipped" target="_blank" rel="noopener noreferrer" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
 
 
-    <a href="mailto:3134985131@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:3134985131@qq.com" class="tooltipped" target="_blank" rel="noopener noreferrer" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -1169,7 +1172,7 @@
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=3442584626" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 3442584626" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=3442584626" class="tooltipped" target="_blank" rel="noopener noreferrer" data-tooltip="QQ联系我: 3442584626" data-position="top" data-delay="50">
         <i class="fab fa-qq"></i>
     </a>
 
@@ -1179,7 +1182,7 @@
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <a href="/atom.xml" class="tooltipped" target="_blank" rel="noopener noreferrer" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
 
@@ -1189,6 +1192,129 @@
 
 <div class="progress-bar"></div>
 
+    <div id="securityNotice" class="security-notice" hidden aria-hidden="true">
+    <div class="security-notice-backdrop" data-security-notice-close></div>
+    <section class="security-notice-dialog" role="dialog" aria-modal="true"
+             aria-labelledby="securityNoticeTitle" aria-describedby="securityNoticeDescription" tabindex="-1">
+        <button type="button" class="security-notice-close" data-security-notice-close aria-label="关闭安全与免责声明">&times;</button>
+        <div class="security-notice-label"><i class="fas fa-shield-alt" aria-hidden="true"></i> 安全与免责声明</div>
+        <h2 id="securityNoticeTitle">技术有边界，使用须授权</h2>
+        <div id="securityNoticeDescription" class="security-notice-content">
+            <p>本站涉及网络安全、开发与运维的内容，仅用于合法的学习研究、教育交流、安全防御，以及已经获得明确授权的测试；不构成实施任何违法行为的建议、许可或保证。</p>
+            <p class="security-notice-warning"><strong>严禁</strong>将本站内容用于未经授权的扫描、入侵、攻击、破坏、绕过安全措施、窃取或泄露数据，以及其他危害网络与信息安全的行为。</p>
+            <p>在使用任何技术前，你有责任确认测试目标、授权范围及所在地法律法规。因擅自使用、误用或超出授权范围造成的法律责任、数据损失及其他后果，由行为人自行承担；本站及作者不为违法或未经授权的行为提供支持，依法不得排除的责任除外。</p>
+        </div>
+        <div class="security-notice-actions">
+            <span><i class="fas fa-info-circle" aria-hidden="true"></i> 首次访问提示，之后可从页脚重新查看</span>
+            <button type="button" class="security-notice-confirm" data-security-notice-confirm>我已阅读并知悉</button>
+        </div>
+    </section>
+</div>
+
+<script>
+(function () {
+    'use strict';
+
+    var storageKey = 'wuk0ng-security-notice-v1';
+    var notice = document.getElementById('securityNotice');
+    if (!notice) {
+        return;
+    }
+
+    var dialog = notice.querySelector('.security-notice-dialog');
+    var openButtons = document.querySelectorAll('[data-security-notice-open]');
+    var closeButtons = notice.querySelectorAll('[data-security-notice-close]');
+    var confirmButton = notice.querySelector('[data-security-notice-confirm]');
+    var lastFocusedElement = null;
+    var closeTimer = null;
+
+    function hasAcknowledged() {
+        try {
+            return window.localStorage.getItem(storageKey) === 'acknowledged';
+        } catch (error) {
+            return false;
+        }
+    }
+
+    function rememberAcknowledgement() {
+        try {
+            window.localStorage.setItem(storageKey, 'acknowledged');
+        } catch (error) {
+            // The notice still works when storage is unavailable.
+        }
+    }
+
+    function openNotice() {
+        if (!notice.hidden) {
+            return;
+        }
+        if (closeTimer) {
+            window.clearTimeout(closeTimer);
+        }
+        lastFocusedElement = document.activeElement;
+        notice.hidden = false;
+        notice.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('security-notice-open');
+        window.requestAnimationFrame(function () {
+            notice.classList.add('is-visible');
+            dialog.focus();
+        });
+    }
+
+    function closeNotice() {
+        rememberAcknowledgement();
+        notice.classList.remove('is-visible');
+        notice.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('security-notice-open');
+        closeTimer = window.setTimeout(function () {
+            notice.hidden = true;
+            if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+                lastFocusedElement.focus();
+            }
+        }, 180);
+    }
+
+    Array.prototype.forEach.call(openButtons, function (button) {
+        button.addEventListener('click', openNotice);
+    });
+    Array.prototype.forEach.call(closeButtons, function (button) {
+        button.addEventListener('click', closeNotice);
+    });
+    confirmButton.addEventListener('click', closeNotice);
+
+    document.addEventListener('keydown', function (event) {
+        if (notice.hidden) {
+            return;
+        }
+        if (event.key === 'Escape') {
+            event.preventDefault();
+            closeNotice();
+            return;
+        }
+        if (event.key !== 'Tab') {
+            return;
+        }
+        var focusable = notice.querySelectorAll('button:not([disabled]), a[href]');
+        if (!focusable.length) {
+            return;
+        }
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+        }
+    });
+
+    if (!hasAcknowledged()) {
+        window.setTimeout(openNotice, 520);
+    }
+})();
+</script>
+
 
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
@@ -1196,7 +1322,7 @@
         <div class="search-header">
             <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
             <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input">
+                   class="search-input" maxlength="80" autocomplete="off">
         </div>
         <div id="searchResult"></div>
     </div>
@@ -1220,9 +1346,34 @@ $(function () {
                 }).get();
                 var $input = document.getElementById(search_id);
                 var $resultContent = document.getElementById(content_id);
+                var escapeHtml = function (value) {
+                    return String(value).replace(/[&<>"']/g, function (character) {
+                        return {
+                            '&': '&amp;',
+                            '<': '&lt;',
+                            '>': '&gt;',
+                            '"': '&quot;',
+                            "'": '&#39;'
+                        }[character];
+                    });
+                };
+                var escapeRegExp = function (value) {
+                    return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                };
+                var toLocalUrl = function (value) {
+                    try {
+                        var parsedUrl = new URL(value, window.location.origin);
+                        if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
+                            return '#';
+                        }
+                        return parsedUrl.pathname + parsedUrl.search + parsedUrl.hash;
+                    } catch (error) {
+                        return '#';
+                    }
+                };
                 $input.addEventListener('input', function () {
                     var str = '<ul class=\"search-result-list\">';
-                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/).filter(Boolean).slice(0, 10);
                     $resultContent.innerHTML = "";
                     if (this.value.trim().length <= 0) {
                         return;
@@ -1232,8 +1383,7 @@ $(function () {
                         var isMatch = true;
                         var data_title = data.title.trim().toLowerCase();
                         var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
-                        var data_url = data.url;
-                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var data_url = toLocalUrl(data.url);
                         var index_title = -1;
                         var index_content = -1;
                         var first_occur = -1;
@@ -1256,7 +1406,7 @@ $(function () {
                         }
                         // show search results
                         if (isMatch) {
-                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            str += "<li><a href='" + escapeHtml(data_url) + "' class='search-result-title'>" + escapeHtml(data.title.trim()) + "</a>";
                             var content = data.content.trim().replace(/<[^>]+>/g, "");
                             if (first_occur >= 0) {
                                 // cut out 100 characters
@@ -1271,11 +1421,14 @@ $(function () {
                                 if (end > content.length) {
                                     end = content.length;
                                 }
-                                var match_content = content.substr(start, end);
+                                var match_content = escapeHtml(content.substr(start, end));
                                 // highlight all keywords
                                 keywords.forEach(function (keyword) {
-                                    var regS = new RegExp(keyword, "gi");
-                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                    var safeKeyword = escapeHtml(keyword);
+                                    var regS = new RegExp(escapeRegExp(safeKeyword), "gi");
+                                    match_content = match_content.replace(regS, function (match) {
+                                        return "<em class=\"search-keyword\">" + match + "</em>";
+                                    });
                                 });
 
                                 str += "<p class=\"search-result\">" + match_content + "...</p>"
