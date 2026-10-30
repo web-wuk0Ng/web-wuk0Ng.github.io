@@ -1,0 +1,1998 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="内网渗透基础知识, wuk0Ng">
+    <meta name="description" content="wuk0Ng的个人博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>内网渗透基础知识 | wuk0Ng</title>
+    <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
+
+    <link rel="dns-prefetch" href="//hm.baidu.com">
+    <link rel="dns-prefetch" href="//zz.bdstatic.com">
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css?v=20260824-speed1">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css?v=20261030-security1">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+   
+<style>
+    body{
+       background-image: url(/medias/my_background.webp);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/jiushen.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">wuk0Ng</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/jiushen.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">wuk0Ng</div>
+        <div class="logo-desc">
+            
+            wuk0Ng的个人博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/web-wuk0Ng" class="waves-effect waves-light" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/web-wuk0Ng" class="github-corner tooltipped hide-on-med-and-down" target="_blank" rel="noopener noreferrer"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.webp')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">内网渗透基础知识</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/">
+                                <span class="chip bg-color">内网渗透</span>
+                            </a>
+                        
+                            <a href="/tags/AD%E5%9F%9F/">
+                                <span class="chip bg-color">AD域</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%9F%9F%E7%8E%AF%E5%A2%83/">
+                                <span class="chip bg-color">域环境</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                记录
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-10-31
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="内网渗透-AD域基础知识"><a href="#内网渗透-AD域基础知识" class="headerlink" title="内网渗透-AD域基础知识"></a>内网渗透-AD域基础知识</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>内网也指局域网，是一个封闭的网络空间</p>
+<p>内网渗透（intranet exploitation）是对目标服务器getshell后，通过一系列技术手段对其所处的内网环境进行渗透，最终获取内网其他主机的权限的过程，这些通常涉及以下技术：</p>
+<ul>
+<li>内网信息收集</li>
+<li>内网代理</li>
+<li>权限提升</li>
+<li>横向移动</li>
+<li>……</li>
+</ul>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="工作组（work-group）"><a href="#工作组（work-group）" class="headerlink" title="工作组（work group）"></a>工作组（work group）</h3><p>分辨：在命令提示符界面执行systeminfo，回显结果的“域”信息为<strong>WORKGROUP</strong></p>
+<p>简单来说，就是将不同的计算机按照功能或部门分别置于不同的组，<strong>适用于网络中计算机不多、资产规模较小、对安全管理控制要求不严格的情况</strong>，这是一种<strong>松散</strong>的资源管理模式，任何人都可以在局域网中创建新的工作任务而无需管理员同意，换言之，处于同一工作组中的主机彼此间地位平等，不存在额外关联或管理关系，对于此类情况，在内网渗透时需要逐个渗透与控制</p>
+<p>在局域网内，计算机默认都是按照工作组的方式进行资源管理的</p>
+<ul>
+<li>优点：<ul>
+<li>方便管理和维护</li>
+<li>资源分配方便和灵活</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>缺乏集中管理与控制的机制</li>
+<li>没有集中的统一账户管理</li>
+<li>只适合小规模用户的使用</li>
+</ul>
+</li>
+</ul>
+<h3 id="域（domain）"><a href="#域（domain）" class="headerlink" title="域（domain）"></a>域（domain）</h3><p>分辨：在命令提示符界面执行systeminfo，回显结果的“域”信息为类似域名格式，由“.”连接的字符串</p>
+<p>当组织中网络规模越来越大时，需要统一的管理和集中的身份验证，并能为用户提供更加方便地的网络资源搜索和使用方式时，就需要放弃工作组而使用域</p>
+<p>域是一种比工作组更高级的的计算机资源管理模式，在域环境中，所有用户账户、用户组、计算机、打印机和其他安全主体都在一个或多个域控制器的中央数据库中注册；当域用户想访问域中的资源时，必须通过域控制器集中进行身份验证，通过身份验证的域用户在域中的身份决定了域用户对域中资源的访问权限</p>
+<p>在域环境中，域管理员用户在域中具有最高访问权限和最高管理权限，在渗透过程中，获取域管理员相关权限往往可以控制整个域控</p>
+<h4 id="单域"><a href="#单域" class="headerlink" title="单域"></a>单域</h4><p>指网络环境中只有一个域</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-single-domain.png" alt="单域"></p>
+<h4 id="父域和子域"><a href="#父域和子域" class="headerlink" title="父域和子域"></a>父域和子域</h4><p>某些情况下，需要在<strong>一个域中分出多个域</strong>，被划分的域称为父域，划分出来的域被称为子域，每个子域都拥有自己的安全策略，在有信任的情况下，父域可以访问子域</p>
+<p>从域名上看，子域是域名中的一个段，用“.”进行域名分割，一个“.”代表域名的一个层级</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-parent-child-domain.png" alt="父域和子域"></p>
+<h4 id="域树"><a href="#域树" class="headerlink" title="域树"></a>域树</h4><p>域树是<strong>多个域</strong>通过建立信任关系组成的一个域集合</p>
+<p>在域树中，所有的域共享同一表结构和配置，所有域名形成一个<strong>连续的名字空间</strong>，该命名空间具有连续性，域名层次越深，级别越低</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-domain-tree.png" alt="域树"></p>
+<p>在域树中，域管理员只能管理本域，不能访问或管理其他域，如果两个域之间要互相访问，就需要建立信任关系（trust relation）</p>
+<blockquote>
+<p>渗透视角：域之间的信任关系是可以被利用的，拿到一个域的权限后，通过信任关系往往能跨域走到另一个域。</p>
+</blockquote>
+<h4 id="域林"><a href="#域林" class="headerlink" title="域林"></a>域林</h4><p>指由一个或多个没有<strong>形成连续名字空间</strong>的域树通过建立信任关系组成的域树集合，域林中所有域树共享同一个表结构、配置和全局目录</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-domain-forest.png" alt="域林"></p>
+<h3 id="域控制器"><a href="#域控制器" class="headerlink" title="域控制器"></a>域控制器</h3><p>域控制器（Domain Controller，DC）简称域控，是域环境核心的服务器计算机，用于在域中响应安全身份认证请求，负责允许或拒绝发出请求的主机访问域内资源，以及对用户进行身份验证、存储用户账户信息并执行域的安全策略等，域控包含一个活动目录数据库，其中存储着整个域的账户、密码、计算机等信息，而前面提到的身份验证便主要有以下步骤：</p>
+<ul>
+<li>该计算机是否属于本域</li>
+<li>登录账号是否存在</li>
+<li>密码是否正确</li>
+</ul>
+<p>一个域环境可以拥有一台或多台域控制器，每台域控都各自存储了一份所在域的活动目录AD的可写副本，对AD的修改都可以从源域控同步复制到域、域树或域林的其他控制器上，这样即使其中一台域控瘫痪，另一台域控也可以继续工作，保证域环境正常运行</p>
+<p><strong>一般情况下，DC也会被作为DNS服务器使用</strong></p>
+<blockquote>
+<p>渗透视角：DC就是内网的皇冠，拿到DC基本等于控制整个域，所以DCSync、ZeroLogon、PrintNightmare这类针对域控的攻击危害等级都是最高的。</p>
+</blockquote>
+<h2 id="域环境搭建"><a href="#域环境搭建" class="headerlink" title="域环境搭建"></a>域环境搭建</h2><h3 id="主机准备"><a href="#主机准备" class="headerlink" title="主机准备"></a>主机准备</h3><p>我准备了三台主机</p>
+<ul>
+<li>windows server 2019 datacenter</li>
+<li>windows 10 pro x64</li>
+<li>windows 10 pro x64</li>
+</ul>
+<h3 id="配置域控"><a href="#配置域控" class="headerlink" title="配置域控"></a>配置域控</h3><h4 id="配置静态IP"><a href="#配置静态IP" class="headerlink" title="配置静态IP"></a>配置静态IP</h4><p>打开控制面板中的网络设置，将IP配置为静态的<code>192.168.111.100</code>：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-dc-static-ip.png" alt="配置静态IP"></p>
+<h4 id="更改主机名"><a href="#更改主机名" class="headerlink" title="更改主机名"></a>更改主机名</h4><p>在windows server 2019 datacenter，win+r打开sysdm.cpl，更改主机名为DC01，然后重启保存设置，并以administrator账户登录</p>
+<h4 id="设置管理员密码"><a href="#设置管理员密码" class="headerlink" title="设置管理员密码"></a>设置管理员密码</h4><p>给administrator设置一个密码，否则在创建域的检查时过不去，这里我设置为Admin123456</p>
+<h4 id="安装域服务"><a href="#安装域服务" class="headerlink" title="安装域服务"></a>安装域服务</h4><p>在服务器管理器中，选择添加角色和功能，一直下一步到服务器角色步骤时勾选AD域服务：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-add-ad-role.png" alt="安装AD域服务"></p>
+<p>然后一直下一步到确认栏目，勾选“如果需要，自动重启目标服务器”</p>
+<p>然后点击安装</p>
+<p>完毕后选择右上角有一个部署后配置的<code>将此服务器提升为域控制器</code>：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-promote-dc.png" alt="提升为域控制器"></p>
+<p>点击后选择添加新林，根域名设置为<code>wuk0Ng.com</code></p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-new-forest-root.png" alt="添加新林根域名"></p>
+<p>然后下一步键入密码依然为<code>Admin123456</code></p>
+<p>一直下一步至其他选项，主机会自动生成NetBIOS域名即WUK0NG</p>
+<p>下一步至先决条件检查（这里就会检查administrator是否设置密码）</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-prereq-check.png" alt="先决条件检查"></p>
+<p>通过后即可安装，安装完成会自动重启</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-install-progress.png" alt="安装完成"></p>
+<p>重启后可以发现，登陆时已经是域账户了</p>
+<p>登陆后可见域服务已安装：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-ad-installed.png" alt="域服务已安装"></p>
+<p>至此，域控配置已完成</p>
+<h3 id="添加域成员主机"><a href="#添加域成员主机" class="headerlink" title="添加域成员主机"></a>添加域成员主机</h3><p>现将DC的防火墙关一下</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-dc-firewall.png" alt="关闭域控防火墙"></p>
+<p>接下来添加第一台域成员主机</p>
+<p>将该主机DNS服务器指向域控：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-dns-point-to-dc.png" alt="DNS指向域控"></p>
+<p>然后配置主机名和隶属的域：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-join-domain-config.png" alt="配置主机名和隶属的域"></p>
+<p>然后输入域管理员账号密码确认更改：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-join-domain-cred.png" alt="输入域管理员账号密码"></p>
+<p>ok成功：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-join-domain-success.png" alt="加入域成功"></p>
+<p>完毕后重启确认更改</p>
+<p>另一台主机同理</p>
+<h3 id="检查配置"><a href="#检查配置" class="headerlink" title="检查配置"></a>检查配置</h3><p>回到DC，可在DNS管理器上看见另外两台域成员主机</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-dns-manager.png" alt="DNS管理器"></p>
+<blockquote>
+<p>渗透视角：DNS记录本身就是一份内网资产清单，域内主机加域时会自动注册A记录，所以查DNS往往比扫网段更快更准。</p>
+</blockquote>
+<h2 id="活动目录Active-Directory"><a href="#活动目录Active-Directory" class="headerlink" title="活动目录Active Directory"></a>活动目录Active Directory</h2><h3 id="活动目录介绍"><a href="#活动目录介绍" class="headerlink" title="活动目录介绍"></a>活动目录介绍</h3><p>活动目录（Active Directory，AD）是常见的实现域的方法，活动目录指安装在域控上，为整个环境提供集中式目录管理服务的组件</p>
+<p>AD存储了有关域环境中各种对象的信息，比如域、用户、用户组、计算机、组织单位、共享资源、安全策略等，目录数据存储在域控的Ntsd.dit文件中</p>
+<p>在AD中，一个域中的基本对象有以下几种：</p>
+<ul>
+<li>DC，域控：存储网域所属的网域控制站</li>
+<li>computer，域成员主机：加入网域的计算机对象</li>
+<li>builtin，内置账户组群：规定了各类账户的权限</li>
+<li>user，当前存在域中的用户：存储AD中的用户对象</li>
+</ul>
+<p>如图，我们可以对域内的活动目录进行管理：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-ad-manage.png" alt="活动目录管理"></p>
+<p>活动目录主要提供了以下功能：</p>
+<ul>
+<li><p>计算机集中管理</p>
+<p>集中管理域内所有服务器及客户端计算机，统一下发组策略</p>
+</li>
+<li><p>用户集中管理</p>
+<p>集中管理域用户、组织通讯录、用户组，对用户进行统一的身份认证、资源授权</p>
+</li>
+<li><p>资源集中管理</p>
+<p>集中管理域中的打印机、文件共享服务等网络资源</p>
+</li>
+<li><p>环境集中管理</p>
+<p>集中的配置域中计算机的工作环境，比如统一计算机桌面、统一网络连接配置、统一计算机安全配置等</p>
+</li>
+<li><p>应用集中管理</p>
+<p>对域中计算机统一推送软件、安全补丁、防病毒系统、安装网络打印机等</p>
+</li>
+</ul>
+<h3 id="Ntds-dit文件"><a href="#Ntds-dit文件" class="headerlink" title="Ntds.dit文件"></a>Ntds.dit文件</h3><p>这是域环境中域控保存的一个二进制文件，是主要的活动目录数据库，通常存储在域控的<code>%SystemRoot%\NTDS</code>目录下，该文件中包括但不限于有关域用户、用户密码的哈希、用户组、组成员身份、组策略的信息；Ntds.dit文件使用存储在系统<strong>SYSTEM</strong>文件的密钥对这些哈希进行加密</p>
+<p>在非域环境（及工作组环境）中，用户的登录凭据等信息存储在本地<strong>SAM</strong>文件中</p>
+<blockquote>
+<p>渗透视角：ntds.dit + SYSTEM是域渗透的终极目标，拿到它等于拿到全域用户哈希。常见手法是<code>ntdsutil</code>卷影拷贝导出，或者直接DCSync远程拉取。</p>
+</blockquote>
+<h3 id="组织单位Organizational-Unit介绍"><a href="#组织单位Organizational-Unit介绍" class="headerlink" title="组织单位Organizational Unit介绍"></a>组织单位Organizational Unit介绍</h3><p>组织单位（OU）是域中包含的一类目录对象如用户、计算机和组、文件与打印机等资源，是一个容器，可以在OU上部署组策略</p>
+<p>我们活动目录中的Domain Controllers就是一个OU：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-domain-controllers-ou.png" alt="Domain Controllers是OU"></p>
+<p>组织单位是域中包含的一类目录对象如用户、计算机和组、文件与打印机等资源。组织单位还具有分层结构可用来建立域的分层结构模型，进而可使用户把网络所需的域的数量减至最小</p>
+<p>举个例子，假设一个公司有下表的人员安排需求：</p>
+<table>
+<thead>
+<tr>
+<th>部门</th>
+<th>人数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>财务</td>
+<td>20</td>
+</tr>
+<tr>
+<td>人事</td>
+<td>10</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>100</td>
+</tr>
+<tr>
+<td>网络管理</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<p>我们可以通过在域控上创建组织单位进行操作：</p>
+<ul>
+<li><p>这里新建组织单位</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-new-ou.png" alt="新建组织单位"></p>
+<p>比如创建人事部门：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-create-ou-hr.png" alt="创建人事部门"></p>
+<p>创建好之后，可以在该组织单位中新建用户：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-new-user-in-ou.png" alt="在组织单位中新建用户"></p>
+<p>同理，我们便可以按照公司需求配置好相应的组织单位，并且可以对各个组织单位的用户进行统一管理</p>
+</li>
+</ul>
+<h3 id="委派控制"><a href="#委派控制" class="headerlink" title="委派控制"></a>委派控制</h3><p>依然以上面公司的需求为例，因为公司有100+个人，不能有问题就去找网络管理员，需要委派控制权限给每个部门一个代表，他由相应的权限去自己部门的计算机和用户（可以理解为课代表这种介于老师和学生之间的位置）</p>
+<p>这里以人事部门为例，尝试将人事部门的控制权委派给用户<code>李明</code>：</p>
+<ul>
+<li><p>右键人事部门选择委派控制：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-delegate-control.png" alt="委派控制"></p>
+</li>
+<li><p>添加委派的用户（或组），这里选择用户<code>李明</code>：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-delegate-user.png" alt="添加委派的用户"></p>
+</li>
+<li><p>选择给李明委派的任务：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-delegate-task.png" alt="选择委派的任务"></p>
+</li>
+<li><p>至此，完成了对人事部门的委派控制</p>
+</li>
+</ul>
+<blockquote>
+<p>渗透视角：委派控制本质上是往AD对象的ACL里写ACE，配置不当的委派（比如普通用户对某个OU有完全控制权）就是一条现成的提权路径，BloodHound专门会画这种边。</p>
+</blockquote>
+<h3 id="目录服务与LDAP"><a href="#目录服务与LDAP" class="headerlink" title="目录服务与LDAP"></a>目录服务与LDAP</h3><p>AD是微软对通用目录服务数据库的实现，而LDAP协议就是用来访问目录服务数据库的协议之一，我之前也介绍过LDAP协议的一些细节</p>
+<p>LDAP基于X.500标准，是一个开放的、中立的、工业标准的应用协议。它可以用来检查与更新活动目录数据库，而利用LDAP名称路径可以描述对象在活动目录中的位置。LDAP目录类似于文件系统目录，比如下图，我们搭建的域中的DC01：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-ldap-dc01.png" alt="LDAP中的DC01"></p>
+<p>可以描述为<code>CN=DC01,OU=Domain Controllers,DC=wuk0Ng,DC=com</code>，类比成文件系统目录可以视作<code>wuk0Ng.com/Domain Controllers/DC01</code>，路径的含义为DC01对象处于wuk0Ng.com域的Domain Controllers组织单位中，在LDAP中，数据以树状方式组织，树状信息中的基本数据单元是条目，而每个条目由属性组成，同样以我们搭建的域的活动目录为例，有如下树状结构：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-tree-structure.png" alt="活动目录树状结构"></p>
+<p>这里提几个概念铺垫一下接下来的X.500标准定义：</p>
+<ul>
+<li>目录树：在一个目录数据库中，整个目录中的信息集可以表示为一个目录信息树，树中的每一个节点是一个条目</li>
+<li>条目：目录数据库中，每一个条目就是一条记录，每个条目有自己的唯一绝对可辨识名称DN，上图的一个方框即为一条记录</li>
+<li>属性：用于描述数据库中每个条目的具体信息</li>
+</ul>
+<h3 id="活动目录的访问"><a href="#活动目录的访问" class="headerlink" title="活动目录的访问"></a>活动目录的访问</h3><p>使用微软官方提供的AD Explorer连接DC来访问活动目录：<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/sysinternals/downloads/adexplorer">AD 资源管理器 - Sysinternals | Microsoft Learn</a>，可以方便地浏览活动目录数据库，自定义快速入口、查看对象属性、编辑权限、进行精确搜寻等：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-ad-explorer.png" alt="AD Explorer"></p>
+<h3 id="X-500标准定义"><a href="#X-500标准定义" class="headerlink" title="X.500标准定义"></a>X.500标准定义</h3><p>X.500标准中定义了一些名称空间：</p>
+<h4 id="DC"><a href="#DC" class="headerlink" title="DC"></a>DC</h4><p>DC（Domain Component，域组件），类似于DNS中的每个元素，DC对象表示用DNS来定义其名称空间的LDAP树的顶部。例如wuk0Ng.com，用<code>.</code>分开的每个单元都可以看成一个域组件</p>
+<h4 id="OU"><a href="#OU" class="headerlink" title="OU"></a>OU</h4><p>即组织单位，上面已经系统介绍了组织单位了，OU类最多可以有四级，每级最长32个字符，可以为中文，组织单位中包含对象、容器，还可以包含其他组织单位，组织单位还可以链接组策略</p>
+<h4 id="CN"><a href="#CN" class="headerlink" title="CN"></a>CN</h4><p>CN（Common Name，通用名称）是对象的名称，最大长度为80个字符，可以为中文</p>
+<h4 id="DN"><a href="#DN" class="headerlink" title="DN"></a>DN</h4><p>活动目录中每个对象都有完全唯一的DN（Distinguished Name，可辨识名称），包含了对象到LDAP名称空间根的整个路径。DN有三个属性DC、OU、CN。DN可以表示为LDAP的某个路径，也可以表示为目录中的某个对象，该对象可以是用户、计算机等，例如我们搭建的域的域控DC01的DN：<code>CN=DC01,OU=Domain Controllers,DC=wuk0Ng,DC=com</code>，或administrator用户：<code>CN=Administrator,CN=Users,DC=wuk0Ng,DC=com</code>，我们使用AD Explorer都能查看：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-dn-example.png" alt="DN示例"></p>
+<h4 id="RDN"><a href="#RDN" class="headerlink" title="RDN"></a>RDN</h4><p>RDN（Relative Distinguished Name，相对可辨识名称）与目录结构无关，类似于相对路径，比如<code>CN=Administrator,CN=Users,DC=wuk0Ng,DC=com</code>的RDN为<code>CN=Administrator</code>，两个对象可以具有相同的RDN，但不能具有相同的DN</p>
+<h4 id="UPN"><a href="#UPN" class="headerlink" title="UPN"></a>UPN</h4><p>UPN（User Principal Name用户主体名称）是用户的可辨识名称，在域内是唯一的。例如wuk0Ng.com域中的李明用户，他的UPN为<code>李明@wuk0Ng.com</code>，格式类似于电子邮箱。用户登录时所输入的账户名最好是 UPN，因为在林中，无论此用户的账户被移动到哪一个域，其 UPN 都不会改变，因此用户可以一直使用同一个名称来登录</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-upn-example.png" alt="UPN示例"></p>
+<h4 id="Container"><a href="#Container" class="headerlink" title="Container"></a>Container</h4><p>在活动目录数据中定义了Container（容器）类。容器是一些属性的集合，容器内可以包含其他对象，如用户、计算机等，但是容器中不能再嵌套其他容器和OU</p>
+<p>计算机默认在CN&#x3D;Computers容器中，用户默认在CN&#x3D;Users容器中，如下图可以看到CN&#x3D;Computers的objectClass属性为container：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-container-objectclass.png" alt="Container的objectClass"></p>
+<h3 id="FQDN"><a href="#FQDN" class="headerlink" title="FQDN"></a>FQDN</h3><p>顺带说一下FQDN （Fully Qualified Domain Name，全限定域名）是同时带有主机名和域名的名称例如<code>DC01.wuk0Ng.com</code>，也可以理解为是主机名的一种完全表达形式</p>
+<h3 id="活动目录分区"><a href="#活动目录分区" class="headerlink" title="活动目录分区"></a>活动目录分区</h3><p>微软将活动目录划分为多个分区便于进行复制和管理。每个逻辑分区在域林中的域控之间分别复制、更改，这些分区被称为上下文命名（NC，Naming Context）</p>
+<p>活动目录预定义了域分区、配置分区、架构分区</p>
+<h4 id="域分区"><a href="#域分区" class="headerlink" title="域分区"></a>域分区</h4><p>域分区用于存储与该域有关的对象信息，这些信息是特定于该域的，如该域中的计算机、用户、组织单位等信息。域林中，每个域的域控各自拥有一份属于自己的域分区，只会被复制到本域的所有域控中</p>
+<p>例如这里，<code>DC=wuk0Ng,DC=com</code>就是<code>wuk0Ng.com</code>域的域分区：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-domain-nc.png" alt="域分区"></p>
+<p>可见域分区主要包含以下内容：</p>
+<ul>
+<li><code>CN=Builtin</code>：内置了域本地组的安全组的容器</li>
+<li><code>CN=Computers</code>：机器用户容器，其中包含所有加入域的主机</li>
+<li><code>OU=Domain Controllers</code>：域控制器的容器，其中包含域中所有的域控制器</li>
+<li><code>CN=ForeignSecurityPrincipals</code>：包含域中所有来自域的林外部域的组中的成员</li>
+<li><code>CN=Managed Service Accounts</code>：托管服务账户的容器</li>
+<li><code>CN=System</code>：各种预配置对象的容器，包含信任对象、DNS对象和组策略对象</li>
+<li><code>CN=Users</code>：用户和组对象的默认容器</li>
+</ul>
+<blockquote>
+<p>渗透视角：<code>CN=Computers</code>就是一份域内主机清单，<code>CN=Users</code>是域用户清单，用LDAP查这两个容器相当于做了一次域内资产盘点。</p>
+</blockquote>
+<h4 id="配置分区"><a href="#配置分区" class="headerlink" title="配置分区"></a>配置分区</h4><p>配置分区（configuration NC）存储整个域林的主要配置信息，包括有关站点、服务、分区、和整个活动目录结构的信息</p>
+<p>和域分区一样，整个域林共享一份相同的配置分区，会被复制到域林中所有的域控上</p>
+<p>如图，在我们搭建的域中，<code>CN=Configuration,DC=wuk0Ng,DC=com</code>就是配置分区：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-config-nc.png" alt="配置分区"></p>
+<h4 id="架构分区"><a href="#架构分区" class="headerlink" title="架构分区"></a>架构分区</h4><p>架构分区（Schema NC）存储整个域林的架构信息，包括活动目录中所有的类、对象和属性的定义数据。同样，整个域林共享一份相同的架构分区，会被复制到域林中所有的域控上</p>
+<p>如图，<code>CN=Schema,CN=Configuration,DC=wuk0Ng,DC=com</code>就是架构分区：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-schema-nc.png" alt="架构分区"></p>
+<p>活动目录的所有类（类可以看作是一组属性的集合）都存在架构分区中，是架构分区的一个条目，条目具有的属性是由其所属的类决定的</p>
+<p>架构分区是具有Class-Schema、Attribute-Schema和subSchema对象的单个容器。活动目录数据库中所有类都是Class-Schema的实例，所有属性都是Attribute-Schema的实例，即架构分区定义了AD中使用的所有类和属性</p>
+<p>另外，在LDAP中，类是具有继承关系的，与开发中的面向对象一样。子类可以继承父类的所有属性，而top类是所有类的父类，且活动目录中每个条目都有objectClass属性，该属性的值指向该示例对象所继承的所有类</p>
+<p>活动目录中的类有三种类型：</p>
+<ul>
+<li>结构类（structural）：规定了对象实例的基本属性，每个条目属于且仅属于一个结构对象类。域内每个条目都是类的实例，这个类必须是结构类，结构类是唯一可以在目录中有实例的类，可以继承于抽象类或者其他结构类，可以在结构类定义中包含任意数量的辅助类</li>
+<li>抽象类（Abstract）：是用于继承新结构类的模板，抽象类没有实例，只能充当结构类或者抽象类的父类。与面向对象中的抽象方法一样比如top类</li>
+<li>辅助类（Auxiliary）：辅助类包含一个属性列表，在结构类户或抽象类的定义中添加一个辅助类会将辅助类属性添加到实例中。辅助类不能实例化但是可以从现有的辅助类或抽象类中继承。辅助类规定了对象实体的扩展属性，虽然每个条目只属于一个结构对象类，但是可以同时属于多个辅助对象类</li>
+</ul>
+<p>另外还有个88类，不属于上述任何类别，可以用作抽象类、结构类或辅助类，其下的类可以继承自所有类</p>
+<h4 id="应用程序分区"><a href="#应用程序分区" class="headerlink" title="应用程序分区"></a>应用程序分区</h4><p>应用程序分区（Application NC）是微软从windows server 2003开始引入的，它允许用户自定义分区来扩展目录分区。它提供了复制控制范围的能力，并允许以更适合动态数据的方式防止副本。值得注意的是，应用程序分区会被复制到林中特定的域控上而不是所有域控</p>
+<p>如图 ，<code>DC=DomainDnsZones,DC=wuk0Ng,DC=com</code>和<code>DC=ForestDnsZones,DC=wuk0Ng,DC=com</code>就是应用程序分区：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-app-nc.png" alt="应用程序分区"></p>
+<p>应用程序分区有以下特点：</p>
+<ul>
+<li>如果用户想要定义一个分区，可以使用应用程序分区</li>
+<li>应用程序分区可以存储动态对象。动态对象是具有生存时间（TTL）值的对象，TTL值可以确定他们在被活动目录自动删除之前将存在多长时间</li>
+</ul>
+<h2 id="域内账户"><a href="#域内账户" class="headerlink" title="域内账户"></a>域内账户</h2><h3 id="本地账户"><a href="#本地账户" class="headerlink" title="本地账户"></a>本地账户</h3><p>本地账户（Local Account）存储在本地的服务器上，这些账户可以在本地服务器上分配权限但仅限该服务器。默认的本地账户是内置账户（如Administrator、Guest等），在安装windows时自动创建且无法删除。默认的本地账户不提供对网络资源的访问，根据分配给该账户的权限来管理对本地服务器资源的访问本地账户均位于“用户”文件夹</p>
+<h4 id="administrator"><a href="#administrator" class="headerlink" title="administrator"></a>administrator</h4><p>windows安装过程中创建的第一个账户就是administrator账户，<code>SID为S-1-5-21-XX-500</code>，是默认的本地管理员账户，在本地管理员组administrators中，该账户可以完全控制服务器，并根据需要向用户分配用户权限和访问控制权限，每台计算机都有该账户，不能删除或锁定默认的Administrator账户，但可以重命名或禁用他（即使重命名administrator也不会改变其SID）</p>
+<p>高版本的windows默认禁用了administrator，创建了作为administrators成员的另一个本地账户，可以运行具有提升权限的应用程序而不是使用”运行为管理员“选项</p>
+<h4 id="guest"><a href="#guest" class="headerlink" title="guest"></a>guest</h4><p>该账户同样会在windows安装过程创建，SID为<code>S-1-5-21-XX-501</code>，但该账户默认禁用。guest账户允许在计算机上没有账户的临时用户登陆本地服务器或客户端主机，默认情况下该账户密码为空</p>
+<h4 id="defaultaccount"><a href="#defaultaccount" class="headerlink" title="defaultaccount"></a>defaultaccount</h4><p>被称为默认系统管理账户DSMA，该账户是在windows 10版本1607和windows server 2016中引入的内置账户，DSMA是一个用户中立的账户，可以用于运行多用户感知或与用户无关的进程。DSMA在桌面SKU和windows server 2016中默认被禁用</p>
+<p>DSMA有个著名的RID为503，所以他的SID格式：<code>S-1-5-21-XX-503</code>，DSMA是System Managed Account Group组的成员，该组拥有的SID为<code>SID-1-5-32-581</code></p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-dsma-account.png" alt="DSMA账户"></p>
+<h4 id="WDAGUtilityAccount"><a href="#WDAGUtilityAccount" class="headerlink" title="WDAGUtilityAccount"></a>WDAGUtilityAccount</h4><p>该账户是windows系统为windows defender应用程序防护方案管理和使用的用户账户，是在win10 1709和win server 2019中引入的内置账户。除非在设备上启用了应用程序防护，否则默认保持禁用，它同样有个著名RID：504，所以SID格式：<code>S-1-5-21-XX-504</code></p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-wdag-account.png" alt="WDAGUtilityAccount"></p>
+<blockquote>
+<p>渗透视角：RID是判断账户身份的快捷方式，500是本地管理员、501是Guest、502是krbtgt、503&#x2F;504是上面这两个内置账户，1000以上的一般是后来创建的普通用户。</p>
+</blockquote>
+<h3 id="活动目录账户"><a href="#活动目录账户" class="headerlink" title="活动目录账户"></a>活动目录账户</h3><p>即活动目录中的账户，存储在活动目录数据库中，分为用户账户、服务账户、机器账户，三者关系如下：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-ad-account-types.png" alt="三类账户关系"></p>
+<p>区分服务账户就是看其是否注册了SPN，区分机器账户就是看objectcategory属性是否为computer</p>
+<h4 id="用户账户"><a href="#用户账户" class="headerlink" title="用户账户"></a>用户账户</h4><p>就是域内用户的账户，存储在活动目录数据库（Ntds.dit文件）中。域内所有用户账户均在域全局组Domain Users内</p>
+<ul>
+<li><p>域控上的本地账户</p>
+<p>服务器升级成DC后，本地普通账户将变成域普通账户，在活动目录中有对应的账户，存储在Users容器中，而本地管理员组administrators中的用户将升级为域管理员组Domain Admins内的用户，默认本地管理员administrator将升级为域默认管理员administrator，并需要设置符合强度的密码，此后这些账户均具有域范围的访问权限，访问时加上域前缀即可</p>
+</li>
+<li><p>Administrator账户</p>
+<p>是AD中administrators、Domain Admins、Enterprise Admins、组策略创建者、Schema Admin Groups的默认成员，SID为<code>S-1-5-[domain]-500</code></p>
+</li>
+<li><p>Guest账户</p>
+<p>该账户不需要密码，默认禁用，SID为S-1-5-[domain]-501</p>
+</li>
+<li><p>krbtgt账户</p>
+<p>是一个本地默认账户，为密钥发行中心（KDC）服务账户，RID为502，SID为<code>S-1-5-[domain]-502</code></p>
+<p>该账户是krbtgt安全主体的实体，在kerberos身份认证的AS-REP步骤中，KDC返回的TGT是由krbtgt的用户hash加密的，而krbtgt账户的hash只有KDC知道，该账户无法删除或改名</p>
+</li>
+</ul>
+<blockquote>
+<p>渗透视角：krbtgt是黄金票据的原料，只要拿到krbtgt的hash，就能签出任意用户的TGT，等于永久控制整个域——而且防御方必须重置两次krbtgt密码才能清除。</p>
+</blockquote>
+<h4 id="服务账户"><a href="#服务账户" class="headerlink" title="服务账户"></a>服务账户</h4><p>是显式创建的用户账户，旨在为在windows服务器操作系统上运行的服务提供安全上下文</p>
+<p>默认情况下，域中每个机器有SPN，并且其服务账户就是其机器账户</p>
+<p>用户账户可以是服务账户，机器账户也可以是服务账户，他们是否属于服务账户取决于该账户是否在域内注册了SPN</p>
+<blockquote>
+<p>渗透视角：这就是Kerberoasting的原理——任何域用户都能请求注册了SPN的服务的票据，而服务票据是用服务账号的hash加密的，拿回来离线爆破就行，服务账号又经常是弱密码，命中率很高。</p>
+</blockquote>
+<h4 id="机器账户"><a href="#机器账户" class="headerlink" title="机器账户"></a>机器账户</h4><p>不能用于登录，可以代表一个物理实体比如域内机器</p>
+<p>在域内，机器账户域与域用户一样也是域内成员，在域内的用户名是<code>机器账户名+$</code>，比如win10机器账户为Win10$，这个值可以在机器账户的samAccountName属性中看到，它在本地的用户名是System</p>
+<p>机器加入域后，会将机器账户的密码同步到域控并保存在域控的Ntds.dit中，由于机器账户的密码是系统随机生成的，强度是120个字符，且会定时更新，因此即使获得了机器账户密码hash，也几乎无法还原出机器账户的明文口令</p>
+<h2 id="域内权限划分"><a href="#域内权限划分" class="headerlink" title="域内权限划分"></a>域内权限划分</h2><h3 id="组"><a href="#组" class="headerlink" title="组"></a>组</h3><p>组(Group)是用户账号的集合。分为通讯组和安全组</p>
+<p>通讯组就是一个通信群组，向一个通讯组发消息可以让组内所有用户都接收消息</p>
+<p>安全组是用户权限的集合，通过向组分配权限，就可以不必向每个用户分别分配权限。例如，管理员在日常工作中，不必为单个用户账号设置独特的访问权限，只需要将用户账放到相应的安全组中。管理员通过配置安全组访问权限,就可以为所有加入安全组的用户账号配置同样的权限。使用安全组而不是单个的用户账号,可以大大简化网络的维护和管理工作</p>
+<p>安全组可以分为域本地组、全局组、通用组</p>
+<h3 id="域本地组"><a href="#域本地组" class="headerlink" title="域本地组"></a>域本地组</h3><p>域本地组成员来自<strong>林中任何域中</strong>的用户账户、全局组和通用组以及本域中的域本地组，在<strong>本域范围内</strong>可用（来自全林,作用于本域;）</p>
+<p>重要的域本地组：</p>
+<ul>
+<li><p>管理员组( Administrators)的成员可以不受限制地存取计算机&#x2F;域的资源。它不仅是最具权力的一个组,也是在活动目录和域控制器中默认具有管理员权限组。该组的成员可以更改 Enterprise Admins、 Schema admins和 Domain admins组的成员关系,是域森林中强大的服务管理组</p>
+</li>
+<li><p>远程登录组( Remote Desktop Users)的成员具有远程登录权限</p>
+</li>
+<li><p>打印机操作员组( Print Operators)的成员可以管理网络打印机,包括建立、管理及删除网络打印机,并可以在本地登录和关闭域控制器</p>
+</li>
+<li><p>账号操作员组( Account Operators)的成员可以创建和管理该域中的用户和组并为其设置权限,也可以在本地登录域控制器,但是,不能更改属于 Administrators或 Domain admins组 的账户,也不能修改这些组。在默认情况下,该组中没有成员</p>
+</li>
+<li><p>服务器操作员组( Server Operators)的成员可以管理域服务器,其权限包括建立管理删除 任意服务器的共享目录、管理网络打印机、备份任何服务器的文件、格式化服务器硬盘 锁定服务器、变更服务器的系统时间、关闭域控制器等。在默认情况下,该组中没有成员</p>
+</li>
+<li><p>备份操作员组( Backup Operators)的成员可以在域控制器中执行备份和还原操作,并可以在本地登录和关闭域控制器。在默认情况下,该组中没有成员</p>
+</li>
+</ul>
+<blockquote>
+<p>渗透视角：Backup Operators、Server Operators这些“看起来不怎么管理员”的组，实际上都能在域控上本地登录，是很好的权限跳板。</p>
+</blockquote>
+<h3 id="全局组"><a href="#全局组" class="headerlink" title="全局组"></a>全局组</h3><p>全局组成员来自于<strong>同一域</strong>的用户账户和全局组，在<strong>林范围内</strong>可用（来自本域,作用于全林;）</p>
+<h3 id="通用组"><a href="#通用组" class="headerlink" title="通用组"></a>通用组</h3><p>通用组成员来自<strong>林中任何域中</strong>的用户账户、全局组和其他的通用组，在<strong>全林范围内</strong>可用（来自全林,作用于全林）但几乎很少使用</p>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p>来个权限配置案例：</p>
+<p>有三个域hack.com(在北京)，sh.hack.com(在上海)，gz.hack.com(在广州)组成域树，然后北京财务部门，需要进行结算，但是数据在北京的一台服务器上权限比较高只有北京财务人员可以使用，同时因为北京人数不够，需要上海和广州支援，如何分配权限？</p>
+<ul>
+<li><p>只需要在北京的建立一个域本地组，然后赋予域本地组权限可以访问财务的数据机器</p>
+</li>
+<li><p>在上海和广州分别建立全局组</p>
+</li>
+<li><p>在北京的域控上将上海和广州的全局组加入进来</p>
+</li>
+</ul>
+<p>如图：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-agdlp-case.png" alt="权限配置案例"></p>
+<p>如此，即可很方便的进行权限分配与控制，而这里就运用到了经典的A-G-DL-P策略</p>
+<h3 id="A-G-DL-P策略"><a href="#A-G-DL-P策略" class="headerlink" title="A-G-DL-P策略"></a>A-G-DL-P策略</h3><p>A-G-DL-P策略是指将用户账号添加到全局组中,将全局组添加到域本地组中,然后为域本地组分配资源权限</p>
+<ul>
+<li><p>A表示用户账号( Account )</p>
+</li>
+<li><p>G表示全局组( Global Group )</p>
+</li>
+<li><p>U表示通用组( Universal Group )</p>
+</li>
+<li><p>DL表示域本地组( Domain Local Group )</p>
+</li>
+<li><p>P表示资源权限( Permission,许可 )</p>
+</li>
+</ul>
+<p>按照AG-DL-P策略对用户进行组织和管理是非常容易的。在AGDL-P策略形成以后,当需要给一个用户添加某个权限时,只要把这个用户添加到某个本地域组中就可以了</p>
+<p>实际上，域管理员权限的配置也使用了A-G-DL-P策略：<code>用户 -- Domain Admin -- administrator -- 域管理权限</code></p>
+<h2 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h2><p>指windows操作系统使用内置授权和访问控制技术，确定经过身份验证的用户对象是否具有访问资源的正确权限，以控制主体（principal）操作（读取、写入、删除、更改等）对象（object）的行为是否具有合法权限</p>
+<p>访问主体通常指安全主体，是任何可以通过操作系统进行身份验证的实体，，如用户账户、计算机账户、在用户或计算机账户的安全上下文中运行的线程或进程，以及这些账户的安全组等</p>
+<p>被访问的对象通常指安全对象，可能是文件、文件夹、打印机、注册表项、共享服务、ADDS对象等</p>
+<p>当经过身份验证的安全主体想访问安全对象时，windows会为安全主体创建一个访问令牌（access token），其中包含了验证过程返回的SID（安全标识符）和本地安全策略分配给用户的用户安全列表；当安全对象被创建时，windows会为其创建一个安全描述符（security descriptor）</p>
+<p>windows的访问控制正是安全主体的访问令牌中的信息与安全对象的安全描述符中的访问控制项进行比较做出访问决策的</p>
+<h3 id="windows访问控制模型"><a href="#windows访问控制模型" class="headerlink" title="windows访问控制模型"></a>windows访问控制模型</h3><p>Accsess Control Model，是windows系统安全性的基础构件，主要由访问令牌和安全描述符构成，分别由访问者和被访问者持有。通过比较访问令牌和安全描述符的内容，windows可以判断访问者是否有访问对象的能力</p>
+<h4 id="访问令牌"><a href="#访问令牌" class="headerlink" title="访问令牌"></a>访问令牌</h4><p>用户登陆时进行身份验证，通过后windows为用户创建访问令牌，此后代表该用户执行的每个进程都有此访问令牌的副本，每当线程或进程与安全对象交互或尝试执行需要特权的系统任务，windows都会使用此访问令牌标识并确定关联的用户</p>
+<p>访问令牌包含的信息如下：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-access-token.png" alt="访问令牌包含的信息"></p>
+<blockquote>
+<p>渗透视角：令牌窃取（incognito &#x2F; <code>token::elevate</code>）就是利用这一点——进程持有的令牌决定了它能干什么，偷到一个SYSTEM或域管的令牌，就拥有了对应用户的权限，而且不需要知道对方密码。</p>
+</blockquote>
+<h4 id="安全描述符"><a href="#安全描述符" class="headerlink" title="安全描述符"></a>安全描述符</h4><p>一种与每个安全对象相关联的数据结构，包含与安全对象相关联的安全信息比如谁拥有对象、谁可以访问对象、以何种方式访问、审查哪些类型的访问信息等</p>
+<p>主要由SID和ACL访问控制列表组成，SID用来标识用户账户和该用户所属的组，ACL分为DACL和SACL两种</p>
+<h3 id="访问控制列表"><a href="#访问控制列表" class="headerlink" title="访问控制列表"></a>访问控制列表</h3><p>即访问控制项的列表，列表中每一个访问控制项制定了一系列访问权限</p>
+<p>在访问控制的过程中，ACL有两个作用：</p>
+<ul>
+<li>进行访问权限控制，判断安全主体能不能访问该安全对象</li>
+<li>日志记录，对用户访问成功与否进行记录</li>
+</ul>
+<p>所以安全对象的安全描述可以通过访问两种访问控制列表DACL和SACL进行</p>
+<h4 id="DACL"><a href="#DACL" class="headerlink" title="DACL"></a>DACL</h4><p>自主访问控制列表，是安全对象的访问控制策略，用于指定允许或拒绝特定安全主体对该安全对象的访问。DACL由一条条的访问控制项（ACE）条目构成，每条ACE通过包含SID定义了哪些用户或组对该对象拥有怎样的访问权限</p>
+<h4 id="SACL"><a href="#SACL" class="headerlink" title="SACL"></a>SACL</h4><p>系统访问控制列表，是安全主体对安全对象访问行为的审计策略，也由一条条的访问控制项（ACE）条目构成，每条ACE定义了对哪些安全主体的哪些访问行为进行记录，安全主体的访问行为满足这条ACE时就会被记录</p>
+<h2 id="组策略"><a href="#组策略" class="headerlink" title="组策略"></a>组策略</h2><p>group policy，是windows环境下管理账户的一种手段，可以控制用户账户和计算机账户的工作环境。组策略可以集中化管理和配置操作系统、应用程序、活动目录中用户设置，功能很多：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-gpo-functions.png" alt="组策略功能"></p>
+<p>本地组策略适用于管理独立且非域环境的计算机。域环境的组策略适用于管理域环境的所有对象，包括用户和计算机，接下来重点记录域环境的组策略</p>
+<h3 id="组策略对象"><a href="#组策略对象" class="headerlink" title="组策略对象"></a>组策略对象</h3><p>Group Policy Object，GPO，即组策略设置的集合，其中包含应用于特定用户或计算机的策略信息和具体配置，设置组策略时，只需将组策略对象链接到指定的站点、域和组织单位，其中的策略值便会应用到该站点、域和组织单位的所有用户和计算机</p>
+<p>GPO由组策略容器（Group Policy Container，GPC）和组策略模板（Group Policy Template，GPT）组成，分别存储在DC的不同位置上，GPC存储在活动目录的域分区，GPT存储在DC的文件夹中：<code>%SYSTEMROOT%\SYSVOL\域名\Policies</code></p>
+<p>win+R：gpmc.msc即可打开组策略管理器：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-gpmc.png" alt="组策略管理器"></p>
+<p>这里可以看到两个默认组策略对象default domain controllers和default domain policy，它们在DC被建立时自动创建</p>
+<h3 id="组策略创建"><a href="#组策略创建" class="headerlink" title="组策略创建"></a>组策略创建</h3><p>我们在前面创建了组织单位：人事部门。现在创建一个新的组策略，并将其应用到“人事部门”，、</p>
+<p>在组策略管理器中，右键组策略对象，点击新建，创建一个名为test的GPO</p>
+<p>接下来链接GPO，右键人事部门选择”链接现有GPO“，在出现的框中选中新建的组策略test：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-link-gpo.png" alt="链接GPO"></p>
+<p>确定即可链接成功</p>
+<blockquote>
+<p>渗透视角：如果控制了域管，GPO是最强的批量攻击手段——一条GPO就能给全域机器下发计划任务、加用户、改安全配置。反过来，排查持久化时也一定要看SYSVOL里有没有陌生的GPO。</p>
+</blockquote>
+<h2 id="企业常规安全域划分"><a href="#企业常规安全域划分" class="headerlink" title="企业常规安全域划分"></a>企业常规安全域划分</h2><p>即基于安全考量的域范围划分</p>
+<p>划分安全域的目的是将一组安全等级相同的计算机划入同一个网段，这个网段内的计算机拥有相同的网络边界，并在网络边界上通过部署防火墙来实现对其他安全域的网络访问控制策略 ，从而对允许哪些IP地址访问此域、允许此域访问哪些IP地址和网段进行设置。这些措施，将使得网络风险最小化，当攻击发生时,可以尽可能地将威胁隔离，从而降低对域内计算机的影响：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-security-zones.png" alt="安全域划分"></p>
+<p>一个由路由器连接的内网中，可以将网络按照安全级别从高到低划分为三个区域：</p>
+<ul>
+<li>内网（安全级别最高）：分为核心区（存储企业最重要的数据，只有很少的主机能够访问）和生产&#x2F;办公区（员工日常工作区，一般能够访问DMZ，部分主机可以访问核心区）</li>
+<li>DMZ（Demilitarized Zone，边界网络，隔离区，安全级别中等）：作为内网中安全系统和非安全系统之间的缓冲区，用于对外提供服务，一般可以放置一些必须公开的服务器设施</li>
+<li>外网（Internet，安全级别最低）</li>
+</ul>
+<p>拥有DMZ的网络需要制定一些访问控制策略：</p>
+<pre><code>内网可以访问外网:内网用户需要自由地访问外网。在这一策略中,防火墙需要执行NAT
+内网可以访问DMZ:此策略使内网用户可以使用或者管理DMZ中的服务器
+外网不能访问内网:这是防火墙的基本策略。内网中存储的是公司内部数据,显然,这些数据一般是不允许外网用户访问的(如果要访问,就要通过VPN的方式来进行)
+外网可以访问DMZ:因为DMZ中的服务器需要为外界提供服务,所以外网必须可以访问DMZ。同时,需要由防火墙来完成从对外地址到服务器实际地址的转换
+DMZ不能访问内网:如果不执行此策略,当攻击者攻陷DMZ时,内网将无法受到保护
+DMZ不能访问外网:此策略也有例外。例如,在DMZ中放置了邮件服务器,就要允许访问外网,否则邮件服务器无法正常工作
+</code></pre>
+<p>通常情况下，各类目标网络的安全级别是”外部网络 &lt; DMZ区 &lt; 核心区、办公&#x2F;生产区”，而在内网渗透过程中，目标即为尽可能地获取最高级别网络中域环境的控制权，从而实现对业务的完全控制</p>
+<ul>
+<li>办公区：公司员工日常的工作区，一般会安装防病毒软件、主机入侵检测产品等。办公区一般能够访问DMZ。如果运维人员也在办公区,那么部分主机也能访问核心数据区(很多企业还会使用堡垒机来统一管理用户的登录行为)攻击者如果想进入内网，一般会使用鱼叉攻击、水坑攻击，当然还有社会工程学手段。办公区人员多而杂，变动也很频繁，在安全管理上可能存在诸多漏洞,是攻击者进人内网的重要途径之</li>
+<li>核心区：存储企业最重要的数据、文档等信息资产,通过日志记录、安全审计等安全措施进行严密的保护，往往只有很少的主机能够访问。从外部是绝难直接访问核心区的。一般来说,能够直接访问核心区的只有运维人员或者IT部门的主管,所以，攻击者会重点关注这些用户的信息(攻击者在内网中进行横向移动攻击时，会优先查找这些主机)</li>
+</ul>
+<h2 id="企业域中计算机分类"><a href="#企业域中计算机分类" class="headerlink" title="企业域中计算机分类"></a>企业域中计算机分类</h2><p>域中计算机的分类在域结构的网络中，计算机的身份是不平等的，有域控制器、成员服务器、客户机、独立服务器四种类型</p>
+<h3 id="域控制器-1"><a href="#域控制器-1" class="headerlink" title="域控制器"></a>域控制器</h3><p>在前面的基本概念中也介绍了，域控制器用于管理所有的网络访问，包括登录服务器、访问共享目录和资源。域控制器中存储了域内所有的账户和策略信息，包括安全策略、用户身份验证信息和账户信息</p>
+<p>在网络中,可以有多台计算机被配置为域控制器，以控制用户的登录、访问等操作。多个域控制器可以一起工作,自动备份用户账户和活动目录数据。这样，即使部分域控制器瘫痪，网络访问也不会受到影响,提高了网络的安全性和稳定性</p>
+<h3 id="成员服务器"><a href="#成员服务器" class="headerlink" title="成员服务器"></a>成员服务器</h3><p>一般是win server系统，成员服务器是指安装了服务器操作系统并加入了域，但<strong>没有安装活动目录</strong>的计算机,其主要任务是提供网络资源。成员服务器的类型通常有文件服务器、应用服务器、数据库服务器、web服务器、邮件服务器、防火墙、远程访问服务器、打印服务器等</p>
+<h3 id="客户机"><a href="#客户机" class="headerlink" title="客户机"></a>客户机</h3><p>一般是正常win系统，域中的计算机可以是安装了其他操作系统的计算机,用户利用这些计算机和域中的账户就可以登录域。这些计算机被称为域中的客户机。域用户账号通过域的安全验证后,即可访间网络中的各种资源。</p>
+<h3 id="独立服务器"><a href="#独立服务器" class="headerlink" title="独立服务器"></a>独立服务器</h3><p>独立服务器和域没有关系。如果服务器既不加入域，也不安装活动目录,就称其为独立服务器。独立服务器可以创建工作组、与网络中的其他计算机共享资源，但不能使用活动目录提供的任何服务</p>
+<p>域控制器用于存放活动目录数据库,是域中必须要有的，而其他三种计算机则不是必须要有的，也就是说,最简单的域可以只包含一台计算机，即一台域控。当然，域中服务器角色是可变的，比如独立服务器既可以成为域控制器，也可以加入某域成为成员服务器</p>
+<h2 id="常规攻击流程的认知"><a href="#常规攻击流程的认知" class="headerlink" title="常规攻击流程的认知"></a>常规攻击流程的认知</h2><p>接下来的内容用来简单了解一套完整的攻击流程包含哪些步骤</p>
+<h3 id="网络杀伤链"><a href="#网络杀伤链" class="headerlink" title="网络杀伤链"></a>网络杀伤链</h3><p>网络杀伤链（Cyber-Kill-Chain）由七个步骤组成：</p>
+<ul>
+<li>侦察：可以理解为信息收集获取攻击入口点</li>
+<li>武器化：根据漏洞或后门制作攻击武器，实现快速突破</li>
+<li>投递：将武器向目标投递，例如钓鱼邮件、web访问、USB外设等</li>
+<li>漏洞利用：当武器（恶意软件）触及到目标系统或终端时，会通过漏洞等方式，控制受害者的终端或业务系统服务器</li>
+<li>安装：恶意软件安装一个新的后门或新的木马程序，以提升入侵者的访问权限，能接触到更多系统</li>
+<li>命令与控制：通过前述各类攻击武器，攻击者可以进行命令控制操作，获得特权帐户的访问权限并尝试暴力攻击、搜索凭据并更改权限以接管控制权</li>
+<li>目标行动：当攻击者接触到既定攻击目标时，可以对其进行各种既定行动（如盗窃机密数据、破坏&#x2F;加密数据进行勒索等）</li>
+</ul>
+<p>基于此模型，可以实现对网络攻击分阶段防御，降低攻击伤害</p>
+<p>但此模型存在不足：</p>
+<ul>
+<li><p>抽象程度较高，不同的攻方、守方针对 同一个攻击事件 ，也会给出不同的描述，缺乏统一的描述机制和原语支撑</p>
+</li>
+<li><p>随着网络世界的复杂化，攻防不对称程度持续深化。针对同一个阶段，攻击方有无数种技术、方法可以使用，而防守方</p>
+<p>却无法清晰描述和知晓自身的安全防护能力的全景实况 ，难以持续提升攻防对抗能力</p>
+</li>
+</ul>
+<h3 id="ATT-CK"><a href="#ATT-CK" class="headerlink" title="ATT&amp;CK"></a>ATT&amp;CK</h3><p>ATT&amp;CK（Common Knowledge base of Adversary Ta ctics and Techniques）是一个战术知识库，提供了一个复杂框架，很好的弥补了CKC的高层抽象、未知威胁（IOC）以及特征之间的落差，对攻击行为进行了分类和特征化，让攻击防御不局限于琐碎的观察点</p>
+<p>该战术库进行了一定程度的分类和抽象，具备了一定的防御IOC的能力，从框架上可以看出其非常详细：</p>
+<p><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/web-wuk0Ng/my-images/main/2026/10/ad-attck-framework.png" alt="ATT&amp;CK框架"></p>
+<h3 id="NTCTF"><a href="#NTCTF" class="headerlink" title="NTCTF"></a>NTCTF</h3><p>NTCTF（Technical Cyber Threat Framework）是一个基于ATT&amp;CK重新构造的网络威胁入侵过程模型</p>
+<p>该模型通过4个层次构建：</p>
+<ul>
+<li>阶段</li>
+<li>目标</li>
+<li>行为</li>
+<li>关键短语</li>
+</ul>
+<p>并把入侵过程分为六个阶段：</p>
+<ul>
+<li>行动管理</li>
+<li>准备活动</li>
+<li>接触目标和进攻突防</li>
+<li>持久化驻留潜伏</li>
+<li>效果</li>
+<li>持续支撑作业</li>
+</ul>
+<p>每个阶段都由目标、行为和关键短语来提供支撑，而其中行为的核心支撑点就来自ATT&amp;CK战术知识库</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">wuk0Ng</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://web-wuk0ng.github.io/2026/10/31/%E5%86%85%E7%BD%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">https://web-wuk0ng.github.io/2026/10/31/%E5%86%85%E7%BD%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank" rel="noopener noreferrer">wuk0Ng</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/">
+                                    <span class="chip bg-color">内网渗透</span>
+                                </a>
+                            
+                                <a href="/tags/AD%E5%9F%9F/">
+                                    <span class="chip bg-color">AD域</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%9F%9F%E7%8E%AF%E5%A2%83/">
+                                    <span class="chip bg-color">域环境</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 42px 0 22px;
+        text-align: center;
+    }
+
+    #reward .reward-open {
+        width: 52px;
+        height: 52px;
+        padding: 0;
+        color: #fff;
+        font-size: 1.35rem;
+        line-height: 52px;
+        cursor: pointer;
+        border: 0;
+        border-radius: 50%;
+        background: #ef5350;
+        box-shadow: 0 5px 16px rgba(239, 83, 80, 0.3);
+        transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    #reward .reward-open:hover,
+    #reward .reward-open:focus-visible {
+        background: #ef5350;
+        box-shadow: 0 8px 22px rgba(239, 83, 80, 0.38);
+        transform: translateY(-2px);
+    }
+
+    .reward-dialog[hidden] {
+        display: none !important;
+    }
+
+    .reward-dialog {
+        position: fixed;
+        z-index: 10020;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 180ms ease, visibility 180ms ease;
+    }
+
+    .reward-dialog.is-open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .reward-dialog-backdrop {
+        position: absolute;
+        inset: 0;
+        cursor: pointer;
+        background: rgba(15, 20, 18, 0.62);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+    }
+
+    .reward-dialog-panel {
+        position: relative;
+        z-index: 1;
+        width: min(620px, 94vw);
+        max-height: calc(100vh - 36px);
+        padding: 26px 28px 24px;
+        overflow: auto;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+        outline: 0;
+        transform: translateY(12px) scale(0.98);
+        transition: transform 180ms ease;
+    }
+
+    .reward-dialog.is-open .reward-dialog-panel {
+        transform: translateY(0) scale(1);
+    }
+
+    .reward-dialog-close {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        color: #555;
+        font-size: 28px;
+        line-height: 34px;
+        cursor: pointer;
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+    }
+
+    .reward-dialog-close:hover,
+    .reward-dialog-close:focus-visible {
+        color: #fff;
+        background: #ef5350;
+    }
+
+    .reward-dialog-title {
+        padding: 0 34px;
+        margin: 0 0 8px;
+        color: #333;
+        font-size: 1.5rem;
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    .reward-dialog-tip {
+        margin: 0 0 20px;
+        color: #777;
+        font-size: 0.92rem;
+        text-align: center;
+    }
+
+    .reward-methods {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .reward-method {
+        padding: 14px;
+        margin: 0;
+        border: 1px solid #ececec;
+        border-radius: 12px;
+        background: #fafafa;
+    }
+
+    .reward-qr-frame {
+        display: flex;
+        aspect-ratio: 1 / 1;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 8px;
+        background: #fff;
+    }
+
+    .reward-qr {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .reward-qr[hidden] {
+        display: none !important;
+    }
+
+    .reward-qr-missing {
+        padding: 20px;
+        color: #999;
+        line-height: 1.7;
+        text-align: center;
+    }
+
+    .reward-method figcaption {
+        margin-top: 10px;
+        color: #444;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    body.reward-dialog-open {
+        overflow: hidden;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .reward-dialog-panel {
+            padding: 24px 18px 20px;
+        }
+
+        .reward-methods {
+            grid-template-columns: 1fr;
+        }
+
+        .reward-method {
+            width: min(100%, 270px);
+            margin: 0 auto;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .reward-dialog,
+        .reward-dialog-panel,
+        #reward .reward-open {
+            transition: none;
+        }
+    }
+</style>
+
+<div id="reward">
+    <button id="rewardOpen" class="reward-open" type="button" aria-haspopup="dialog" aria-controls="rewardDialog" title="打开打赏二维码">赏</button>
+</div>
+
+<div id="rewardDialog" class="reward-dialog" hidden>
+    <div class="reward-dialog-backdrop" data-reward-close aria-hidden="true"></div>
+    <section class="reward-dialog-panel" role="dialog" aria-modal="true" aria-labelledby="rewardDialogTitle" tabindex="-1">
+        <button class="reward-dialog-close" type="button" data-reward-close aria-label="关闭打赏窗口" title="关闭">×</button>
+        <h4 id="rewardDialogTitle" class="reward-dialog-title">你的赏识是我前进的动力</h4>
+        <p class="reward-dialog-tip">请选择支付宝或微信扫码支持</p>
+        <div class="reward-methods">
+            <figure class="reward-method">
+                <div class="reward-qr-frame">
+                    <img src="/medias/reward/aliyunpay.png" class="reward-qr" alt="支付宝打赏二维码" loading="lazy" decoding="async">
+                    <div class="reward-qr-missing" hidden>支付宝二维码暂未配置</div>
+                </div>
+                <figcaption>支付宝</figcaption>
+            </figure>
+            <figure class="reward-method">
+                <div class="reward-qr-frame">
+                    <img src="/medias/reward/wechat1.png" class="reward-qr" alt="微信打赏二维码" loading="lazy" decoding="async">
+                    <div class="reward-qr-missing" hidden>微信二维码暂未配置</div>
+                </div>
+                <figcaption>微信</figcaption>
+            </figure>
+        </div>
+    </section>
+</div>
+
+<script>
+    (function () {
+        var openButton = document.getElementById('rewardOpen');
+        var dialog = document.getElementById('rewardDialog');
+        if (!openButton || !dialog) return;
+
+        var panel = dialog.querySelector('.reward-dialog-panel');
+        var closeButtons = dialog.querySelectorAll('[data-reward-close]');
+        var lastFocused = null;
+        var closeTimer = 0;
+
+        document.body.appendChild(dialog);
+
+        dialog.querySelectorAll('.reward-qr').forEach(function (image) {
+            function showMissing() {
+                image.hidden = true;
+                var message = image.nextElementSibling;
+                if (message) message.hidden = false;
+            }
+
+            image.addEventListener('error', showMissing);
+            if (image.complete && image.naturalWidth === 0) showMissing();
+        });
+
+        function openDialog() {
+            window.clearTimeout(closeTimer);
+            lastFocused = document.activeElement;
+            dialog.hidden = false;
+            document.body.classList.add('reward-dialog-open');
+            window.requestAnimationFrame(function () {
+                dialog.classList.add('is-open');
+                panel.focus();
+            });
+        }
+
+        function closeDialog() {
+            dialog.classList.remove('is-open');
+            document.body.classList.remove('reward-dialog-open');
+            closeTimer = window.setTimeout(function () {
+                dialog.hidden = true;
+                if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+            }, 180);
+        }
+
+        openButton.addEventListener('click', openDialog);
+        closeButtons.forEach(function (button) {
+            button.addEventListener('click', closeDialog);
+        });
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && !dialog.hidden) closeDialog();
+        });
+    }());
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <!-- Gitalk is bundled with the theme to avoid a blocking overseas CDN request. -->
+<link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+
+<!-- 引入主题自定义 CSS（如有需要，若 my-gitalk.css 是本地文件则保留原路径） -->
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+  <div class="comment_headling">
+    <i class="fas fa-comments fa-fw"></i>
+    <span>评论</span>
+  </div>
+  <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script>
+  (function () {
+    var container = document.getElementById('gitalk-container');
+    var loaded = false;
+    if (!container) return;
+
+    function renderGitalk() {
+      var gitalk = new Gitalk({
+        clientID: 'Ov23liTNlK9NLcZwFSo8',
+        clientSecret: '7472cd54d6ca5e38d14f6d1b5176299bb4cf4ebe',
+        repo: 'blog---comments',
+        owner: 'web-wuk0Ng',
+        admin: ["web-wuk0Ng"],
+        id: '2026-10-31T02-10-00',
+        distractionFreeMode: false
+      });
+      gitalk.render('gitalk-container');
+    }
+
+    function loadGitalk() {
+      if (loaded) return;
+      loaded = true;
+      var script = document.createElement('script');
+      script.src = '/libs/gitalk/gitalk.min.js';
+      script.async = true;
+      script.onload = renderGitalk;
+      document.head.appendChild(script);
+    }
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries.some(function (entry) { return entry.isIntersecting; })) {
+          observer.disconnect();
+          loadGitalk();
+        }
+      }, { rootMargin: '500px 0px' });
+      observer.observe(container);
+    } else {
+      window.addEventListener('load', loadGitalk, { once: true });
+    }
+  }());
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles home-title-grid compact-prenext-grid">
+    <div class="row article-row">
+        <div class="article home-title-card col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a class="home-title-link" href="/2026/10/31/%E5%86%85%E7%BD%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" aria-label="阅读：内网渗透基础知识">
+                    <h2>内网渗透基础知识</h2>
+                </a>
+                
+                <div class="compact-card-tags" aria-label="文章标签">
+                    
+                    <a href="/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" class="compact-card-tag">#内网渗透</a>
+                    
+                    <a href="/tags/AD%E5%9F%9F/" class="compact-card-tag">#AD域</a>
+                    
+                    <a href="/tags/%E5%9F%9F%E7%8E%AF%E5%A2%83/" class="compact-card-tag">#域环境</a>
+                    
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="article home-title-card col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a class="home-title-link" href="/2026/10/30/%E5%86%85%E7%BD%91%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86-%E5%9F%BA%E7%A1%80%E6%90%9C%E9%9B%86/" aria-label="阅读：内网信息收集-基础收集">
+                    <h2>内网信息收集-基础收集</h2>
+                </a>
+                
+                <div class="compact-card-tags" aria-label="文章标签">
+                    
+                    <a href="/tags/%E5%86%85%E7%BD%91/" class="compact-card-tag">#内网</a>
+                    
+                    <a href="/tags/%E7%BA%A2%E9%98%9F/" class="compact-card-tag">#红队</a>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2026</span>
+            
+            <a href="/about" target="_blank" rel="noopener noreferrer">wuk0Ng</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="noopener noreferrer">Matery</a>
+            |&nbsp;<button type="button" class="security-notice-footer-link" data-security-notice-open aria-haspopup="dialog">安全与免责声明</button>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color">加载中…</span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color">加载中…</span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/web-wuk0Ng" class="tooltipped" target="_blank" rel="noopener noreferrer" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:3134985131@qq.com" class="tooltipped" target="_blank" rel="noopener noreferrer" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=3442584626" class="tooltipped" target="_blank" rel="noopener noreferrer" data-tooltip="QQ联系我: 3442584626" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" rel="noopener noreferrer" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+    <div id="securityNotice" class="security-notice" hidden aria-hidden="true">
+    <div class="security-notice-backdrop" data-security-notice-close></div>
+    <section class="security-notice-dialog" role="dialog" aria-modal="true"
+             aria-labelledby="securityNoticeTitle" aria-describedby="securityNoticeDescription" tabindex="-1">
+        <button type="button" class="security-notice-close" data-security-notice-close aria-label="关闭安全与免责声明">&times;</button>
+        <div class="security-notice-label"><i class="fas fa-shield-alt" aria-hidden="true"></i> 安全与免责声明</div>
+        <h2 id="securityNoticeTitle">技术有边界，使用须授权</h2>
+        <div id="securityNoticeDescription" class="security-notice-content">
+            <p>本站涉及网络安全、开发与运维的内容，仅用于合法的学习研究、教育交流、安全防御，以及已经获得明确授权的测试；不构成实施任何违法行为的建议、许可或保证。</p>
+            <p class="security-notice-warning"><strong>严禁</strong>将本站内容用于未经授权的扫描、入侵、攻击、破坏、绕过安全措施、窃取或泄露数据，以及其他危害网络与信息安全的行为。</p>
+            <p>在使用任何技术前，你有责任确认测试目标、授权范围及所在地法律法规。因擅自使用、误用或超出授权范围造成的法律责任、数据损失及其他后果，由行为人自行承担；本站及作者不为违法或未经授权的行为提供支持，依法不得排除的责任除外。</p>
+        </div>
+        <div class="security-notice-actions">
+            <span><i class="fas fa-info-circle" aria-hidden="true"></i> 首次访问提示，之后可从页脚重新查看</span>
+            <button type="button" class="security-notice-confirm" data-security-notice-confirm>我已阅读并知悉</button>
+        </div>
+    </section>
+</div>
+
+<script>
+(function () {
+    'use strict';
+
+    var storageKey = 'wuk0ng-security-notice-v1';
+    var notice = document.getElementById('securityNotice');
+    if (!notice) {
+        return;
+    }
+
+    var dialog = notice.querySelector('.security-notice-dialog');
+    var openButtons = document.querySelectorAll('[data-security-notice-open]');
+    var closeButtons = notice.querySelectorAll('[data-security-notice-close]');
+    var confirmButton = notice.querySelector('[data-security-notice-confirm]');
+    var lastFocusedElement = null;
+    var closeTimer = null;
+
+    function hasAcknowledged() {
+        try {
+            return window.localStorage.getItem(storageKey) === 'acknowledged';
+        } catch (error) {
+            return false;
+        }
+    }
+
+    function rememberAcknowledgement() {
+        try {
+            window.localStorage.setItem(storageKey, 'acknowledged');
+        } catch (error) {
+            // The notice still works when storage is unavailable.
+        }
+    }
+
+    function openNotice() {
+        if (!notice.hidden) {
+            return;
+        }
+        if (closeTimer) {
+            window.clearTimeout(closeTimer);
+        }
+        lastFocusedElement = document.activeElement;
+        notice.hidden = false;
+        notice.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('security-notice-open');
+        window.requestAnimationFrame(function () {
+            notice.classList.add('is-visible');
+            dialog.focus();
+        });
+    }
+
+    function closeNotice() {
+        rememberAcknowledgement();
+        notice.classList.remove('is-visible');
+        notice.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('security-notice-open');
+        closeTimer = window.setTimeout(function () {
+            notice.hidden = true;
+            if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+                lastFocusedElement.focus();
+            }
+        }, 180);
+    }
+
+    Array.prototype.forEach.call(openButtons, function (button) {
+        button.addEventListener('click', openNotice);
+    });
+    Array.prototype.forEach.call(closeButtons, function (button) {
+        button.addEventListener('click', closeNotice);
+    });
+    confirmButton.addEventListener('click', closeNotice);
+
+    document.addEventListener('keydown', function (event) {
+        if (notice.hidden) {
+            return;
+        }
+        if (event.key === 'Escape') {
+            event.preventDefault();
+            closeNotice();
+            return;
+        }
+        if (event.key !== 'Tab') {
+            return;
+        }
+        var focusable = notice.querySelectorAll('button:not([disabled]), a[href]');
+        if (!focusable.length) {
+            return;
+        }
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+        }
+    });
+
+    if (!hasAcknowledged()) {
+        window.setTimeout(openNotice, 520);
+    }
+})();
+</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input" maxlength="80" autocomplete="off">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                var escapeHtml = function (value) {
+                    return String(value).replace(/[&<>"']/g, function (character) {
+                        return {
+                            '&': '&amp;',
+                            '<': '&lt;',
+                            '>': '&gt;',
+                            '"': '&quot;',
+                            "'": '&#39;'
+                        }[character];
+                    });
+                };
+                var escapeRegExp = function (value) {
+                    return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                };
+                var toLocalUrl = function (value) {
+                    try {
+                        var parsedUrl = new URL(value, window.location.origin);
+                        if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
+                            return '#';
+                        }
+                        return parsedUrl.pathname + parsedUrl.search + parsedUrl.hash;
+                    } catch (error) {
+                        return '#';
+                    }
+                };
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/).filter(Boolean).slice(0, 10);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = toLocalUrl(data.url);
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + escapeHtml(data_url) + "' class='search-result-title'>" + escapeHtml(data.title.trim()) + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = escapeHtml(content.substr(start, end));
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var safeKeyword = escapeHtml(keyword);
+                                    var regS = new RegExp(escapeRegExp(safeKeyword), "gi");
+                                    match_content = match_content.replace(regS, function (match) {
+                                        return "<em class=\"search-keyword\">" + match + "</em>";
+                                    });
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+    <aside id="linDesktopPet" class="lin-desktop-pet" aria-label="林翩翩桌宠">
+    <div class="lin-pet-bubble" role="status" aria-live="polite">这儿……便是你的住处？</div>
+    <div class="lin-pet-effects" aria-hidden="true"></div>
+    <button class="lin-pet-character" type="button" aria-label="和林翩翩互动" title="点击互动，也可以拖动">
+        <img src="/medias/lin-pianpian/official-desktop-pet.webp" alt="林翩翩桌宠" width="576" height="703" loading="lazy" decoding="async" fetchpriority="low">
+    </button>
+</aside>
+
+<script src="/js/desktop-pet.js?v=20260824-2" defer fetchpriority="low"></script>
+
+
+    <script src="/libs/materialize/materialize.min.js" defer fetchpriority="low"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js" defer fetchpriority="low"></script>
+    <script src="/libs/aos/aos.js" defer fetchpriority="low"></script>
+    
+    <script src="/libs/scrollprogress/scrollProgress.min.js" defer fetchpriority="low"></script>
+    
+    
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js" defer fetchpriority="low"></script>
+    
+    <script src="/js/matery.js?v=20260824-speed1" defer fetchpriority="low"></script>
+
+    <!-- Baidu Analytics -->
+
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        if (/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) return;
+
+        function loadBaiduPush() {
+            var bp = document.createElement('script');
+            bp.async = true;
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            document.head.appendChild(bp);
+        }
+
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadBaiduPush, { timeout: 4500 });
+        } else {
+            window.addEventListener('load', function () {
+                window.setTimeout(loadBaiduPush, 1800);
+            }, { once: true });
+        }
+    })();
+</script>
+
+
+    
+    <script src="/libs/others/clicklove.js" async></script>
+    
+    
+    <script src="/libs/others/busuanzi.pure.mini.js?v=20261026-stats1" async></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
