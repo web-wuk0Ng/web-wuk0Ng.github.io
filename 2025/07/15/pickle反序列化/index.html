@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css?v=20261030-security1">
+    <link rel="stylesheet" type="text/css" href="/css/my.css?v=20261031-dialogue50">
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
@@ -1218,7 +1218,6 @@
             <a href="/about" target="_blank" rel="noopener noreferrer">wuk0Ng</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="noopener noreferrer">Matery</a>
-            |&nbsp;<button type="button" class="security-notice-footer-link" data-security-notice-open aria-haspopup="dialog">安全与免责声明</button>
             <br>
             
             
@@ -1278,130 +1277,6 @@
 </footer>
 
 <div class="progress-bar"></div>
-
-    <div id="securityNotice" class="security-notice" hidden aria-hidden="true">
-    <div class="security-notice-backdrop" data-security-notice-close></div>
-    <section class="security-notice-dialog" role="dialog" aria-modal="true"
-             aria-labelledby="securityNoticeTitle" aria-describedby="securityNoticeDescription" tabindex="-1">
-        <button type="button" class="security-notice-close" data-security-notice-close aria-label="关闭安全与免责声明">&times;</button>
-        <div class="security-notice-label"><i class="fas fa-shield-alt" aria-hidden="true"></i> 安全与免责声明</div>
-        <h2 id="securityNoticeTitle">技术有边界，使用须授权</h2>
-        <div id="securityNoticeDescription" class="security-notice-content">
-            <p>本站涉及网络安全、开发与运维的内容，仅用于合法的学习研究、教育交流、安全防御，以及已经获得明确授权的测试；不构成实施任何违法行为的建议、许可或保证。</p>
-            <p class="security-notice-warning"><strong>严禁</strong>将本站内容用于未经授权的扫描、入侵、攻击、破坏、绕过安全措施、窃取或泄露数据，以及其他危害网络与信息安全的行为。</p>
-            <p>在使用任何技术前，你有责任确认测试目标、授权范围及所在地法律法规。因擅自使用、误用或超出授权范围造成的法律责任、数据损失及其他后果，由行为人自行承担；本站及作者不为违法或未经授权的行为提供支持，依法不得排除的责任除外。</p>
-        </div>
-        <div class="security-notice-actions">
-            <span><i class="fas fa-info-circle" aria-hidden="true"></i> 首次访问提示，之后可从页脚重新查看</span>
-            <button type="button" class="security-notice-confirm" data-security-notice-confirm>我已阅读并知悉</button>
-        </div>
-    </section>
-</div>
-
-<script>
-(function () {
-    'use strict';
-
-    var storageKey = 'wuk0ng-security-notice-v1';
-    var notice = document.getElementById('securityNotice');
-    if (!notice) {
-        return;
-    }
-
-    var dialog = notice.querySelector('.security-notice-dialog');
-    var openButtons = document.querySelectorAll('[data-security-notice-open]');
-    var closeButtons = notice.querySelectorAll('[data-security-notice-close]');
-    var confirmButton = notice.querySelector('[data-security-notice-confirm]');
-    var lastFocusedElement = null;
-    var closeTimer = null;
-
-    function hasAcknowledged() {
-        try {
-            return window.localStorage.getItem(storageKey) === 'acknowledged';
-        } catch (error) {
-            return false;
-        }
-    }
-
-    function rememberAcknowledgement() {
-        try {
-            window.localStorage.setItem(storageKey, 'acknowledged');
-        } catch (error) {
-            // The notice still works when storage is unavailable.
-        }
-    }
-
-    function openNotice() {
-        if (!notice.hidden) {
-            return;
-        }
-        if (closeTimer) {
-            window.clearTimeout(closeTimer);
-        }
-        lastFocusedElement = document.activeElement;
-        notice.hidden = false;
-        notice.setAttribute('aria-hidden', 'false');
-        document.body.classList.add('security-notice-open');
-        window.requestAnimationFrame(function () {
-            notice.classList.add('is-visible');
-            dialog.focus();
-        });
-    }
-
-    function closeNotice() {
-        rememberAcknowledgement();
-        notice.classList.remove('is-visible');
-        notice.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('security-notice-open');
-        closeTimer = window.setTimeout(function () {
-            notice.hidden = true;
-            if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
-                lastFocusedElement.focus();
-            }
-        }, 180);
-    }
-
-    Array.prototype.forEach.call(openButtons, function (button) {
-        button.addEventListener('click', openNotice);
-    });
-    Array.prototype.forEach.call(closeButtons, function (button) {
-        button.addEventListener('click', closeNotice);
-    });
-    confirmButton.addEventListener('click', closeNotice);
-
-    document.addEventListener('keydown', function (event) {
-        if (notice.hidden) {
-            return;
-        }
-        if (event.key === 'Escape') {
-            event.preventDefault();
-            closeNotice();
-            return;
-        }
-        if (event.key !== 'Tab') {
-            return;
-        }
-        var focusable = notice.querySelectorAll('button:not([disabled]), a[href]');
-        if (!focusable.length) {
-            return;
-        }
-        var first = focusable[0];
-        var last = focusable[focusable.length - 1];
-        if (event.shiftKey && document.activeElement === first) {
-            event.preventDefault();
-            last.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-            event.preventDefault();
-            first.focus();
-        }
-    });
-
-    if (!hasAcknowledged()) {
-        window.setTimeout(openNotice, 520);
-    }
-})();
-</script>
-
 
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
@@ -1549,7 +1424,7 @@ $(function () {
     </button>
 </aside>
 
-<script src="/js/desktop-pet.js?v=20260824-2" defer fetchpriority="low"></script>
+<script src="/js/desktop-pet.js?v=20261031-safety50" defer fetchpriority="low"></script>
 
 
     <script src="/libs/materialize/materialize.min.js" defer fetchpriority="low"></script>
